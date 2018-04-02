@@ -7,6 +7,21 @@ using System.Threading.Tasks;
 namespace ALG_POS_and_Inventory_Management_System {
     class ContInventoryProductPrice {
         DbConnection Database = new DbConnection();
+        public System.Data.DataTable LoadSupplierPrices(string productID) {
+            try {
+                string query;
+                if (productID=="")
+                    query = "SELECT supplier_name, supplier_price, stock_ID, received_date, remaining_stocks FROM suppliers, stocks WHERE suppliers.supplier_ID=stocks.supplier_ID AND stocks.date_deleted IS NULL";
+                else
+                    query = "SELECT supplier_name, supplier_price, stock_ID, received_date, remaining_stocks FROM suppliers, stocks WHERE suppliers.supplier_ID=stocks.supplier_ID AND stocks.product_ID=(SELECT product_ID FROM products WHERE product_ID='" + productID + "') AND stocks.date_deleted IS NULL";
+                System.Data.DataTable dt = new System.Data.DataTable();
+                dt = Database.Retrieve(query);
+                return (dt);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on populating stock prices listview: '" + ex + "'", "Product Price", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                throw;
+            }
+        }
         public System.Data.DataTable LoadProductPrice() {
             try {
                 string query = "SELECT products.product_ID, products.product_name, product_price, discount, discounted_price FROM products, product_prices WHERE products.product_ID=product_prices.product_ID";
@@ -18,61 +33,81 @@ namespace ALG_POS_and_Inventory_Management_System {
                 throw;
             }
         }
-        public bool IsInsertSupplier(string supplier_name, string address, string contact) {
-            bool status = false;
+        public List<string> LoadProductID() {
+            List<string> result = new List<string>();
+            result = null;
             try {
-                if (!isDuplicateSupplierName(supplier_name)) { // if no duplicate found
-                    string query = "INSERT INTO suppliers SET supplier_name=@0, address=@1, contact=@2";
-                    string[] param = { supplier_name, address, contact };
-                    if (Database.Execute(query, param)) {
-                        System.Windows.Forms.MessageBox.Show("Supplier successfully saved!", "Suppliers", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-                        status = true;
-                    }
-                }
+                string query = "SELECT product_ID FROM products WHERE date_deleted IS NULL";
+                result = Database.Select(query);
             } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+                System.Windows.Forms.MessageBox.Show(ex.Message, "Product Price", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand);
             }
-            return status;
+            return result;
         }
-        public bool IsUpdateSupplier(string supplierID, string supplierName, string address, string contact, string nvm) {
-            bool status = false;
+        public List<string> LoadProductName() {
+            List<string> result = new List<string>();
+            result = null;
             try {
-                //make a new function for this, check only the productname
-                if (nvm != supplierName) // quite confusing but purpose is to check only productname excluding the existing one
-                    nvm = supplierName;
-                else
-                    nvm = "nvm";
-                if (!isDuplicateSupplierName(nvm)) { // if no duplicate found, nvm is to make sure that it will return false; no duplicate found
-                    string query = "UPDATE suppliers SET supplier_name=@0, address=@1, contact=@2 WHERE supplier_ID=@3";
-                    string[] param = { supplierName, address, contact, supplierID };
-                    if (Database.Execute(query, param)) {
-                        System.Windows.Forms.MessageBox.Show("Supplier successfully updated!", "Suppliers", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-                        status = true;
-                    }
-                }
+                string query = "SELECT product_name FROM products WHERE date_deleted IS NULL";
+                result = Database.Select(query);
             } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+                System.Windows.Forms.MessageBox.Show(ex.Message, "Product Price", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand);
             }
-            return status;
+            return result;
         }
-        private bool isDuplicateSupplierName(string supplierName) {
-            string query2 = "SELECT supplier_name FROM suppliers WHERE supplier_name =@0";
-            string[] param2 = { supplierName };
-            if (Database.Select(query2, param2) != null) {
-                System.Windows.Forms.MessageBox.Show("Supplier Name is existing, please enter another one.", "Suppliers", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand);
-                return true;
-            } else {
-                return false;
+        public List<string> SelectProductID(string productName) {
+            List<string> result = new List<string>();
+            result = null;
+            try {
+                string query = "SELECT product_ID FROM products WHERE date_deleted IS NULL AND product_name='" + productName + "'";
+                result = Database.Select(query);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show(ex.Message, "Product Price", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand);
             }
+            return result;
         }
-        public bool IsDeleteSupplier(string supplierID) {
-            string now = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        public List<string> SelectProductName(string productID) {
+            List<string> result = new List<string>();
+            result = null;
+            try {
+                string query = "SELECT product_name FROM products WHERE date_deleted IS NULL AND product_ID='" + productID + "'";
+                result = Database.Select(query);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show(ex.Message, "Product Price", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand);
+            }
+            return result;
+        }
+        public List<string> ProductSelectedForPrice(string productID) {
+            List<string> result = new List<string>();
+            result = null;
+            try {
+                string query = "SELECT product_price, discount, discounted_price FROM product_prices WHERE product_prices.product_ID=(SELECT product_ID FROM products WHERE product_ID='" + productID + "')";
+                result = Database.Select(query);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show(ex.Message, "Product Price", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand);
+            }
+            return result;
+        }
+        
+        public bool SetProductPrice(bool isPriceSet, string productID, string productPrice, string discount, string discountedPrice) {
             bool status = false;
             try {
-                string query = String.Format("UPDATE suppliers SET date_deleted='{0}' WHERE supplier_ID=@0", now);
-                string[] param = { supplierID };
+                string query,msg;
+                string[] param;
+                if (!isPriceSet) {
+                    //====== insert product price
+                    query = "INSERT INTO product_prices SET product_ID=@0, product_price=@1, discount=@2, discounted_price=@3";
+                    param = new string[] { productID, productPrice, discount, discountedPrice};
+                    msg = "Added product Price";
+                } else {
+                    //====== UPDATE product price
+                    query = "UPDATE product_prices SET product_price=@0, discount=@1, discounted_price=@2 WHERE product_ID=@3";
+                    param = new string[] {productPrice, discount, discountedPrice, productID};
+                    msg = "Updated product Price";
+                }
+
                 if (Database.Execute(query, param)) {
-                    System.Windows.Forms.MessageBox.Show("Supplier deleted!", "Suppliers", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                    System.Windows.Forms.MessageBox.Show(msg, "Product Price", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                     status = true;
                 }
             } catch (Exception ex) {

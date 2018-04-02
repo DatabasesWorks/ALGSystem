@@ -177,6 +177,7 @@
             this.label15.Size = new System.Drawing.Size(119, 21);
             this.label15.TabIndex = 235;
             this.label15.Text = "Product Name:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label14
             // 
@@ -189,6 +190,7 @@
             this.label14.Size = new System.Drawing.Size(92, 21);
             this.label14.TabIndex = 234;
             this.label14.Text = "Product ID:";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // label13
             // 
