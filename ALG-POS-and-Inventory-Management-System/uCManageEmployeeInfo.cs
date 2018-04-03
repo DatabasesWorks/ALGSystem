@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ALG_POS_and_Inventory_Management_System {
-    public partial class uCServices : UserControl {
-        public uCServices() {
+    public partial class uCManageEmployeeInfo : UserControl {
+        public uCManageEmployeeInfo() {
             InitializeComponent();
         }
     }
