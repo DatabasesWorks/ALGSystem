@@ -19,7 +19,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void uCServices_Load(object sender, EventArgs e) {
-
+            AddTabs();
         }
         void AddTabs() {
             //adds ucServicesServiceOffered to tabServiceOffered in tabcontrol
