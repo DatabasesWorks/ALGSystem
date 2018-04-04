@@ -163,7 +163,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                     list = null;
                 }
             } catch (Exception ex) {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                list = null;
+                //System.Windows.Forms.MessageBox.Show(ex.Message);   // commented out because error occurs for unknown reason. error: invalid attempt to acccess a field before calling Read(); when selecting product without price
             } finally {
                 if (Connection.State == System.Data.ConnectionState.Open) {
                     Connection.Close();

@@ -85,6 +85,48 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="uCCustomerRecords.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uCCustomerRecords.Designer.cs">
+      <DependentUpon>uCCustomerRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uCManageEmployeeInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uCManageEmployeeInfo.Designer.cs">
+      <DependentUpon>uCManageEmployeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uCManageUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uCManageUsers.Designer.cs">
+      <DependentUpon>uCManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Services\uCServicesAdditionalService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Services\uCServicesAdditionalService.Designer.cs">
+      <DependentUpon>uCServicesAdditionalService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Services\uCServicesServiceOffered.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Services\uCServicesServiceOffered.Designer.cs">
+      <DependentUpon>uCServicesServiceOffered.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Services\uCServicesServicePrice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Services\uCServicesServicePrice.Designer.cs">
+      <DependentUpon>uCServicesServicePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Services\uCServicesVehicleTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Services\uCServicesVehicleTypes.Designer.cs">
+      <DependentUpon>uCServicesVehicleTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\Inventory\uCInventoryProductPrice.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,10 +163,10 @@
     <Compile Include="User Controls\uCPointOfSale.Designer.cs">
       <DependentUpon>uCPointOfSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\uCServices.cs">
+    <Compile Include="User Controls\Services\uCServices.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\uCServices.Designer.cs">
+    <Compile Include="User Controls\Services\uCServices.Designer.cs">
       <DependentUpon>uCServices.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\frmLogin.resx">
@@ -147,6 +189,15 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="uCCustomerRecords.resx">
+      <DependentUpon>uCCustomerRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uCManageEmployeeInfo.resx">
+      <DependentUpon>uCManageEmployeeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uCManageUsers.resx">
+      <DependentUpon>uCManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Inventory\uCInventoryProductPrice.resx">
       <DependentUpon>uCInventoryProductPrice.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,10 +213,22 @@
     <EmbeddedResource Include="User Controls\Inventory\uCInventory.resx">
       <DependentUpon>uCInventory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Services\uCServicesAdditionalService.resx">
+      <DependentUpon>uCServicesAdditionalService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Services\uCServicesServiceOffered.resx">
+      <DependentUpon>uCServicesServiceOffered.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Services\uCServicesServicePrice.resx">
+      <DependentUpon>uCServicesServicePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Services\uCServicesVehicleTypes.resx">
+      <DependentUpon>uCServicesVehicleTypes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Controls\uCPointOfSale.resx">
       <DependentUpon>uCPointOfSale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\uCServices.resx">
+    <EmbeddedResource Include="User Controls\Services\uCServices.resx">
       <DependentUpon>uCServices.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

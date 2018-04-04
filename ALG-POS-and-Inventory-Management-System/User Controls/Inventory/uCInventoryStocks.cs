@@ -37,6 +37,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                         iItem.SubItems.Add("temp description");
                     else if (i == 6)
                         iItem.SubItems.Add((row.ItemArray[i].ToString()).Substring(0, 10));
+                    else if (i == 8)
+                        iItem.SubItems.Add(Convert.ToDecimal(row.ItemArray[i].ToString()).ToString("C"));
                     else
                         iItem.SubItems.Add(row.ItemArray[i].ToString());
                 }
@@ -156,6 +158,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void lvStocks_SelectedIndexChanged(object sender, EventArgs e) {
+            decimal fee;
             if (lvStocks.SelectedItems.Count > 0) {
                 ListViewItem item = lvStocks.SelectedItems[0];
                 lblStockID.Text = item.SubItems[0].Text;
@@ -164,7 +167,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                 numSQuan.Value = Convert.ToDecimal(item.SubItems[5].Text);
                 dtpReceive.Value =  DateTime.ParseExact(item.SubItems[6].Text, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 cboSSuppliers.Text = item.SubItems[7].Text;
-                numSSupPrice.Value = Convert.ToDecimal(item.SubItems[8].Text);
+                fee = decimal.Parse(item.SubItems[8].Text,System.Globalization.NumberStyles.Currency);
+                numSSupPrice.Value = fee;
                 btnSAdd.Enabled = false; btnSSave.Enabled = false; btnSEdit.Enabled = true; btnSRemoveStocks.Enabled = true; btnSDeduct.Enabled = true; btnRemoveZero.Enabled = false; SLock(); sAdd = false; sEdit = false; cChange = false; btnSChangePrice.Enabled = true; numDeduct.Enabled = false;
             }
         }
@@ -200,6 +204,14 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void cboSSort_SelectedIndexChanged(object sender, EventArgs e) {
             LoadStocks();
+        }
+
+        private void label14_Click(object sender, EventArgs e) {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e) {
+
         }
 
         private void btnSAdd_Click(object sender, EventArgs e) {
