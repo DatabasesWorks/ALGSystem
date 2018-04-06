@@ -19,3 +19,12 @@ C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inven
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCInventoryProducts.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCInventoryProductPrice.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCInventorySupplier.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCCustomerRecords.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCManageEmployeeInfo.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCManageUsers.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServicesAdditionalService.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServicesServiceOffered.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServicesServicePrice.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServicesVehicleTypes.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmCategory.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmDescriptions.resources

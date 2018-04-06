@@ -50,6 +50,8 @@
     <Compile Include="Classes\ContInventoryStocks.cs" />
     <Compile Include="Classes\ContInventorySuppliers.cs" />
     <Compile Include="Classes\ContInventoryProductPrice.cs" />
+    <Compile Include="ContCategory.cs" />
+    <Compile Include="ContDescription.cs" />
     <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
@@ -73,6 +75,18 @@
     </Compile>
     <Compile Include="Forms\frmConfigs.Designer.cs">
       <DependentUpon>frmConfigs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategory.Designer.cs">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDescriptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDescriptions.Designer.cs">
+      <DependentUpon>frmDescriptions.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTesting.cs">
       <SubType>Form</SubType>
@@ -177,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmConfigs.resx">
       <DependentUpon>frmConfigs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCategory.resx">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDescriptions.resx">
+      <DependentUpon>frmDescriptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTesting.resx">
       <DependentUpon>frmTesting.cs</DependentUpon>

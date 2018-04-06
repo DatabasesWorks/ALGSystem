@@ -11,12 +11,15 @@ using System.Windows.Forms;
 namespace ALG_POS_and_Inventory_Management_System {
     public partial class uCInventoryProducts : UserControl {
         ContInventoryProducts _contInvProducts = new ContInventoryProducts();
+        MyTextBox[] txtbox = new MyTextBox[10];
 
         public uCInventoryProducts() {
             InitializeComponent();
         }
         private void uCInventoryProducts_Load(object sender, EventArgs e) {
             LoadProducts(); LoadBrands(); LoadCategories();   // load for products tab
+            LoadDescriptionControls();
+            TestControl();
         }
         //======= Products ========
         bool add, edit;
@@ -27,7 +30,8 @@ namespace ALG_POS_and_Inventory_Management_System {
             dt = _contInvProducts.LoadProducts();
             for (int i = 0; i < dt.Rows.Count; i++) {
                 DataRow dr = dt.Rows[i];
-                ListViewItem listitem = new ListViewItem(dr["product_ID"].ToString());
+                ListViewItem listitem = new ListViewItem((i+1).ToString());
+                listitem.SubItems.Add(dr["product_ID"].ToString());
                 listitem.SubItems.Add(dr["product_name"].ToString());
                 listitem.SubItems.Add(dr["brand_name"].ToString());
                 listitem.SubItems.Add(dr["category_name"].ToString());
@@ -115,10 +119,10 @@ namespace ALG_POS_and_Inventory_Management_System {
             add = edit = false;
             if (lvProducts.SelectedItems.Count > 0) {
                 ListViewItem item = lvProducts.SelectedItems[0];
-                txtProdNo.Text = item.SubItems[0].Text;
-                txtProdName.Text = item.SubItems[1].Text;
-                cboBrand.Text = item.SubItems[2].Text;
-                cboCategory.Text = item.SubItems[3].Text;
+                txtProdNo.Text = item.SubItems[1].Text;
+                txtProdName.Text = item.SubItems[2].Text;
+                cboBrand.Text = item.SubItems[3].Text;
+                cboCategory.Text = item.SubItems[4].Text;
             }
         }
 
@@ -143,7 +147,30 @@ namespace ALG_POS_and_Inventory_Management_System {
             btnProdAdd.Enabled = true;
             LoadProducts(); LoadBrands(); LoadCategories();
         }
+        void LoadDescriptionControls() {
+            int left = 1;
+            Label[] lbl = new Label[10];
+            int i;
+            for (i = 0; i < 10; i++) {
+                lbl[i] = new Label();
+                pnlInGroupBox.Controls.Add(lbl[i]);
+                lbl[i].Text = left.ToString();
+                lbl[i].Top = left * 25;
+                lbl[i].Left = 100;
 
-
+                txtbox[i] = new MyTextBox();
+                pnlInGroupBox.Controls.Add(txtbox[i]);
+                txtbox[i].Text="Textbox" + left.ToString();
+                txtbox[i].Top = left * 25;
+                txtbox[i].Left = 250;
+                left += 1;
+            }
+        }
+        void TestControl() {
+            int i;
+            for (i = 0; i < 10; i++) {
+                MessageBox.Show(txtbox[i].Text);
+            }
+        }
     }
 }
