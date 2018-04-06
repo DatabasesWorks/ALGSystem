@@ -23,13 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.grpWheel = new System.Windows.Forms.GroupBox();
-            this.myTextBox3 = new MyTextBox();
-            this.myTextBox2 = new MyTextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.myTextBox1 = new MyTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAddBrand = new System.Windows.Forms.Button();
@@ -42,11 +35,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new MyTextBox();
             this.cboSearch = new System.Windows.Forms.ComboBox();
-            this.txtProdName = new MyTextBox();
-            this.txtProdNo = new MyTextBox();
             this.lvProducts = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,91 +51,13 @@
             this.btnProdClear = new System.Windows.Forms.Button();
             this.btnProdEdit = new System.Windows.Forms.Button();
             this.btnProdAdd = new System.Windows.Forms.Button();
+            this.grpWheel = new System.Windows.Forms.GroupBox();
+            this.txtSearch = new MyTextBox();
+            this.txtProdName = new MyTextBox();
+            this.txtProdNo = new MyTextBox();
+            this.pnlInGroupBox = new System.Windows.Forms.Panel();
             this.grpWheel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // grpWheel
-            // 
-            this.grpWheel.Controls.Add(this.myTextBox3);
-            this.grpWheel.Controls.Add(this.myTextBox2);
-            this.grpWheel.Controls.Add(this.label30);
-            this.grpWheel.Controls.Add(this.label29);
-            this.grpWheel.Controls.Add(this.label26);
-            this.grpWheel.Controls.Add(this.myTextBox1);
-            this.grpWheel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpWheel.ForeColor = System.Drawing.Color.White;
-            this.grpWheel.Location = new System.Drawing.Point(360, 61);
-            this.grpWheel.Name = "grpWheel";
-            this.grpWheel.Size = new System.Drawing.Size(655, 181);
-            this.grpWheel.TabIndex = 170;
-            this.grpWheel.TabStop = false;
-            this.grpWheel.Text = "Category Description";
-            // 
-            // myTextBox3
-            // 
-            this.myTextBox3.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.myTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.myTextBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myTextBox3.ForeColor = System.Drawing.Color.White;
-            this.myTextBox3.Location = new System.Drawing.Point(444, 108);
-            this.myTextBox3.Name = "myTextBox3";
-            this.myTextBox3.Size = new System.Drawing.Size(159, 25);
-            this.myTextBox3.TabIndex = 152;
-            // 
-            // myTextBox2
-            // 
-            this.myTextBox2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.myTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.myTextBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myTextBox2.ForeColor = System.Drawing.Color.White;
-            this.myTextBox2.Location = new System.Drawing.Point(444, 70);
-            this.myTextBox2.Name = "myTextBox2";
-            this.myTextBox2.Size = new System.Drawing.Size(159, 25);
-            this.myTextBox2.TabIndex = 151;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(12, 108);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(368, 21);
-            this.label30.TabIndex = 150;
-            this.label30.Text = "Description Name(on change based on category)";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(12, 77);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(368, 21);
-            this.label29.TabIndex = 148;
-            this.label29.Text = "Description Name(on change based on category)";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(12, 45);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(368, 21);
-            this.label26.TabIndex = 128;
-            this.label26.Text = "Description Name(on change based on category)";
-            // 
-            // myTextBox1
-            // 
-            this.myTextBox1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.myTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.myTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myTextBox1.ForeColor = System.Drawing.Color.White;
-            this.myTextBox1.Location = new System.Drawing.Point(444, 26);
-            this.myTextBox1.Name = "myTextBox1";
-            this.myTextBox1.Size = new System.Drawing.Size(159, 25);
-            this.myTextBox1.TabIndex = 127;
             // 
             // button1
             // 
@@ -284,17 +197,6 @@
             this.label1.TabIndex = 158;
             this.label1.Text = "PRODUCT DETAILS";
             // 
-            // txtSearch
-            // 
-            this.txtSearch.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(416, 7);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(212, 25);
-            this.txtSearch.TabIndex = 157;
-            // 
             // cboSearch
             // 
             this.cboSearch.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -313,34 +215,10 @@
             this.cboSearch.Size = new System.Drawing.Size(174, 29);
             this.cboSearch.TabIndex = 156;
             // 
-            // txtProdName
-            // 
-            this.txtProdName.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtProdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProdName.Enabled = false;
-            this.txtProdName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProdName.ForeColor = System.Drawing.Color.White;
-            this.txtProdName.Location = new System.Drawing.Point(134, 107);
-            this.txtProdName.Name = "txtProdName";
-            this.txtProdName.Size = new System.Drawing.Size(198, 25);
-            this.txtProdName.TabIndex = 155;
-            // 
-            // txtProdNo
-            // 
-            this.txtProdNo.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtProdNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProdNo.Enabled = false;
-            this.txtProdNo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProdNo.ForeColor = System.Drawing.Color.White;
-            this.txtProdNo.Location = new System.Drawing.Point(132, 61);
-            this.txtProdNo.MaxLength = 100000000;
-            this.txtProdNo.Name = "txtProdNo";
-            this.txtProdNo.Size = new System.Drawing.Size(198, 25);
-            this.txtProdNo.TabIndex = 154;
-            // 
             // lvProducts
             // 
             this.lvProducts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
             this.columnHeader1,
             this.columnHeader3,
             this.columnHeader25,
@@ -358,6 +236,11 @@
             this.lvProducts.UseCompatibleStateImageBehavior = false;
             this.lvProducts.View = System.Windows.Forms.View.Details;
             this.lvProducts.SelectedIndexChanged += new System.EventHandler(this.lvProducts_SelectedIndexChanged);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "No";
+            this.columnHeader5.Width = 32;
             // 
             // columnHeader1
             // 
@@ -516,6 +399,63 @@
             this.btnProdAdd.UseVisualStyleBackColor = false;
             this.btnProdAdd.Click += new System.EventHandler(this.btnProdAdd_Click);
             // 
+            // grpWheel
+            // 
+            this.grpWheel.Controls.Add(this.pnlInGroupBox);
+            this.grpWheel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpWheel.ForeColor = System.Drawing.Color.White;
+            this.grpWheel.Location = new System.Drawing.Point(360, 61);
+            this.grpWheel.Name = "grpWheel";
+            this.grpWheel.Size = new System.Drawing.Size(655, 181);
+            this.grpWheel.TabIndex = 170;
+            this.grpWheel.TabStop = false;
+            this.grpWheel.Text = "Category Description";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.White;
+            this.txtSearch.Location = new System.Drawing.Point(416, 7);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(212, 25);
+            this.txtSearch.TabIndex = 157;
+            // 
+            // txtProdName
+            // 
+            this.txtProdName.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtProdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProdName.Enabled = false;
+            this.txtProdName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProdName.ForeColor = System.Drawing.Color.White;
+            this.txtProdName.Location = new System.Drawing.Point(134, 107);
+            this.txtProdName.Name = "txtProdName";
+            this.txtProdName.Size = new System.Drawing.Size(198, 25);
+            this.txtProdName.TabIndex = 155;
+            // 
+            // txtProdNo
+            // 
+            this.txtProdNo.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtProdNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProdNo.Enabled = false;
+            this.txtProdNo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProdNo.ForeColor = System.Drawing.Color.White;
+            this.txtProdNo.Location = new System.Drawing.Point(132, 61);
+            this.txtProdNo.MaxLength = 100000000;
+            this.txtProdNo.Name = "txtProdNo";
+            this.txtProdNo.Size = new System.Drawing.Size(198, 25);
+            this.txtProdNo.TabIndex = 154;
+            // 
+            // pnlInGroupBox
+            // 
+            this.pnlInGroupBox.AutoScroll = true;
+            this.pnlInGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlInGroupBox.Location = new System.Drawing.Point(3, 23);
+            this.pnlInGroupBox.Name = "pnlInGroupBox";
+            this.pnlInGroupBox.Size = new System.Drawing.Size(649, 155);
+            this.pnlInGroupBox.TabIndex = 0;
+            // 
             // uCInventoryProducts
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -548,7 +488,6 @@
             this.Size = new System.Drawing.Size(1325, 533);
             this.Load += new System.EventHandler(this.uCInventoryProducts_Load);
             this.grpWheel.ResumeLayout(false);
-            this.grpWheel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,13 +501,6 @@
         private System.Windows.Forms.Button btnProdClear;
         private System.Windows.Forms.Button btnProdEdit;
         private System.Windows.Forms.Button btnProdAdd;
-        private System.Windows.Forms.GroupBox grpWheel;
-        public MyTextBox myTextBox3;
-        public MyTextBox myTextBox2;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label26;
-        public MyTextBox myTextBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAddBrand;
@@ -593,5 +525,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.GroupBox grpWheel;
+        private System.Windows.Forms.Panel pnlInGroupBox;
     }
 }

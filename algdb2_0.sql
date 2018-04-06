@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2018 at 01:52 AM
+-- Generation Time: Apr 06, 2018 at 04:34 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -56,7 +56,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_ID`, `category_name`, `date_deleted`) VALUES
-(1, 'Engine Oil', NULL);
+(1, 'Engine Oil', NULL),
+(2, 'volume', NULL),
+(3, 'Lubricant', NULL),
+(4, 'tire', NULL),
+(5, 'wheel', NULL),
+(6, 'tint', NULL);
 
 -- --------------------------------------------------------
 
@@ -71,6 +76,15 @@ CREATE TABLE `category_description` (
   `date_deleted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `category_description`
+--
+
+INSERT INTO `category_description` (`cat_desc_ID`, `category_ID`, `description_ID`, `date_deleted`) VALUES
+(1, 5, 1, '2018-04-05 05:52:51'),
+(2, 6, 1, '2018-04-05 05:53:56'),
+(3, 6, 4, '2018-04-05 05:53:56');
+
 -- --------------------------------------------------------
 
 --
@@ -80,9 +94,19 @@ CREATE TABLE `category_description` (
 CREATE TABLE `descriptions` (
   `description_ID` int(11) NOT NULL,
   `desc_name` varchar(250) NOT NULL,
-  `desc_data_type` varchar(250) NOT NULL,
+  `desc_type` varchar(10) NOT NULL,
   `date_deleted` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `descriptions`
+--
+
+INSERT INTO `descriptions` (`description_ID`, `desc_name`, `desc_type`, `date_deleted`) VALUES
+(1, 'Color', 'Text', NULL),
+(2, 'Volume', 'Numeric', '2018-04-05 02:28:16'),
+(3, 'Colors', 'Text', '2018-04-05 05:28:24'),
+(4, 'Quality', 'Text', NULL);
 
 -- --------------------------------------------------------
 
@@ -304,17 +328,17 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `category_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `category_description`
 --
 ALTER TABLE `category_description`
-  MODIFY `cat_desc_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cat_desc_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `descriptions`
 --
 ALTER TABLE `descriptions`
-  MODIFY `description_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `description_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `product_prices`
 --
