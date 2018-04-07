@@ -113,6 +113,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
+            splitCont.Panel2.Controls.Clear();
             uCInventory usercontrol = new uCInventory();
             splitCont.Panel2.Controls.Add(usercontrol);
         }
@@ -129,6 +130,30 @@ namespace ALG_POS_and_Inventory_Management_System {
                 splitCont.Panel1Collapsed = false;
                 i = 0;
             }
+        }
+
+        private void btnServices_Click(object sender, EventArgs e)
+        {
+            splitCont.Panel2.Controls.Clear();
+            uCServices usercontrol = new uCServices();
+            splitCont.Panel2.Controls.Add(usercontrol);
+        }
+
+        private void btnLogsAndMaintenance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPOS_Click(object sender, EventArgs e)
+        {
+            splitCont.Panel2.Controls.Clear();
+            uCPointOfSale usercontrol = new uCPointOfSale();
+            splitCont.Panel2.Controls.Add(usercontrol);
         }
     }
 }
