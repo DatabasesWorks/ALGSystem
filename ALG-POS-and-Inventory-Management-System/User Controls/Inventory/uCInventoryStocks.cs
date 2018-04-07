@@ -24,25 +24,44 @@ namespace ALG_POS_and_Inventory_Management_System {
             dtpReceive.Value = DateTime.Now;
         }
         void LoadStocks() {
+            //lvStocks.Items.Clear();
+            //DataTable table = new DataTable();
+            //table = ContInventoryStocks.LoadStocks(cboSSort.Text);
+            //ListViewItem iItem;
+            //foreach (DataRow row in table.Rows) {
+            //    iItem = new ListViewItem();
+            //    for (int i = 0; i < row.ItemArray.Length; i++) {
+            //        if (i == 0)
+            //            iItem.Text = row.ItemArray[i].ToString();
+            //        else if (i == 3)
+            //            iItem.SubItems.Add("temp description");
+            //        else if (i == 6)
+            //            iItem.SubItems.Add((row.ItemArray[i].ToString()).Substring(0, 10));
+            //        else if (i == 8)
+            //            iItem.SubItems.Add(Convert.ToDecimal(row.ItemArray[i].ToString()).ToString("C"));
+            //        else
+            //            iItem.SubItems.Add(row.ItemArray[i].ToString());
+            //    }
+            //    lvStocks.Items.Add(iItem);
+            //}
+            ////stock_ID,products.product_ID,product_name, CONCAT(product_name, 'DESC') ,total_stocks,remaining_stocks,DATE_FORMAT(received_date, '%m-%d-%Y'),supplier_name,supplier_price
             lvStocks.Items.Clear();
-            DataTable table = new DataTable();
-            table = ContInventoryStocks.LoadStocks(cboSSort.Text);
-            ListViewItem iItem;
-            foreach (DataRow row in table.Rows) {
-                iItem = new ListViewItem();
-                for (int i = 0; i < row.ItemArray.Length; i++) {
-                    if (i == 0)
-                        iItem.Text = row.ItemArray[i].ToString();
-                    else if (i == 3)
-                        iItem.SubItems.Add("temp description");
-                    else if (i == 6)
-                        iItem.SubItems.Add((row.ItemArray[i].ToString()).Substring(0, 10));
-                    else if (i == 8)
-                        iItem.SubItems.Add(Convert.ToDecimal(row.ItemArray[i].ToString()).ToString("C"));
-                    else
-                        iItem.SubItems.Add(row.ItemArray[i].ToString());
-                }
-                lvStocks.Items.Add(iItem);
+            DataTable dt = new DataTable();
+            dt = ContInventoryStocks.LoadStocks(cboSSort.Text);
+            for (int i = 0; i < dt.Rows.Count; i++) {
+                DataRow dr = dt.Rows[i];
+                ListViewItem listitem = new ListViewItem((i + 1).ToString());
+                listitem.SubItems.Add(dr["stock_ID"].ToString());
+                listitem.SubItems.Add(dr["prodID"].ToString());
+                listitem.SubItems.Add(dr["product_name"].ToString());
+                listitem.SubItems.Add(dr["CONCAT(product_name, 'DESC')"].ToString());
+                listitem.SubItems.Add(dr["total_stocks"].ToString());
+                listitem.SubItems.Add(dr["remaining_stocks"].ToString());
+                listitem.SubItems.Add(dr["dateProfiled"].ToString().Substring(0, 10));
+                listitem.SubItems.Add(dr["supplier_name"].ToString());
+                listitem.SubItems.Add(Convert.ToDecimal(dr["supplier_price"]).ToString("C"));
+
+                lvStocks.Items.Add(listitem);
             }
         }
         void SetStockID() {
@@ -161,13 +180,13 @@ namespace ALG_POS_and_Inventory_Management_System {
             decimal fee;
             if (lvStocks.SelectedItems.Count > 0) {
                 ListViewItem item = lvStocks.SelectedItems[0];
-                lblStockID.Text = item.SubItems[0].Text;
-                cboSProductID.Text = item.SubItems[1].Text;
-                cboSProductName.Text = item.SubItems[2].Text;
-                numSQuan.Value = Convert.ToDecimal(item.SubItems[5].Text);
-                dtpReceive.Value =  DateTime.ParseExact(item.SubItems[6].Text, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                cboSSuppliers.Text = item.SubItems[7].Text;
-                fee = decimal.Parse(item.SubItems[8].Text,System.Globalization.NumberStyles.Currency);
+                lblStockID.Text = item.SubItems[1].Text;
+                cboSProductID.Text = item.SubItems[2].Text;
+                cboSProductName.Text = item.SubItems[3].Text;
+                numSQuan.Value = Convert.ToDecimal(item.SubItems[6].Text);
+                dtpReceive.Value =  DateTime.ParseExact(item.SubItems[7].Text, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                cboSSuppliers.Text = item.SubItems[8].Text;
+                fee = decimal.Parse(item.SubItems[9].Text,System.Globalization.NumberStyles.Currency);
                 numSSupPrice.Value = fee;
                 btnSAdd.Enabled = false; btnSSave.Enabled = false; btnSEdit.Enabled = true; btnSRemoveStocks.Enabled = true; btnSDeduct.Enabled = true; btnRemoveZero.Enabled = false; SLock(); sAdd = false; sEdit = false; cChange = false; btnSChangePrice.Enabled = true; numDeduct.Enabled = false;
             }

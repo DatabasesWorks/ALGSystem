@@ -39,6 +39,7 @@
             this.grpDesc = new System.Windows.Forms.GroupBox();
             this.rdNumeric = new System.Windows.Forms.RadioButton();
             this.rdText = new System.Windows.Forms.RadioButton();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpDesc.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +72,7 @@
             this.lvDescription.BackColor = System.Drawing.Color.White;
             this.lvDescription.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader14,
+            this.columnHeader1,
             this.columnHeader16,
             this.columnHeader18});
             this.lvDescription.Font = new System.Drawing.Font("Segoe MDL2 Assets", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -79,7 +81,7 @@
             this.lvDescription.GridLines = true;
             this.lvDescription.Location = new System.Drawing.Point(17, 124);
             this.lvDescription.Name = "lvDescription";
-            this.lvDescription.Size = new System.Drawing.Size(533, 279);
+            this.lvDescription.Size = new System.Drawing.Size(435, 279);
             this.lvDescription.TabIndex = 183;
             this.lvDescription.UseCompatibleStateImageBehavior = false;
             this.lvDescription.View = System.Windows.Forms.View.Details;
@@ -88,12 +90,12 @@
             // columnHeader14
             // 
             this.columnHeader14.Text = "Description ID.";
-            this.columnHeader14.Width = 0;
+            this.columnHeader14.Width = 4;
             // 
             // columnHeader16
             // 
             this.columnHeader16.Text = "Description Name";
-            this.columnHeader16.Width = 209;
+            this.columnHeader16.Width = 224;
             // 
             // columnHeader18
             // 
@@ -138,7 +140,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(699, 174);
+            this.btnDelete.Location = new System.Drawing.Point(607, 180);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(137, 53);
             this.btnDelete.TabIndex = 193;
@@ -159,7 +161,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(556, 174);
+            this.btnSave.Location = new System.Drawing.Point(464, 180);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(137, 53);
             this.btnSave.TabIndex = 192;
@@ -179,7 +181,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(629, 229);
+            this.btnClear.Location = new System.Drawing.Point(537, 235);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(137, 53);
             this.btnClear.TabIndex = 191;
@@ -200,7 +202,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(699, 122);
+            this.btnEdit.Location = new System.Drawing.Point(607, 128);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(137, 53);
             this.btnEdit.TabIndex = 190;
@@ -220,7 +222,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(556, 122);
+            this.btnAdd.Location = new System.Drawing.Point(464, 128);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(137, 53);
             this.btnAdd.TabIndex = 189;
@@ -264,12 +266,17 @@
             this.rdText.Text = "Text";
             this.rdText.UseVisualStyleBackColor = true;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No.";
+            this.columnHeader1.Width = 38;
+            // 
             // frmDescriptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(843, 407);
+            this.ClientSize = new System.Drawing.Size(753, 407);
             this.Controls.Add(this.grpDesc);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
@@ -309,5 +316,6 @@
         private System.Windows.Forms.GroupBox grpDesc;
         private System.Windows.Forms.RadioButton rdNumeric;
         private System.Windows.Forms.RadioButton rdText;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

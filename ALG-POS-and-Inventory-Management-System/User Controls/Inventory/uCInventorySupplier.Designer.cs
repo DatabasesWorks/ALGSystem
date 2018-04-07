@@ -40,6 +40,7 @@
             this.txtSupplierContact = new MyTextBox();
             this.txtSupplierAddress = new MyTextBox();
             this.txtSupplierName = new MyTextBox();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label24
@@ -71,6 +72,7 @@
             this.lvSupplier.BackColor = System.Drawing.Color.White;
             this.lvSupplier.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader14,
+            this.columnHeader1,
             this.columnHeader16,
             this.columnHeader18,
             this.columnHeader19});
@@ -78,9 +80,9 @@
             this.lvSupplier.ForeColor = System.Drawing.Color.Black;
             this.lvSupplier.FullRowSelect = true;
             this.lvSupplier.GridLines = true;
-            this.lvSupplier.Location = new System.Drawing.Point(296, 189);
+            this.lvSupplier.Location = new System.Drawing.Point(298, 190);
             this.lvSupplier.Name = "lvSupplier";
-            this.lvSupplier.Size = new System.Drawing.Size(533, 279);
+            this.lvSupplier.Size = new System.Drawing.Size(551, 279);
             this.lvSupplier.TabIndex = 145;
             this.lvSupplier.UseCompatibleStateImageBehavior = false;
             this.lvSupplier.View = System.Windows.Forms.View.Details;
@@ -94,17 +96,17 @@
             // columnHeader16
             // 
             this.columnHeader16.Text = "Supplier Name";
-            this.columnHeader16.Width = 209;
+            this.columnHeader16.Width = 194;
             // 
             // columnHeader18
             // 
             this.columnHeader18.Text = "Supplier Address";
-            this.columnHeader18.Width = 154;
+            this.columnHeader18.Width = 178;
             // 
             // columnHeader19
             // 
             this.columnHeader19.Text = "Supplier Contact:";
-            this.columnHeader19.Width = 165;
+            this.columnHeader19.Width = 132;
             // 
             // lblSupplierID
             // 
@@ -270,6 +272,11 @@
             this.txtSupplierName.Size = new System.Drawing.Size(160, 25);
             this.txtSupplierName.TabIndex = 152;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No.";
+            this.columnHeader1.Width = 42;
+            // 
             // uCInventorySupplier
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -314,5 +321,6 @@
         private System.Windows.Forms.Button btnSupClear;
         private System.Windows.Forms.Button btnSupEdit;
         private System.Windows.Forms.Button btnSupAdd;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

@@ -38,6 +38,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             for (int i = 0; i < dt.Rows.Count; i++) {
                 DataRow dr = dt.Rows[i];
                 ListViewItem listitem = new ListViewItem(dr["supplier_ID"].ToString());
+                listitem.SubItems.Add((i+1).ToString());
                 listitem.SubItems.Add(dr["supplier_name"].ToString());
                 listitem.SubItems.Add(dr["address"].ToString());
                 listitem.SubItems.Add(dr["contact"].ToString());
@@ -98,9 +99,9 @@ namespace ALG_POS_and_Inventory_Management_System {
             if (lvSupplier.SelectedItems.Count > 0) {
                 ListViewItem item = lvSupplier.SelectedItems[0];
                 lblSupplierID.Text = item.SubItems[0].Text;
-                txtSupplierName.Text = item.SubItems[1].Text;
-                txtSupplierAddress.Text = item.SubItems[2].Text;
-                txtSupplierContact.Text = item.SubItems[3].Text;
+                txtSupplierName.Text = item.SubItems[2].Text;
+                txtSupplierAddress.Text = item.SubItems[3].Text;
+                txtSupplierContact.Text = item.SubItems[4].Text;
                 btnSupAdd.Enabled = false; btnSupEdit.Enabled = true; btnSupDelete.Enabled = true; btnSupSave.Enabled = false; supadd = false; supedit = false; SupLock();
             } else {
                 //

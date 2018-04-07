@@ -11,15 +11,13 @@ using System.Windows.Forms;
 namespace ALG_POS_and_Inventory_Management_System {
     public partial class uCInventoryProducts : UserControl {
         ContInventoryProducts _contInvProducts = new ContInventoryProducts();
-        MyTextBox[] txtbox = new MyTextBox[10];
-
+        List<string> catDescID = new List<string>();
+        static List<string> descValue = new List<string>();
         public uCInventoryProducts() {
             InitializeComponent();
         }
         private void uCInventoryProducts_Load(object sender, EventArgs e) {
             LoadProducts(); LoadBrands(); LoadCategories();   // load for products tab
-            LoadDescriptionControls();
-            TestControl();
         }
         //======= Products ========
         bool add, edit;
@@ -35,6 +33,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 listitem.SubItems.Add(dr["product_name"].ToString());
                 listitem.SubItems.Add(dr["brand_name"].ToString());
                 listitem.SubItems.Add(dr["category_name"].ToString());
+                //listitem.SubItems.Add(_contInvProducts.GetProductDescription((dr["product_ID"]).ToString()));
                 lvProducts.Items.Add(listitem);
             }
         }
@@ -90,10 +89,10 @@ namespace ALG_POS_and_Inventory_Management_System {
                 MessageBox.Show("Please fill out all");
                 return;
             }
-
+            SetDescriptions();
             if (add) {
                 // checks if insert is successful
-                if (_contInvProducts.IsInsertProduct(txtProdNo.Text, txtProdName.Text, cboCategory.Text, cboBrand.Text)) {
+                if (_contInvProducts.IsInsertProduct(txtProdNo.Text, txtProdName.Text, cboCategory.Text, cboBrand.Text,catDescID,descValue)) {
                     btnProdClear.PerformClick();
                     // logs
                     //string uid = user.GetUserID();
@@ -103,7 +102,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     return;
             } else if (edit) {
                 // checks if update is successful
-                if (_contInvProducts.IsUpdateProduct(txtProdNo.Text, txtProdName.Text, cboCategory.Text, cboBrand.Text, tempOldName)) {
+                if (_contInvProducts.IsUpdateProduct(txtProdNo.Text, txtProdName.Text, cboCategory.Text, cboBrand.Text, tempOldName,catDescID, descValue)) {
                     btnProdClear.PerformClick();
                     // logs 
                     //string uid = user.GetUserID();
@@ -122,8 +121,11 @@ namespace ALG_POS_and_Inventory_Management_System {
                 txtProdNo.Text = item.SubItems[1].Text;
                 txtProdName.Text = item.SubItems[2].Text;
                 cboBrand.Text = item.SubItems[3].Text;
-                cboCategory.Text = item.SubItems[4].Text;
+                cboCategory.Text = item.SubItems[4].Text; //cboCategory_SelectedIndexChanged -> SetDescriptions() triggered here
+                descValue = _contInvProducts.LoadDescOfSelectedItem(txtProdNo.Text);
+               LoadDescriptionValue(cboCategory.Text);
             }
+            //to do: add descvalues to 
         }
 
         private void btnProdDelete_Click(object sender, EventArgs e) {
@@ -147,30 +149,114 @@ namespace ALG_POS_and_Inventory_Management_System {
             btnProdAdd.Enabled = true;
             LoadProducts(); LoadBrands(); LoadCategories();
         }
-        void LoadDescriptionControls() {
-            int left = 1;
-            Label[] lbl = new Label[10];
-            int i;
-            for (i = 0; i < 10; i++) {
-                lbl[i] = new Label();
-                pnlInGroupBox.Controls.Add(lbl[i]);
-                lbl[i].Text = left.ToString();
-                lbl[i].Top = left * 25;
-                lbl[i].Left = 100;
 
-                txtbox[i] = new MyTextBox();
-                pnlInGroupBox.Controls.Add(txtbox[i]);
-                txtbox[i].Text="Textbox" + left.ToString();
-                txtbox[i].Top = left * 25;
-                txtbox[i].Left = 250;
-                left += 1;
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e) {
+            LoadDescription(cboCategory.Text);
+        }
+
+        private void btnProdPrint_Click(object sender, EventArgs e) {
+            
+        }
+
+        void SetDescriptions() {
+            descValue = new List<string>();
+            descValue.Clear();
+            foreach (Control ctrl in this.Controls) {
+                foreach (Control ctrl1 in ctrl.Controls) {
+                    foreach (Control ctrl2 in ctrl1.Controls) {
+                        if (ctrl2 is MyTextBox)
+                            descValue.Add(ctrl2.Text);
+                        else if (ctrl2 is NumericUpDown)
+                            descValue.Add(((NumericUpDown)ctrl2).Value.ToString());
+                    }
+                }
             }
         }
-        void TestControl() {
-            int i;
-            for (i = 0; i < 10; i++) {
-                MessageBox.Show(txtbox[i].Text);
-            }
+        void LoadDescription(string catName) {
+            catDescID.Clear();
+            DataTable dt = new DataTable();
+            dt = _contInvProducts.LoadCategoryDescription(catName);
+            //cat_desc_ID, desc_name, desc_type
+            if (dt.Rows.Count > 0) {
+                pnlInGroupBox.Controls.Clear();
+                int left = 1;
+                Label[] lbl = new Label[dt.Rows.Count];
+                MyTextBox[] txtbox = new MyTextBox[dt.Rows.Count];
+                NumericUpDown[] num = new NumericUpDown[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++) {
+                    DataRow dr = dt.Rows[i];
+                    catDescID.Add(dr["cat_desc_ID"].ToString());
+                    lbl[i] = new Label();
+                    pnlInGroupBox.Controls.Add(lbl[i]);
+                    lbl[i].Text = dr["desc_name"].ToString() + ":";
+                    lbl[i].Top = left * 25;
+                    lbl[i].Left = 100;
+                    if (dr["desc_type"].ToString() == "Text") {
+                        txtbox[i] = new MyTextBox();
+                        pnlInGroupBox.Controls.Add(txtbox[i]);
+                        txtbox[i].Top = left * 25;
+                        txtbox[i].Left = 250;
+                        left += 1;
+                    } else {
+                        num[i] = new NumericUpDown();
+                        pnlInGroupBox.Controls.Add(num[i]);
+                        num[i].Top = left * 25;
+                        num[i].Left = 250;
+                        left += 1;
+                    }
+                }
+            } else
+                pnlInGroupBox.Controls.Clear();
         }
+
+        private void btnCategory_Click(object sender, EventArgs e) {
+            frmCategory _frmCategory = new frmCategory();
+            _frmCategory.ShowDialog();
+            LoadCategories();
+        }
+
+        void LoadDescriptionValue(string catName) {
+            catDescID.Clear();
+          
+            DataTable dt = new DataTable();
+            dt = _contInvProducts.LoadCategoryDescription(catName);
+            //cat_desc_ID, desc_name, desc_type
+            if (dt.Rows.Count > 0) {
+                pnlInGroupBox.Controls.Clear();
+                int left = 1;
+                Label[] lbl = new Label[dt.Rows.Count];
+                MyTextBox[] txtbox = new MyTextBox[dt.Rows.Count];
+                NumericUpDown[] num = new NumericUpDown[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++) {
+                    DataRow dr = dt.Rows[i];
+                    catDescID.Add(dr["cat_desc_ID"].ToString());
+                    lbl[i] = new Label();
+                    pnlInGroupBox.Controls.Add(lbl[i]);
+                    lbl[i].Text = dr["desc_name"].ToString()+ ":";
+                    lbl[i].Top = left * 25;
+                    lbl[i].Left = 100;
+                    if (dr["desc_type"].ToString() == "Text") {
+                        txtbox[i] = new MyTextBox();
+                        pnlInGroupBox.Controls.Add(txtbox[i]);
+                        txtbox[i].Top = left * 25;
+                        txtbox[i].Left = 250;
+                        left += 1;
+                        if (descValue.Count>0)
+                            txtbox[i].Text = descValue[i].ToString();
+                    } else {
+                        num[i] = new NumericUpDown();
+                        pnlInGroupBox.Controls.Add(num[i]);
+                        num[i].Top = left * 25;
+                        num[i].Left = 250;
+                        left += 1;
+                        if (descValue.Count>0)
+                            num[i].Value= Convert.ToDecimal(descValue[i].ToString());
+                    }
+                }
+                descValue.Clear();
+            }else
+                pnlInGroupBox.Controls.Clear();
+        }
+
     }
 }
