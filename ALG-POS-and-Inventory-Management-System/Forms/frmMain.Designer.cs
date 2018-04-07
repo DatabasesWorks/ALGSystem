@@ -187,6 +187,7 @@
             this.btnInventory.Size = new System.Drawing.Size(176, 113);
             this.btnInventory.TabIndex = 13;
             this.btnInventory.UseVisualStyleBackColor = false;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // btnReports
             // 
@@ -322,6 +323,7 @@
             this.btnCollapse.Text = "---";
             this.btnCollapse.UseVisualStyleBackColor = false;
             this.btnCollapse.Visible = false;
+            this.btnCollapse.Click += new System.EventHandler(this.btnCollapse_Click);
             // 
             // frmMain
             // 

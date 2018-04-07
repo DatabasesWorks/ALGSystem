@@ -28,3 +28,33 @@ C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inven
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServicesVehicleTypes.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmCategory.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmDescriptions.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\ALG-POS-and-Inventory-Management-System.exe.config
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.exe
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.pdb
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\ALG-POS-and-Inventory-Management-System.exe
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\ALG-POS-and-Inventory-Management-System.pdb
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\MySql.Data.dll
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.csprojResolveAssemblyReference.cache
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmLogin.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmMain.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmConfigs.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmCategory.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmDescriptions.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmTesting.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\MyTextBox.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.Properties.Resources.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCCustomerRecords.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCManageEmployeeInfo.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCManageUsers.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCInventoryProductPrice.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCInventoryProducts.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCInventorySupplier.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCInventoryStocks.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCInventory.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServicesAdditionalService.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServicesServiceOffered.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServicesServicePrice.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServicesVehicleTypes.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCPointOfSale.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServices.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.csproj.GenerateResource.Cache
