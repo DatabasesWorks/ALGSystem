@@ -110,5 +110,25 @@ namespace ALG_POS_and_Inventory_Management_System {
                 Logout();
             }
         }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            uCInventory usercontrol = new uCInventory();
+            splitCont.Panel2.Controls.Add(usercontrol);
+        }
+        int i = 0;
+        private void btnCollapse_Click(object sender, EventArgs e)
+        {
+            if (i == 0)
+            {
+                splitCont.Panel1Collapsed=true;
+                i = 1;
+            }
+            else
+            {
+                splitCont.Panel1Collapsed = false;
+                i = 0;
+            }
+        }
     }
 }
