@@ -30,50 +30,35 @@ namespace ALG_POS_and_Inventory_Management_System {
             lvPriceProduct.Items.Clear();
             DataTable dt = new DataTable();
             dt = contPrices.LoadProductPrice();
-            lvPriceProduct.View = View.Details;
-            ListViewItem iItem;
-            foreach (DataRow row in dt.Rows) {
-                iItem = new ListViewItem();
-                for (int i = 0; i < row.ItemArray.Length; i++) {
-                    if (i == 0)
-                        iItem.Text = row.ItemArray[i].ToString();
-                    else if (i == 2)
-                        iItem.SubItems.Add(Convert.ToDecimal(row.ItemArray[i].ToString()).ToString("C"));
-                    else if (i == 4)
-                        iItem.SubItems.Add(Convert.ToDecimal(row.ItemArray[i].ToString()).ToString("C"));
-                    else
-                        iItem.SubItems.Add(row.ItemArray[i].ToString());
-                }
-                lvPriceProduct.Items.Add(iItem);
+            for (int i = 0; i < dt.Rows.Count; i++) {
+                DataRow dr = dt.Rows[i];
+                ListViewItem listitem = new ListViewItem((i + 1).ToString());
+                listitem.SubItems.Add(dr["prodID"].ToString());
+                listitem.SubItems.Add(dr["product_name"].ToString());
+                listitem.SubItems.Add(Convert.ToDecimal(dr["product_price"].ToString()).ToString("C"));
+                listitem.SubItems.Add(dr["discount"].ToString());
+                listitem.SubItems.Add(Convert.ToDecimal(dr["discounted_price"].ToString()).ToString("C"));
+                lvPriceProduct.Items.Add(listitem);
             }
-              
         }
         void LoadSupplierPrices() {
             totalStocks = 0;
             lvPriceSupplier.Items.Clear();
-            DataTable table = new DataTable();
-            table = contPrices.LoadSupplierPrices(cboSProductID.Text);
-            lvPriceSupplier.View = View.Details;
-            ListViewItem iItem;
-            if (table.Rows.Count != 0) {
-                foreach (DataRow row in table.Rows) {
-                    iItem = new ListViewItem();
-                    for (int i = 0; i < row.ItemArray.Length; i++) {
-                        if (i == 0)
-                            iItem.Text = row.ItemArray[i].ToString();
-                        else if (i == 1)
-                            iItem.SubItems.Add(Convert.ToDecimal(row.ItemArray[i].ToString()).ToString("C"));
-                        else if (i == 3)
-                            iItem.SubItems.Add((row.ItemArray[i].ToString()).Substring(0, 10));
-                        else if (i == 4) {
-                            iItem.SubItems.Add(row.ItemArray[i].ToString());
-                            totalStocks += Convert.ToInt32(row.ItemArray[i].ToString());
-                        } else
-                            iItem.SubItems.Add(row.ItemArray[i].ToString());
-                    }
-                    lvPriceSupplier.Items.Add(iItem);
+            DataTable dt = new DataTable();
+            dt = contPrices.LoadSupplierPrices(cboSProductID.Text);
+            if (dt.Rows.Count != 0) {
+                for (int i = 0; i < dt.Rows.Count; i++) {
+                    DataRow dr = dt.Rows[i];
+                    ListViewItem listitem = new ListViewItem((i + 1).ToString());
+                    listitem.SubItems.Add(dr["supplier_name"].ToString());
+                    listitem.SubItems.Add(Convert.ToDecimal(dr["supplier_price"].ToString()).ToString("C"));
+                    listitem.SubItems.Add(dr["stock_ID"].ToString());
+                    listitem.SubItems.Add(dr["received_date"].ToString().Substring(0, 10));
+                    listitem.SubItems.Add(dr["remaining_stocks"].ToString());
+                    totalStocks += Convert.ToInt32(dr["remaining_stocks"].ToString());
+                    lvPriceSupplier.Items.Add(listitem);
                 }
-                lblAvailableStocks.Text = totalStocks.ToString();
+            lblAvailableStocks.Text = totalStocks.ToString();
             } else {
                 lblPriceDiscount.Text = ""; lblPriceDiscounted.Text = ""; lblPriceProductPrice.Text = ""; btnPriceSetPrice.Enabled = false; numPriceDiscount.Value = 0; numPriceDiscount.Enabled = false; numPriceSelling.Value = 0; numPriceSelling.Enabled = false;
             }
@@ -175,12 +160,16 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void lvPriceProduct_SelectedIndexChanged(object sender, EventArgs e) {
             if (lvPriceProduct.SelectedItems.Count > 0) {
                 ListViewItem item = lvPriceProduct.SelectedItems[0];
-                lblPriceProductID.Text = cboSProductID.Text = item.SubItems[0].Text;
-                lblPriceProductName.Text = cboSProductName.Text = item.SubItems[1].Text;
+                lblPriceProductID.Text = cboSProductID.Text = item.SubItems[1].Text;
+                lblPriceProductName.Text = cboSProductName.Text = item.SubItems[2].Text;
             }
             SelectProduct();
             LoadSupplierPrices();
             btnPriceSetPrice.Enabled = numPriceDiscount.Enabled = numPriceSelling.Enabled = true;
+        }
+
+        private void lvPriceSupplier_SelectedIndexChanged(object sender, EventArgs e) {
+
         }
     }
 }
