@@ -60,6 +60,7 @@
             this.cboSProductName = new System.Windows.Forms.ComboBox();
             this.cboSProductID = new System.Windows.Forms.ComboBox();
             this.lblStockID = new System.Windows.Forms.Label();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).BeginInit();
@@ -454,6 +455,7 @@
             // lvStocks
             // 
             this.lvStocks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
             this.columnHeader0,
             this.columnHeader1,
             this.columnHeader2,
@@ -562,6 +564,11 @@
             this.lblStockID.TabIndex = 245;
             this.lblStockID.Text = "_Stock ID";
             // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "No.";
+            this.columnHeader9.Width = 43;
+            // 
             // uCInventoryStocks
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -644,5 +651,6 @@
         private System.Windows.Forms.ComboBox cboSProductName;
         private System.Windows.Forms.ComboBox cboSProductID;
         private System.Windows.Forms.Label lblStockID;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

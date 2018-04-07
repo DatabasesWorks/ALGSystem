@@ -37,6 +37,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtCategoryName = new MyTextBox();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvCategory
@@ -44,14 +45,15 @@
             this.lvCategory.BackColor = System.Drawing.Color.White;
             this.lvCategory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader14,
+            this.columnHeader1,
             this.columnHeader16});
             this.lvCategory.Font = new System.Drawing.Font("Segoe MDL2 Assets", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvCategory.ForeColor = System.Drawing.Color.Black;
             this.lvCategory.FullRowSelect = true;
             this.lvCategory.GridLines = true;
-            this.lvCategory.Location = new System.Drawing.Point(33, 102);
+            this.lvCategory.Location = new System.Drawing.Point(33, 103);
             this.lvCategory.Name = "lvCategory";
-            this.lvCategory.Size = new System.Drawing.Size(242, 279);
+            this.lvCategory.Size = new System.Drawing.Size(253, 279);
             this.lvCategory.TabIndex = 183;
             this.lvCategory.UseCompatibleStateImageBehavior = false;
             this.lvCategory.View = System.Windows.Forms.View.Details;
@@ -65,7 +67,7 @@
             // columnHeader16
             // 
             this.columnHeader16.Text = "Category Name";
-            this.columnHeader16.Width = 237;
+            this.columnHeader16.Width = 212;
             // 
             // lblCategoryID
             // 
@@ -249,6 +251,11 @@
             this.txtCategoryName.Size = new System.Drawing.Size(209, 25);
             this.txtCategoryName.TabIndex = 184;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No.";
+            this.columnHeader1.Width = 36;
+            // 
             // frmCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,5 +297,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

@@ -56,6 +56,8 @@
             this.cboSProductID = new System.Windows.Forms.ComboBox();
             this.btnPriceSetPrice = new System.Windows.Forms.Button();
             this.btnPriceClear = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.numPriceDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPriceSelling)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +67,7 @@
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(288, 282);
+            this.label40.Location = new System.Drawing.Point(293, 374);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(30, 23);
             this.label40.TabIndex = 203;
@@ -76,7 +78,7 @@
             this.lblPriceDiscounted.AutoSize = true;
             this.lblPriceDiscounted.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPriceDiscounted.ForeColor = System.Drawing.Color.White;
-            this.lblPriceDiscounted.Location = new System.Drawing.Point(229, 320);
+            this.lblPriceDiscounted.Location = new System.Drawing.Point(234, 412);
             this.lblPriceDiscounted.Name = "lblPriceDiscounted";
             this.lblPriceDiscounted.Size = new System.Drawing.Size(53, 23);
             this.lblPriceDiscounted.TabIndex = 200;
@@ -87,7 +89,7 @@
             this.lblPriceDiscount.AutoSize = true;
             this.lblPriceDiscount.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPriceDiscount.ForeColor = System.Drawing.Color.White;
-            this.lblPriceDiscount.Location = new System.Drawing.Point(229, 282);
+            this.lblPriceDiscount.Location = new System.Drawing.Point(234, 374);
             this.lblPriceDiscount.Name = "lblPriceDiscount";
             this.lblPriceDiscount.Size = new System.Drawing.Size(53, 23);
             this.lblPriceDiscount.TabIndex = 199;
@@ -98,7 +100,7 @@
             this.lblPriceProductPrice.AutoSize = true;
             this.lblPriceProductPrice.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPriceProductPrice.ForeColor = System.Drawing.Color.White;
-            this.lblPriceProductPrice.Location = new System.Drawing.Point(229, 239);
+            this.lblPriceProductPrice.Location = new System.Drawing.Point(234, 331);
             this.lblPriceProductPrice.Name = "lblPriceProductPrice";
             this.lblPriceProductPrice.Size = new System.Drawing.Size(53, 23);
             this.lblPriceProductPrice.TabIndex = 198;
@@ -109,7 +111,7 @@
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Location = new System.Drawing.Point(16, 320);
+            this.label34.Location = new System.Drawing.Point(21, 412);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(179, 23);
             this.label34.TabIndex = 197;
@@ -120,7 +122,7 @@
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.Color.White;
-            this.label32.Location = new System.Drawing.Point(16, 282);
+            this.label32.Location = new System.Drawing.Point(21, 374);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(103, 23);
             this.label32.TabIndex = 196;
@@ -131,7 +133,7 @@
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.ForeColor = System.Drawing.Color.White;
-            this.label33.Location = new System.Drawing.Point(16, 239);
+            this.label33.Location = new System.Drawing.Point(21, 331);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(144, 23);
             this.label33.TabIndex = 195;
@@ -186,7 +188,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(17, 398);
+            this.label8.Location = new System.Drawing.Point(22, 490);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 23);
             this.label8.TabIndex = 188;
@@ -198,7 +200,7 @@
             this.numPriceDiscount.Enabled = false;
             this.numPriceDiscount.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numPriceDiscount.ForeColor = System.Drawing.Color.White;
-            this.numPriceDiscount.Location = new System.Drawing.Point(164, 390);
+            this.numPriceDiscount.Location = new System.Drawing.Point(169, 482);
             this.numPriceDiscount.Maximum = new decimal(new int[] {
             99,
             0,
@@ -214,7 +216,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(17, 358);
+            this.label10.Location = new System.Drawing.Point(22, 450);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(138, 23);
             this.label10.TabIndex = 186;
@@ -226,7 +228,7 @@
             this.numPriceSelling.Enabled = false;
             this.numPriceSelling.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numPriceSelling.ForeColor = System.Drawing.Color.White;
-            this.numPriceSelling.Location = new System.Drawing.Point(164, 350);
+            this.numPriceSelling.Location = new System.Drawing.Point(169, 442);
             this.numPriceSelling.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -240,6 +242,7 @@
             // lvPriceProduct
             // 
             this.lvPriceProduct.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
             this.columnHeader29,
             this.columnHeader30,
             this.columnHeader31,
@@ -250,7 +253,7 @@
             this.lvPriceProduct.GridLines = true;
             this.lvPriceProduct.Location = new System.Drawing.Point(18, 94);
             this.lvPriceProduct.Name = "lvPriceProduct";
-            this.lvPriceProduct.Size = new System.Drawing.Size(588, 142);
+            this.lvPriceProduct.Size = new System.Drawing.Size(588, 234);
             this.lvPriceProduct.TabIndex = 184;
             this.lvPriceProduct.UseCompatibleStateImageBehavior = false;
             this.lvPriceProduct.View = System.Windows.Forms.View.Details;
@@ -259,12 +262,12 @@
             // columnHeader29
             // 
             this.columnHeader29.Text = "Product ID";
-            this.columnHeader29.Width = 100;
+            this.columnHeader29.Width = 92;
             // 
             // columnHeader30
             // 
             this.columnHeader30.Text = "Product Name";
-            this.columnHeader30.Width = 121;
+            this.columnHeader30.Width = 114;
             // 
             // columnHeader31
             // 
@@ -274,16 +277,17 @@
             // columnHeader32
             // 
             this.columnHeader32.Text = "Discount";
-            this.columnHeader32.Width = 78;
+            this.columnHeader32.Width = 77;
             // 
             // columnHeader33
             // 
             this.columnHeader33.Text = "Discounted Price";
-            this.columnHeader33.Width = 162;
+            this.columnHeader33.Width = 134;
             // 
             // lvPriceSupplier
             // 
             this.lvPriceSupplier.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
             this.columnHeader23,
             this.columnHeader26,
             this.columnHeader5,
@@ -298,6 +302,7 @@
             this.lvPriceSupplier.TabIndex = 179;
             this.lvPriceSupplier.UseCompatibleStateImageBehavior = false;
             this.lvPriceSupplier.View = System.Windows.Forms.View.Details;
+            this.lvPriceSupplier.SelectedIndexChanged += new System.EventHandler(this.lvPriceSupplier_SelectedIndexChanged);
             // 
             // columnHeader23
             // 
@@ -322,7 +327,7 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Available Stocks";
-            this.columnHeader7.Width = 183;
+            this.columnHeader7.Width = 136;
             // 
             // cboSProductName
             // 
@@ -387,7 +392,7 @@
             this.btnPriceSetPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPriceSetPrice.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPriceSetPrice.ForeColor = System.Drawing.Color.White;
-            this.btnPriceSetPrice.Location = new System.Drawing.Point(375, 369);
+            this.btnPriceSetPrice.Location = new System.Drawing.Point(380, 461);
             this.btnPriceSetPrice.Name = "btnPriceSetPrice";
             this.btnPriceSetPrice.Size = new System.Drawing.Size(146, 69);
             this.btnPriceSetPrice.TabIndex = 248;
@@ -407,13 +412,22 @@
             this.btnPriceClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPriceClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPriceClear.ForeColor = System.Drawing.Color.White;
-            this.btnPriceClear.Location = new System.Drawing.Point(538, 369);
+            this.btnPriceClear.Location = new System.Drawing.Point(543, 461);
             this.btnPriceClear.Name = "btnPriceClear";
             this.btnPriceClear.Size = new System.Drawing.Size(146, 69);
             this.btnPriceClear.TabIndex = 249;
             this.btnPriceClear.Text = "Clear";
             this.btnPriceClear.UseVisualStyleBackColor = false;
             this.btnPriceClear.Click += new System.EventHandler(this.btnPriceClear_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No.";
+            this.columnHeader1.Width = 40;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "No.";
             // 
             // uCInventoryProductPrice
             // 
@@ -487,5 +501,7 @@
         private System.Windows.Forms.ComboBox cboSProductID;
         private System.Windows.Forms.Button btnPriceSetPrice;
         private System.Windows.Forms.Button btnPriceClear;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

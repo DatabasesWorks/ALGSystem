@@ -35,6 +35,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             for (int i = 0; i < dt.Rows.Count; i++) {
                 DataRow dr = dt.Rows[i];
                 ListViewItem listitem = new ListViewItem(dr["category_ID"].ToString());
+                listitem.SubItems.Add((i + 1).ToString());
                 listitem.SubItems.Add(dr["category_name"].ToString());
                 lvCategory.Items.Add(listitem);
             }
@@ -76,16 +77,21 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void btnEdit_Click(object sender, EventArgs e) {
-            btnEdit.Enabled = false; btnSave.Enabled = true; supedit = true; btnDelete.Enabled = false; SupUnLock();
-            tempOldName = txtCategoryName.Text;
+            DialogResult dialogResult = MessageBox.Show("Editing category when a product is already profiled might remove records of existitng product. Would you like to proceed?", "Descriptions", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes) {
+                btnEdit.Enabled = false; btnSave.Enabled = true; supedit = true; btnDelete.Enabled = false; SupUnLock();
+                tempOldName = txtCategoryName.Text;
+            } else if (dialogResult == DialogResult.No) {
+                //do something else
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            if (txtCategoryName.Text.Trim() == "") {
-                MessageBox.Show("Please enter the category", "Descriptions");
+            if (txtCategoryName.Text.Trim() == "" || clbDescriptions.CheckedItems.Count<1) {
+                MessageBox.Show("Please enter the category name/select category descriptions", "Descriptions");
             } else {
                 List<string> checkedItem = new List<string>();
-                foreach(string item in clbDescriptions.CheckedItems) {
+                foreach (string item in clbDescriptions.CheckedItems) {
                     checkedItem.Add(item);
                 }
                 if (supadd) {
@@ -97,17 +103,17 @@ namespace ALG_POS_and_Inventory_Management_System {
                         btnClear.PerformClick();
                     }
                 } else if (supedit) {
-                    //if (contDescription.IsUpdateDescription(lblDescriptionID.Text, txtDescriptionName.Text, type, tempOldName)) {
-                    //    //===== logs
-                    //    //string sprodid = stock.product_ID;
-                    //    //string uid = user.GetUserID();
-                    //    //log.editSupplier(uid, date, sprodid, "Added Supplier ");
-                    //    btnClear.PerformClick();
-                    //}
+                    if (contCategory.IsUpdateCategory(lblCategoryID.Text, txtCategoryName.Text, checkedItem, tempOldName)) {
+                        //    //===== logs
+                        //    //string sprodid = stock.product_ID;
+                        //    //string uid = user.GetUserID();
+                        //    //log.editSupplier(uid, date, sprodid, "Added Supplier ");
+                        //}
+                        btnClear.PerformClick();
+                    }
                 }
             }
         }
-
         private void btnDelete_Click(object sender, EventArgs e) {
             //DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this Description?", "Descriptions", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             //if (dialogResult == DialogResult.Yes) {
@@ -134,7 +140,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             if (lvCategory.SelectedItems.Count > 0) {
                 ListViewItem item = lvCategory.SelectedItems[0];
                 lblCategoryID.Text = item.SubItems[0].Text;
-                txtCategoryName.Text = item.SubItems[1].Text;
+                txtCategoryName.Text = item.SubItems[2].Text;
                 LoadSelectedCatDesc();
                 btnAdd.Enabled = false; btnEdit.Enabled = true; btnDelete.Enabled = true; btnSave.Enabled = false; supadd = false; supedit = false; SupLock();
             } else {

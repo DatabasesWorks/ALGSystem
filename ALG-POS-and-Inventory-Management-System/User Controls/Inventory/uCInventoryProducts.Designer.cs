@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCategory = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAddBrand = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,7 +43,6 @@
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnProdPrint = new System.Windows.Forms.Button();
             this.btnProdDelete = new System.Windows.Forms.Button();
@@ -51,25 +50,26 @@
             this.btnProdClear = new System.Windows.Forms.Button();
             this.btnProdEdit = new System.Windows.Forms.Button();
             this.btnProdAdd = new System.Windows.Forms.Button();
-            this.grpWheel = new System.Windows.Forms.GroupBox();
+            this.grpCatDesc = new System.Windows.Forms.GroupBox();
+            this.pnlInGroupBox = new System.Windows.Forms.Panel();
             this.txtSearch = new MyTextBox();
             this.txtProdName = new MyTextBox();
             this.txtProdNo = new MyTextBox();
-            this.pnlInGroupBox = new System.Windows.Forms.Panel();
-            this.grpWheel.SuspendLayout();
+            this.grpCatDesc.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnCategory
             // 
-            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(294, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 34);
-            this.button1.TabIndex = 169;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCategory.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategory.ForeColor = System.Drawing.Color.White;
+            this.btnCategory.Location = new System.Drawing.Point(294, 188);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(23, 34);
+            this.btnCategory.TabIndex = 169;
+            this.btnCategory.Text = "+";
+            this.btnCategory.UseVisualStyleBackColor = false;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // label7
             // 
@@ -130,6 +130,7 @@
             this.cboCategory.Size = new System.Drawing.Size(178, 29);
             this.cboCategory.TabIndex = 164;
             this.cboCategory.Text = "Engine Oil";
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -224,7 +225,6 @@
             this.columnHeader25,
             this.columnHeader22,
             this.columnHeader4,
-            this.columnHeader2,
             this.columnHeader13});
             this.lvProducts.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvProducts.FullRowSelect = true;
@@ -267,15 +267,10 @@
             this.columnHeader4.Text = "Description";
             this.columnHeader4.Width = 345;
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Price";
-            this.columnHeader2.Width = 141;
-            // 
             // columnHeader13
             // 
-            this.columnHeader13.Text = "Remaining Stocks";
-            this.columnHeader13.Width = 132;
+            this.columnHeader13.Text = "Remaining Stocks(To remove or not?)";
+            this.columnHeader13.Width = 265;
             // 
             // btnProdPrint
             // 
@@ -295,6 +290,7 @@
             this.btnProdPrint.TabIndex = 176;
             this.btnProdPrint.Text = "Print";
             this.btnProdPrint.UseVisualStyleBackColor = false;
+            this.btnProdPrint.Click += new System.EventHandler(this.btnProdPrint_Click);
             // 
             // btnProdDelete
             // 
@@ -399,17 +395,26 @@
             this.btnProdAdd.UseVisualStyleBackColor = false;
             this.btnProdAdd.Click += new System.EventHandler(this.btnProdAdd_Click);
             // 
-            // grpWheel
+            // grpCatDesc
             // 
-            this.grpWheel.Controls.Add(this.pnlInGroupBox);
-            this.grpWheel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpWheel.ForeColor = System.Drawing.Color.White;
-            this.grpWheel.Location = new System.Drawing.Point(360, 61);
-            this.grpWheel.Name = "grpWheel";
-            this.grpWheel.Size = new System.Drawing.Size(655, 181);
-            this.grpWheel.TabIndex = 170;
-            this.grpWheel.TabStop = false;
-            this.grpWheel.Text = "Category Description";
+            this.grpCatDesc.Controls.Add(this.pnlInGroupBox);
+            this.grpCatDesc.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpCatDesc.ForeColor = System.Drawing.Color.White;
+            this.grpCatDesc.Location = new System.Drawing.Point(360, 61);
+            this.grpCatDesc.Name = "grpCatDesc";
+            this.grpCatDesc.Size = new System.Drawing.Size(655, 181);
+            this.grpCatDesc.TabIndex = 170;
+            this.grpCatDesc.TabStop = false;
+            this.grpCatDesc.Text = "Category Description";
+            // 
+            // pnlInGroupBox
+            // 
+            this.pnlInGroupBox.AutoScroll = true;
+            this.pnlInGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlInGroupBox.Location = new System.Drawing.Point(3, 23);
+            this.pnlInGroupBox.Name = "pnlInGroupBox";
+            this.pnlInGroupBox.Size = new System.Drawing.Size(649, 155);
+            this.pnlInGroupBox.TabIndex = 0;
             // 
             // txtSearch
             // 
@@ -447,15 +452,6 @@
             this.txtProdNo.Size = new System.Drawing.Size(198, 25);
             this.txtProdNo.TabIndex = 154;
             // 
-            // pnlInGroupBox
-            // 
-            this.pnlInGroupBox.AutoScroll = true;
-            this.pnlInGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlInGroupBox.Location = new System.Drawing.Point(3, 23);
-            this.pnlInGroupBox.Name = "pnlInGroupBox";
-            this.pnlInGroupBox.Size = new System.Drawing.Size(649, 155);
-            this.pnlInGroupBox.TabIndex = 0;
-            // 
             // uCInventoryProducts
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -466,8 +462,8 @@
             this.Controls.Add(this.btnProdClear);
             this.Controls.Add(this.btnProdEdit);
             this.Controls.Add(this.btnProdAdd);
-            this.Controls.Add(this.grpWheel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.grpCatDesc);
+            this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnAddBrand);
             this.Controls.Add(this.label6);
@@ -487,7 +483,7 @@
             this.Name = "uCInventoryProducts";
             this.Size = new System.Drawing.Size(1325, 533);
             this.Load += new System.EventHandler(this.uCInventoryProducts_Load);
-            this.grpWheel.ResumeLayout(false);
+            this.grpCatDesc.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -501,7 +497,7 @@
         private System.Windows.Forms.Button btnProdClear;
         private System.Windows.Forms.Button btnProdEdit;
         private System.Windows.Forms.Button btnProdAdd;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCategory;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAddBrand;
         private System.Windows.Forms.Label label6;
@@ -523,10 +519,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader25;
         private System.Windows.Forms.ColumnHeader columnHeader22;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.GroupBox grpWheel;
+        private System.Windows.Forms.GroupBox grpCatDesc;
         private System.Windows.Forms.Panel pnlInGroupBox;
     }
 }

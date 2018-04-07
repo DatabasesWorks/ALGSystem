@@ -37,6 +37,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             for (int i = 0; i < dt.Rows.Count; i++) {
                 DataRow dr = dt.Rows[i];
                 ListViewItem listitem = new ListViewItem(dr["description_ID"].ToString());
+                listitem.SubItems.Add((i + 1).ToString());
                 listitem.SubItems.Add(dr["desc_name"].ToString());
                 listitem.SubItems.Add(dr["desc_type"].ToString());
                 lvDescription.Items.Add(listitem);
@@ -106,8 +107,8 @@ namespace ALG_POS_and_Inventory_Management_System {
             if (lvDescription.SelectedItems.Count > 0) {
                 ListViewItem item = lvDescription.SelectedItems[0];
                 lblDescriptionID.Text = item.SubItems[0].Text;
-                txtDescriptionName.Text = item.SubItems[1].Text;
-                if (item.SubItems[2].Text == "Text") {
+                txtDescriptionName.Text = item.SubItems[2].Text;
+                if (item.SubItems[3].Text == "Text") {
                     rdText.Checked = true; rdNumeric.Checked = false;
                 } else {
                     rdText.Checked = false; rdNumeric.Checked = true;

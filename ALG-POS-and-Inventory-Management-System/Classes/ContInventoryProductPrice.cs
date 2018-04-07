@@ -24,7 +24,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
         public System.Data.DataTable LoadProductPrice() {
             try {
-                string query = "SELECT products.product_ID, products.product_name, product_price, discount, discounted_price FROM products, product_prices WHERE products.product_ID=product_prices.product_ID";
+                string query = "SELECT products.product_ID AS prodID, product_name, product_price, discount, discounted_price FROM products, product_prices WHERE products.product_ID=product_prices.product_ID";
                 System.Data.DataTable dt = new System.Data.DataTable();
                 dt = Database.Retrieve(query);
                 return (dt);

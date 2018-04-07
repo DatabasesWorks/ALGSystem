@@ -63,24 +63,47 @@ namespace ALG_POS_and_Inventory_Management_System {
             }
             return status;
         }
-        public bool IsUpdateCategory(string descID, string descName, string descType, string nvm) {
+        public bool IsUpdateCategory(string catID, string catName, List<string> descriptionName, string nvm) {
             bool status = false;
             try {
                 //make a new function for this, check only the productname
-                if (nvm != descName) // quite confusing but purpose is to check only productname excluding the existing one
-                    nvm = descName;
+                if (nvm != catName) // quite confusing but purpose is to check only productname excluding the existing one
+                    nvm = catName;
                 else
                     nvm = "nvm";
                 if (!isDuplicateDescName(nvm)) { // if no duplicate found, nvm is to make sure that it will return false; no duplicate found
-                    string query = "UPDATE descriptions SET desc_name=@0, desc_type=@1 WHERE description_ID=@2";
-                    string[] param = { descName, descType, descID };
+                    string query = "UPDATE categories SET category_name=@0 WHERE category_ID=@1";
+                    string[] param = { catName, catID };
                     if (Database.Execute(query, param)) {
+                        //gets all the cat_desc_ID's of current category id the deletes rows in product decription first before deleting rows in category_description. then insert to category_description the category_ID and the description description
+                        List<string> list = new List<string>();
+                        query = "SELECT cat_desc_ID FROM category_description WHERE category_ID=@0";
+                        param = new string[] {catID };
+                        list = Database.Select(query, param);
+                        if (list != null) {
+                            foreach (string catDescID in list) {
+                                query = "DELETE FROM product_description WHERE cat_desc_ID=@0";
+                                param = new string[] { catDescID };
+                                Database.Execute(query, param);
+                            }
+                        }
+                        query = "DELETE FROM category_description WHERE category_ID=@0";
+                        param = new string[] { catID };
+                        Database.Execute(query, param);
+                        if (descriptionName != null) {
+                            foreach (string desc in descriptionName) {
+                                query = "INSERT INTO category_description SET category_ID=@0, description_ID=(SELECT description_ID FROM descriptions WHERE CONCAT(desc_name, ' (',desc_type,')')=@1)";
+                                param = new string[] { catID, desc };
+                                Database.Execute(query, param);
+                            }
+                        }
                         System.Windows.Forms.MessageBox.Show("Description successfully updated!", "Descriptions", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                         status = true;
                     }
                 }
             } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+                System.Windows.Forms.MessageBox.Show("Error on category update" + ex, "Descriptions", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                //throw;
             }
             return status;
         }
