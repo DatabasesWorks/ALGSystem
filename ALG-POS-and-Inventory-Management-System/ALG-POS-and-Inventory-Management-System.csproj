@@ -47,17 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ContInventoryStocks.cs" />
-    <Compile Include="Classes\ContInventorySuppliers.cs" />
-    <Compile Include="Classes\ContInventoryProductPrice.cs" />
+    <Compile Include="Classes\Inventory\ContInventoryStocks.cs" />
+    <Compile Include="Classes\Inventory\ContInventorySuppliers.cs" />
+    <Compile Include="Classes\Inventory\ContInventoryProductPrice.cs" />
     <Compile Include="ContCategory.cs" />
     <Compile Include="ContDescription.cs" />
+    <Compile Include="Classes\Services\ContServicesVehicleTypes.cs" />
     <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
     <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Classes\ContMain.cs" />
-    <Compile Include="Classes\ContInventoryProducts.cs" />
+    <Compile Include="Classes\Inventory\ContInventoryProducts.cs" />
     <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>

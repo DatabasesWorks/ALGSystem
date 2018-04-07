@@ -243,6 +243,7 @@
             this.btnManageEmp.TabIndex = 129;
             this.btnManageEmp.Text = "Manage Employee Information";
             this.btnManageEmp.UseVisualStyleBackColor = false;
+            this.btnManageEmp.Click += new System.EventHandler(this.btnManageEmp_Click);
             // 
             // btnLogs
             // 

@@ -155,5 +155,10 @@ namespace ALG_POS_and_Inventory_Management_System {
             uCPointOfSale usercontrol = new uCPointOfSale();
             splitCont.Panel2.Controls.Add(usercontrol);
         }
+
+        private void btnManageEmp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
