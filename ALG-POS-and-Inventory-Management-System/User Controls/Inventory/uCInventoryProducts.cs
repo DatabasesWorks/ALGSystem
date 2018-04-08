@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace ALG_POS_and_Inventory_Management_System {
     public partial class uCInventoryProducts : UserControl {
         ContInventoryProducts _contInvProducts = new ContInventoryProducts();
-        List<string> catDescID = new List<string>();
+        static List<string> catDescID = new List<string>();
         static List<string> descValue = new List<string>();
         public uCInventoryProducts() {
             InitializeComponent();
@@ -82,6 +82,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             ProdUnlock();
             txtProdNo.Enabled = false;
             tempOldName = txtProdName.Text;
+            UnLockDescriptions();
         }
         private void btnProdSave_Click(object sender, EventArgs e) {
             // to do: 
@@ -122,8 +123,10 @@ namespace ALG_POS_and_Inventory_Management_System {
                 txtProdName.Text = item.SubItems[2].Text;
                 cboBrand.Text = item.SubItems[3].Text;
                 cboCategory.Text = item.SubItems[4].Text; //cboCategory_SelectedIndexChanged -> SetDescriptions() triggered here
+                //descValue.Clear();
                 descValue = _contInvProducts.LoadDescOfSelectedItem(txtProdNo.Text);
                LoadDescriptionValue(cboCategory.Text);
+                LockDescriptions();
             }
             //to do: add descvalues to 
         }
@@ -148,6 +151,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             btnProdSave.Enabled = btnProdEdit.Enabled = btnProdDelete.Enabled = false;
             btnProdAdd.Enabled = true;
             LoadProducts(); LoadBrands(); LoadCategories();
+            pnlInGroupBox.Controls.Clear();
         }
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e) {
@@ -159,7 +163,6 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         void SetDescriptions() {
-            descValue = new List<string>();
             descValue.Clear();
             foreach (Control ctrl in this.Controls) {
                 foreach (Control ctrl1 in ctrl.Controls) {
@@ -168,6 +171,24 @@ namespace ALG_POS_and_Inventory_Management_System {
                             descValue.Add(ctrl2.Text);
                         else if (ctrl2 is NumericUpDown)
                             descValue.Add(((NumericUpDown)ctrl2).Value.ToString());
+                    }
+                }
+            }
+        }
+        void LockDescriptions() {
+            foreach (Control ctrl in this.Controls) {
+                foreach (Control ctrl1 in ctrl.Controls) {
+                    foreach (Control ctrl2 in ctrl1.Controls) {
+                        ctrl2.Enabled = false;
+                    }
+                }
+            }
+        }
+        void UnLockDescriptions() {
+            foreach (Control ctrl in this.Controls) {
+                foreach (Control ctrl1 in ctrl.Controls) {
+                    foreach (Control ctrl2 in ctrl1.Controls) {
+                        ctrl2.Enabled = true;
                     }
                 }
             }
@@ -194,6 +215,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                     if (dr["desc_type"].ToString() == "Text") {
                         txtbox[i] = new MyTextBox();
                         pnlInGroupBox.Controls.Add(txtbox[i]);
+                        txtbox[i].BackColor = Color.CornflowerBlue;
+                        txtbox[i].ForeColor = Color.White;
                         txtbox[i].Top = left * 25;
                         txtbox[i].Left = 250;
                         left += 1;
@@ -216,8 +239,8 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         void LoadDescriptionValue(string catName) {
+            //error occurs when catDesc rows is > than rows in product description
             catDescID.Clear();
-          
             DataTable dt = new DataTable();
             dt = _contInvProducts.LoadCategoryDescription(catName);
             //cat_desc_ID, desc_name, desc_type
@@ -232,29 +255,38 @@ namespace ALG_POS_and_Inventory_Management_System {
                     catDescID.Add(dr["cat_desc_ID"].ToString());
                     lbl[i] = new Label();
                     pnlInGroupBox.Controls.Add(lbl[i]);
-                    lbl[i].Text = dr["desc_name"].ToString()+ ":";
+                    lbl[i].Text = dr["desc_name"].ToString() + ":";
                     lbl[i].Top = left * 25;
                     lbl[i].Left = 100;
                     if (dr["desc_type"].ToString() == "Text") {
                         txtbox[i] = new MyTextBox();
                         pnlInGroupBox.Controls.Add(txtbox[i]);
+                        txtbox[i].BackColor = Color.CornflowerBlue;
+                        txtbox[i].ForeColor = Color.White;
                         txtbox[i].Top = left * 25;
                         txtbox[i].Left = 250;
                         left += 1;
-                        if (descValue.Count>0)
-                            txtbox[i].Text = descValue[i].ToString();
+                        try {
+                            if (descValue.Count > 0)
+                                txtbox[i].Text = descValue[i].ToString();
+                        } catch (Exception ex) {
+                        Console.WriteLine("error on: ucInventoryProducts->LoadDescriptionValue(string catname): " + ex.Message);
+                        }
                     } else {
                         num[i] = new NumericUpDown();
                         pnlInGroupBox.Controls.Add(num[i]);
                         num[i].Top = left * 25;
                         num[i].Left = 250;
                         left += 1;
-                        if (descValue.Count>0)
-                            num[i].Value= Convert.ToDecimal(descValue[i].ToString());
+                    try {
+                        if (descValue.Count > 0)
+                            num[i].Value = Convert.ToDecimal(descValue[i].ToString());
+                    } catch (Exception ex) {
+                        Console.WriteLine("error on: ucInventoryProducts->LoadDescriptionValue(string catname): " + ex.Message);
                     }
                 }
-                descValue.Clear();
-            }else
+                }
+            } else
                 pnlInGroupBox.Controls.Clear();
         }
 
