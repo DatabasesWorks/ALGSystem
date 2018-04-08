@@ -48,11 +48,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Helvetica CE", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(47, 258);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 31);
+            this.label1.Size = new System.Drawing.Size(147, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
             // 
@@ -99,11 +99,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Helvetica CE", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(47, 315);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 31);
+            this.label4.Size = new System.Drawing.Size(142, 31);
             this.label4.TabIndex = 137;
             this.label4.Text = "Password:";
             // 
@@ -212,7 +212,7 @@
             // 
             this.txtPW.BackColor = System.Drawing.Color.RoyalBlue;
             this.txtPW.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPW.Font = new System.Drawing.Font("Helvetica CE", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPW.ForeColor = System.Drawing.Color.White;
             this.txtPW.Location = new System.Drawing.Point(199, 315);
             this.txtPW.Name = "txtPW";
@@ -225,7 +225,7 @@
             // 
             this.txtUN.BackColor = System.Drawing.Color.RoyalBlue;
             this.txtUN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUN.Font = new System.Drawing.Font("Helvetica CE", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUN.ForeColor = System.Drawing.Color.White;
             this.txtUN.Location = new System.Drawing.Point(199, 258);
             this.txtUN.Name = "txtUN";
@@ -257,6 +257,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.DoubleClick += new System.EventHandler(this.frmLogin_DoubleClick);

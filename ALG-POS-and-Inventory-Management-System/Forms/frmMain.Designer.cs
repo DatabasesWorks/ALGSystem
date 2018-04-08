@@ -145,6 +145,7 @@
             this.btnLogsAndMaintenance.Size = new System.Drawing.Size(176, 102);
             this.btnLogsAndMaintenance.TabIndex = 21;
             this.btnLogsAndMaintenance.UseVisualStyleBackColor = false;
+            this.btnLogsAndMaintenance.Click += new System.EventHandler(this.btnLogsAndMaintenance_Click);
             // 
             // btnPOS
             // 
@@ -159,6 +160,7 @@
             this.btnPOS.Size = new System.Drawing.Size(176, 101);
             this.btnPOS.TabIndex = 12;
             this.btnPOS.UseVisualStyleBackColor = false;
+            this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
             // btnServices
             // 
@@ -173,6 +175,7 @@
             this.btnServices.Size = new System.Drawing.Size(176, 123);
             this.btnServices.TabIndex = 19;
             this.btnServices.UseVisualStyleBackColor = false;
+            this.btnServices.Click += new System.EventHandler(this.btnServices_Click);
             // 
             // btnInventory
             // 
@@ -187,6 +190,7 @@
             this.btnInventory.Size = new System.Drawing.Size(176, 113);
             this.btnInventory.TabIndex = 13;
             this.btnInventory.UseVisualStyleBackColor = false;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // btnReports
             // 
@@ -201,6 +205,7 @@
             this.btnReports.Size = new System.Drawing.Size(176, 107);
             this.btnReports.TabIndex = 18;
             this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // maintenancePanel
             // 
@@ -238,6 +243,7 @@
             this.btnManageEmp.TabIndex = 129;
             this.btnManageEmp.Text = "Manage Employee Information";
             this.btnManageEmp.UseVisualStyleBackColor = false;
+            this.btnManageEmp.Click += new System.EventHandler(this.btnManageEmp_Click);
             // 
             // btnLogs
             // 
@@ -322,6 +328,7 @@
             this.btnCollapse.Text = "---";
             this.btnCollapse.UseVisualStyleBackColor = false;
             this.btnCollapse.Visible = false;
+            this.btnCollapse.Click += new System.EventHandler(this.btnCollapse_Click);
             // 
             // frmMain
             // 

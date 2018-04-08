@@ -25,7 +25,7 @@ namespace ALG_POS_and_Inventory_Management_System.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
         public string dbIpAddress {
             get {
                 return ((string)(this["dbIpAddress"]));
@@ -37,7 +37,7 @@ namespace ALG_POS_and_Inventory_Management_System.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("algdb2.0")]
         public string dbName {
             get {
                 return ((string)(this["dbName"]));
@@ -49,7 +49,7 @@ namespace ALG_POS_and_Inventory_Management_System.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("root")]
         public string dbUsername {
             get {
                 return ((string)(this["dbUsername"]));
