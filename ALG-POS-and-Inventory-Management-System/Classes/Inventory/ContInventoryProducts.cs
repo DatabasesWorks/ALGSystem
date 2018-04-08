@@ -71,7 +71,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     query = "UPDATE products SET product_name=@1, category_ID=(SELECT category_ID FROM categories WHERE category_name =@2), brand_ID=(SELECT brand_ID FROM brands WHERE brand_name =@3) WHERE product_ID=@0";
                     param = new string[] { productID, productName, categoryName, brandName };
                     if (Database.Execute(query, param)) {
-                        for (int i = 0; i < catDescID.Count-1 ; i++) {
+                        for (int i = 0; i < catDescID.Count ; i++) {
                             query = "INSERT INTO product_description SET product_ID=@0, cat_desc_ID=@1, product_desc_value=@2";
                             param = new string[] { productID, catDescID[i], descValue[i] };
                             Database.Execute(query, param);
