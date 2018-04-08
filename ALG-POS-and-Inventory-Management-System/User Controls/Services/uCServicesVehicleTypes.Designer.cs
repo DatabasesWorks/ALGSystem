@@ -30,11 +30,11 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnProdDelete = new System.Windows.Forms.Button();
-            this.btnProdSave = new System.Windows.Forms.Button();
-            this.btnProdClear = new System.Windows.Forms.Button();
-            this.btnProdEdit = new System.Windows.Forms.Button();
-            this.btnProdAdd = new System.Windows.Forms.Button();
+            this.btnVetDelete = new System.Windows.Forms.Button();
+            this.btnVetSave = new System.Windows.Forms.Button();
+            this.btnVetClear = new System.Windows.Forms.Button();
+            this.btnVetEdit = new System.Windows.Forms.Button();
+            this.btnVetAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtTypeName
@@ -75,6 +75,7 @@
             this.lvType.TabIndex = 138;
             this.lvType.UseCompatibleStateImageBehavior = false;
             this.lvType.View = System.Windows.Forms.View.Details;
+            this.lvType.SelectedIndexChanged += new System.EventHandler(this.lvType_SelectedIndexChanged);
             // 
             // columnHeader3
             // 
@@ -108,113 +109,118 @@
             this.label9.TabIndex = 136;
             this.label9.Text = "Vehicle Type:";
             // 
-            // btnProdDelete
+            // btnVetDelete
             // 
-            this.btnProdDelete.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdDelete.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdDelete.Enabled = false;
-            this.btnProdDelete.FlatAppearance.BorderSize = 0;
-            this.btnProdDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdDelete.ForeColor = System.Drawing.Color.White;
-            this.btnProdDelete.Location = new System.Drawing.Point(625, 205);
-            this.btnProdDelete.Name = "btnProdDelete";
-            this.btnProdDelete.Size = new System.Drawing.Size(132, 53);
-            this.btnProdDelete.TabIndex = 186;
-            this.btnProdDelete.Text = "Delete";
-            this.btnProdDelete.UseVisualStyleBackColor = false;
+            this.btnVetDelete.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetDelete.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnVetDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVetDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVetDelete.Enabled = false;
+            this.btnVetDelete.FlatAppearance.BorderSize = 0;
+            this.btnVetDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVetDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVetDelete.ForeColor = System.Drawing.Color.White;
+            this.btnVetDelete.Location = new System.Drawing.Point(625, 205);
+            this.btnVetDelete.Name = "btnVetDelete";
+            this.btnVetDelete.Size = new System.Drawing.Size(132, 53);
+            this.btnVetDelete.TabIndex = 186;
+            this.btnVetDelete.Text = "Delete";
+            this.btnVetDelete.UseVisualStyleBackColor = false;
+            this.btnVetDelete.Click += new System.EventHandler(this.btnVetDelete_Click);
             // 
-            // btnProdSave
+            // btnVetSave
             // 
-            this.btnProdSave.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdSave.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdSave.Enabled = false;
-            this.btnProdSave.FlatAppearance.BorderSize = 0;
-            this.btnProdSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdSave.ForeColor = System.Drawing.Color.White;
-            this.btnProdSave.Location = new System.Drawing.Point(498, 205);
-            this.btnProdSave.Name = "btnProdSave";
-            this.btnProdSave.Size = new System.Drawing.Size(121, 53);
-            this.btnProdSave.TabIndex = 185;
-            this.btnProdSave.Text = "Save";
-            this.btnProdSave.UseVisualStyleBackColor = false;
+            this.btnVetSave.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetSave.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnVetSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVetSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVetSave.Enabled = false;
+            this.btnVetSave.FlatAppearance.BorderSize = 0;
+            this.btnVetSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVetSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVetSave.ForeColor = System.Drawing.Color.White;
+            this.btnVetSave.Location = new System.Drawing.Point(498, 205);
+            this.btnVetSave.Name = "btnVetSave";
+            this.btnVetSave.Size = new System.Drawing.Size(121, 53);
+            this.btnVetSave.TabIndex = 185;
+            this.btnVetSave.Text = "Save";
+            this.btnVetSave.UseVisualStyleBackColor = false;
+            this.btnVetSave.Click += new System.EventHandler(this.btnVetSave_Click);
             // 
-            // btnProdClear
+            // btnVetClear
             // 
-            this.btnProdClear.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdClear.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdClear.FlatAppearance.BorderSize = 0;
-            this.btnProdClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdClear.ForeColor = System.Drawing.Color.White;
-            this.btnProdClear.Location = new System.Drawing.Point(558, 260);
-            this.btnProdClear.Name = "btnProdClear";
-            this.btnProdClear.Size = new System.Drawing.Size(129, 53);
-            this.btnProdClear.TabIndex = 184;
-            this.btnProdClear.Text = "Clear";
-            this.btnProdClear.UseVisualStyleBackColor = false;
+            this.btnVetClear.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetClear.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnVetClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVetClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVetClear.FlatAppearance.BorderSize = 0;
+            this.btnVetClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVetClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVetClear.ForeColor = System.Drawing.Color.White;
+            this.btnVetClear.Location = new System.Drawing.Point(558, 260);
+            this.btnVetClear.Name = "btnVetClear";
+            this.btnVetClear.Size = new System.Drawing.Size(129, 53);
+            this.btnVetClear.TabIndex = 184;
+            this.btnVetClear.Text = "Clear";
+            this.btnVetClear.UseVisualStyleBackColor = false;
+            this.btnVetClear.Click += new System.EventHandler(this.btnVetClear_Click);
             // 
-            // btnProdEdit
+            // btnVetEdit
             // 
-            this.btnProdEdit.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdEdit.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdEdit.Enabled = false;
-            this.btnProdEdit.FlatAppearance.BorderSize = 0;
-            this.btnProdEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdEdit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdEdit.ForeColor = System.Drawing.Color.White;
-            this.btnProdEdit.Location = new System.Drawing.Point(625, 153);
-            this.btnProdEdit.Name = "btnProdEdit";
-            this.btnProdEdit.Size = new System.Drawing.Size(132, 53);
-            this.btnProdEdit.TabIndex = 183;
-            this.btnProdEdit.Text = "Edit";
-            this.btnProdEdit.UseVisualStyleBackColor = false;
+            this.btnVetEdit.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetEdit.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnVetEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVetEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVetEdit.Enabled = false;
+            this.btnVetEdit.FlatAppearance.BorderSize = 0;
+            this.btnVetEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVetEdit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVetEdit.ForeColor = System.Drawing.Color.White;
+            this.btnVetEdit.Location = new System.Drawing.Point(625, 153);
+            this.btnVetEdit.Name = "btnVetEdit";
+            this.btnVetEdit.Size = new System.Drawing.Size(132, 53);
+            this.btnVetEdit.TabIndex = 183;
+            this.btnVetEdit.Text = "Edit";
+            this.btnVetEdit.UseVisualStyleBackColor = false;
+            this.btnVetEdit.Click += new System.EventHandler(this.btnVetEdit_Click);
             // 
-            // btnProdAdd
+            // btnVetAdd
             // 
-            this.btnProdAdd.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdAdd.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdAdd.FlatAppearance.BorderSize = 0;
-            this.btnProdAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdAdd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdAdd.ForeColor = System.Drawing.Color.White;
-            this.btnProdAdd.Location = new System.Drawing.Point(498, 153);
-            this.btnProdAdd.Name = "btnProdAdd";
-            this.btnProdAdd.Size = new System.Drawing.Size(121, 53);
-            this.btnProdAdd.TabIndex = 182;
-            this.btnProdAdd.Text = "Add";
-            this.btnProdAdd.UseVisualStyleBackColor = false;
+            this.btnVetAdd.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetAdd.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnVetAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVetAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVetAdd.FlatAppearance.BorderSize = 0;
+            this.btnVetAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVetAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVetAdd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVetAdd.ForeColor = System.Drawing.Color.White;
+            this.btnVetAdd.Location = new System.Drawing.Point(498, 153);
+            this.btnVetAdd.Name = "btnVetAdd";
+            this.btnVetAdd.Size = new System.Drawing.Size(121, 53);
+            this.btnVetAdd.TabIndex = 182;
+            this.btnVetAdd.Text = "Add";
+            this.btnVetAdd.UseVisualStyleBackColor = false;
+            this.btnVetAdd.Click += new System.EventHandler(this.btnVetAdd_Click);
             // 
             // uCServicesVehicleTypes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.Controls.Add(this.btnProdDelete);
-            this.Controls.Add(this.btnProdSave);
-            this.Controls.Add(this.btnProdClear);
-            this.Controls.Add(this.btnProdEdit);
-            this.Controls.Add(this.btnProdAdd);
+            this.Controls.Add(this.btnVetDelete);
+            this.Controls.Add(this.btnVetSave);
+            this.Controls.Add(this.btnVetClear);
+            this.Controls.Add(this.btnVetEdit);
+            this.Controls.Add(this.btnVetAdd);
             this.Controls.Add(this.txtTypeName);
             this.Controls.Add(this.txtTypeID);
             this.Controls.Add(this.lvType);
@@ -222,6 +228,7 @@
             this.Controls.Add(this.label9);
             this.Name = "uCServicesVehicleTypes";
             this.Size = new System.Drawing.Size(820, 453);
+            this.Load += new System.EventHandler(this.uCServicesVehicleTypes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,10 +243,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnProdDelete;
-        private System.Windows.Forms.Button btnProdSave;
-        private System.Windows.Forms.Button btnProdClear;
-        private System.Windows.Forms.Button btnProdEdit;
-        private System.Windows.Forms.Button btnProdAdd;
+        private System.Windows.Forms.Button btnVetDelete;
+        private System.Windows.Forms.Button btnVetSave;
+        private System.Windows.Forms.Button btnVetClear;
+        private System.Windows.Forms.Button btnVetEdit;
+        private System.Windows.Forms.Button btnVetAdd;
     }
 }
