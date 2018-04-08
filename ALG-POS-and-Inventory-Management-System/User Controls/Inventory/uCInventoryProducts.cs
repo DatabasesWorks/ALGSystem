@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace ALG_POS_and_Inventory_Management_System {
     public partial class uCInventoryProducts : UserControl {
         ContInventoryProducts _contInvProducts = new ContInventoryProducts();
-        List<string> catDescID = new List<string>();
+        static List<string> catDescID = new List<string>();
         static List<string> descValue = new List<string>();
         public uCInventoryProducts() {
             InitializeComponent();
@@ -122,6 +122,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 txtProdName.Text = item.SubItems[2].Text;
                 cboBrand.Text = item.SubItems[3].Text;
                 cboCategory.Text = item.SubItems[4].Text; //cboCategory_SelectedIndexChanged -> SetDescriptions() triggered here
+                descValue.Clear();
                 descValue = _contInvProducts.LoadDescOfSelectedItem(txtProdNo.Text);
                LoadDescriptionValue(cboCategory.Text);
             }
@@ -217,7 +218,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         void LoadDescriptionValue(string catName) {
             catDescID.Clear();
-          
+            descValue = new List<string>();
             DataTable dt = new DataTable();
             dt = _contInvProducts.LoadCategoryDescription(catName);
             //cat_desc_ID, desc_name, desc_type
