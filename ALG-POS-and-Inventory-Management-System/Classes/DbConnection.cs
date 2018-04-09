@@ -70,6 +70,38 @@ namespace ALG_POS_and_Inventory_Management_System {
             }
             return (dataTable);
         }
+        public System.Data.DataTable Retrieve(string query, string[] param, bool[] like) {
+            System.Data.DataTable dataTable = new System.Data.DataTable();
+            try {
+                Connection.Open();
+                string par;
+                string val;
+                MySqlCommand cmd = new MySqlCommand(query, Connection);
+                for (int i = 0; i < param.Length; i++) {
+                    if (like[i]) {
+                        par = String.Format("@{0}", i);
+                        val = param[i].ToString();
+                        cmd.Parameters.AddWithValue(par, "%" + val + "%");
+                    }
+                    else {
+                        par = String.Format("@{0}", i);
+                        val = param[i].ToString();
+                        cmd.Parameters.AddWithValue(par, val);
+                    }
+                }
+                //cmd.CommandTimeout = 60;
+                MySqlDataReader dataReader;
+                dataReader = cmd.ExecuteReader();
+                dataTable.Load(dataReader);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            } finally {
+                if (Connection.State == System.Data.ConnectionState.Open) {
+                    Connection.Close();
+                }
+            }
+            return (dataTable);
+        }
         public void Authenticate(string query, string[] param) {
             //Connection.ConnectionString = ConnectionString();
             //string[] result = null;
