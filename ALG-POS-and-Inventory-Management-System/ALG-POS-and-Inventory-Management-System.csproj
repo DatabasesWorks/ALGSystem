@@ -53,6 +53,7 @@
     <Compile Include="ContCategory.cs" />
     <Compile Include="ContDescription.cs" />
     <Compile Include="Classes\Services\ContServicesVehicleTypes.cs" />
+    <Compile Include="ContPointOfSale.cs" />
     <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
@@ -89,6 +90,12 @@
     <Compile Include="frmDescriptions.Designer.cs">
       <DependentUpon>frmDescriptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPosPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPosPay.Designer.cs">
+      <DependentUpon>frmPosPay.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTesting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +107,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="uCCustomerRecords.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -198,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDescriptions.resx">
       <DependentUpon>frmDescriptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPosPay.resx">
+      <DependentUpon>frmPosPay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTesting.resx">
       <DependentUpon>frmTesting.cs</DependentUpon>

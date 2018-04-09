@@ -18,6 +18,8 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void uCInventoryProductPrice_Load(object sender, EventArgs e) {
+            numPriceDiscount.TextChanged += new EventHandler(numPriceDiscount_TextChanged);
+            numPriceSelling.TextChanged += new EventHandler(numPriceSelling_TextChanged);
             LoadProductPrices(); LoadProductsCbo();
             LoadSupplierPrices(); // testing only
             lblPriceDiscount.Text = "0";
@@ -146,7 +148,15 @@ namespace ALG_POS_and_Inventory_Management_System {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        private void numPriceSelling_TextChanged(object sender, EventArgs e) {
+            try {
+                lblPriceProductPrice.Text = numPriceSelling.Value.ToString("C");
+                discountedPrice = (Convert.ToDecimal(numPriceSelling.Value) - (Convert.ToDecimal(numPriceSelling.Value) * ((Convert.ToDecimal(numPriceDiscount.Value)) / 100)));
+                lblPriceDiscounted.Text = discountedPrice.ToString("C");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void numPriceDiscount_ValueChanged(object sender, EventArgs e) {
             try {
                 lblPriceDiscount.Text = numPriceDiscount.Value.ToString();
@@ -156,7 +166,15 @@ namespace ALG_POS_and_Inventory_Management_System {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        private void numPriceDiscount_TextChanged(object sender, EventArgs e) {
+            try {
+                lblPriceDiscount.Text = numPriceDiscount.Value.ToString();
+                discountedPrice = (Convert.ToDecimal(numPriceSelling.Value) - (Convert.ToDecimal(numPriceSelling.Value) * ((Convert.ToDecimal(numPriceDiscount.Value)) / 100)));
+                lblPriceDiscounted.Text = discountedPrice.ToString("C");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void lvPriceProduct_SelectedIndexChanged(object sender, EventArgs e) {
             if (lvPriceProduct.SelectedItems.Count > 0) {
                 ListViewItem item = lvPriceProduct.SelectedItems[0];
