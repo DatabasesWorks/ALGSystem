@@ -25,7 +25,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         void LoadProducts() {
             lvProducts.Items.Clear();
             DataTable dt = new DataTable();
-            dt = _contInvProducts.LoadProducts();
+            dt = _contInvProducts.LoadProducts(txtSearch.Text,cboSearch.Text);
             for (int i = 0; i < dt.Rows.Count; i++) {
                 DataRow dr = dt.Rows[i];
                 ListViewItem listitem = new ListViewItem((i+1).ToString());
@@ -33,6 +33,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 listitem.SubItems.Add(dr["product_name"].ToString());
                 listitem.SubItems.Add(dr["brand_name"].ToString());
                 listitem.SubItems.Add(dr["category_name"].ToString());
+                listitem.SubItems.Add(dr["prodDesc"].ToString());
                 //listitem.SubItems.Add(_contInvProducts.GetProductDescription((dr["product_ID"]).ToString()));
                 lvProducts.Items.Add(listitem);
             }
@@ -59,6 +60,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             }
         }
         void ProdClear() {
+            cboSearch.Text = txtSearch.Text = "";
             txtProdNo.Text = txtProdName.Text = cboCategory.Text = "";
             cboBrand.Text = "Petron";
         }
@@ -236,6 +238,10 @@ namespace ALG_POS_and_Inventory_Management_System {
             frmCategory _frmCategory = new frmCategory();
             _frmCategory.ShowDialog();
             LoadCategories();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e) {
+            LoadProducts();
         }
 
         void LoadDescriptionValue(string catName) {

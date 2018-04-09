@@ -205,12 +205,11 @@
             this.cboSearch.ForeColor = System.Drawing.Color.White;
             this.cboSearch.FormattingEnabled = true;
             this.cboSearch.Items.AddRange(new object[] {
-            "All",
             "Product ID",
             "Product Name",
-            "Viscosity",
             "Brand",
-            "Volume"});
+            "Category",
+            "Description"});
             this.cboSearch.Location = new System.Drawing.Point(716, 5);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(174, 29);
@@ -422,10 +421,11 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(416, 7);
+            this.txtSearch.Location = new System.Drawing.Point(425, 7);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(212, 25);
+            this.txtSearch.Size = new System.Drawing.Size(194, 25);
             this.txtSearch.TabIndex = 157;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // txtProdName
             // 

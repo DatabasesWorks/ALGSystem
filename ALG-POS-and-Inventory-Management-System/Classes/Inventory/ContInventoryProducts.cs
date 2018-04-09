@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 namespace ALG_POS_and_Inventory_Management_System {
     class ContInventoryProducts {
         DbConnection Database = new DbConnection();
-        public System.Data.DataTable LoadProducts() {
+        public System.Data.DataTable LoadProducts(string search, string searchBy) {
             System.Data.DataTable dt = new System.Data.DataTable();
             dt = null;
             try {
-                //SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value) AS productDescription FROM products, categories, brands, product_description WHERE products.product_ID = product_description.product_ID AND products.brand_ID = brands.brand_ID AND products.category_ID = categories.category_ID AND products.date_deleted IS NULL
-                string query = "SELECT product_ID, product_name, brand_name, category_name FROM products, categories, brands WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND products.date_deleted IS NULL";
-                dt = Database.Retrieve(query);
+                string query;
+                if (searchBy == "Product ID") {
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND products.product_ID LIKE @0 GROUP BY products.product_ID";
+                } else if(searchBy == "Product Name") {
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND product_name LIKE @0 GROUP BY products.product_ID";
+                } else if (searchBy == "Brand") {
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND brand_name LIKE @0 GROUP BY products.product_ID";
+                } else if (searchBy == "Category") {
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND category_name LIKE @0 GROUP BY products.product_ID";
+                } else if (searchBy == "Description") {
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND product_desc_value LIKE @0 GROUP BY products.product_ID";
+                } else
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL GROUP BY products.product_ID";
+
+                string[] param = { search };
+                bool[] like = { true };
+               dt = Database.Retrieve(query,param,like);
             } catch (Exception ex) {
                 System.Windows.Forms.MessageBox.Show("Error on populating products listview: '" + ex + "'", "Products", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
