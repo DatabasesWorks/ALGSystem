@@ -45,8 +45,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnPay = new System.Windows.Forms.Button();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.numCash = new System.Windows.Forms.NumericUpDown();
+            this.btnPay = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCash)).BeginInit();
@@ -284,6 +286,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel2.Controls.Add(this.lblBalance);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.numCash);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
@@ -309,6 +313,43 @@
             this.panel2.Size = new System.Drawing.Size(454, 353);
             this.panel2.TabIndex = 118;
             // 
+            // lblBalance
+            // 
+            this.lblBalance.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.ForeColor = System.Drawing.Color.White;
+            this.lblBalance.Location = new System.Drawing.Point(233, 323);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(158, 27);
+            this.lblBalance.TabIndex = 139;
+            this.lblBalance.Text = "0";
+            this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(0, 323);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(231, 27);
+            this.label7.TabIndex = 138;
+            this.label7.Text = "Balance(for service):";
+            // 
+            // numCash
+            // 
+            this.numCash.Font = new System.Drawing.Font("Arial", 18F);
+            this.numCash.Location = new System.Drawing.Point(232, 239);
+            this.numCash.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.numCash.Name = "numCash";
+            this.numCash.Size = new System.Drawing.Size(159, 35);
+            this.numCash.TabIndex = 137;
+            this.numCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numCash.ValueChanged += new System.EventHandler(this.numCash_ValueChanged);
+            // 
             // btnPay
             // 
             this.btnPay.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -328,21 +369,6 @@
             this.btnPay.Text = "Pay Transaction";
             this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
-            // 
-            // numCash
-            // 
-            this.numCash.Font = new System.Drawing.Font("Arial", 18F);
-            this.numCash.Location = new System.Drawing.Point(232, 239);
-            this.numCash.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numCash.Name = "numCash";
-            this.numCash.Size = new System.Drawing.Size(159, 35);
-            this.numCash.TabIndex = 137;
-            this.numCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numCash.ValueChanged += new System.EventHandler(this.numCash_ValueChanged);
             // 
             // frmPosPay
             // 
@@ -389,5 +415,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.NumericUpDown numCash;
         private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label label7;
     }
 }
