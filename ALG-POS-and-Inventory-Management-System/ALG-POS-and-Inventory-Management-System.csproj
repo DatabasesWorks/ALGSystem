@@ -50,10 +50,10 @@
     <Compile Include="Classes\Inventory\ContInventoryStocks.cs" />
     <Compile Include="Classes\Inventory\ContInventorySuppliers.cs" />
     <Compile Include="Classes\Inventory\ContInventoryProductPrice.cs" />
-    <Compile Include="ContCategory.cs" />
-    <Compile Include="ContDescription.cs" />
+    <Compile Include="Classes\ContCategory.cs" />
+    <Compile Include="Classes\ContDescription.cs" />
     <Compile Include="Classes\Services\ContServicesVehicleTypes.cs" />
-    <Compile Include="ContPointOfSale.cs" />
+    <Compile Include="Classes\ContPointOfSale.cs" />
     <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
@@ -78,28 +78,28 @@
     <Compile Include="Forms\frmConfigs.Designer.cs">
       <DependentUpon>frmConfigs.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCategory.cs">
+    <Compile Include="Forms\frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCategory.Designer.cs">
+    <Compile Include="Forms\frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDescriptions.cs">
+    <Compile Include="Forms\frmDescriptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDescriptions.Designer.cs">
+    <Compile Include="Forms\frmDescriptions.Designer.cs">
       <DependentUpon>frmDescriptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPosPay.cs">
+    <Compile Include="Forms\frmPosPay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPosPay.Designer.cs">
+    <Compile Include="Forms\frmPosPay.Designer.cs">
       <DependentUpon>frmPosPay.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTesting.cs">
+    <Compile Include="Forms\frmTesting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTesting.Designer.cs">
+    <Compile Include="Forms\frmTesting.Designer.cs">
       <DependentUpon>frmTesting.cs</DependentUpon>
     </Compile>
     <Compile Include="MyTextbox.cs">
@@ -110,22 +110,22 @@
     <Compile Include="RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="uCCustomerRecords.cs">
+    <Compile Include="User Controls\uCCustomerRecords.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uCCustomerRecords.Designer.cs">
+    <Compile Include="User Controls\uCCustomerRecords.Designer.cs">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
     </Compile>
-    <Compile Include="uCManageEmployeeInfo.cs">
+    <Compile Include="User Controls\uCManageEmployeeInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uCManageEmployeeInfo.Designer.cs">
+    <Compile Include="User Controls\uCManageEmployeeInfo.Designer.cs">
       <DependentUpon>uCManageEmployeeInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="uCManageUsers.cs">
+    <Compile Include="User Controls\uCManageUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uCManageUsers.Designer.cs">
+    <Compile Include="User Controls\uCManageUsers.Designer.cs">
       <DependentUpon>uCManageUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\Services\uCServicesAdditionalService.cs">
@@ -203,16 +203,16 @@
     <EmbeddedResource Include="Forms\frmConfigs.resx">
       <DependentUpon>frmConfigs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCategory.resx">
+    <EmbeddedResource Include="Forms\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDescriptions.resx">
+    <EmbeddedResource Include="Forms\frmDescriptions.resx">
       <DependentUpon>frmDescriptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPosPay.resx">
+    <EmbeddedResource Include="Forms\frmPosPay.resx">
       <DependentUpon>frmPosPay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTesting.resx">
+    <EmbeddedResource Include="Forms\frmTesting.resx">
       <DependentUpon>frmTesting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyTextbox.resx">
@@ -223,13 +223,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="uCCustomerRecords.resx">
+    <EmbeddedResource Include="User Controls\uCCustomerRecords.resx">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uCManageEmployeeInfo.resx">
+    <EmbeddedResource Include="User Controls\uCManageEmployeeInfo.resx">
       <DependentUpon>uCManageEmployeeInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uCManageUsers.resx">
+    <EmbeddedResource Include="User Controls\uCManageUsers.resx">
       <DependentUpon>uCManageUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Inventory\uCInventoryProductPrice.resx">
