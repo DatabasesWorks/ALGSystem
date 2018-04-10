@@ -52,44 +52,55 @@ namespace ALG_POS_and_Inventory_Management_System {
             //service
             //service personnnel, added charges
             //payment
-
+            
+            List<string> list = new List<string>();
             string transacID, productTransacRelaID, serviceTransacID, paymentID;
             string query;
             string[] param;
 
             query = "SELECT MAX(transac_ID)+1 FROM transactions";
-            transacID = Database.Select(query)[0];
-            if (transacID == null) {
+            list = Database.Select(query);
+            if (list == null)
                 transacID = "10000001";
-            }
+            else
+                transacID = list[0];
 
-            query = "SELECT MAX(prod_transac_rela_ID)+1 FROM prod_trans_rela";//
-            productTransacRelaID = Database.Select(query)[0];
-            if (productTransacRelaID == "") {
-                productTransacRelaID = "1";
-            }
+            //====insert into transaction table
+            query = "INSERT INTO transactions SET transac_ID='" + transacID + "', discount='" + discount + "', discounted_amount='" + discountedAmount + "', total_amount='" + total + "', paid='" + paid + "', balance='" + balance + "'";//, customer_ID='" + custID + "'";
+            Database.Execute(query);
+
+            //change because transac_ID changed as a foreignkey in prod_trans_rela
+            //query = "SELECT MAX(prod_transac_rela_ID)+1 FROM prod_trans_rela";//
+            //list = Database.Select(query);
+            //if (list == null)
+            //    productTransacRelaID = "1";
+            //else
+            //    productTransacRelaID = list[0];
+            //insert prod_trans_rela
+            //query = "INSERT INTO prod_trans_rela SET transac_ID=@0";
+            //param = new string[] { transacID };
+            //Database.Execute(query, param);
 
             query = "SELECT MAX(servtransac_ID)+1 FROM service_transac";
-            serviceTransacID = Database.Select(query)[0];
-            if (serviceTransacID == "") {
+            list = Database.Select(query);
+            if (list == null) 
                 serviceTransacID = "1";
-            }
+            else
+                serviceTransacID = list[0];
 
             query = "SELECT MAX(payment_ID)+1 FROM payments";
-            paymentID = Database.Select(query)[0];
-            if (productTransacRelaID == "") {
-                productTransacRelaID = "1";
-            }
+            list = Database.Select(query);
+            if (list == null) 
+                paymentID = "1";
+            else
+                paymentID = list[0];
             //==== smaller tables
-            //insert prod_trans_rela
-            query = "INSERT INTO prod_trans_rela SET prod_transac_rela_ID=@0";
-            param = new string[] { productTransacRelaID };
-            Database.Execute(query, param);
+            
             //===to do: much smaller table(user foreach listviewItem item
             foreach (System.Windows.Forms.ListViewItem item in lvItems.Items) {
                 int existing = 0, quantity = Convert.ToInt32(item.SubItems[6].Text);
 
-                query = "SELECT stock_ID, remaining_stocks FROM stock WHERE remaining_stocks!=0 AND stock.product_ID='" + item.SubItems[1].Text + "' ORDER BY received_date ASC";
+                query = "SELECT stock_ID, remaining_stocks FROM stocks WHERE remaining_stocks!=0 AND product_ID='" + item.SubItems[1].Text + "' ORDER BY received_date ASC";
                 System.Data.DataTable stock = new System.Data.DataTable();
                 stock= Database.Retrieve(query);
 
@@ -99,23 +110,24 @@ namespace ALG_POS_and_Inventory_Management_System {
                         if (quantity > 0) {
                             if (quantity > existing) { //
                                 quantity = quantity - existing;
-                                query = "UPDATE stocks SET remaining_stock=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
+                                query = "UPDATE stocks SET remaining_stocks=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
                                 Database.Execute(query);
                             } else if (quantity == existing) {
-                                query = "UPDATE stocks SET remaining_stock=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
+                                query = "UPDATE stocks SET remaining_stocks=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
                                 Database.Execute(query);
                                 break;
                             } else if (quantity < existing) {
                                 existing = existing - quantity;
-                                query = "UPDATE stock SET remaining_stock='" + existing + "' WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
+                                query = "UPDATE stocks SET remaining_stocks='" + existing + "' WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
                                 Database.Execute(query);
                                 break;
                             }
                         }
                     }
                 //}
-
-                query = "INSERT INTO product_trans SET prod_trans_rela_ID='" + productTransacRelaID + "', product_ID='" + item.SubItems[0].Text + "', quantity='" + item.SubItems[5].Text + "', total_amount'" + item.SubItems[6].Text + "'";
+                
+                var totalAmount = Decimal.Parse(item.SubItems[7].Text, System.Globalization.NumberStyles.Currency);
+                query = "INSERT INTO prod_trans_rela SET transac_ID='" + transacID + "', product_ID='" + item.SubItems[1].Text + "', quantity='" + item.SubItems[6].Text + "', total='" + totalAmount + "'";
                 Database.Execute(query);
             }
 
@@ -129,12 +141,10 @@ namespace ALG_POS_and_Inventory_Management_System {
 
             //===to do: much smaller table(user foreach listviewService item
             //insert payment_ID --changed payment transaction rela, transaction is forreign key to payment
-            query = "INSERT INTO payment SET payment_ID='" + paymentID + "', cash='" + paid + "', ";
+            query = "INSERT INTO payments SET payment_ID='" + paymentID + "', cash='" + paid + "', transac_ID='" + transacID + "'";
             Database.Execute(query);
 
-            //====insert into transaction table
-            query = "INSERT INTO transaction SET transac_ID='" + transacID + "' prod_transac_rela_ID='" + productTransacRelaID + "', servtransac_ID='" + serviceTransacID + "', discount='" + discount + "', discounted_amount='" + discountedAmount + "', total_amount='" + total + "', paid'" + paid + "', balance'" + balance + "'";//, customer_ID='" + custID + "'";
-            Database.Execute(query);
+            
 
         }
     }

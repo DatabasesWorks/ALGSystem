@@ -44,7 +44,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     if (!IsSameItem()) {
                         for (int i = 0; i < dt.Rows.Count; i++) {
                             DataRow dr = dt.Rows[i];
-                            ListViewItem listitem = new ListViewItem((i + 1).ToString());
+                            ListViewItem listitem = new ListViewItem(((lvItems.Items.Count)+1).ToString());
                             listitem.SubItems.Add(dr["product_ID"].ToString()); //0
                             listitem.SubItems.Add(dr["product_name"].ToString()); //1
                             listitem.SubItems.Add(dr["brand_name"].ToString()+ " " + dr["prodDesc"].ToString()); //2
@@ -130,7 +130,6 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnPay_Click(object sender, EventArgs e) {
             if (lvServices.Items.Count > 0 || lvItems.Items.Count > 0) {
-                frmPosPay frmpospay = new frmPosPay();
                 if (lvServices.Items.Count > 0 && (cboCustName.Text == "")) {
                     MessageBox.Show("Please provide customer information", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 } else {
@@ -143,6 +142,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     ContPointOfSale.lvServices = lvServices;
                     ContPointOfSale.transID = lblTransNo.Text;
                     //ContPointOfSale.custID = contPos.CustInf(cboCustName.Text)[0];
+                    frmPosPay frmpospay = new frmPosPay();
                     frmpospay.ShowDialog();
                 }
             } else {
