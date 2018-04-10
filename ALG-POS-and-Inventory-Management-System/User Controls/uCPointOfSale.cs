@@ -142,6 +142,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     ContPointOfSale.lvItems = lvItems;
                     ContPointOfSale.lvServices = lvServices;
                     ContPointOfSale.transID = lblTransNo.Text;
+                    //ContPointOfSale.custID = contPos.CustInf(cboCustName.Text)[0];
                     frmpospay.ShowDialog();
                 }
             } else {

@@ -12,7 +12,7 @@ namespace ALG_POS_and_Inventory_Management_System {
     public partial class frmPosPay : Form {
         private string transID, custID, totalStr, totalDisc, discount, totalItems, totalServices;
         double cash, total, change;
-
+        ContPointOfSale contPos = new ContPointOfSale();
         public frmPosPay() {
             InitializeComponent();
         }
@@ -61,7 +61,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void btnPay_Click(object sender, EventArgs e) {
             if (Convert.ToDouble(lblChange.Text) < 0 && lblTotalItems.Text=="0") {
                 MessageBox.Show("Full payment required when purchasing only products.", "Point of Sale" , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            } else if( (Convert.ToDouble(lblTotalAmount.Text)/2) > Convert.ToDouble(lblChange.Text) && lblTotalService.Text != "0") {
+            } else if( (Convert.ToDouble(lblTotalAmount.Text)/2) < Convert.ToDouble(lblChange.Text) && lblTotalService.Text != "0") {
                 MessageBox.Show("Partial payment must be at least half.", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             } else {
                 //select max+1 from tables where transaction has foreign key
@@ -71,7 +71,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 //then insert the same key to transaction table
                 ContPointOfSale clspos = new ContPointOfSale();
                 ContPointOfSale.paid = numCash.Value;
-
+                contPos.SaveToDb();
             }
         }
 

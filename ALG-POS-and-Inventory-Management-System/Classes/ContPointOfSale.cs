@@ -59,7 +59,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
             query = "SELECT MAX(transac_ID)+1 FROM transactions";
             transacID = Database.Select(query)[0];
-            if (transacID == "") {
+            if (transacID == null) {
                 transacID = "10000001";
             }
 
@@ -87,46 +87,45 @@ namespace ALG_POS_and_Inventory_Management_System {
             Database.Execute(query, param);
             //===to do: much smaller table(user foreach listviewItem item
             foreach (System.Windows.Forms.ListViewItem item in lvItems.Items) {
-                int existing = 0, quantity = Convert.ToInt32(item.SubItems[5].Text);
-                query = "SELECT stock_ID, remaining_stocks FROM stock WHERE remaining_stocks!=0 AND stock.product_ID='" + item.SubItems[0].Text + "' ORDER BY received_date ASC";
+                int existing = 0, quantity = Convert.ToInt32(item.SubItems[6].Text);
+
+                query = "SELECT stock_ID, remaining_stocks FROM stock WHERE remaining_stocks!=0 AND stock.product_ID='" + item.SubItems[1].Text + "' ORDER BY received_date ASC";
                 System.Data.DataTable stock = new System.Data.DataTable();
                 stock= Database.Retrieve(query);
 
-                foreach (System.Data.DataColumn col in stock.Columns) { // updates stock based on purchased quantity
-
+                //foreach (System.Data.DataColumn col in stock.Columns) { // updates stock based on purchased quantity
                     foreach (System.Data.DataRow row in stock.Rows) {
                         existing = Convert.ToInt32(row["remaining_stocks"].ToString());
                         if (quantity > 0) {
-                            if (quantity > existing) {
+                            if (quantity > existing) { //
                                 quantity = quantity - existing;
                                 query = "UPDATE stocks SET remaining_stock=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
                                 Database.Execute(query);
                             } else if (quantity == existing) {
                                 query = "UPDATE stocks SET remaining_stock=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
                                 Database.Execute(query);
-                                continue;
+                                break;
                             } else if (quantity < existing) {
                                 existing = existing - quantity;
                                 query = "UPDATE stock SET remaining_stock='" + existing + "' WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
                                 Database.Execute(query);
-                                continue;
+                                break;
                             }
                         }
                     }
-
-                }
+                //}
 
                 query = "INSERT INTO product_trans SET prod_trans_rela_ID='" + productTransacRelaID + "', product_ID='" + item.SubItems[0].Text + "', quantity='" + item.SubItems[5].Text + "', total_amount'" + item.SubItems[6].Text + "'";
                 Database.Execute(query);
             }
 
 
-            foreach (System.Windows.Forms.ListViewItem item in lvServices.Items) {
-                query = "INSERT INTO serv_transac_rela SET servtransac_ID='" + serviceTransacID + "', service_ID=(SELECT service_ID FROM service WHERE service_name= '" + item.SubItems[4].Text + "'), added_service='" + item.SubItems[7].Text + "', served_employee ='" + item.SubItems[6].Text + "', plate_no='" + item.SubItems[0].Text + "', vehicletype_ID(SELECT vehicletype_ID FROM vehicle_type WHERE vehicle_type='" + item.SubItems[1].Text + "') , ";
-            }
-            //insert serv_transac_ID
-            query = "INSERT INTO service_transac SET servtransac_ID='" + serviceTransacID + "'";
-            Database.Execute(query);
+            //foreach (System.Windows.Forms.ListViewItem item in lvServices.Items) {
+            //    query = "INSERT INTO serv_transac_rela SET servtransac_ID='" + serviceTransacID + "', service_ID=(SELECT service_ID FROM service WHERE service_name= '" + item.SubItems[4].Text + "'), added_service='" + item.SubItems[7].Text + "', served_employee ='" + item.SubItems[6].Text + "', plate_no='" + item.SubItems[0].Text + "', vehicletype_ID(SELECT vehicletype_ID FROM vehicle_type WHERE vehicle_type='" + item.SubItems[1].Text + "') , ";
+            //}
+            ////insert serv_transac_ID
+            //query = "INSERT INTO service_transac SET servtransac_ID='" + serviceTransacID + "'";
+            //Database.Execute(query);
 
             //===to do: much smaller table(user foreach listviewService item
             //insert payment_ID --changed payment transaction rela, transaction is forreign key to payment
@@ -134,7 +133,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             Database.Execute(query);
 
             //====insert into transaction table
-            query = "INSERT INTO transaction SET transac_ID='" + transacID + "' prod_transac_rela_ID='" + productTransacRelaID + "', servtransac_ID='" + serviceTransacID + "', discount='" + discount + "', discounted_amount='" + discountedAmount + "', total_amount='" + total + "', paid'" + paid + "', balance'" + balance + "', customer_ID='" + custID + "'";
+            query = "INSERT INTO transaction SET transac_ID='" + transacID + "' prod_transac_rela_ID='" + productTransacRelaID + "', servtransac_ID='" + serviceTransacID + "', discount='" + discount + "', discounted_amount='" + discountedAmount + "', total_amount='" + total + "', paid'" + paid + "', balance'" + balance + "'";//, customer_ID='" + custID + "'";
             Database.Execute(query);
 
         }
