@@ -58,7 +58,7 @@ namespace ALG_POS_and_Inventory_Management_System
                     nvm = "nvm";
                 if (!isDuplicateVehicleTypes(nvm))
                 { // if no duplicate found, nvm is to make sure that it will return false; no duplicate found
-                    string query = "UPDATE vehicle_type SET vehicle_type=@0, WHERE supplier_ID=@1";
+                    string query = "UPDATE vehicle_type SET vehicle_type=@0, WHERE vehicletype_ID=@1";
                     string[] param = { vehicle_type,  vehicle_ID };
                     if (Database.Execute(query, param))
                     {

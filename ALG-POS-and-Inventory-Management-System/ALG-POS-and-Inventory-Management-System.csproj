@@ -54,6 +54,7 @@
     <Compile Include="Classes\ContDescription.cs" />
     <Compile Include="Classes\Services\ContServicesVehicleTypes.cs" />
     <Compile Include="Classes\ContPointOfSale.cs" />
+    <Compile Include="ContServicesServiceOffered.cs" />
     <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
@@ -110,28 +111,22 @@
     <Compile Include="RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="uCPosAddService.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="uCPosAddService.Designer.cs">
-      <DependentUpon>uCPosAddService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="User Controls\uCCustomerRecords.cs">
+    <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\uCCustomerRecords.Designer.cs">
+    <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.Designer.cs">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\uCManageEmployeeInfo.cs">
+    <Compile Include="User Controls\LogsAndMaintenance\uCManageEmployeeInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\uCManageEmployeeInfo.Designer.cs">
+    <Compile Include="User Controls\LogsAndMaintenance\uCManageEmployeeInfo.Designer.cs">
       <DependentUpon>uCManageEmployeeInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\uCManageUsers.cs">
+    <Compile Include="User Controls\LogsAndMaintenance\uCManageUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\uCManageUsers.Designer.cs">
+    <Compile Include="User Controls\LogsAndMaintenance\uCManageUsers.Designer.cs">
       <DependentUpon>uCManageUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\Services\uCServicesAdditionalService.cs">
@@ -188,10 +183,10 @@
     <Compile Include="User Controls\Inventory\uCInventory.Designer.cs">
       <DependentUpon>uCInventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\uCPointOfSale.cs">
+    <Compile Include="User Controls\PointofSale\uCPointOfSale.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\uCPointOfSale.Designer.cs">
+    <Compile Include="User Controls\PointofSale\uCPointOfSale.Designer.cs">
       <DependentUpon>uCPointOfSale.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\Services\uCServices.cs">
@@ -229,16 +224,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="uCPosAddService.resx">
-      <DependentUpon>uCPosAddService.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\uCCustomerRecords.resx">
+    <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCCustomerRecords.resx">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\uCManageEmployeeInfo.resx">
+    <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCManageEmployeeInfo.resx">
       <DependentUpon>uCManageEmployeeInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\uCManageUsers.resx">
+    <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCManageUsers.resx">
       <DependentUpon>uCManageUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Inventory\uCInventoryProductPrice.resx">
@@ -268,7 +260,7 @@
     <EmbeddedResource Include="User Controls\Services\uCServicesVehicleTypes.resx">
       <DependentUpon>uCServicesVehicleTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\uCPointOfSale.resx">
+    <EmbeddedResource Include="User Controls\PointofSale\uCPointOfSale.resx">
       <DependentUpon>uCPointOfSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Services\uCServices.resx">
