@@ -23,9 +23,8 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.txtTypeName = new MyTextBox();
-            this.txtTypeID = new MyTextBox();
             this.lvType = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label7 = new System.Windows.Forms.Label();
@@ -35,35 +34,14 @@
             this.btnVetClear = new System.Windows.Forms.Button();
             this.btnVetEdit = new System.Windows.Forms.Button();
             this.btnVetAdd = new System.Windows.Forms.Button();
+            this.txtTypeName = new MyTextBox();
+            this.txtTypeID = new MyTextBox();
             this.SuspendLayout();
-            // 
-            // txtTypeName
-            // 
-            this.txtTypeName.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtTypeName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTypeName.Enabled = false;
-            this.txtTypeName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTypeName.ForeColor = System.Drawing.Color.White;
-            this.txtTypeName.Location = new System.Drawing.Point(188, 103);
-            this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.Size = new System.Drawing.Size(161, 25);
-            this.txtTypeName.TabIndex = 145;
-            // 
-            // txtTypeID
-            // 
-            this.txtTypeID.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtTypeID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTypeID.Enabled = false;
-            this.txtTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTypeID.ForeColor = System.Drawing.Color.White;
-            this.txtTypeID.Location = new System.Drawing.Point(188, 66);
-            this.txtTypeID.Name = "txtTypeID";
-            this.txtTypeID.Size = new System.Drawing.Size(52, 25);
-            this.txtTypeID.TabIndex = 144;
             // 
             // lvType
             // 
             this.lvType.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
             this.columnHeader3,
             this.columnHeader4});
             this.lvType.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,6 +54,11 @@
             this.lvType.UseCompatibleStateImageBehavior = false;
             this.lvType.View = System.Windows.Forms.View.Details;
             this.lvType.SelectedIndexChanged += new System.EventHandler(this.lvType_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No.";
+            this.columnHeader1.Width = 36;
             // 
             // columnHeader3
             // 
@@ -212,6 +195,30 @@
             this.btnVetAdd.UseVisualStyleBackColor = false;
             this.btnVetAdd.Click += new System.EventHandler(this.btnVetAdd_Click);
             // 
+            // txtTypeName
+            // 
+            this.txtTypeName.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtTypeName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTypeName.Enabled = false;
+            this.txtTypeName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTypeName.ForeColor = System.Drawing.Color.White;
+            this.txtTypeName.Location = new System.Drawing.Point(188, 103);
+            this.txtTypeName.Name = "txtTypeName";
+            this.txtTypeName.Size = new System.Drawing.Size(161, 25);
+            this.txtTypeName.TabIndex = 145;
+            // 
+            // txtTypeID
+            // 
+            this.txtTypeID.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtTypeID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTypeID.Enabled = false;
+            this.txtTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTypeID.ForeColor = System.Drawing.Color.White;
+            this.txtTypeID.Location = new System.Drawing.Point(188, 66);
+            this.txtTypeID.Name = "txtTypeID";
+            this.txtTypeID.Size = new System.Drawing.Size(52, 25);
+            this.txtTypeID.TabIndex = 144;
+            // 
             // uCServicesVehicleTypes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -248,5 +255,6 @@
         private System.Windows.Forms.Button btnVetClear;
         private System.Windows.Forms.Button btnVetEdit;
         private System.Windows.Forms.Button btnVetAdd;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

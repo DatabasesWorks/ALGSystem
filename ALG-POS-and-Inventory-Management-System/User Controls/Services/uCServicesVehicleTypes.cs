@@ -42,7 +42,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnVetEdit_Click(object sender, EventArgs e)
         {
-            btnVetEdit.Enabled = false; btnVetSave.Enabled = true; vetedit = true; btnVetDelete.Enabled = false; VetUnLock();
+            btnVetEdit.Enabled = false; btnVetSave.Enabled = true; vetedit = true; btnVetDelete.Enabled = false; VetUnLock(); txtTypeID.Enabled = false;
             tempOldName = txtTypeName.Text;
         }
 
@@ -103,10 +103,13 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void lvType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListViewItem item = lvType.SelectedItems[0];
-            txtTypeID.Text = item.SubItems[0].Text;
-            txtTypeName.Text = item.SubItems[2].Text;
-            btnVetAdd.Enabled = false; btnVetEdit.Enabled = true; btnVetDelete.Enabled = true; btnVetSave.Enabled = false; vetadd = false; vetedit = false; VetLock();
+            if (lvType.SelectedItems.Count > 0)
+            {
+                ListViewItem item = lvType.SelectedItems[0];
+                txtTypeID.Text = item.SubItems[1].Text;
+                txtTypeName.Text = item.SubItems[2].Text;
+                btnVetAdd.Enabled = false; btnVetEdit.Enabled = true; btnVetDelete.Enabled = true; btnVetSave.Enabled = false; vetadd = false; vetedit = false; VetLock();
+            }
         }
 
         private void btnVetClear_Click(object sender, EventArgs e)
@@ -123,8 +126,8 @@ namespace ALG_POS_and_Inventory_Management_System {
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 DataRow dr = dt.Rows[i];
-                ListViewItem listitem = new ListViewItem(dr["vehicletype_ID"].ToString());
-                listitem.SubItems.Add((i + 1).ToString());
+                ListViewItem listitem = new ListViewItem((i + 1).ToString());
+                listitem.SubItems.Add(dr["vehicletype_ID"].ToString());
                 listitem.SubItems.Add(dr["vehicle_type"].ToString());
                 lvType.Items.Add(listitem);
             }
