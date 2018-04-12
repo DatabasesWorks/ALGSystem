@@ -11,6 +11,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         public static decimal discount, total, totalDisc, totalItems, totalServices, paid, balance, discountedAmount;
         public static System.Windows.Forms.ListView lvItems = new System.Windows.Forms.ListView();
         public static System.Windows.Forms.ListView lvServices = new System.Windows.Forms.ListView();
+        public static string plateNo, vehicleType, brand, model, color, serviceRendered, payment, employees, addedService;
         public System.Data.DataTable LoadProduct(string itemCode) {
             System.Data.DataTable dt = new System.Data.DataTable();
             dt = null;
@@ -25,6 +26,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             }
             return (dt);
         }
+
         public List<string> LoadCustomer() {
             try {
                 string query = "SELECT CONCAT(gName,' ', mInitial, '. ',fName) FROM customers WHERE date_deleted IS NULL";
@@ -34,15 +36,122 @@ namespace ALG_POS_and_Inventory_Management_System {
                 return null;
             }
         }
+
         public List<string> CustInf(string custName) {
             try {
                 string query = "SELECT cust_ID, contact_num, address FROM customers WHERE CONCAT(gName,' ', mInitial, '. ',fName) = '" + custName + "'";
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query);
+                if(myCollection!=null)
+                    custID = myCollection[0];
+                return myCollection;
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading customer information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public List<string> LoadPlateNo() {
+            try {
+                string query = "SELECT plate_no FROM customer_vehicle WHERE cust_ID= '" + custID + "'";
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query);
+                if (myCollection != null)
+                    custID = myCollection[0];
+                return myCollection;
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading plate No: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public List<string> LoadCarDetails(string plateNo) {
+            try {
+                string query = "SELECT vehicle_brand_name, model, color, vehicle_type FROM customer_vehicle, vehicle_brands, vehicle_types WHERE vehicle_brands.vehicle_brand_ID=customer_vehicle.vehicle_brand_ID AND vehicle_types.vehicletype_ID=customer_vehicle.vehicletype_ID AND plate_no ='" + plateNo + "'";
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query);
+                if (myCollection != null)
+                    custID = myCollection[0];
+                return myCollection;
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading customer information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public List<string> LoadServices(string vehicleType) {
+            try {
+                string query = "SELECT DISTINCT service_name FROM services, service_prices, vehicle_types WHERE services.service_ID = service_prices.service_ID AND service_prices.vehicletype_ID = (SELECT vehicletype_ID FROM vehicle_types WHERE vehicle_type ='" + vehicleType + "')";
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query);
+                if (myCollection != null)
+                    custID = myCollection[0];
+                return myCollection;
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading customer information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public string GetServicePrice(string serviceName, string vehicleType) {
+            try {
+                string query = "SELECT TRUNCATE(service_fee,2) FROM service_prices,services,vehicle_types WHERE (SELECT service_ID FROM services WHERE service_name='" + serviceName + "') = service_prices.service_ID AND (SELECT vehicletype_ID FROM vehicle_types WHERE vehicle_type='" + vehicleType + "') = service_prices.vehicletype_ID LIMIT 1";
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query);
+                return myCollection[0];
+            } catch (Exception ex) {
+               Console.WriteLine("Error on loading customer information: '" + ex + "'" + "Point of Sale");
+                return null;
+            }
+        }
+
+        public string GetServiceDesc(string serviceName) {
+            try {
+                string query = "SELECT service_desc FROM services WHERE service_name='" + serviceName + "'";
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query);
+                return myCollection[0];
+            } catch (Exception ex) {
+                Console.WriteLine("Error on loading customer information: '" + ex + "'" + "Point of Sale");
+                return "";
+            }
+        }
+
+        public List<string> LoadEmployees() {
+            try {
+                string query = "SELECT CONCAT(emp_fName,',',emp_gName,',',emp_mInitial) FROM employees";
                 List<string> myCollection = new List<string>();
                 myCollection = Database.Select(query);
                 return myCollection;
             } catch (Exception ex) {
                 System.Windows.Forms.MessageBox.Show("Error on loading customer information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return null;
+            }
+        }
+        public List<string> LoadAddedServices(string serviceName) {
+            try {
+                string query = "SELECT CONCAT(serv_added_name,' (P ', serv_added_price,')') AS addedServicePrice FROM added_service_price WHERE service_ID = (SELECT service_ID FROM services WHERE service_name = '" + serviceName + "')";
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query);
+                return myCollection;
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading customer information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
+        public decimal GetAddedServicePrice(List<string> addedServicePrice) {
+            try {
+                string query = "";
+                List<string> myCollection = new List<string>();
+                decimal addedPrice=0;
+                foreach (string item in addedServicePrice) {
+                    query = "SELECT serv_added_price FROM added_service_price WHERE CONCAT(serv_added_name,' (P ', serv_added_price,')')='" + item + "'";
+                    addedPrice += decimal.Parse( Database.Select(query)[0]);
+                }
+                return (addedPrice);
+            } catch (Exception ex) {
+                Console.WriteLine("Error on adding added service price information: '" + ex + "'" + "Point of Sale");
+                return 0;
             }
         }
         public void SaveToDb() {
@@ -143,9 +252,6 @@ namespace ALG_POS_and_Inventory_Management_System {
             //insert payment_ID --changed payment transaction rela, transaction is forreign key to payment
             query = "INSERT INTO payments SET payment_ID='" + paymentID + "', cash='" + paid + "', transac_ID='" + transacID + "'";
             Database.Execute(query);
-
-            
-
         }
     }
 }

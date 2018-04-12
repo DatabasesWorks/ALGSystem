@@ -103,6 +103,12 @@
     <Compile Include="Forms\frmTesting.Designer.cs">
       <DependentUpon>frmTesting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPosAddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPosAddService.Designer.cs">
+      <DependentUpon>frmPosAddService.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTesting.resx">
       <DependentUpon>frmTesting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPosAddService.resx">
+      <DependentUpon>frmPosAddService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyTextbox.resx">
       <DependentUpon>MyTextbox.cs</DependentUpon>
