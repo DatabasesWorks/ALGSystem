@@ -101,6 +101,30 @@ namespace ALG_POS_and_Inventory_Management_System {
                 throw;
             }
         }
+        private void AddTotalService() {
+            decimal total = 0;
+            //foreach (ListViewItem item in lvServices.Items) {
+            //    total = total + (Convert.ToDouble(item.SubItems[5].Text.ToString()));
+            //}
+            //lblTotalService.Text = total.ToString();
+            //lblTotalAmount.Text = (Convert.ToDouble(lblTotalService.Text) + Convert.ToDouble(lblTotalItems.Text)).ToString();
+            //if (numDiscount.Value == 0)
+            //    lblDiscAmount.Text = lblTotalAmount.Text;
+            try {
+                foreach (ListViewItem item in lvServices.Items) {
+                    price = Decimal.Parse(item.SubItems[7].Text, NumberStyles.Currency);
+                    total = total + price;
+                }
+                lblTotalService.Text = total.ToString("C");
+                itemPrice = Decimal.Parse(lblTotalService.Text, NumberStyles.Currency);
+                total = Decimal.Parse(lblTotalItems.Text, NumberStyles.Currency) + itemPrice;
+                lblTotalAmount.Text = (total).ToString("C");
+                if (numDiscount.Value == 0)     // ???????
+                    lblDiscAmount.Text = lblTotalAmount.Text;
+            } catch (Exception ex) {
+                MessageBox.Show("Something went wrong: " + ex.Message, "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
         private void lvItems_SelectedIndexChanged(object sender, EventArgs e) {
             if (lvItems.SelectedItems.Count > 0) {
                 ListViewItem item = lvItems.SelectedItems[0];
@@ -108,6 +132,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 numQuan.Text = item.SubItems[5].Text;
                 lvIclick = true;
                 btnRemove.Enabled = true;
+                lvServices.SelectedItems.Clear();   //
             }
         }
 
@@ -123,8 +148,9 @@ namespace ALG_POS_and_Inventory_Management_System {
                 //clsPointOfSale.custID = result[0].ToString();
                 lblContact.Text = result[1].ToString();
                 lblAddress.Text = result[2].ToString();
-            } catch (Exception) {
-                
+                lvServices.Items.Clear();
+            } catch (Exception ex) {
+                Console.WriteLine("error on cboCustName_SelectedIndexChanged: " + ex.Message);
             }
         }
 
@@ -138,9 +164,9 @@ namespace ALG_POS_and_Inventory_Management_System {
                     ContPointOfSale.totalServices = Decimal.Parse(lblTotalService.Text, NumberStyles.Currency);
                     ContPointOfSale.discount = numDiscount.Value;
                     ContPointOfSale.totalDisc = Decimal.Parse(lblDiscAmount.Text, NumberStyles.Currency);
+                    ContPointOfSale.transID = lblTransNo.Text;
                     ContPointOfSale.lvItems = lvItems;
                     ContPointOfSale.lvServices = lvServices;
-                    ContPointOfSale.transID = lblTransNo.Text;
                     //ContPointOfSale.custID = contPos.CustInf(cboCustName.Text)[0];
                     frmPosPay frmpospay = new frmPosPay();
                     frmpospay.ShowDialog();
@@ -164,6 +190,59 @@ namespace ALG_POS_and_Inventory_Management_System {
                 numDiscount.Value = 0;
             }
         }
+
+        private void btnAddService_Click(object sender, EventArgs e) {
+            contPos.CustInf(cboCustName.Text); // to save the customer name
+            if (cboCustName.Text == "") {
+                MessageBox.Show("Please provide customer information", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } else {
+                frmPosAddService frmAddService = new frmPosAddService();
+                frmAddService.ShowDialog();
+                if(ContPointOfSale.plateNo=="" || ContPointOfSale.plateNo == null) {
+                    //do nothing
+                } else {
+                    ListViewItem listitem = new ListViewItem(((lvServices.Items.Count) + 1).ToString());
+                    listitem.SubItems.Add(ContPointOfSale.plateNo);
+                    listitem.SubItems.Add(ContPointOfSale.vehicleType);
+                    listitem.SubItems.Add(ContPointOfSale.brand);
+                    listitem.SubItems.Add(ContPointOfSale.model);
+                    listitem.SubItems.Add(ContPointOfSale.color);
+                    listitem.SubItems.Add(ContPointOfSale.serviceRendered);
+                    listitem.SubItems.Add(decimal.Parse(ContPointOfSale.payment).ToString("C"));
+                    listitem.SubItems.Add(ContPointOfSale.employees);
+                    listitem.SubItems.Add(ContPointOfSale.addedService);
+                    lvServices.Items.Add(listitem);
+                    AddTotalService();
+                }
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e) {
+            if (lvItems.SelectedItems.Count > 0) {
+                foreach (ListViewItem eachItem in lvItems.SelectedItems) {
+                    lvItems.Items.Remove(eachItem);
+                }
+                for(int i =0; i<lvItems.Items.Count; i++) {
+                    lvItems.Items[i].SubItems[0].Text = (i + 1).ToString();
+                }
+                AddTotalItem(); AddTotalService();
+            } else if (lvServices.SelectedItems.Count > 0) {
+                foreach (ListViewItem eachItem in lvServices.SelectedItems) {
+                    lvServices.Items.Remove(eachItem);
+                }
+                for (int i = 0; i < lvServices.Items.Count; i++) {
+                    lvServices.Items[i].SubItems[0].Text = (i + 1).ToString();
+                }
+                AddTotalItem(); AddTotalService();
+            } else
+                MessageBox.Show("Select item/service to be removed", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+           
+        }
+
+        private void lvServices_SelectedIndexChanged(object sender, EventArgs e) {
+            lvItems.SelectedItems.Clear();
+        }
+
         private void numDiscount_TextChanged(object sender, EventArgs e) {
             try {
                 if (numDiscount.Value == 0) {
