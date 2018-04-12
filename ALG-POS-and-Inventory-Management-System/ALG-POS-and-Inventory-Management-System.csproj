@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ContMain - Copy.cs" />
+    <Compile Include="Classes\ContPointOfSale - Copy.cs" />
     <Compile Include="Classes\Inventory\ContInventoryStocks.cs" />
     <Compile Include="Classes\Inventory\ContInventorySuppliers.cs" />
     <Compile Include="Classes\Inventory\ContInventoryProductPrice.cs" />
@@ -54,7 +56,8 @@
     <Compile Include="Classes\ContDescription.cs" />
     <Compile Include="Classes\Services\ContServicesVehicleTypes.cs" />
     <Compile Include="Classes\ContPointOfSale.cs" />
-    <Compile Include="ContServicesServiceOffered.cs" />
+    <Compile Include="ContManageEmployee.cs" />
+    <Compile Include="Classes\Services\ContServicesServiceOffered.cs" />
     <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
