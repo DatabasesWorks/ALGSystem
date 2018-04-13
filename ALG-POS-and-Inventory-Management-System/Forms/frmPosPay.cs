@@ -26,7 +26,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         void LoadPosDetail() {
             transID = ContPointOfSale.transID;
             custID = ContPointOfSale.custID;
-            lblTotal.Text = totalStr = ContPointOfSale.total.ToString();
+            lblTotal.Text = totalStr = ContPointOfSale.totalAmount.ToString();
             lblTotalAmount.Text = totalDisc = ContPointOfSale.totalDisc.ToString();
             lblDiscount.Text = discount = ContPointOfSale.discount + "%";
             lblTotalItems.Text = totalItems = ContPointOfSale.totalItems.ToString();
@@ -72,8 +72,6 @@ namespace ALG_POS_and_Inventory_Management_System {
                 //assign those keys to a variable
                 //insert first to tables where it is foreign key 
                 //then insert the same key to transaction table
-                MessageBox.Show("Test");
-
                 ContPointOfSale clspos = new ContPointOfSale();
                 ContPointOfSale.paid = numCash.Value;
                 ContPointOfSale.balance = Convert.ToDecimal(lblBalance.Text);

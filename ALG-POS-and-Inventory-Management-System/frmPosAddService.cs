@@ -136,23 +136,32 @@ namespace ALG_POS_and_Inventory_Management_System {
                 ContPointOfSale.model = lblModel.Text;
                 ContPointOfSale.color = lblColor.Text;
                 ContPointOfSale.vehicleType = lblVehicleType.Text;
-                ContPointOfSale.serviceRendered = string.Format("{0} (P {1}) ",cboServiceName.Text,decimal.Parse(servicePrice).ToString("C"));
+                ContPointOfSale.serviceRendered = string.Format("{0} (P {1}) ",cboServiceName.Text,servicePrice);
                 ContPointOfSale.payment = lblFee.Text;
                 int i = 0;
+                ContPointOfSale.employees = ContPointOfSale.employeesID = "";
+                ContPointOfSale.addedService = ContPointOfSale.addedServicesID = "";
                 foreach(string item in clbEmployee.CheckedItems) {
                     if (i == 0) {
                         ContPointOfSale.employees += item;
                         i = 1;
-                    }else
-                        ContPointOfSale.employees += " ; " + item;
+                        ContPointOfSale.employeesID += (contPos.GetEmployeeID(item));
+                    } else {
+                        ContPointOfSale.employees += "/ " + item;
+                        ContPointOfSale.employeesID += "/" + (contPos.GetEmployeeID(item));
+                    }
                 }
                 i = 0;
                 foreach (string item in clbAddedService.CheckedItems) {
                     if (i == 0) {
                         ContPointOfSale.addedService += item;
                         i = 1;
-                    } else
-                        ContPointOfSale.addedService += " ; " + item;
+                        ContPointOfSale.addedServicesID += (contPos.GetAddedServiceID(item));
+                    } else {
+                        ContPointOfSale.addedService += "/ " + item;
+                        ContPointOfSale.addedServicesID += "/" + (contPos.GetAddedServiceID(item));
+                    }
+
                 }
                 this.Close();
             }

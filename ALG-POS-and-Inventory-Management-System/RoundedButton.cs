@@ -33,7 +33,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             GraphicsPath GraphPath = GetRoundPath(Rect, 50);
 
             this.Region = new Region(GraphPath);
-            using (Pen pen = new Pen(Color.CadetBlue, 1.75f)) {
+            using (Pen pen = new Pen(Color.White, 1.75f)) {
                 pen.Alignment = PenAlignment.Inset;
                 e.Graphics.DrawPath(pen, GraphPath);
             }

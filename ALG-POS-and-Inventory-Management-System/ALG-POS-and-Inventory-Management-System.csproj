@@ -109,6 +109,18 @@
     <Compile Include="frmPosAddService.Designer.cs">
       <DependentUpon>frmPosAddService.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPosOngoingService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPosOngoingService.Designer.cs">
+      <DependentUpon>frmPosOngoingService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPosSearchItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPosSearchItem.Designer.cs">
+      <DependentUpon>frmPosSearchItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -225,6 +237,12 @@
     <EmbeddedResource Include="frmPosAddService.resx">
       <DependentUpon>frmPosAddService.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPosOngoingService.resx">
+      <DependentUpon>frmPosOngoingService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPosSearchItem.resx">
+      <DependentUpon>frmPosSearchItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyTextbox.resx">
       <DependentUpon>MyTextbox.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,7 +311,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\search-icon-white-one-hi.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rounded-rectangle.png" />
   </ItemGroup>

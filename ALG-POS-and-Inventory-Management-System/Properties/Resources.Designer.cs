@@ -69,5 +69,15 @@ namespace ALG_POS_and_Inventory_Management_System.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_icon_white_one_hi {
+            get {
+                object obj = ResourceManager.GetObject("search-icon-white-one-hi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
