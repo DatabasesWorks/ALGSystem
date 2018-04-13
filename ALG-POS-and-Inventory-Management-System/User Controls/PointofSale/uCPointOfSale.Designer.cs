@@ -27,7 +27,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNewTrans = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
-            this.btnAdjustDisc = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.lblTransNo = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -48,6 +47,8 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lvItems = new System.Windows.Forms.ListView();
@@ -91,6 +92,8 @@
             this.btnAddService = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuan)).BeginInit();
@@ -104,7 +107,6 @@
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel2.Controls.Add(this.btnNewTrans);
             this.panel2.Controls.Add(this.btnPay);
-            this.panel2.Controls.Add(this.btnAdjustDisc);
             this.panel2.Controls.Add(this.btnRemove);
             this.panel2.Controls.Add(this.lblTransNo);
             this.panel2.Controls.Add(this.linkLabel1);
@@ -137,12 +139,13 @@
             this.btnNewTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewTrans.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewTrans.ForeColor = System.Drawing.Color.White;
-            this.btnNewTrans.Location = new System.Drawing.Point(1218, 23);
+            this.btnNewTrans.Location = new System.Drawing.Point(1225, 15);
             this.btnNewTrans.Name = "btnNewTrans";
             this.btnNewTrans.Size = new System.Drawing.Size(126, 66);
             this.btnNewTrans.TabIndex = 178;
             this.btnNewTrans.Text = "New Transaction";
             this.btnNewTrans.UseVisualStyleBackColor = false;
+            this.btnNewTrans.Click += new System.EventHandler(this.btnNewTrans_Click);
             // 
             // btnPay
             // 
@@ -156,32 +159,13 @@
             this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPay.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.ForeColor = System.Drawing.Color.White;
-            this.btnPay.Location = new System.Drawing.Point(1092, 23);
+            this.btnPay.Location = new System.Drawing.Point(1086, 15);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(126, 66);
             this.btnPay.TabIndex = 177;
             this.btnPay.Text = "Pay Transaction";
             this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
-            // 
-            // btnAdjustDisc
-            // 
-            this.btnAdjustDisc.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAdjustDisc.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnAdjustDisc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAdjustDisc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdjustDisc.FlatAppearance.BorderSize = 0;
-            this.btnAdjustDisc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAdjustDisc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAdjustDisc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdjustDisc.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdjustDisc.ForeColor = System.Drawing.Color.White;
-            this.btnAdjustDisc.Location = new System.Drawing.Point(1231, 208);
-            this.btnAdjustDisc.Name = "btnAdjustDisc";
-            this.btnAdjustDisc.Size = new System.Drawing.Size(126, 66);
-            this.btnAdjustDisc.TabIndex = 176;
-            this.btnAdjustDisc.Text = "Adjust Discount";
-            this.btnAdjustDisc.UseVisualStyleBackColor = false;
             // 
             // btnRemove
             // 
@@ -195,7 +179,7 @@
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(1105, 208);
+            this.btnRemove.Location = new System.Drawing.Point(1218, 133);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(126, 66);
             this.btnRemove.TabIndex = 175;
@@ -306,13 +290,15 @@
             this.columnHeader18,
             this.columnHeader15,
             this.columnHeader6,
-            this.columnHeader10});
+            this.columnHeader10,
+            this.columnHeader19,
+            this.columnHeader17});
             this.lvServices.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvServices.FullRowSelect = true;
             this.lvServices.GridLines = true;
-            this.lvServices.Location = new System.Drawing.Point(11, 332);
+            this.lvServices.Location = new System.Drawing.Point(6, 332);
             this.lvServices.Name = "lvServices";
-            this.lvServices.Size = new System.Drawing.Size(1096, 120);
+            this.lvServices.Size = new System.Drawing.Size(1202, 120);
             this.lvServices.TabIndex = 125;
             this.lvServices.UseCompatibleStateImageBehavior = false;
             this.lvServices.View = System.Windows.Forms.View.Details;
@@ -368,6 +354,16 @@
             this.columnHeader10.Text = "Added Service";
             this.columnHeader10.Width = 196;
             // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "empID";
+            this.columnHeader19.Width = 0;
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "addedServID";
+            this.columnHeader17.Width = 0;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -396,6 +392,8 @@
             this.columnHeader12,
             this.columnHeader1,
             this.columnHeader2,
+            this.columnHeader20,
+            this.columnHeader21,
             this.columnHeader7,
             this.columnHeader4,
             this.columnHeader9,
@@ -407,7 +405,7 @@
             this.lvItems.LabelWrap = false;
             this.lvItems.Location = new System.Drawing.Point(3, 122);
             this.lvItems.Name = "lvItems";
-            this.lvItems.Size = new System.Drawing.Size(1096, 162);
+            this.lvItems.Size = new System.Drawing.Size(1209, 162);
             this.lvItems.TabIndex = 121;
             this.lvItems.UseCompatibleStateImageBehavior = false;
             this.lvItems.View = System.Windows.Forms.View.Details;
@@ -431,13 +429,13 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Description";
-            this.columnHeader7.Width = 223;
+            this.columnHeader7.Width = 163;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Price";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 104;
+            this.columnHeader4.Width = 146;
             // 
             // columnHeader9
             // 
@@ -448,13 +446,13 @@
             // 
             this.columnHeader3.Text = "Quantity";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 70;
+            this.columnHeader3.Width = 79;
             // 
             // lvItemsTotal
             // 
             this.lvItemsTotal.Text = "Total";
             this.lvItemsTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.lvItemsTotal.Width = 237;
+            this.lvItemsTotal.Width = 145;
             // 
             // label2
             // 
@@ -529,6 +527,8 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label9
             // 
@@ -586,12 +586,11 @@
             // 
             // lblDateAndTime
             // 
-            this.lblDateAndTime.AutoSize = true;
             this.lblDateAndTime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateAndTime.ForeColor = System.Drawing.Color.White;
             this.lblDateAndTime.Location = new System.Drawing.Point(1155, 9);
             this.lblDateAndTime.Name = "lblDateAndTime";
-            this.lblDateAndTime.Size = new System.Drawing.Size(108, 19);
+            this.lblDateAndTime.Size = new System.Drawing.Size(167, 19);
             this.lblDateAndTime.TabIndex = 24;
             this.lblDateAndTime.Text = "Date and Time";
             // 
@@ -651,21 +650,22 @@
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSearch.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSearch.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.search_icon_white_one_hi;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(171, 56);
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnSearch.Location = new System.Drawing.Point(325, 60);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(53, 39);
+            this.btnSearch.Size = new System.Drawing.Size(32, 30);
             this.btnSearch.TabIndex = 179;
-            this.btnSearch.Text = "...";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAddItem
             // 
@@ -674,12 +674,12 @@
             this.btnAddItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddItem.FlatAppearance.BorderSize = 0;
-            this.btnAddItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAddItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnAddItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddItem.ForeColor = System.Drawing.Color.White;
-            this.btnAddItem.Location = new System.Drawing.Point(230, 49);
+            this.btnAddItem.Location = new System.Drawing.Point(182, 48);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(137, 53);
             this.btnAddItem.TabIndex = 172;
@@ -793,6 +793,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.RoyalBlue;
             this.groupBox2.Controls.Add(this.btnViewOngoing);
             this.groupBox2.Controls.Add(this.btnAddService);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -806,13 +807,13 @@
             // 
             // btnViewOngoing
             // 
-            this.btnViewOngoing.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnViewOngoing.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnViewOngoing.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
             this.btnViewOngoing.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnViewOngoing.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnViewOngoing.FlatAppearance.BorderSize = 0;
-            this.btnViewOngoing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnViewOngoing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnViewOngoing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnViewOngoing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnViewOngoing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewOngoing.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewOngoing.ForeColor = System.Drawing.Color.White;
@@ -825,13 +826,13 @@
             // 
             // btnAddService
             // 
-            this.btnAddService.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddService.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnAddService.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
             this.btnAddService.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAddService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddService.FlatAppearance.BorderSize = 0;
-            this.btnAddService.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAddService.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddService.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnAddService.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnAddService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddService.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddService.ForeColor = System.Drawing.Color.White;
@@ -864,6 +865,15 @@
             this.label17.Size = new System.Drawing.Size(121, 23);
             this.label17.TabIndex = 131;
             this.label17.Text = "Total Amount:";
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Category";
+            this.columnHeader20.Width = 87;
+            // 
+            // columnHeader21
+            // 
+            this.columnHeader21.Text = "Brand";
             // 
             // uCPointOfSale
             // 
@@ -968,10 +978,13 @@
         private System.Windows.Forms.Button btnAddService;
         private System.Windows.Forms.Button btnNewTrans;
         private System.Windows.Forms.Button btnPay;
-        private System.Windows.Forms.Button btnAdjustDisc;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.ColumnHeader columnHeader19;
+        private System.Windows.Forms.ColumnHeader columnHeader20;
+        private System.Windows.Forms.ColumnHeader columnHeader21;
     }
 }
