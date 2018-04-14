@@ -55,6 +55,8 @@
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -92,8 +94,6 @@
             this.btnAddService = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuan)).BeginInit();
@@ -426,6 +426,15 @@
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 203;
             // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Category";
+            this.columnHeader20.Width = 87;
+            // 
+            // columnHeader21
+            // 
+            this.columnHeader21.Text = "Brand";
+            // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Description";
@@ -484,9 +493,9 @@
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(981, 120);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(173, 23);
+            this.label19.Size = new System.Drawing.Size(182, 23);
             this.label19.TabIndex = 144;
-            this.label19.Text = "Discounted Amount:";
+            this.label19.Text = "Discounted Amount:?";
             // 
             // lblBalance
             // 
@@ -823,6 +832,7 @@
             this.btnViewOngoing.TabIndex = 174;
             this.btnViewOngoing.Text = "View Ongoing Services";
             this.btnViewOngoing.UseVisualStyleBackColor = false;
+            this.btnViewOngoing.Click += new System.EventHandler(this.btnViewOngoing_Click);
             // 
             // btnAddService
             // 
@@ -865,15 +875,6 @@
             this.label17.Size = new System.Drawing.Size(121, 23);
             this.label17.TabIndex = 131;
             this.label17.Text = "Total Amount:";
-            // 
-            // columnHeader20
-            // 
-            this.columnHeader20.Text = "Category";
-            this.columnHeader20.Width = 87;
-            // 
-            // columnHeader21
-            // 
-            this.columnHeader21.Text = "Brand";
             // 
             // uCPointOfSale
             // 
