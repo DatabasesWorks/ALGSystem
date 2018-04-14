@@ -54,8 +54,9 @@
     <Compile Include="Classes\ContDescription.cs" />
     <Compile Include="Classes\Services\ContServicesVehicleTypes.cs" />
     <Compile Include="Classes\ContPointOfSale.cs" />
-    <Compile Include="ContManageEmployee.cs" />
+    <Compile Include="Classes\LogsAndMaintenance\ContManageEmployee.cs" />
     <Compile Include="Classes\Services\ContServicesServiceOffered.cs" />
+    <Compile Include="ContServicesPrice.cs" />
     <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
