@@ -112,6 +112,41 @@ namespace ALG_POS_and_Inventory_Management_System {
                 return null;
             }
         }
+        
+        public System.Data.DataTable LoadOngoingServices(string search, string searchBy) {
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt = null;
+            try {
+                string query;
+                 if (searchBy == "Transaction No.") {
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS noOfCars, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID  WHERE balance!= 0.00 AND service_status='Ongoing' AND transactions.transac_ID LIKE @0 GROUP BY transID";
+                } else if(searchBy == "Customer Name")
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS noOfCars, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID  WHERE balance!= 0.00 AND service_status='Ongoing' AND customerName LIKE @0 GROUP BY transID";
+                else
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS noOfCars, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID  WHERE balance!= 0.00 AND service_status='Ongoing' GROUP BY transID";
+                string[] param = { search };
+                bool[] like = { true };
+                dt = Database.Retrieve(query, param, like);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading ongoing services: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            return (dt);
+        }
+
+        public System.Data.DataTable LoadOngoingProductTrans(string transacID) {
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt = null;
+            try {
+                string query = "SELECT transactions.transac_ID, products.product_ID,product_name, category_name, brand_name, GROUP_CONCAT(DISTINCT product_desc_value) AS prodDesc, TRUNCATE(discounted_price,2) AS discPrice, product_prices.discount, quantity, total FROM product_prices, stocks, brands, categories, product_description, prod_trans_rela INNER JOIN transactions ON transactions.transac_ID = prod_trans_rela.transac_ID INNER JOIN products ON prod_trans_rela.product_ID = products.product_ID WHERE products.brand_ID = brands.brand_ID AND products.product_ID = product_prices.product_ID AND products.product_ID = stocks.product_ID AND products.category_ID = categories.category_ID AND product_description.product_ID = products.product_ID AND prod_trans_rela.transac_ID = @0 GROUP BY prod_trans_rela.product_ID";
+
+                string[] param = { transacID };
+                bool[] like = { false };
+                dt = Database.Retrieve(query, param, like);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading product information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            return (dt);
+        }
 
         public string GetVat() {
             try {
@@ -121,6 +156,18 @@ namespace ALG_POS_and_Inventory_Management_System {
                 return myCollection[0];
             } catch (Exception ex) {
                 Console.WriteLine("Error on loading customer information: '" + ex + "'" + "Point of Sale");
+                return null;
+            }
+        }
+
+        public List<string> GetOngoingTransDetails(string transID) {
+            try {
+                string query = "SELECT transactions.transac_ID AS transID,CONCAT(gName,' ', mInitial, '. ',fName) AS customer, discount, discounted_amount, total_amount, paid, balance, items_total_amount, service_total_amount FROM transactions, customers WHERE transactions.customer_ID=customers.cust_ID AND transactions.transac_ID='" + transID + "'";
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query);
+                return myCollection;
+            } catch (Exception ex) {
+                Console.WriteLine("Error on getting transaction details: '" + ex + "'" + "Point of Sale");
                 return null;
             }
         }
@@ -235,16 +282,24 @@ namespace ALG_POS_and_Inventory_Management_System {
                 return "";
             }
         }
-        public void SaveToDb() {
+        public bool SaveToDb() {
             //1st phase: test saving foreing keys -->deduct from stocks
             //save products
             //save items in listviewItem
             //service
             //service personnnel, added charges
             //payment
-            vatPercent = decimal.Parse(GetVat());
-            vatableSale = totalAmount / decimal.Parse("1." + vatPercent);
-            vat = totalAmount - vatableSale;
+            bool status=false;
+            if (balance == 0) {
+                vatPercent = decimal.Parse(GetVat());
+                vatableSale = totalAmount / decimal.Parse("1." + vatPercent);
+                vat = totalAmount - vatableSale;
+            } else {
+                vatPercent = 0;
+                vatableSale = 0;
+                vat = 0;
+            }
+          
             List<string> list = new List<string>();
             string transacID, productTransacRelaID, serviceTransacID, paymentID;
             string query;
@@ -254,111 +309,113 @@ namespace ALG_POS_and_Inventory_Management_System {
 
             //====insert into transaction table
             query = "INSERT INTO transactions SET transac_ID='" + transacID + "', discount='" + discount + "', discounted_amount='" + totalDisc + "', total_amount='" + totalAmount + "', items_total_amount='" + totalItems + "', service_total_amount='" + totalServices + "', vatable_sales='" + vatableSale + "', vat='" + vat + "', vat_percent='" + vatPercent + "', paid='" + paid + "', balance='" + balance + "', customer_ID='" + custID + "'";
-            Database.Execute(query);
-            #region comment
-            //change because transac_ID changed as a foreignkey in prod_trans_rela
-            //query = "SELECT MAX(prod_transac_rela_ID)+1 FROM prod_trans_rela";//
-            //list = Database.Select(query);
-            //if (list == null)
-            //    productTransacRelaID = "1";
-            //else
-            //    productTransacRelaID = list[0];
-            //insert prod_trans_rela
-            //query = "INSERT INTO prod_trans_rela SET transac_ID=@0";
-            //param = new string[] { transacID };
-            //Database.Execute(query, param);
-            #endregion
-            query = "SELECT MAX(payment_ID)+1 FROM payments";
-            list = Database.Select(query);
-            if (list == null) 
-                paymentID = "1";
-            else
-                paymentID = list[0];
-            //==== smaller tables
-            
-            //===to do: much smaller table(user foreach listviewItem item
-            foreach (System.Windows.Forms.ListViewItem item in lvItems.Items) {
-                int existing = 0, quantity = Convert.ToInt32(item.SubItems[8].Text);
+            if (Database.Execute(query)) {
+                #region comment
+                //change because transac_ID changed as a foreignkey in prod_trans_rela
+                //query = "SELECT MAX(prod_transac_rela_ID)+1 FROM prod_trans_rela";//
+                //list = Database.Select(query);
+                //if (list == null)
+                //    productTransacRelaID = "1";
+                //else
+                //    productTransacRelaID = list[0];
+                //insert prod_trans_rela
+                //query = "INSERT INTO prod_trans_rela SET transac_ID=@0";
+                //param = new string[] { transacID };
+                //Database.Execute(query, param);
+                #endregion
+                query = "SELECT MAX(payment_ID)+1 FROM payments";
+                list = Database.Select(query);
+                if (list == null)
+                    paymentID = "1";
+                else
+                    paymentID = list[0];
+                //==== smaller tables
 
-                query = "SELECT stock_ID, remaining_stocks FROM stocks WHERE remaining_stocks!=0 AND product_ID='" + item.SubItems[1].Text + "' AND date_deleted IS NULL ORDER BY received_date ASC";
-                System.Data.DataTable stock = new System.Data.DataTable();
-                stock= Database.Retrieve(query);
+                //===to do: much smaller table(user foreach listviewItem item
+                foreach (System.Windows.Forms.ListViewItem item in lvItems.Items) {
+                    int existing = 0, quantity = Convert.ToInt32(item.SubItems[8].Text);
 
-                //foreach (System.Data.DataColumn col in stock.Columns) { // updates stock based on purchased quantity
-                foreach (System.Data.DataRow row in stock.Rows) {
-                    existing = Convert.ToInt32(row["remaining_stocks"].ToString());
-                    if (quantity > 0) {
-                        if (quantity > existing) { //
-                            quantity = quantity - existing;
-                            query = "UPDATE stocks SET remaining_stocks=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
+                    query = "SELECT stock_ID, remaining_stocks FROM stocks WHERE remaining_stocks!=0 AND product_ID='" + item.SubItems[1].Text + "' AND date_deleted IS NULL ORDER BY received_date ASC";
+                    System.Data.DataTable stock = new System.Data.DataTable();
+                    stock = Database.Retrieve(query);
+
+                    //foreach (System.Data.DataColumn col in stock.Columns) { // updates stock based on purchased quantity
+                    foreach (System.Data.DataRow row in stock.Rows) {
+                        existing = Convert.ToInt32(row["remaining_stocks"].ToString());
+                        if (quantity > 0) {
+                            if (quantity > existing) { //
+                                quantity = quantity - existing;
+                                query = "UPDATE stocks SET remaining_stocks=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
+                                Database.Execute(query);
+                            } else if (quantity == existing) {
+                                query = "UPDATE stocks SET remaining_stocks=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
+                                Database.Execute(query);
+                                break;
+                            } else if (quantity < existing) {
+                                existing = existing - quantity;
+                                query = "UPDATE stocks SET remaining_stocks='" + existing + "' WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
+                                Database.Execute(query);
+                                break;
+                            }
+                        }
+                    }
+                    //}
+
+                    var totalAmount = Decimal.Parse(item.SubItems[9].Text, System.Globalization.NumberStyles.Currency);
+                    query = "INSERT INTO prod_trans_rela SET transac_ID='" + transacID + "', product_ID='" + item.SubItems[1].Text + "', quantity='" + item.SubItems[8].Text + "', total='" + totalAmount + "'";
+                    Database.Execute(query);
+                }
+
+                string serviceStatus, dateReleased;
+                if (balance == 0) {
+                    serviceStatus = "Finished";
+                    dateReleased = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                } else {
+                    serviceStatus = "Ongoing";
+                    dateReleased = DBNull.Value.ToString();
+                }
+
+                foreach (System.Windows.Forms.ListViewItem item in lvServices.Items) {
+                    query = "SELECT MAX(servtransac_ID)+1 FROM service_transac";
+                    list = Database.Select(query);
+                    if (list == null)
+                        serviceTransacID = "1";
+                    else
+                        serviceTransacID = list[0];
+
+                    query = "INSERT INTO service_transac SET servtransac_ID='" + serviceTransacID + "', date_released='" + dateReleased + "', service_status='" + serviceStatus + "', transac_ID='" + transacID + "', service_ID='" + GetServiceID(item.SubItems[6].Text, item.SubItems[2].Text) + "', plate_no='" + item.SubItems[1].Text + "', total_amount='" + decimal.Parse(item.SubItems[7].Text, System.Globalization.NumberStyles.Currency) + "'";
+                    if (Database.Execute(query)) {
+                        string empID;
+                        string[] values = item.SubItems[10].Text.Split('/');
+                        for (int i = 0; i < values.Length; i++) {
+                            empID = values[i].Trim();
+                            query = "INSERT INTO service_emp_trans SET servtransac_ID='" + serviceTransacID + "', emp_ID='" + empID + "' ";
                             Database.Execute(query);
-                        } else if (quantity == existing) {
-                            query = "UPDATE stocks SET remaining_stocks=0 WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
-                            Database.Execute(query);
-                            break;
-                        } else if (quantity < existing) {
-                            existing = existing - quantity;
-                            query = "UPDATE stocks SET remaining_stocks='" + existing + "' WHERE stock_ID='" + row["stock_ID"].ToString() + "'";
-                            Database.Execute(query);
-                            break;
+                        }
+
+                        string addedServiceID;
+                        string[] val = item.SubItems[11].Text.Split('/');
+                        if (item.SubItems[11].Text != "" || item.SubItems[11].Text != null) {
+                            for (int i = 0; i < val.Length; i++) {
+                                addedServiceID = val[i].Trim();
+                                query = "INSERT INTO add_service_trans SET servtransac_ID='" + serviceTransacID + "', serv_added_ID='" + addedServiceID + "'";
+                                Database.Execute(query);
+                            }
                         }
                     }
                 }
-                //}
-                
-                var totalAmount = Decimal.Parse(item.SubItems[9].Text, System.Globalization.NumberStyles.Currency);
-                query = "INSERT INTO prod_trans_rela SET transac_ID='" + transacID + "', product_ID='" + item.SubItems[1].Text + "', quantity='" + item.SubItems[8].Text + "', total='" + totalAmount + "'";
-                Database.Execute(query);
-            }
-            
-            string serviceStatus, dateReleased;
-            if (balance == 0) {
-                serviceStatus = "Finished";
-                dateReleased = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-            } else {
-                serviceStatus = "Ongoing";
-                dateReleased = DBNull.Value.ToString();
-            }
-            
-            foreach (System.Windows.Forms.ListViewItem item in lvServices.Items) {
-                query = "SELECT MAX(servtransac_ID)+1 FROM service_transac";
-                list = Database.Select(query);
-                if (list == null)
-                    serviceTransacID = "1";
-                else
-                    serviceTransacID = list[0];
+                ////insert serv_transac_ID
+                //query = "INSERT INTO service_transac SET servtransac_ID='" + serviceTransacID + "'";
+                //Database.Execute(query);
 
-                query = "INSERT INTO service_transac SET servtransac_ID='" + serviceTransacID + "', date_released='" + dateReleased + "', service_status='" + serviceStatus + "', transac_ID='" + transacID + "', service_ID='" + GetServiceID(item.SubItems[6].Text, item.SubItems[2].Text) + "', plate_no='" + item.SubItems[1].Text + "', total_amount='" + decimal.Parse(item.SubItems[7].Text, System.Globalization.NumberStyles.Currency) +"'";
+                //===to do: much smaller table(user foreach listviewService item
+                //insert payment_ID --changed payment transaction rela, transaction is forreign key to payment
+                query = "INSERT INTO payments SET payment_ID='" + paymentID + "', payment='" + paid + "', transac_ID='" + transacID + "'";
                 Database.Execute(query);
 
-                string empID;
-                string[] values = item.SubItems[10].Text.Split('/');
-                for (int i = 0; i < values.Length; i++) {
-                    empID = values[i].Trim();
-                    query = "INSERT INTO service_emp_trans SET servtransac_ID='" + serviceTransacID + "', emp_ID='" + empID + "' ";
-                    Database.Execute(query);
-                 }
-
-                string addedServiceID;
-                string[] val = item.SubItems[11].Text.Split('/');
-                if (item.SubItems[11].Text != "" || item.SubItems[11].Text != null) {
-                    for (int i = 0; i < val.Length; i++) {
-                        addedServiceID = val[i].Trim();
-                        query = "INSERT INTO add_service_trans SET servtransac_ID='" + serviceTransacID + "', serv_added_ID='" + addedServiceID + "'";
-                        Database.Execute(query);
-                    }
-                }
+                System.Windows.Forms.MessageBox.Show("Transaction Success!", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             }
-            ////insert serv_transac_ID
-            //query = "INSERT INTO service_transac SET servtransac_ID='" + serviceTransacID + "'";
-            //Database.Execute(query);
-
-            //===to do: much smaller table(user foreach listviewService item
-            //insert payment_ID --changed payment transaction rela, transaction is forreign key to payment
-            query = "INSERT INTO payments SET payment_ID='" + paymentID + "', payment='" + paid + "', transac_ID='" + transacID + "'";
-            Database.Execute(query);
-
-            System.Windows.Forms.MessageBox.Show("Transaction Success!", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK,System.Windows.Forms.MessageBoxIcon.Information);
+            return status;
         }
     }
 }

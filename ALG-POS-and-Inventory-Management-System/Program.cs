@@ -13,7 +13,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmTesting());
+            Application.Run(new frmMain());
         }
     }
 }

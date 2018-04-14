@@ -13,7 +13,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         ContPointOfSale contPos = new ContPointOfSale();
         bool lvIclick = false; bool lvSclick=false;
         decimal itemPrice, servicePrice; double total = 0.0; decimal price;
-        public static string searchID;
+        public static string searchID, transacID;
         public uCPointOfSale() {
             InitializeComponent();
         }
@@ -134,7 +134,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             if (lvItems.SelectedItems.Count > 0) {
                 ListViewItem item = lvItems.SelectedItems[0];
                 txtItemCode.Text = item.SubItems[1].Text;
-                numQuan.Text = item.SubItems[7].Text;
+                numQuan.Value = Convert.ToDecimal(item.SubItems[8].Text);
                 lvIclick = true;
                 btnRemove.Enabled = true;
                 lvServices.SelectedItems.Clear();   //
@@ -280,6 +280,56 @@ namespace ALG_POS_and_Inventory_Management_System {
                 txtItemCode.Text = searchID;
                 SelectItem(searchID);
                 AddTotalItem();
+            }
+        }
+
+        private void btnViewOngoing_Click(object sender, EventArgs e) {
+            //transactions.transac_ID AS transID,CONCAT(gName, ' ', mInitial, '. ', fName) AS customer, discount, discounted_amount, total_amount, paid, balance, items_total_amount, service_total_amount
+            transacID = "";
+            frmPosOngoingService frmOngoing = new frmPosOngoingService();
+            frmOngoing.ShowDialog();
+            if (transacID != "") {
+                List<string> list = new List<string>();
+                list = contPos.GetOngoingTransDetails(transacID);
+                if (list != null) {
+                    lblTransNo.Text = list[0];
+                    cboCustName.Text = list[1];
+                    numDiscount.Value = Convert.ToDecimal(list[2]);
+                    lblDiscAmount.Text = Convert.ToDecimal(list[3]).ToString("C");
+                    lblTotalAmount.Text = Convert.ToDecimal(list[4]).ToString("C");
+                    lblPaid.Text = Convert.ToDecimal(list[5]).ToString("C");
+                    lblBalance.Text = Convert.ToDecimal(list[6]).ToString("C");
+                    lblTotalItems.Text = Convert.ToDecimal(list[7]).ToString("C");
+                    lblTotalService.Text = Convert.ToDecimal(list[8]).ToString("C");
+                    string[] result;
+                    result = contPos.CustInf(cboCustName.Text).ToArray();
+                    ContPointOfSale.custID = result[0].ToString();
+                    lblContact.Text = result[1].ToString();
+                    lblAddress.Text = result[2].ToString();
+                }
+                //transactions.transac_ID, products.product_ID,product_name, category_name, brand_name, GROUP_CONCAT(DISTINCT product_desc_value) AS prodDesc, TRUNCATE(discounted_price,2) AS discPrice, product_prices.discount, quantity, total
+                DataTable dt = new DataTable();
+                dt = contPos.LoadOngoingProductTrans(transacID);
+                if (dt.Rows.Count > 0) {
+                    if (!IsSameItem()) {
+                        for (int i = 0; i < dt.Rows.Count; i++) {
+                            DataRow dr = dt.Rows[i];
+                            ListViewItem listitem = new ListViewItem(((lvItems.Items.Count) + 1).ToString());
+                            listitem.SubItems.Add(dr["product_ID"].ToString()); //0
+                            listitem.SubItems.Add(dr["product_name"].ToString()); //1
+                            listitem.SubItems.Add(dr["category_name"].ToString()); //1
+                            listitem.SubItems.Add(dr["brand_name"].ToString());
+                            listitem.SubItems.Add(dr["prodDesc"].ToString());
+                            listitem.SubItems.Add(Convert.ToDecimal(dr["discPrice"]).ToString("C")); //3
+                            listitem.SubItems.Add(dr["discount"].ToString() + "%"); //4
+                            listitem.SubItems.Add(dr["quantity"].ToString()); //5
+                            listitem.SubItems.Add(Convert.ToDecimal(dr["total"]).ToString("C")); //7
+                            lvItems.Items.Add(listitem);
+                        }
+                    }
+                } else {
+                    MessageBox.Show("Barcode may not be found, no stocks in the inventory for the particular product, or the product price is not set.", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

@@ -50,6 +50,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                 lblVehicleType.Text = list[3];
                 GetServicePrice();
                 LoadServices();
+                lblDescription.Text = cboServiceName.Text = lblDescription.Text = ""; 
+                clbAddedService.Items.Clear(); lblFee.Text = "0";
             } catch (Exception ex) {
                 MessageBox.Show("Error on loading plate numbers: " + ex.Message);
             }

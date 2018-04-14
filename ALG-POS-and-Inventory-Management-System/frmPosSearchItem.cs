@@ -54,5 +54,6 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void lvItems_DoubleClick(object sender, EventArgs e) {
             btnSelect.PerformClick();
         }
+
     }
 }

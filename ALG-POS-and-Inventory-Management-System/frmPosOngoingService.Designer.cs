@@ -26,9 +26,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.cboSearch = new System.Windows.Forms.ComboBox();
-            this.txtSearch = new MyTextBox();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.lvItems = new System.Windows.Forms.ListView();
+            this.lvOngoingServices = new System.Windows.Forms.ListView();
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -36,6 +35,7 @@
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtSearch = new MyTextBox();
             this.SuspendLayout();
             // 
             // label12
@@ -67,26 +67,12 @@
             this.cboSearch.ForeColor = System.Drawing.Color.White;
             this.cboSearch.FormattingEnabled = true;
             this.cboSearch.Items.AddRange(new object[] {
-            "Product ID",
-            "Product Name",
-            "Brand",
-            "Category",
-            "Description"});
+            "Transaction No.",
+            "Customer Name"});
             this.cboSearch.Location = new System.Drawing.Point(561, 21);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(174, 29);
             this.cboSearch.TabIndex = 184;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(90, 21);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(375, 25);
-            this.txtSearch.TabIndex = 182;
             // 
             // btnSelect
             // 
@@ -106,10 +92,11 @@
             this.btnSelect.TabIndex = 183;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = false;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // lvItems
+            // lvOngoingServices
             // 
-            this.lvItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvOngoingServices.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader12,
             this.columnHeader1,
             this.columnHeader2,
@@ -117,16 +104,17 @@
             this.columnHeader21,
             this.columnHeader7,
             this.columnHeader4});
-            this.lvItems.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvItems.FullRowSelect = true;
-            this.lvItems.GridLines = true;
-            this.lvItems.LabelWrap = false;
-            this.lvItems.Location = new System.Drawing.Point(8, 70);
-            this.lvItems.Name = "lvItems";
-            this.lvItems.Size = new System.Drawing.Size(890, 391);
-            this.lvItems.TabIndex = 187;
-            this.lvItems.UseCompatibleStateImageBehavior = false;
-            this.lvItems.View = System.Windows.Forms.View.Details;
+            this.lvOngoingServices.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvOngoingServices.FullRowSelect = true;
+            this.lvOngoingServices.GridLines = true;
+            this.lvOngoingServices.LabelWrap = false;
+            this.lvOngoingServices.Location = new System.Drawing.Point(8, 70);
+            this.lvOngoingServices.Name = "lvOngoingServices";
+            this.lvOngoingServices.Size = new System.Drawing.Size(887, 391);
+            this.lvOngoingServices.TabIndex = 187;
+            this.lvOngoingServices.UseCompatibleStateImageBehavior = false;
+            this.lvOngoingServices.View = System.Windows.Forms.View.Details;
+            this.lvOngoingServices.DoubleClick += new System.EventHandler(this.lvOngoingServices_DoubleClick);
             // 
             // columnHeader12
             // 
@@ -165,13 +153,25 @@
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 97;
             // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.White;
+            this.txtSearch.Location = new System.Drawing.Point(90, 21);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(324, 25);
+            this.txtSearch.TabIndex = 182;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // frmPosOngoingService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(910, 490);
-            this.Controls.Add(this.lvItems);
+            this.ClientSize = new System.Drawing.Size(907, 467);
+            this.Controls.Add(this.lvOngoingServices);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cboSearch);
@@ -192,7 +192,7 @@
         private System.Windows.Forms.ComboBox cboSearch;
         private System.Windows.Forms.Button btnSelect;
         public MyTextBox txtSearch;
-        private System.Windows.Forms.ListView lvItems;
+        private System.Windows.Forms.ListView lvOngoingServices;
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
