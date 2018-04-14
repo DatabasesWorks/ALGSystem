@@ -13,29 +13,29 @@ namespace ALG_POS_and_Inventory_Management_System
         {
             try
             {
-                string query = "SELECT vehicletype_ID, vehicle_type FROM vehicle_types WHERE date_deleted IS NULL ";
+                string query = "SELECT service_price_ID,service_name,vehicle_type,service_fee FROM service_prices,services,vehicle_types WHERE service_prices.service_ID=services.service_ID AND service_prices.vehicletype_ID=vehicle_types.vehicletype_ID AND date_deleted IS NULL ";
                 System.Data.DataTable dt = new System.Data.DataTable();
                 dt = Database.Retrieve(query);
                 return (dt);
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("Error on populating vehicle Type listview: '" + ex + "'", "Vehicle Type", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show("Error on populating Services Price listview: '" + ex + "'", "Service Price", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 throw;
             }
         }
-        public bool IsInsertVehicleTypes(string vehicle_type)
+        public bool IsInsertServicePrices(string price, string servicename, string vehicletype, string fee)
         {
             bool status = false;
             try
             {
-                if (!isDuplicateVehicleTypes(vehicle_type))
+                if (!isDuplicateServicePrices(price))
                 { // if no duplicate found
-                    string query = "INSERT INTO vehicle_types SET vehicle_type=@0";
-                    string[] param = { vehicle_type };
+                    string query = "INSERT INTO service_price(service_ID,vehicletype_ID,service_fee) VALUES ((SELECT service_ID FROM service WHERE service_name='" + servicename + "'),(SELECT vehicletype_ID FROM vehicle_type WHERE vehicle_type='" + vehicletype + "'),'" + fee + "')";
+                    string[] param = { price, servicename, vehicletype, fee };
                     if (Database.Execute(query, param))
                     {
-                        System.Windows.Forms.MessageBox.Show("Vehicle Type successfully saved!", "Vehicle Type", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                        System.Windows.Forms.MessageBox.Show("Service Price successfully saved!", "Service Price", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                         status = true;
                     }
                 }
@@ -46,7 +46,7 @@ namespace ALG_POS_and_Inventory_Management_System
             }
             return status;
         }
-        public bool IsUpdateVehicleTypes(string vehicle_ID, string vehicle_type, string nvm)
+        public bool IsUpdateServicePrices(string vehicle_ID, string vehicle_type, string nvm)
         {
             bool status = false;
             try
@@ -56,7 +56,7 @@ namespace ALG_POS_and_Inventory_Management_System
                     nvm = vehicle_type;
                 else
                     nvm = "nvm";
-                if (!isDuplicateVehicleTypes(nvm))
+                if (!isDuplicateServicePrices(nvm))
                 { // if no duplicate found, nvm is to make sure that it will return false; no duplicate found
                     string query = "UPDATE vehicle_types SET vehicle_type=@0, WHERE vehicletype_ID=@1";
                     string[] param = { vehicle_type, vehicle_ID };
@@ -73,7 +73,7 @@ namespace ALG_POS_and_Inventory_Management_System
             }
             return status;
         }
-        private bool isDuplicateVehicleTypes(string vehicle_type)
+        private bool isDuplicateServicePrices(string vehicle_type)
         {
             string query2 = "SELECT vehicle_type FROM vehicle_types WHERE vehicle_type =@0";
             string[] param2 = { vehicle_type };

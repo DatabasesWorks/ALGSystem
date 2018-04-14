@@ -165,5 +165,12 @@ namespace ALG_POS_and_Inventory_Management_System {
             splitCont.Panel2.Controls.Clear();
             splitCont.Panel2.Controls.Add(employee);
         }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            uCCustomerRecords customer = new uCCustomerRecords();
+            splitCont.Panel2.Controls.Clear();
+            splitCont.Panel2.Controls.Add(customer);
+        }
     }
 }

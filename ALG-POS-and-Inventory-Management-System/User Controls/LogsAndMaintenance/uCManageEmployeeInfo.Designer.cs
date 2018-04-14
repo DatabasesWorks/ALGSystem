@@ -156,7 +156,7 @@
             this.btnEmpClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpClear.ForeColor = System.Drawing.Color.White;
-            this.btnEmpClear.Location = new System.Drawing.Point(801, 313);
+            this.btnEmpClear.Location = new System.Drawing.Point(801, 317);
             this.btnEmpClear.Name = "btnEmpClear";
             this.btnEmpClear.Size = new System.Drawing.Size(129, 53);
             this.btnEmpClear.TabIndex = 185;
@@ -349,7 +349,7 @@
             this.columnHeader5});
             this.lvEmp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvEmp.FullRowSelect = true;
-            this.lvEmp.Location = new System.Drawing.Point(62, 165);
+            this.lvEmp.Location = new System.Drawing.Point(44, 182);
             this.lvEmp.Name = "lvEmp";
             this.lvEmp.Size = new System.Drawing.Size(675, 359);
             this.lvEmp.TabIndex = 151;
@@ -364,7 +364,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Emp ID.";
-            this.columnHeader1.Width = 65;
+            this.columnHeader1.Width = 0;
             // 
             // columnHeader2
             // 
