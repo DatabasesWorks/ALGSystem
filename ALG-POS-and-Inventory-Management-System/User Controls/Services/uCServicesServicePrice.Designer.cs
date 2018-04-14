@@ -42,6 +42,7 @@
             this.btnProdClear = new System.Windows.Forms.Button();
             this.btnProdEdit = new System.Windows.Forms.Button();
             this.btnProdAdd = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.numFee)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,6 +105,7 @@
             // lvPrices
             // 
             this.lvPrices.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader11,
@@ -303,6 +305,10 @@
             this.btnProdAdd.Text = "Add";
             this.btnProdAdd.UseVisualStyleBackColor = false;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No.";
+            // 
             // uCServicesServicePrice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -350,5 +356,6 @@
         private System.Windows.Forms.Button btnProdClear;
         private System.Windows.Forms.Button btnProdEdit;
         private System.Windows.Forms.Button btnProdAdd;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
