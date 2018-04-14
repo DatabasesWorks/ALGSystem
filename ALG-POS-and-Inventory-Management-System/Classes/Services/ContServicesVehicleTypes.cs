@@ -13,7 +13,7 @@ namespace ALG_POS_and_Inventory_Management_System
         {
             try
             {
-                string query = "SELECT vehicletype_ID, vehicle_type FROM vehicle_type WHERE date_deleted IS NULL ";
+                string query = "SELECT vehicletype_ID, vehicle_type FROM vehicle_types WHERE date_deleted IS NULL ";
                 System.Data.DataTable dt = new System.Data.DataTable();
                 dt = Database.Retrieve(query);
                 return (dt);
@@ -31,7 +31,7 @@ namespace ALG_POS_and_Inventory_Management_System
             {
                 if (!isDuplicateVehicleTypes(vehicle_type))
                 { // if no duplicate found
-                    string query = "INSERT INTO vehicle_type SET vehicle_type=@0";
+                    string query = "INSERT INTO vehicle_types SET vehicle_type=@0";
                     string[] param = { vehicle_type };
                     if (Database.Execute(query, param))
                     {
@@ -58,7 +58,7 @@ namespace ALG_POS_and_Inventory_Management_System
                     nvm = "nvm";
                 if (!isDuplicateVehicleTypes(nvm))
                 { // if no duplicate found, nvm is to make sure that it will return false; no duplicate found
-                    string query = "UPDATE vehicle_type SET vehicle_type=@0, WHERE vehicletype_ID=@1";
+                    string query = "UPDATE vehicle_types SET vehicle_type=@0, WHERE vehicletype_ID=@1";
                     string[] param = { vehicle_type,  vehicle_ID };
                     if (Database.Execute(query, param))
                     {
@@ -75,7 +75,7 @@ namespace ALG_POS_and_Inventory_Management_System
         }
         private bool isDuplicateVehicleTypes(string vehicle_type)
         {
-            string query2 = "SELECT vehicle_type FROM vehicle_type WHERE vehicle_type =@0";
+            string query2 = "SELECT vehicle_type FROM vehicle_types WHERE vehicle_type =@0";
             string[] param2 = { vehicle_type };
             if (Database.Select(query2, param2) != null)
             {
@@ -93,7 +93,7 @@ namespace ALG_POS_and_Inventory_Management_System
             bool status = false;
             try
             {
-                string query = String.Format("UPDATE vehicle_type SET date_deleted='{0}' WHERE vehicletype_ID=@0", now);
+                string query = String.Format("UPDATE vehicle_types SET date_deleted='{0}' WHERE vehicletype_ID=@0", now);
                 string[] param = { vehicletype_ID };
                 if (Database.Execute(query, param))
                 {

@@ -141,7 +141,10 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnLogsAndMaintenance_Click(object sender, EventArgs e)
         {
-
+            splitCont.Panel2.Controls.Clear();
+            maintenancePanel.Visible = true;
+            splitCont.Panel2.Controls.Add(maintenancePanel);
+            maintenancePanel.Dock = DockStyle.Fill;
         }
 
         private void btnReports_Click(object sender, EventArgs e)
@@ -158,7 +161,9 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnManageEmp_Click(object sender, EventArgs e)
         {
-
+            uCManageEmployeeInfo employee = new uCManageEmployeeInfo();
+            splitCont.Panel2.Controls.Clear();
+            splitCont.Panel2.Controls.Add(employee);
         }
     }
 }
