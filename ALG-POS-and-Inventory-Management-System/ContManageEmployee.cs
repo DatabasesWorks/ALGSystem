@@ -58,7 +58,7 @@ namespace ALG_POS_and_Inventory_Management_System
                     nvm = "nvm";
                 if (!isDuplicateEmployees(nvm))
                 { // if no duplicate found, nvm is to make sure that it will return false; no duplicate found
-                    string query = "UPDATE employees SET emp_fName=@1,emp_gName=@2,emp_mInitial=@3,emp_position=@4,emp_address=@5 WHERE CONCAT(gName,' ', mInitial, '. ',fName) =@0";
+                    string query = "UPDATE employees SET emp_fName=@1,emp_gName=@2,emp_mInitial=@3,emp_position=@4,emp_address=@5 WHERE CONCAT(emp_gName,' ', emp_mInitial, '. ',emp_fName) =@0";
                     string[] param = { Fullname,  emp_fName,  emp_gName,  emp_mInitial,  emp_position,  emp_address };
                     if (Database.Execute(query, param))
                     {
@@ -75,7 +75,7 @@ namespace ALG_POS_and_Inventory_Management_System
         }
         private bool isDuplicateEmployees(string Fullname)
         {
-            string query2 = "SELECT emp_ID FROM employees WHERE CONCAT(gName,' ', mInitial, '. ',fName) =@0";
+            string query2 = "SELECT emp_ID FROM employees WHERE CONCAT(emp_gName,' ', emp_mInitial, '. ',emp_fName) =@0";
             string[] param2 = { Fullname };
             if (Database.Select(query2, param2) != null)
             {

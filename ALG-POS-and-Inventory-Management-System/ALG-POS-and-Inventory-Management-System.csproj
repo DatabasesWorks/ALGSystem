@@ -47,8 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ContMain - Copy.cs" />
-    <Compile Include="Classes\ContPointOfSale - Copy.cs" />
     <Compile Include="Classes\Inventory\ContInventoryStocks.cs" />
     <Compile Include="Classes\Inventory\ContInventorySuppliers.cs" />
     <Compile Include="Classes\Inventory\ContInventoryProductPrice.cs" />

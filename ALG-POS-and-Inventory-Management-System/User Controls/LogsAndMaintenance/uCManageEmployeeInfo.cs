@@ -138,7 +138,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnProdAdd_Click(object sender, EventArgs e)
         {
-            btnEmpAdd.Enabled = false; btnEmpSave.Enabled = true; EmpUnLock(); empadd = true;
+            btnEmpAdd.Enabled = false; btnEmpSave.Enabled = true; EmpUnLock(); empadd = true; txtEmpNo.Enabled = false;
         }
     }
 }
