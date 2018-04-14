@@ -13,5 +13,11 @@ namespace ALG_POS_and_Inventory_Management_System {
         public uCCustomerRecords() {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmManageCustomer frmManageCustomer = new frmManageCustomer();
+            frmManageCustomer.ShowDialog();
+        }
     }
 }

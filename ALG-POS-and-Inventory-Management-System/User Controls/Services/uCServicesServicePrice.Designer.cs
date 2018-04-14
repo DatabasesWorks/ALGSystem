@@ -28,6 +28,7 @@
             this.cboServiceName = new System.Windows.Forms.ComboBox();
             this.txtPriceID = new MyTextBox();
             this.lvPrices = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,7 +43,6 @@
             this.btnProdClear = new System.Windows.Forms.Button();
             this.btnProdEdit = new System.Windows.Forms.Button();
             this.btnProdAdd = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.numFee)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,10 +120,14 @@
             this.lvPrices.UseCompatibleStateImageBehavior = false;
             this.lvPrices.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No.";
+            // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Service ID.";
-            this.columnHeader8.Width = 79;
+            this.columnHeader8.Width = 0;
             // 
             // columnHeader9
             // 
@@ -304,10 +308,6 @@
             this.btnProdAdd.TabIndex = 177;
             this.btnProdAdd.Text = "Add";
             this.btnProdAdd.UseVisualStyleBackColor = false;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "No.";
             // 
             // uCServicesServicePrice
             // 

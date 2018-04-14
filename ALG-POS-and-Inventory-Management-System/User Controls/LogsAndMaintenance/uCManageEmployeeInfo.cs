@@ -34,7 +34,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void btnEmpEdit_Click(object sender, EventArgs e)
         {
             btnEmpEdit.Enabled = false; btnEmpSave.Enabled = true; empedit = true; btnEmpDelete.Enabled = false; EmpUnLock(); txtEmpNo.Enabled = false;
-            Fullname = txtGN.Text + txtMI.Text + txtFN.Text;
+            Fullname = txtGN.Text +" "+ txtMI.Text +". "+ txtFN.Text;
             tempOldName = Fullname;
         }
 
@@ -105,7 +105,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnEmpSave_Click(object sender, EventArgs e)
         {
-            if (txtEmpNo.Text.Trim() == "" || txtFN.Text.Trim() == "" || txtGN.Text.Trim() == "" || txtMI.Text.Trim() == "" || txtPosition.Text.Trim() == "" || txtAddress.Text.Trim() == "")
+            if (txtFN.Text.Trim() == "" || txtGN.Text.Trim() == "" || txtMI.Text.Trim() == "" || txtPosition.Text.Trim() == "" || txtAddress.Text.Trim() == "")
             {
                 MessageBox.Show("Please fill-up all fields", "Employee");
             }
@@ -113,6 +113,8 @@ namespace ALG_POS_and_Inventory_Management_System {
             {
                 if (empadd)
                 {
+                    Fullname = txtGN.Text + " " + txtMI.Text + ". " + txtFN.Text;
+                    tempOldName = Fullname;
                     if (contEmployee.IsInsertEmployees(Fullname, txtFN.Text, txtGN.Text, txtMI.Text, txtPosition.Text, txtAddress.Text))
                     {
                         //===== logs
