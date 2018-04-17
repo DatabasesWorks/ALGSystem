@@ -49,6 +49,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.numCash = new System.Windows.Forms.NumericUpDown();
             this.btnPay = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblPaid = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCash)).BeginInit();
@@ -59,7 +62,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(198, 284);
+            this.label13.Location = new System.Drawing.Point(198, 359);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(28, 27);
             this.label13.TabIndex = 136;
@@ -70,7 +73,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(198, 241);
+            this.label12.Location = new System.Drawing.Point(198, 308);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(28, 27);
             this.label12.TabIndex = 135;
@@ -124,7 +127,7 @@
             // 
             this.lblChange.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChange.ForeColor = System.Drawing.Color.White;
-            this.lblChange.Location = new System.Drawing.Point(233, 284);
+            this.lblChange.Location = new System.Drawing.Point(233, 359);
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(158, 27);
             this.lblChange.TabIndex = 128;
@@ -211,7 +214,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 279);
+            this.label2.Location = new System.Drawing.Point(18, 354);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 27);
             this.label2.TabIndex = 122;
@@ -222,7 +225,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(18, 241);
+            this.label3.Location = new System.Drawing.Point(18, 308);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(182, 27);
             this.label3.TabIndex = 121;
@@ -286,6 +289,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.lblPaid);
+            this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.lblBalance);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.numCash);
@@ -310,14 +316,14 @@
             this.panel2.Controls.Add(this.label10);
             this.panel2.Location = new System.Drawing.Point(14, 66);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(454, 353);
+            this.panel2.Size = new System.Drawing.Size(454, 411);
             this.panel2.TabIndex = 118;
             // 
             // lblBalance
             // 
             this.lblBalance.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalance.ForeColor = System.Drawing.Color.White;
-            this.lblBalance.Location = new System.Drawing.Point(233, 323);
+            this.lblBalance.Location = new System.Drawing.Point(245, 263);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(158, 27);
             this.lblBalance.TabIndex = 139;
@@ -329,7 +335,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(0, 323);
+            this.label7.Location = new System.Drawing.Point(12, 263);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(231, 27);
             this.label7.TabIndex = 138;
@@ -338,7 +344,7 @@
             // numCash
             // 
             this.numCash.Font = new System.Drawing.Font("Arial", 18F);
-            this.numCash.Location = new System.Drawing.Point(232, 239);
+            this.numCash.Location = new System.Drawing.Point(232, 306);
             this.numCash.Maximum = new decimal(new int[] {
             500000,
             0,
@@ -362,7 +368,7 @@
             this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPay.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.ForeColor = System.Drawing.Color.White;
-            this.btnPay.Location = new System.Drawing.Point(296, 428);
+            this.btnPay.Location = new System.Drawing.Point(342, 483);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(126, 66);
             this.btnPay.TabIndex = 178;
@@ -370,11 +376,44 @@
             this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(199, 220);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(28, 27);
+            this.label14.TabIndex = 142;
+            this.label14.Text = "P";
+            // 
+            // lblPaid
+            // 
+            this.lblPaid.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaid.ForeColor = System.Drawing.Color.White;
+            this.lblPaid.Location = new System.Drawing.Point(233, 220);
+            this.lblPaid.Name = "lblPaid";
+            this.lblPaid.Size = new System.Drawing.Size(158, 27);
+            this.lblPaid.TabIndex = 141;
+            this.lblPaid.Text = "0";
+            this.lblPaid.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(19, 220);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(67, 27);
+            this.label18.TabIndex = 140;
+            this.label18.Text = "Paid:";
+            // 
             // frmPosPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 506);
+            this.ClientSize = new System.Drawing.Size(485, 550);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -417,5 +456,8 @@
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblPaid;
+        private System.Windows.Forms.Label label18;
     }
 }

@@ -12,6 +12,7 @@ namespace ALG_POS_and_Inventory_Management_System {
     public partial class frmPosPay : Form {
         private string transID, custID, totalStr, totalDisc, discount, totalItems, totalServices;
         decimal cash, total, change;
+        public static bool isOngoing = false;
         ContPointOfSale contPos = new ContPointOfSale();
         public frmPosPay() {
             InitializeComponent();
@@ -31,12 +32,14 @@ namespace ALG_POS_and_Inventory_Management_System {
             lblDiscount.Text = discount = ContPointOfSale.discount + "%";
             lblTotalItems.Text = totalItems = ContPointOfSale.totalItems.ToString();
             lblTotalService.Text = totalServices = ContPointOfSale.totalServices.ToString();
+            lblBalance.Text = ContPointOfSale.balance.ToString();
+            lblPaid.Text = ContPointOfSale.paid.ToString();
         }
         void ComputeChange() {
             decimal itemPrice;
             try {
                 this.cash = decimal.Parse(numCash.Text);
-                this.total = decimal.Parse(lblTotalAmount.Text);
+                this.total = decimal.Parse(lblTotalAmount.Text) - decimal.Parse(lblPaid.Text);
                 decimal change = cash - total;
                 if (numCash.Value < total) {
                     lblBalance.Text = Math.Abs(total - cash).ToString();
@@ -73,9 +76,14 @@ namespace ALG_POS_and_Inventory_Management_System {
                 //insert first to tables where it is foreign key 
                 //then insert the same key to transaction table
                 ContPointOfSale clspos = new ContPointOfSale();
-                ContPointOfSale.paid = numCash.Value;
+                ContPointOfSale.paid = Convert.ToDecimal(lblPaid.Text);
+                ContPointOfSale.cash = numCash.Value;
                 ContPointOfSale.balance = Convert.ToDecimal(lblBalance.Text);
-                contPos.SaveToDb();
+                if (isOngoing)
+                    contPos.UpdateToDb();
+                else
+                    contPos.SaveToDb();
+                this.Close();
             }
         }
 

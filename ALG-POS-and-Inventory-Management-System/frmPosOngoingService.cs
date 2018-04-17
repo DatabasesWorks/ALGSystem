@@ -28,9 +28,10 @@ namespace ALG_POS_and_Inventory_Management_System {
                 listitem.SubItems.Add(dr["transID"].ToString());
                 listitem.SubItems.Add(dr["customerName"].ToString());
                 listitem.SubItems.Add(dr["noOfCars"].ToString());
-                listitem.SubItems.Add(dr["discounted_amount"].ToString());
-                listitem.SubItems.Add(dr["paid"].ToString());
-                listitem.SubItems.Add(dr["balance"].ToString());
+                listitem.SubItems.Add(dr["plateNo"].ToString());
+                listitem.SubItems.Add(Decimal.Parse(dr["discounted_amount"].ToString()).ToString("C"));
+                listitem.SubItems.Add(Decimal.Parse(dr["paid"].ToString()).ToString("C"));
+                listitem.SubItems.Add(Decimal.Parse(dr["balance"].ToString()).ToString("C"));
                 //listitem.SubItems.Add(_contInvProducts.GetProductDescription((dr["product_ID"]).ToString()));
                 lvOngoingServices.Items.Add(listitem);
             }
