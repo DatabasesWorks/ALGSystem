@@ -36,6 +36,7 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtSearch = new MyTextBox();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label12
@@ -68,7 +69,8 @@
             this.cboSearch.FormattingEnabled = true;
             this.cboSearch.Items.AddRange(new object[] {
             "Transaction No.",
-            "Customer Name"});
+            "Customer Name",
+            "Plate No."});
             this.cboSearch.Location = new System.Drawing.Point(561, 21);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(174, 29);
@@ -101,6 +103,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader20,
+            this.columnHeader3,
             this.columnHeader21,
             this.columnHeader7,
             this.columnHeader4});
@@ -110,7 +113,7 @@
             this.lvOngoingServices.LabelWrap = false;
             this.lvOngoingServices.Location = new System.Drawing.Point(8, 70);
             this.lvOngoingServices.Name = "lvOngoingServices";
-            this.lvOngoingServices.Size = new System.Drawing.Size(887, 391);
+            this.lvOngoingServices.Size = new System.Drawing.Size(989, 391);
             this.lvOngoingServices.TabIndex = 187;
             this.lvOngoingServices.UseCompatibleStateImageBehavior = false;
             this.lvOngoingServices.View = System.Windows.Forms.View.Details;
@@ -135,12 +138,12 @@
             // columnHeader20
             // 
             this.columnHeader20.Text = "No. of Car Serviced";
-            this.columnHeader20.Width = 169;
+            this.columnHeader20.Width = 144;
             // 
             // columnHeader21
             // 
             this.columnHeader21.Text = "Total Due";
-            this.columnHeader21.Width = 186;
+            this.columnHeader21.Width = 111;
             // 
             // columnHeader7
             // 
@@ -165,12 +168,17 @@
             this.txtSearch.TabIndex = 182;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Vehicle Plate No.";
+            this.columnHeader3.Width = 180;
+            // 
             // frmPosOngoingService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(907, 467);
+            this.ClientSize = new System.Drawing.Size(1009, 467);
             this.Controls.Add(this.lvOngoingServices);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -200,5 +208,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader21;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

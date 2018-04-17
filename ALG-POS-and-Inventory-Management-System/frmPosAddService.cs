@@ -12,14 +12,21 @@ namespace ALG_POS_and_Inventory_Management_System {
     public partial class frmPosAddService : Form {
         ContPointOfSale contPos = new ContPointOfSale();
         string servicePrice;
+        public static bool isCancelled=false;
         public frmPosAddService() {
             InitializeComponent();
         }
 
         private void frmPosAddService_Load(object sender, EventArgs e) {
-            lblBrand.Text = lblColor.Text = lblModel.Text = lblVehicleType.Text = "";
-            lblFee.Text = "0.00";
             LoadPlateNo(); LoadEmployee();
+            if (ContPointOfSale.isChangeServiceDetail) {
+                cboPlateNum.Enabled = false; cboServiceName.Enabled = false;
+                LoadServiceToEdit();
+                ContPointOfSale.isChangeServiceDetail = false;
+            } else {
+                lblBrand.Text = lblColor.Text = lblModel.Text = lblVehicleType.Text = "";
+                lblFee.Text = "0.00";
+            }
         }
 
         void LoadPlateNo() {
@@ -31,11 +38,37 @@ namespace ALG_POS_and_Inventory_Management_System {
                         cboPlateNum.Items.Add(item);
                     }
                 } else {
-                    MessageBox.Show("Please register cars of the particular customer","Point of Sale", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Please register cars of the particular customer", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
             } catch (Exception ex) {
                 MessageBox.Show("Error on loading plate numbers: " + ex.Message);
+            }
+        }
+
+        void LoadServiceToEdit() {
+            cboPlateNum.Text = ContPointOfSale.plateNo;
+            lblBrand.Text = ContPointOfSale.brand;
+            lblColor.Text = ContPointOfSale.color;
+            lblModel.Text = ContPointOfSale.model;
+            lblVehicleType.Text = ContPointOfSale.vehicleType;
+            lblFee.Text = (decimal.Parse(ContPointOfSale.payment, System.Globalization.NumberStyles.Currency)).ToString();
+            cboServiceName.Text = ContPointOfSale.serviceName;
+            lblDescription.Text = contPos.GetServiceDesc(cboServiceName.Text);
+
+            string[] values = ContPointOfSale.employees.Split('/');
+            for (int i = 0; i < values.Length; i++) {
+                for (int j = 0; j < clbEmployee.Items.Count; j++) {
+                    if (values[i].Trim() == clbEmployee.Items[j].ToString().Trim())
+                        clbEmployee.SetItemChecked(j, true);
+                }
+            }
+            string[] values1 = ContPointOfSale.addedService.Split('/');
+            for (int i = 0; i < values1.Length; i++) {
+                for (int j = 0; j < clbAddedService.Items.Count; j++) {
+                    if (values1[i] == clbAddedService.Items[j].ToString().Trim())
+                        clbAddedService.SetItemChecked(j, true);
+                }
             }
         }
 
@@ -50,7 +83,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 lblVehicleType.Text = list[3];
                 GetServicePrice();
                 LoadServices();
-                lblDescription.Text = cboServiceName.Text = lblDescription.Text = ""; 
+                lblDescription.Text = cboServiceName.Text = lblDescription.Text = "";
                 clbAddedService.Items.Clear(); lblFee.Text = "0";
             } catch (Exception ex) {
                 MessageBox.Show("Error on loading plate numbers: " + ex.Message);
@@ -98,13 +131,13 @@ namespace ALG_POS_and_Inventory_Management_System {
                 clbAddedService.Items.Clear();
                 lblDescription.Text = "";
                 lblDescription.Text = contPos.GetServiceDesc(cboServiceName.Text);
-                foreach(string item in contPos.LoadAddedServices(cboServiceName.Text)) {
+                foreach (string item in contPos.LoadAddedServices(cboServiceName.Text)) {
                     clbAddedService.Items.Add(item);
                 }
             } catch (Exception ex) {
                 Console.WriteLine("error on loading service added price: " + ex);
             }
-            
+
         }
         void GetServicePrice() {
             try {
@@ -122,13 +155,14 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
+            isCancelled=true;
             this.Close();
         }
 
         private void btnOk_Click(object sender, EventArgs e) {
-            if(cboPlateNum.Text=="")
-                MessageBox.Show("Please select customer vehicle plate number.", "Point of Sale",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            else if (lblFee.Text=="0.00")
+            if (cboPlateNum.Text == "")
+                MessageBox.Show("Please select customer vehicle plate number.", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else if (lblFee.Text == "0.00" || lblFee.Text == "0" || cboServiceName.Text == "")
                 MessageBox.Show("Please select service to be rendered.", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else if (clbEmployee.CheckedItems.Count==0)
                 MessageBox.Show("Please select employee that will render the service.", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -149,7 +183,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                         i = 1;
                         ContPointOfSale.employeesID += (contPos.GetEmployeeID(item));
                     } else {
-                        ContPointOfSale.employees += "/ " + item;
+                        ContPointOfSale.employees += "/" + item;
                         ContPointOfSale.employeesID += "/" + (contPos.GetEmployeeID(item));
                     }
                 }
@@ -160,7 +194,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                         i = 1;
                         ContPointOfSale.addedServicesID += (contPos.GetAddedServiceID(item));
                     } else {
-                        ContPointOfSale.addedService += "/ " + item;
+                        ContPointOfSale.addedService += "/" + item;
                         ContPointOfSale.addedServicesID += "/" + (contPos.GetAddedServiceID(item));
                     }
 

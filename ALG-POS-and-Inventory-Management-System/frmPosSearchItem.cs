@@ -30,10 +30,10 @@ namespace ALG_POS_and_Inventory_Management_System {
                 listitem.SubItems.Add(dr["product_name"].ToString());
                 listitem.SubItems.Add(dr["category_name"].ToString());
                 listitem.SubItems.Add(dr["brand_name"].ToString());
-                listitem.SubItems.Add(dr["prodDesc"].ToString());
-                listitem.SubItems.Add(dr["product_price"].ToString());
+                listitem.SubItems.Add(dr["prodDesc"].ToString()); 
+                listitem.SubItems.Add(decimal.Parse((dr["product_price"].ToString())).ToString("C"));
                 listitem.SubItems.Add(dr["discount"].ToString());
-                listitem.SubItems.Add(dr["discounted_price"].ToString());
+                listitem.SubItems.Add(decimal.Parse((dr["discounted_price"].ToString())).ToString("C"));
                 listitem.SubItems.Add(dr["remStocks"].ToString());
                 //listitem.SubItems.Add(_contInvProducts.GetProductDescription((dr["product_ID"]).ToString()));
                 lvItems.Items.Add(listitem);
@@ -46,8 +46,13 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnSelect_Click(object sender, EventArgs e) {
             if (lvItems.SelectedItems.Count > 0) {
-                uCPointOfSale.searchID = lvItems.SelectedItems[0].SubItems[1].Text;
-                this.Close();
+                if (lvItems.SelectedItems[0].SubItems[9].Text == "0") {
+                    MessageBox.Show("Item " + lvItems.SelectedItems[0].SubItems[1].Text +" has no available stocks", "Point of Sale", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                } else {
+                    uCPointOfSale.searchID = lvItems.SelectedItems[0].SubItems[1].Text;
+                    this.Close();
+                }
+                
             }
         }
 

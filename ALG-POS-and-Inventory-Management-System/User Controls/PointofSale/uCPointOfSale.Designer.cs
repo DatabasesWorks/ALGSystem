@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnUpdateTrans = new System.Windows.Forms.Button();
             this.btnNewTrans = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
@@ -49,6 +50,8 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lvItems = new System.Windows.Forms.ListView();
@@ -62,6 +65,7 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvItemsTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.lblDiscAmount = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -82,7 +86,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.numQuan = new System.Windows.Forms.NumericUpDown();
-            this.txtItemCode = new MyTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -94,6 +97,8 @@
             this.btnAddService = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.txtItemCode = new MyTextBox();
+            this.btnViewServicesOffered = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuan)).BeginInit();
@@ -105,6 +110,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel2.Controls.Add(this.btnUpdateTrans);
             this.panel2.Controls.Add(this.btnNewTrans);
             this.panel2.Controls.Add(this.btnPay);
             this.panel2.Controls.Add(this.btnRemove);
@@ -124,8 +130,30 @@
             this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(6, 215);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1353, 464);
+            this.panel2.Size = new System.Drawing.Size(1353, 472);
             this.panel2.TabIndex = 138;
+            // 
+            // btnUpdateTrans
+            // 
+            this.btnUpdateTrans.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpdateTrans.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnUpdateTrans.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdateTrans.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateTrans.Enabled = false;
+            this.btnUpdateTrans.FlatAppearance.BorderSize = 0;
+            this.btnUpdateTrans.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpdateTrans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpdateTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateTrans.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateTrans.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateTrans.Location = new System.Drawing.Point(954, 16);
+            this.btnUpdateTrans.Name = "btnUpdateTrans";
+            this.btnUpdateTrans.Size = new System.Drawing.Size(126, 66);
+            this.btnUpdateTrans.TabIndex = 179;
+            this.btnUpdateTrans.Text = "Update Transaction";
+            this.btnUpdateTrans.UseVisualStyleBackColor = false;
+            this.btnUpdateTrans.Visible = false;
+            this.btnUpdateTrans.Click += new System.EventHandler(this.btnUpdateTrans_Click);
             // 
             // btnNewTrans
             // 
@@ -292,17 +320,20 @@
             this.columnHeader6,
             this.columnHeader10,
             this.columnHeader19,
-            this.columnHeader17});
+            this.columnHeader17,
+            this.columnHeader22,
+            this.columnHeader24});
             this.lvServices.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvServices.FullRowSelect = true;
             this.lvServices.GridLines = true;
-            this.lvServices.Location = new System.Drawing.Point(6, 332);
+            this.lvServices.Location = new System.Drawing.Point(6, 321);
             this.lvServices.Name = "lvServices";
-            this.lvServices.Size = new System.Drawing.Size(1202, 120);
+            this.lvServices.Size = new System.Drawing.Size(1338, 148);
             this.lvServices.TabIndex = 125;
             this.lvServices.UseCompatibleStateImageBehavior = false;
             this.lvServices.View = System.Windows.Forms.View.Details;
             this.lvServices.SelectedIndexChanged += new System.EventHandler(this.lvServices_SelectedIndexChanged);
+            this.lvServices.DoubleClick += new System.EventHandler(this.lvServices_DoubleClick);
             // 
             // columnHeader13
             // 
@@ -318,41 +349,44 @@
             // columnHeader8
             // 
             this.columnHeader8.Text = "Vehicle Type";
-            this.columnHeader8.Width = 148;
+            this.columnHeader8.Width = 100;
             // 
             // columnHeader16
             // 
             this.columnHeader16.Text = "Brand";
+            this.columnHeader16.Width = 78;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Model";
+            this.columnHeader5.Width = 68;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "Color";
+            this.columnHeader11.Width = 74;
             // 
             // columnHeader18
             // 
             this.columnHeader18.Text = "Service";
             this.columnHeader18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader18.Width = 131;
+            this.columnHeader18.Width = 159;
             // 
             // columnHeader15
             // 
             this.columnHeader15.Text = "Payment";
             this.columnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader15.Width = 150;
+            this.columnHeader15.Width = 128;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Serviced by:";
-            this.columnHeader6.Width = 207;
+            this.columnHeader6.Width = 326;
             // 
             // columnHeader10
             // 
-            this.columnHeader10.Text = "Added Service";
-            this.columnHeader10.Width = 196;
+            this.columnHeader10.Text = "Added Services";
+            this.columnHeader10.Width = 276;
             // 
             // columnHeader19
             // 
@@ -364,12 +398,22 @@
             this.columnHeader17.Text = "addedServID";
             this.columnHeader17.Width = 0;
             // 
+            // columnHeader22
+            // 
+            this.columnHeader22.Text = "Service Status";
+            this.columnHeader22.Width = 4;
+            // 
+            // columnHeader24
+            // 
+            this.columnHeader24.Text = "servtransac_ID";
+            this.columnHeader24.Width = 0;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(13, 296);
+            this.label8.Location = new System.Drawing.Point(5, 285);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 33);
             this.label8.TabIndex = 124;
@@ -398,14 +442,15 @@
             this.columnHeader4,
             this.columnHeader9,
             this.columnHeader3,
-            this.lvItemsTotal});
+            this.lvItemsTotal,
+            this.columnHeader23});
             this.lvItems.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvItems.FullRowSelect = true;
             this.lvItems.GridLines = true;
             this.lvItems.LabelWrap = false;
-            this.lvItems.Location = new System.Drawing.Point(3, 122);
+            this.lvItems.Location = new System.Drawing.Point(11, 122);
             this.lvItems.Name = "lvItems";
-            this.lvItems.Size = new System.Drawing.Size(1209, 162);
+            this.lvItems.Size = new System.Drawing.Size(1201, 162);
             this.lvItems.TabIndex = 121;
             this.lvItems.UseCompatibleStateImageBehavior = false;
             this.lvItems.View = System.Windows.Forms.View.Details;
@@ -463,6 +508,11 @@
             this.lvItemsTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lvItemsTotal.Width = 145;
             // 
+            // columnHeader23
+            // 
+            this.columnHeader23.Text = "max";
+            this.columnHeader23.Width = 0;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -476,62 +526,62 @@
             // 
             // lblDiscAmount
             // 
-            this.lblDiscAmount.AutoSize = true;
             this.lblDiscAmount.BackColor = System.Drawing.Color.SteelBlue;
             this.lblDiscAmount.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiscAmount.ForeColor = System.Drawing.Color.White;
-            this.lblDiscAmount.Location = new System.Drawing.Point(1199, 122);
+            this.lblDiscAmount.Location = new System.Drawing.Point(1206, 124);
             this.lblDiscAmount.Name = "lblDiscAmount";
-            this.lblDiscAmount.Size = new System.Drawing.Size(21, 22);
+            this.lblDiscAmount.Size = new System.Drawing.Size(151, 22);
             this.lblDiscAmount.TabIndex = 145;
             this.lblDiscAmount.Text = "0";
+            this.lblDiscAmount.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(981, 120);
+            this.label19.Location = new System.Drawing.Point(1032, 122);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(182, 23);
+            this.label19.Size = new System.Drawing.Size(173, 23);
             this.label19.TabIndex = 144;
-            this.label19.Text = "Discounted Amount:?";
+            this.label19.Text = "Discounted Amount:";
             // 
             // lblBalance
             // 
-            this.lblBalance.AutoSize = true;
             this.lblBalance.BackColor = System.Drawing.Color.CornflowerBlue;
             this.lblBalance.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalance.ForeColor = System.Drawing.Color.White;
-            this.lblBalance.Location = new System.Drawing.Point(1202, 184);
+            this.lblBalance.Location = new System.Drawing.Point(1103, 190);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(17, 19);
+            this.lblBalance.Size = new System.Drawing.Size(102, 18);
             this.lblBalance.TabIndex = 143;
             this.lblBalance.Text = "0";
+            this.lblBalance.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblTotalAmount
             // 
-            this.lblTotalAmount.AutoSize = true;
             this.lblTotalAmount.BackColor = System.Drawing.Color.SteelBlue;
             this.lblTotalAmount.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalAmount.ForeColor = System.Drawing.Color.White;
-            this.lblTotalAmount.Location = new System.Drawing.Point(1199, 84);
+            this.lblTotalAmount.Location = new System.Drawing.Point(1206, 92);
             this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(21, 22);
+            this.lblTotalAmount.Size = new System.Drawing.Size(151, 22);
             this.lblTotalAmount.TabIndex = 141;
             this.lblTotalAmount.Text = "0";
+            this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblPaid
             // 
-            this.lblPaid.AutoSize = true;
             this.lblPaid.BackColor = System.Drawing.Color.CornflowerBlue;
             this.lblPaid.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaid.ForeColor = System.Drawing.Color.White;
-            this.lblPaid.Location = new System.Drawing.Point(1202, 166);
+            this.lblPaid.Location = new System.Drawing.Point(1103, 164);
             this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(17, 19);
+            this.lblPaid.Size = new System.Drawing.Size(102, 19);
             this.lblPaid.TabIndex = 142;
             this.lblPaid.Text = "0";
+            this.lblPaid.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // timer1
             // 
@@ -616,27 +666,27 @@
             // 
             // lblTotalService
             // 
-            this.lblTotalService.AutoSize = true;
             this.lblTotalService.BackColor = System.Drawing.Color.CornflowerBlue;
             this.lblTotalService.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalService.ForeColor = System.Drawing.Color.White;
-            this.lblTotalService.Location = new System.Drawing.Point(845, 113);
+            this.lblTotalService.Location = new System.Drawing.Point(917, 131);
             this.lblTotalService.Name = "lblTotalService";
-            this.lblTotalService.Size = new System.Drawing.Size(17, 19);
+            this.lblTotalService.Size = new System.Drawing.Size(113, 19);
             this.lblTotalService.TabIndex = 140;
             this.lblTotalService.Text = "0";
+            this.lblTotalService.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblTotalItems
             // 
-            this.lblTotalItems.AutoSize = true;
             this.lblTotalItems.BackColor = System.Drawing.Color.CornflowerBlue;
             this.lblTotalItems.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalItems.ForeColor = System.Drawing.Color.White;
-            this.lblTotalItems.Location = new System.Drawing.Point(845, 77);
+            this.lblTotalItems.Location = new System.Drawing.Point(917, 95);
             this.lblTotalItems.Name = "lblTotalItems";
-            this.lblTotalItems.Size = new System.Drawing.Size(17, 19);
+            this.lblTotalItems.Size = new System.Drawing.Size(113, 19);
             this.lblTotalItems.TabIndex = 139;
             this.lblTotalItems.Text = "0";
+            this.lblTotalItems.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // groupBox3
             // 
@@ -651,7 +701,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(6, 79);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(376, 108);
+            this.groupBox3.Size = new System.Drawing.Size(357, 108);
             this.groupBox3.TabIndex = 134;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Items";
@@ -669,7 +719,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnSearch.Location = new System.Drawing.Point(325, 60);
+            this.btnSearch.Location = new System.Drawing.Point(301, 60);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(32, 30);
             this.btnSearch.TabIndex = 179;
@@ -688,7 +738,7 @@
             this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddItem.ForeColor = System.Drawing.Color.White;
-            this.btnAddItem.Location = new System.Drawing.Point(182, 48);
+            this.btnAddItem.Location = new System.Drawing.Point(158, 49);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(137, 53);
             this.btnAddItem.TabIndex = 172;
@@ -715,24 +765,12 @@
             0,
             0});
             // 
-            // txtItemCode
-            // 
-            this.txtItemCode.BackColor = System.Drawing.Color.RoyalBlue;
-            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtItemCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemCode.ForeColor = System.Drawing.Color.White;
-            this.txtItemCode.Location = new System.Drawing.Point(115, 21);
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(252, 25);
-            this.txtItemCode.TabIndex = 105;
-            this.txtItemCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemCode_KeyDown);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(713, 77);
+            this.label10.Location = new System.Drawing.Point(812, 98);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 19);
             this.label10.TabIndex = 128;
@@ -743,7 +781,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(982, 169);
+            this.label23.Location = new System.Drawing.Point(1033, 164);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(43, 19);
             this.label23.TabIndex = 137;
@@ -754,7 +792,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(713, 113);
+            this.label11.Location = new System.Drawing.Point(811, 134);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 19);
             this.label11.TabIndex = 129;
@@ -765,7 +803,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(982, 188);
+            this.label21.Location = new System.Drawing.Point(1033, 190);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(66, 19);
             this.label21.TabIndex = 136;
@@ -776,7 +814,7 @@
             this.numDiscount.BackColor = System.Drawing.Color.RoyalBlue;
             this.numDiscount.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numDiscount.ForeColor = System.Drawing.Color.White;
-            this.numDiscount.Location = new System.Drawing.Point(816, 153);
+            this.numDiscount.Location = new System.Drawing.Point(914, 174);
             this.numDiscount.Maximum = new decimal(new int[] {
             20,
             0,
@@ -803,13 +841,14 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.groupBox2.Controls.Add(this.btnViewServicesOffered);
             this.groupBox2.Controls.Add(this.btnViewOngoing);
             this.groupBox2.Controls.Add(this.btnAddService);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(388, 77);
+            this.groupBox2.Location = new System.Drawing.Point(369, 81);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(304, 106);
+            this.groupBox2.Size = new System.Drawing.Size(444, 106);
             this.groupBox2.TabIndex = 133;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Services";
@@ -826,7 +865,7 @@
             this.btnViewOngoing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewOngoing.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewOngoing.ForeColor = System.Drawing.Color.White;
-            this.btnViewOngoing.Location = new System.Drawing.Point(153, 24);
+            this.btnViewOngoing.Location = new System.Drawing.Point(293, 22);
             this.btnViewOngoing.Name = "btnViewOngoing";
             this.btnViewOngoing.Size = new System.Drawing.Size(145, 66);
             this.btnViewOngoing.TabIndex = 174;
@@ -846,7 +885,7 @@
             this.btnAddService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddService.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddService.ForeColor = System.Drawing.Color.White;
-            this.btnAddService.Location = new System.Drawing.Point(6, 22);
+            this.btnAddService.Location = new System.Drawing.Point(147, 22);
             this.btnAddService.Name = "btnAddService";
             this.btnAddService.Size = new System.Drawing.Size(145, 66);
             this.btnAddService.TabIndex = 173;
@@ -859,7 +898,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(713, 153);
+            this.label22.Location = new System.Drawing.Point(811, 174);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(89, 19);
             this.label22.TabIndex = 132;
@@ -870,11 +909,43 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(981, 88);
+            this.label17.Location = new System.Drawing.Point(1032, 90);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(121, 23);
             this.label17.TabIndex = 131;
             this.label17.Text = "Total Amount:";
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.BackColor = System.Drawing.Color.RoyalBlue;
+            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtItemCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemCode.ForeColor = System.Drawing.Color.White;
+            this.txtItemCode.Location = new System.Drawing.Point(115, 21);
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(231, 25);
+            this.txtItemCode.TabIndex = 105;
+            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
+            this.txtItemCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemCode_KeyDown);
+            // 
+            // btnViewServicesOffered
+            // 
+            this.btnViewServicesOffered.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnViewServicesOffered.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnViewServicesOffered.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnViewServicesOffered.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewServicesOffered.FlatAppearance.BorderSize = 0;
+            this.btnViewServicesOffered.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnViewServicesOffered.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnViewServicesOffered.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewServicesOffered.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewServicesOffered.ForeColor = System.Drawing.Color.White;
+            this.btnViewServicesOffered.Location = new System.Drawing.Point(1, 22);
+            this.btnViewServicesOffered.Name = "btnViewServicesOffered";
+            this.btnViewServicesOffered.Size = new System.Drawing.Size(145, 66);
+            this.btnViewServicesOffered.TabIndex = 174;
+            this.btnViewServicesOffered.Text = "View Services Offered";
+            this.btnViewServicesOffered.UseVisualStyleBackColor = false;
             // 
             // uCPointOfSale
             // 
@@ -987,5 +1058,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader19;
         private System.Windows.Forms.ColumnHeader columnHeader20;
         private System.Windows.Forms.ColumnHeader columnHeader21;
+        private System.Windows.Forms.ColumnHeader columnHeader22;
+        private System.Windows.Forms.ColumnHeader columnHeader23;
+        private System.Windows.Forms.ColumnHeader columnHeader24;
+        private System.Windows.Forms.Button btnUpdateTrans;
+        private System.Windows.Forms.Button btnViewServicesOffered;
     }
 }
