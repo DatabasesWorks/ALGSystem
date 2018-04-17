@@ -126,6 +126,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void uCManageUsers_Load(object sender, EventArgs e)
         {
             LoadUser();
+            cboType.Items.Clear(); 
             cboType.Items.Add("admin");
             cboType.Items.Add("cashier");
             cboType.Items.Add("encoder");

@@ -33,7 +33,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnEmpEdit_Click(object sender, EventArgs e)
         {
-            btnEmpEdit.Enabled = false; btnEmpSave.Enabled = true; empedit = true; btnEmpDelete.Enabled = false; EmpUnLock(); txtEmpNo.Enabled = false;
+            btnEdit.Enabled = false; btnSave.Enabled = true; empedit = true; btnDelete.Enabled = false; EmpUnLock(); txtEmpNo.Enabled = false;
             Fullname = txtGN.Text +" "+ txtMI.Text +". "+ txtFN.Text;
             tempOldName = Fullname;
         }
@@ -49,7 +49,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     //string sprodid = stock.product_ID;
                     //string uid = user.GetUserID();
                     //log.deleteSupplier(uid, date, sprodid, "Delete Supplier");
-                    btnEmpClear.PerformClick();
+                    btnClear.PerformClick();
 
                 }
 
@@ -79,7 +79,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
         private void btnEmpClear_Click(object sender, EventArgs e)
         {
-            LoadEmployee(); btnEmpSave.Enabled = false; btnEmpAdd.Enabled = true; btnEmpEdit.Enabled = false; btnEmpDelete.Enabled = false; EmpClear(); EmpLock();
+            LoadEmployee(); btnSave.Enabled = false; btnAdd.Enabled = true; btnEdit.Enabled = false; btnDelete.Enabled = false; EmpClear(); EmpLock();
             empadd = empedit = false;
         }
 
@@ -99,7 +99,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 txtMI.Text = item.SubItems[4].Text;
                 txtPosition.Text = item.SubItems[5].Text;
                 txtAddress.Text = item.SubItems[6].Text;
-                btnEmpAdd.Enabled = false; btnEmpEdit.Enabled = true; btnEmpDelete.Enabled = true; btnEmpSave.Enabled = false; empadd = false; empedit = false; EmpLock();
+                btnAdd.Enabled = false; btnEdit.Enabled = true; btnDelete.Enabled = true; btnSave.Enabled = false; empadd = false; empedit = false; EmpLock();
             }
         }
 
@@ -121,7 +121,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                         //string sprodid = stock.product_ID;
                         //string uid = user.GetUserID();
                         //log.addSupplier(uid, date, sprodid, "Added Supplier ");
-                        btnEmpClear.PerformClick();
+                        btnClear.PerformClick();
                     }
                 }
                 else if (empedit)
@@ -132,7 +132,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                         //string sprodid = stock.product_ID;
                         //string uid = user.GetUserID();
                         //log.editSupplier(uid, date, sprodid, "Added Supplier ");
-                        btnEmpClear.PerformClick();
+                        btnClear.PerformClick();
                     }
                 }
             }
@@ -140,7 +140,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnProdAdd_Click(object sender, EventArgs e)
         {
-            btnEmpAdd.Enabled = false; btnEmpSave.Enabled = true; EmpUnLock(); empadd = true; txtEmpNo.Enabled = false;
+            btnAdd.Enabled = false; btnSave.Enabled = true; EmpUnLock(); empadd = true; txtEmpNo.Enabled = false;
         }
     }
 }

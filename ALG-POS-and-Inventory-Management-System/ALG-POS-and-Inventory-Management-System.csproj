@@ -58,7 +58,8 @@
     <Compile Include="Classes\Services\ContServicesServiceOffered.cs" />
     <Compile Include="Classes\LogsAndMaintenance\ContManageCustomer.cs" />
     <Compile Include="Classes\Services\ContServicesPrice.cs" />
-    <Compile Include="ContManageUsers.cs" />
+    <Compile Include="Classes\LogsAndMaintenance\ContManageUsers.cs" />
+    <Compile Include="Classes\Services\ContServiceAddedService.cs" />
     <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />

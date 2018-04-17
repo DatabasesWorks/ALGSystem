@@ -149,6 +149,11 @@ namespace ALG_POS_and_Inventory_Management_System
             this.Close();
         }
 
+        private void btnProdPrint_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
             btnAdd.Enabled = false; btnSave.Enabled = true; CustUnLock(); custadd = true; txtCustID.Enabled = false;
