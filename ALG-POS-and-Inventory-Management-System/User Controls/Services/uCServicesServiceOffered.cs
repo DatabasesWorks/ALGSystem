@@ -33,7 +33,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnServAdd_Click(object sender, EventArgs e)
         {
-            btnServAdd.Enabled = false; btnServSave.Enabled = true; ServUnLock(); servadd = true;
+            btnServAdd.Enabled = false; btnServSave.Enabled = true; ServUnLock(); servadd = true; txtServiceID.Enabled = false;
         }
 
         private void btnServEdit_Click(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnServSave_Click(object sender, EventArgs e)
         {
-            if (txtServiceName.Text.Trim() == "" || txtServiceID.Text.Trim() == "")
+            if (txtServiceName.Text.Trim() == "")
             {
                 MessageBox.Show("Please fill-up all fields", "Vehicle Type");
             }

@@ -63,7 +63,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Type ID";
-            this.columnHeader3.Width = 101;
+            this.columnHeader3.Width = 0;
             // 
             // columnHeader4
             // 

@@ -37,7 +37,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnVetAdd_Click(object sender, EventArgs e)
         {
-            btnVetAdd.Enabled = false; btnVetSave.Enabled = true; VetUnLock(); vetadd = true;
+            btnVetAdd.Enabled = false; btnVetSave.Enabled = true; VetUnLock(); vetadd = true; txtTypeID.Enabled = false;
         }
 
         private void btnVetEdit_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnVetSave_Click(object sender, EventArgs e)
         {
-            if (txtTypeName.Text.Trim() == "" || txtTypeID.Text.Trim() == "")
+            if (txtTypeName.Text.Trim() == "")
             {
                 MessageBox.Show("Please fill-up all fields", "Vehicle Type");
             }
