@@ -86,7 +86,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Service ID.";
-            this.columnHeader1.Width = 97;
+            this.columnHeader1.Width = 0;
             // 
             // columnHeader2
             // 

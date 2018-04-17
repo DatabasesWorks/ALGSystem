@@ -54,8 +54,10 @@
     <Compile Include="Classes\ContDescription.cs" />
     <Compile Include="Classes\Services\ContServicesVehicleTypes.cs" />
     <Compile Include="Classes\ContPointOfSale.cs" />
-    <Compile Include="ContManageEmployee.cs" />
+    <Compile Include="Classes\LogsAndMaintenance\ContManageEmployee.cs" />
     <Compile Include="Classes\Services\ContServicesServiceOffered.cs" />
+    <Compile Include="Classes\LogsAndMaintenance\ContManageCustomer.cs" />
+    <Compile Include="ContServicesPrice.cs" />
     <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
@@ -103,6 +105,12 @@
     </Compile>
     <Compile Include="Forms\frmTesting.Designer.cs">
       <DependentUpon>frmTesting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmManageCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmManageCustomer.Designer.cs">
+      <DependentUpon>frmManageCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPosAddService.cs">
       <SubType>Form</SubType>
@@ -234,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTesting.resx">
       <DependentUpon>frmTesting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmManageCustomer.resx">
+      <DependentUpon>frmManageCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPosAddService.resx">
       <DependentUpon>frmPosAddService.cs</DependentUpon>
