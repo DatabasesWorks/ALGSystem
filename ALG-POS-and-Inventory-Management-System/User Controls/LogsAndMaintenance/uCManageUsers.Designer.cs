@@ -24,6 +24,12 @@
         /// </summary>
         private void InitializeComponent() {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnProdPrint = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPW = new MyTextBox();
@@ -34,6 +40,7 @@
             this.txtFN = new MyTextBox();
             this.txtUserNo = new MyTextBox();
             this.lvUsers = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,12 +58,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnProdPrint = new System.Windows.Forms.Button();
-            this.btnProdDelete = new System.Windows.Forms.Button();
-            this.btnProdSave = new System.Windows.Forms.Button();
-            this.btnProdClear = new System.Windows.Forms.Button();
-            this.btnProdEdit = new System.Windows.Forms.Button();
-            this.btnProdAdd = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,11 +66,11 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel2.Controls.Add(this.btnProdPrint);
-            this.panel2.Controls.Add(this.btnProdDelete);
-            this.panel2.Controls.Add(this.btnProdSave);
-            this.panel2.Controls.Add(this.btnProdClear);
-            this.panel2.Controls.Add(this.btnProdEdit);
-            this.panel2.Controls.Add(this.btnProdAdd);
+            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Controls.Add(this.btnSave);
+            this.panel2.Controls.Add(this.btnClear);
+            this.panel2.Controls.Add(this.btnEdit);
+            this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.cboType);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.txtPW);
@@ -91,6 +92,128 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(975, 542);
             this.panel2.TabIndex = 37;
+            // 
+            // btnProdPrint
+            // 
+            this.btnProdPrint.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnProdPrint.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnProdPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnProdPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProdPrint.FlatAppearance.BorderSize = 0;
+            this.btnProdPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnProdPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnProdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdPrint.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdPrint.ForeColor = System.Drawing.Color.White;
+            this.btnProdPrint.Location = new System.Drawing.Point(829, 88);
+            this.btnProdPrint.Name = "btnProdPrint";
+            this.btnProdPrint.Size = new System.Drawing.Size(132, 53);
+            this.btnProdPrint.TabIndex = 194;
+            this.btnProdPrint.Text = "Print";
+            this.btnProdPrint.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnDelete.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(829, 343);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(132, 53);
+            this.btnDelete.TabIndex = 193;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSave.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(829, 234);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(132, 53);
+            this.btnSave.TabIndex = 192;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnClear.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(829, 422);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(132, 53);
+            this.btnClear.TabIndex = 191;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEdit.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.Enabled = false;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(829, 293);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(132, 53);
+            this.btnEdit.TabIndex = 190;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnProdEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAdd.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(829, 182);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(132, 53);
+            this.btnAdd.TabIndex = 189;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnProdAdd_Click);
             // 
             // cboType
             // 
@@ -208,6 +331,7 @@
             // lvUsers
             // 
             this.lvUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -225,6 +349,11 @@
             this.lvUsers.TabIndex = 143;
             this.lvUsers.UseCompatibleStateImageBehavior = false;
             this.lvUsers.View = System.Windows.Forms.View.Details;
+            this.lvUsers.SelectedIndexChanged += new System.EventHandler(this.lvUsers_SelectedIndexChanged);
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "No.";
             // 
             // columnHeader1
             // 
@@ -363,123 +492,6 @@
             this.label5.TabIndex = 30;
             this.label5.Text = "Manage Users";
             // 
-            // btnProdPrint
-            // 
-            this.btnProdPrint.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdPrint.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdPrint.FlatAppearance.BorderSize = 0;
-            this.btnProdPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdPrint.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdPrint.ForeColor = System.Drawing.Color.White;
-            this.btnProdPrint.Location = new System.Drawing.Point(829, 88);
-            this.btnProdPrint.Name = "btnProdPrint";
-            this.btnProdPrint.Size = new System.Drawing.Size(132, 53);
-            this.btnProdPrint.TabIndex = 194;
-            this.btnProdPrint.Text = "Print";
-            this.btnProdPrint.UseVisualStyleBackColor = false;
-            // 
-            // btnProdDelete
-            // 
-            this.btnProdDelete.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdDelete.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdDelete.Enabled = false;
-            this.btnProdDelete.FlatAppearance.BorderSize = 0;
-            this.btnProdDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdDelete.ForeColor = System.Drawing.Color.White;
-            this.btnProdDelete.Location = new System.Drawing.Point(829, 343);
-            this.btnProdDelete.Name = "btnProdDelete";
-            this.btnProdDelete.Size = new System.Drawing.Size(132, 53);
-            this.btnProdDelete.TabIndex = 193;
-            this.btnProdDelete.Text = "Delete";
-            this.btnProdDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnProdSave
-            // 
-            this.btnProdSave.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdSave.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdSave.Enabled = false;
-            this.btnProdSave.FlatAppearance.BorderSize = 0;
-            this.btnProdSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdSave.ForeColor = System.Drawing.Color.White;
-            this.btnProdSave.Location = new System.Drawing.Point(829, 234);
-            this.btnProdSave.Name = "btnProdSave";
-            this.btnProdSave.Size = new System.Drawing.Size(132, 53);
-            this.btnProdSave.TabIndex = 192;
-            this.btnProdSave.Text = "Save";
-            this.btnProdSave.UseVisualStyleBackColor = false;
-            // 
-            // btnProdClear
-            // 
-            this.btnProdClear.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdClear.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdClear.FlatAppearance.BorderSize = 0;
-            this.btnProdClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdClear.ForeColor = System.Drawing.Color.White;
-            this.btnProdClear.Location = new System.Drawing.Point(829, 422);
-            this.btnProdClear.Name = "btnProdClear";
-            this.btnProdClear.Size = new System.Drawing.Size(132, 53);
-            this.btnProdClear.TabIndex = 191;
-            this.btnProdClear.Text = "Clear";
-            this.btnProdClear.UseVisualStyleBackColor = false;
-            // 
-            // btnProdEdit
-            // 
-            this.btnProdEdit.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdEdit.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdEdit.Enabled = false;
-            this.btnProdEdit.FlatAppearance.BorderSize = 0;
-            this.btnProdEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdEdit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdEdit.ForeColor = System.Drawing.Color.White;
-            this.btnProdEdit.Location = new System.Drawing.Point(829, 293);
-            this.btnProdEdit.Name = "btnProdEdit";
-            this.btnProdEdit.Size = new System.Drawing.Size(132, 53);
-            this.btnProdEdit.TabIndex = 190;
-            this.btnProdEdit.Text = "Edit";
-            this.btnProdEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnProdAdd
-            // 
-            this.btnProdAdd.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdAdd.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdAdd.FlatAppearance.BorderSize = 0;
-            this.btnProdAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdAdd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdAdd.ForeColor = System.Drawing.Color.White;
-            this.btnProdAdd.Location = new System.Drawing.Point(829, 182);
-            this.btnProdAdd.Name = "btnProdAdd";
-            this.btnProdAdd.Size = new System.Drawing.Size(132, 53);
-            this.btnProdAdd.TabIndex = 189;
-            this.btnProdAdd.Text = "Add";
-            this.btnProdAdd.UseVisualStyleBackColor = false;
-            // 
             // uCManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,6 +501,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "uCManageUsers";
             this.Size = new System.Drawing.Size(1186, 694);
+            this.Load += new System.EventHandler(this.uCManageUsers_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -528,10 +541,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnProdPrint;
-        private System.Windows.Forms.Button btnProdDelete;
-        private System.Windows.Forms.Button btnProdSave;
-        private System.Windows.Forms.Button btnProdClear;
-        private System.Windows.Forms.Button btnProdEdit;
-        private System.Windows.Forms.Button btnProdAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

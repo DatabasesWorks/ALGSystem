@@ -13,7 +13,7 @@ namespace ALG_POS_and_Inventory_Management_System
         {
             try
             {
-                string query = "SELECT service_ID, service_name FROM services WHERE date_deleted IS NULL ";
+                string query = "SELECT service_ID,service_name FROM services WHERE date_deleted IS NULL ";
                 System.Data.DataTable dt = new System.Data.DataTable();
                 dt = Database.Retrieve(query);
                 return (dt);
