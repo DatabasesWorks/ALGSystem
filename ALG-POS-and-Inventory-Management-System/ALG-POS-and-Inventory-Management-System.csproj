@@ -131,6 +131,12 @@
     <Compile Include="frmPosSearchItem.Designer.cs">
       <DependentUpon>frmPosSearchItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmViewServicesOffered.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewServicesOffered.Designer.cs">
+      <DependentUpon>frmViewServicesOffered.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPosSearchItem.resx">
       <DependentUpon>frmPosSearchItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewServicesOffered.resx">
+      <DependentUpon>frmViewServicesOffered.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyTextbox.resx">
       <DependentUpon>MyTextbox.cs</DependentUpon>
