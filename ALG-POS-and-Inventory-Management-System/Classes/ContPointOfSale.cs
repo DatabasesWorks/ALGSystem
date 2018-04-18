@@ -185,13 +185,13 @@ namespace ALG_POS_and_Inventory_Management_System {
             try {
                 string query;
                 if (searchBy == "Transaction No.")
-                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS noOfCars, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND service_status='Ongoing' AND transactions.transac_ID LIKE @0 GROUP BY transID";
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished ,GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND transactions.transac_ID LIKE @0 GROUP BY transID";
                 else if (searchBy == "Customer Name")
-                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS noOfCars, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND service_status='Ongoing' AND CONCAT(fName,' ,',gName,' ',mInitial) LIKE @0 GROUP BY transID";
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished,GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND CONCAT(fName,' ,',gName,' ',mInitial) LIKE @0 GROUP BY transID";
                 else if (searchBy == "Plate No.")
-                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS noOfCars, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND service_status='Ongoing' AND plate_no LIKE @0 GROUP BY transID";
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND plate_no LIKE @0 GROUP BY transID";
                 else
-                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS noOfCars, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND service_status='Ongoing' GROUP BY transID";
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 GROUP BY transID";
                 string[] param = { search };
                 bool[] like = { true };
                 dt = Database.Retrieve(query, param, like);
@@ -227,6 +227,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 return null;
             }
         }
+
         public System.Data.DataTable SearchProduct(string itemCode) {
             System.Data.DataTable dt = new System.Data.DataTable();
             dt = null;
@@ -298,18 +299,36 @@ namespace ALG_POS_and_Inventory_Management_System {
         public bool IsWithinAvailableStock(string productID,string quantity) {
             bool status = false;
             try {
-                string query = "SELECT SUM(remaining_stocks) FROM stocks WHERE product_ID='" + productID + "' AND date_deleted IS NULL";
+                string query = "SELECT SUM(remaining_stocks), product_name FROM stocks, products WHERE stocks.product_ID=products.product_ID AND products.product_ID='" + productID + "' AND stocks.date_deleted IS NULL AND products.date_deleted IS NULL";
                 List<string> myCollection = new List<string>();
                 myCollection = Database.Select(query);
                 if (myCollection != null) {
                     if ((Convert.ToInt32(myCollection[0]) - Convert.ToInt32(quantity)) >= 0)
                         status = true;
+                    else
+                        System.Windows.Forms.MessageBox.Show("Item " + myCollection[1] + " is not within the available quantity of '" + myCollection[0] + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
                 }
             } catch (Exception ex) {
                 System.Windows.Forms.MessageBox.Show("Error on loading customer information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             return status;
         }
+
+        public bool IsIdFound(string productID) {
+            bool status = false;
+            try {
+                string query = "SELECT SUM(remaining_stocks), product_name FROM stocks, products WHERE stocks.product_ID=products.product_ID AND products.product_ID=@0 AND stocks.date_deleted IS NULL AND products.date_deleted IS NULL";
+                string[] param = { productID };
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query, param);
+                if (myCollection != null)
+                    status = true;
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading customer information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            return status;
+        }
+
         public string GetVat() {
             try {
                 string query = "SELECT setting_value FROM settings WHERE setting_name='Vat'";
@@ -473,6 +492,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                 query = "INSERT INTO payments SET payment_ID='" + paymentID + "', payment='" + paid + "', transac_ID='" + transacID + "'";
                 Database.Execute(query);
 
+                uCPointOfSale.isCancelled = false;
+                status = true;
                 System.Windows.Forms.MessageBox.Show("Transaction Success!", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             }
             return status;
@@ -606,7 +627,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                             }
                         }
                     } else {
-                        query = "UPDATE service_transac SET date_released='" + dateReleased + "', service_status='" + serviceStatus + "', transac_ID='" + transID + "', service_ID='" + GetServiceID(item.SubItems[6].Text, item.SubItems[2].Text) + "', plate_no='" + item.SubItems[1].Text + "', total_amount='" + decimal.Parse(item.SubItems[7].Text, System.Globalization.NumberStyles.Currency) + "' WHERE servtransac_ID='" + item.SubItems[13].Text + "'";
+                        query = "UPDATE service_transac SET date_released='" + dateReleased + "', service_status='" + serviceStatus + "', transac_ID='" + transID + "', service_ID='" + GetServiceID(item.SubItems[6].Text, item.SubItems[2].Text) + "', plate_no='" + item.SubItems[1].Text + "', total_amount='" + decimal.Parse(item.SubItems[7].Text, System.Globalization.NumberStyles.Currency) + "', service_status='" + item.SubItems[12].Text + "' WHERE servtransac_ID='" + item.SubItems[13].Text + "'";
                         // tbd: disregard this if employee servicing and added services can not be edited once saved
                         if (Database.Execute(query)) {
                             string empID;
@@ -640,12 +661,62 @@ namespace ALG_POS_and_Inventory_Management_System {
                     query = "INSERT INTO payments SET payment_ID='" + paymentID + "', payment='" + paid + "', transac_ID='" + transID + "'";
                     Database.Execute(query);
                 }
-                
 
+                uCPointOfSale.isCancelled = false;
+                status = true;
                 System.Windows.Forms.MessageBox.Show("Transaction Updated!", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             }
             return status;
         }
 
+        //========== view services offered ==========
+
+        public System.Data.DataTable LoadServices() {
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt = null;
+            try {
+                string query = "SELECT service_ID, service_name FROM services";
+                dt = Database.Retrieve(query);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading services information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            return (dt);
+        }
+
+        public System.Data.DataTable LoadVehicleType() {
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt = null;
+            try {
+                string query = "SELECT vehicletype_ID, vehicle_type FROM vehicle_types";
+                dt = Database.Retrieve(query);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading vehicle types information: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            return (dt);
+        }
+
+        public System.Data.DataTable LoadAddedServicesEasier(string serviceID) {
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt = null;
+            try {
+                string query = $"SELECT serv_added_ID, serv_added_name, serv_added_price FROM added_service_price WHERE service_ID='{serviceID}'";
+                dt = Database.Retrieve(query);
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error on loading added services: '" + ex + "'", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            return (dt);
+        }
+
+        public string GetServicePriceEasier(string serviceID, string vehicleTypeID) {
+            try {
+                string query = $"SELECT TRUNCATE(service_fee,2) FROM service_prices WHERE service_ID='{serviceID}' AND vehicletype_ID='{vehicleTypeID}' LIMIT 1";
+                List<string> myCollection = new List<string>();
+                myCollection = Database.Select(query);
+                return myCollection[0];
+            } catch (Exception ex) {
+                Console.WriteLine("Error on loading servicepriceeasier() information: '" + ex + "'" + "Point of Sale");
+                return null;
+            }
+        }
     }
 }

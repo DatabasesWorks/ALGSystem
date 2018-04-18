@@ -220,5 +220,9 @@ namespace ALG_POS_and_Inventory_Management_System {
                 lblFee.Text = (decimal.Parse(lblFee.Text) + addedPayment).ToString();
             }));
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e) {
+
+        }
     }
 }

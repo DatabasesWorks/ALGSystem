@@ -45,13 +45,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblPaid = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.lblBalance = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.numCash = new System.Windows.Forms.NumericUpDown();
             this.btnPay = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblPaid = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCash)).BeginInit();
@@ -138,7 +138,7 @@
             // 
             this.lblTotal.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.Location = new System.Drawing.Point(233, 90);
+            this.lblTotal.Location = new System.Drawing.Point(245, 90);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(158, 27);
             this.lblTotal.TabIndex = 127;
@@ -169,7 +169,7 @@
             // 
             this.lblTotalAmount.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalAmount.ForeColor = System.Drawing.Color.White;
-            this.lblTotalAmount.Location = new System.Drawing.Point(233, 176);
+            this.lblTotalAmount.Location = new System.Drawing.Point(245, 176);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(158, 27);
             this.lblTotalAmount.TabIndex = 126;
@@ -180,7 +180,7 @@
             // 
             this.lblDiscount.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiscount.ForeColor = System.Drawing.Color.White;
-            this.lblDiscount.Location = new System.Drawing.Point(233, 138);
+            this.lblDiscount.Location = new System.Drawing.Point(245, 138);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(158, 27);
             this.lblDiscount.TabIndex = 125;
@@ -191,7 +191,7 @@
             // 
             this.lblTotalService.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalService.ForeColor = System.Drawing.Color.White;
-            this.lblTotalService.Location = new System.Drawing.Point(233, 52);
+            this.lblTotalService.Location = new System.Drawing.Point(245, 52);
             this.lblTotalService.Name = "lblTotalService";
             this.lblTotalService.Size = new System.Drawing.Size(158, 27);
             this.lblTotalService.TabIndex = 124;
@@ -202,7 +202,7 @@
             // 
             this.lblTotalItems.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalItems.ForeColor = System.Drawing.Color.White;
-            this.lblTotalItems.Location = new System.Drawing.Point(233, 14);
+            this.lblTotalItems.Location = new System.Drawing.Point(245, 14);
             this.lblTotalItems.Name = "lblTotalItems";
             this.lblTotalItems.Size = new System.Drawing.Size(158, 27);
             this.lblTotalItems.TabIndex = 123;
@@ -319,6 +319,39 @@
             this.panel2.Size = new System.Drawing.Size(454, 411);
             this.panel2.TabIndex = 118;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(199, 220);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(28, 27);
+            this.label14.TabIndex = 142;
+            this.label14.Text = "P";
+            // 
+            // lblPaid
+            // 
+            this.lblPaid.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaid.ForeColor = System.Drawing.Color.White;
+            this.lblPaid.Location = new System.Drawing.Point(245, 220);
+            this.lblPaid.Name = "lblPaid";
+            this.lblPaid.Size = new System.Drawing.Size(158, 27);
+            this.lblPaid.TabIndex = 141;
+            this.lblPaid.Text = "0";
+            this.lblPaid.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(19, 220);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(67, 27);
+            this.label18.TabIndex = 140;
+            this.label18.Text = "Paid:";
+            // 
             // lblBalance
             // 
             this.lblBalance.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -343,6 +376,7 @@
             // 
             // numCash
             // 
+            this.numCash.DecimalPlaces = 2;
             this.numCash.Font = new System.Drawing.Font("Arial", 18F);
             this.numCash.Location = new System.Drawing.Point(232, 306);
             this.numCash.Maximum = new decimal(new int[] {
@@ -375,39 +409,6 @@
             this.btnPay.Text = "Pay Transaction";
             this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(199, 220);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(28, 27);
-            this.label14.TabIndex = 142;
-            this.label14.Text = "P";
-            // 
-            // lblPaid
-            // 
-            this.lblPaid.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaid.ForeColor = System.Drawing.Color.White;
-            this.lblPaid.Location = new System.Drawing.Point(233, 220);
-            this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(158, 27);
-            this.lblPaid.TabIndex = 141;
-            this.lblPaid.Text = "0";
-            this.lblPaid.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(19, 220);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(67, 27);
-            this.label18.TabIndex = 140;
-            this.label18.Text = "Paid:";
             // 
             // frmPosPay
             // 

@@ -48,6 +48,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.numDeduct = new System.Windows.Forms.NumericUpDown();
             this.lvStocks = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,7 +61,6 @@
             this.cboSProductName = new System.Windows.Forms.ComboBox();
             this.cboSProductID = new System.Windows.Forms.ComboBox();
             this.lblStockID = new System.Windows.Forms.Label();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).BeginInit();
@@ -81,6 +81,7 @@
             // numSSupPrice
             // 
             this.numSSupPrice.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.numSSupPrice.DecimalPlaces = 2;
             this.numSSupPrice.Enabled = false;
             this.numSSupPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numSSupPrice.ForeColor = System.Drawing.Color.White;
@@ -93,6 +94,7 @@
             this.numSSupPrice.Name = "numSSupPrice";
             this.numSSupPrice.Size = new System.Drawing.Size(165, 29);
             this.numSSupPrice.TabIndex = 242;
+            this.numSSupPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label25
             // 
@@ -240,6 +242,7 @@
             this.numSQuan.Name = "numSQuan";
             this.numSQuan.Size = new System.Drawing.Size(165, 29);
             this.numSQuan.TabIndex = 229;
+            this.numSQuan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnSRemoveStocks
             // 
@@ -476,6 +479,11 @@
             this.lvStocks.View = System.Windows.Forms.View.Details;
             this.lvStocks.SelectedIndexChanged += new System.EventHandler(this.lvStocks_SelectedIndexChanged);
             // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "No.";
+            this.columnHeader9.Width = 43;
+            // 
             // columnHeader0
             // 
             this.columnHeader0.Text = "Stock ID.";
@@ -563,11 +571,6 @@
             this.lblStockID.Size = new System.Drawing.Size(78, 21);
             this.lblStockID.TabIndex = 245;
             this.lblStockID.Text = "_Stock ID";
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "No.";
-            this.columnHeader9.Width = 43;
             // 
             // uCInventoryStocks
             // 

@@ -39,6 +39,7 @@
             this.cboSearch = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lvItems
@@ -58,12 +59,13 @@
             this.lvItems.FullRowSelect = true;
             this.lvItems.GridLines = true;
             this.lvItems.LabelWrap = false;
-            this.lvItems.Location = new System.Drawing.Point(6, 61);
+            this.lvItems.Location = new System.Drawing.Point(6, 111);
             this.lvItems.Name = "lvItems";
             this.lvItems.Size = new System.Drawing.Size(1037, 391);
             this.lvItems.TabIndex = 122;
             this.lvItems.UseCompatibleStateImageBehavior = false;
             this.lvItems.View = System.Windows.Forms.View.Details;
+            this.lvItems.SelectedIndexChanged += new System.EventHandler(this.lvItems_SelectedIndexChanged);
             this.lvItems.DoubleClick += new System.EventHandler(this.lvItems_DoubleClick);
             // 
             // columnHeader12
@@ -124,7 +126,7 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(159, 16);
+            this.txtSearch.Location = new System.Drawing.Point(159, 66);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(375, 25);
             this.txtSearch.TabIndex = 124;
@@ -142,7 +144,7 @@
             this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelect.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelect.ForeColor = System.Drawing.Color.White;
-            this.btnSelect.Location = new System.Drawing.Point(823, 3);
+            this.btnSelect.Location = new System.Drawing.Point(823, 53);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(105, 52);
             this.btnSelect.TabIndex = 178;
@@ -162,7 +164,7 @@
             "Brand",
             "Category",
             "Description"});
-            this.cboSearch.Location = new System.Drawing.Point(630, 12);
+            this.cboSearch.Location = new System.Drawing.Point(630, 62);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(174, 29);
             this.cboSearch.TabIndex = 179;
@@ -172,7 +174,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(540, 15);
+            this.label12.Location = new System.Drawing.Point(540, 65);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 21);
             this.label12.TabIndex = 181;
@@ -183,18 +185,30 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(90, 20);
+            this.label11.Location = new System.Drawing.Point(90, 70);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 21);
             this.label11.TabIndex = 180;
             this.label11.Text = "Search:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(492, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(133, 39);
+            this.label9.TabIndex = 182;
+            this.label9.Text = "Products";
             // 
             // frmPosSearchItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(1055, 460);
+            this.ClientSize = new System.Drawing.Size(1055, 509);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cboSearch);
@@ -227,5 +241,6 @@
         private System.Windows.Forms.ComboBox cboSearch;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
     }
 }

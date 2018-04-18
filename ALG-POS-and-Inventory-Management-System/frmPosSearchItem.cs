@@ -60,5 +60,8 @@ namespace ALG_POS_and_Inventory_Management_System {
             btnSelect.PerformClick();
         }
 
+        private void lvItems_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
     }
 }

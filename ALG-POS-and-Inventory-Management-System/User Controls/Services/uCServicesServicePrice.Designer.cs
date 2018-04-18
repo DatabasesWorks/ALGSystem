@@ -49,10 +49,11 @@
             // numFee
             // 
             this.numFee.BackColor = System.Drawing.Color.RoyalBlue;
+            this.numFee.DecimalPlaces = 2;
             this.numFee.Enabled = false;
             this.numFee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numFee.ForeColor = System.Drawing.Color.White;
-            this.numFee.Location = new System.Drawing.Point(459, 68);
+            this.numFee.Location = new System.Drawing.Point(459, 69);
             this.numFee.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -61,6 +62,7 @@
             this.numFee.Name = "numFee";
             this.numFee.Size = new System.Drawing.Size(159, 29);
             this.numFee.TabIndex = 152;
+            this.numFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cboVehicleType
             // 

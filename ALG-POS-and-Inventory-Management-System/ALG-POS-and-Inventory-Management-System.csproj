@@ -60,7 +60,6 @@
     <Compile Include="Classes\Services\ContServicesPrice.cs" />
     <Compile Include="Classes\LogsAndMaintenance\ContManageUsers.cs" />
     <Compile Include="Classes\Services\ContServiceAddedService.cs" />
-    <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
     <Compile Include="Classes\DbConnection.cs" />
@@ -131,6 +130,12 @@
     </Compile>
     <Compile Include="frmPosSearchItem.Designer.cs">
       <DependentUpon>frmPosSearchItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewServicesOffered.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewServicesOffered.Designer.cs">
+      <DependentUpon>frmViewServicesOffered.cs</DependentUpon>
     </Compile>
     <Compile Include="MyTextbox.cs">
       <SubType>Component</SubType>
@@ -256,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPosSearchItem.resx">
       <DependentUpon>frmPosSearchItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewServicesOffered.resx">
+      <DependentUpon>frmViewServicesOffered.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyTextbox.resx">
       <DependentUpon>MyTextbox.cs</DependentUpon>
