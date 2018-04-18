@@ -44,9 +44,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtMI = new MyTextBox();
-            this.txtGN = new MyTextBox();
-            this.txtFN = new MyTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -54,10 +51,14 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnProdPrint = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.txtCustID = new MyTextBox();
             this.txtAddress = new MyTextBox();
             this.txtContact = new MyTextBox();
-            this.btnProdPrint = new System.Windows.Forms.Button();
+            this.txtMI = new MyTextBox();
+            this.txtGN = new MyTextBox();
+            this.txtFN = new MyTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -210,39 +211,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Customer Name";
             // 
-            // txtMI
-            // 
-            this.txtMI.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtMI.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMI.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMI.ForeColor = System.Drawing.Color.White;
-            this.txtMI.Location = new System.Drawing.Point(341, 24);
-            this.txtMI.Name = "txtMI";
-            this.txtMI.Size = new System.Drawing.Size(39, 25);
-            this.txtMI.TabIndex = 113;
-            // 
-            // txtGN
-            // 
-            this.txtGN.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtGN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGN.ForeColor = System.Drawing.Color.White;
-            this.txtGN.Location = new System.Drawing.Point(108, 52);
-            this.txtGN.Name = "txtGN";
-            this.txtGN.Size = new System.Drawing.Size(189, 25);
-            this.txtGN.TabIndex = 111;
-            // 
-            // txtFN
-            // 
-            this.txtFN.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtFN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFN.ForeColor = System.Drawing.Color.White;
-            this.txtFN.Location = new System.Drawing.Point(109, 22);
-            this.txtFN.Name = "txtFN";
-            this.txtFN.Size = new System.Drawing.Size(188, 25);
-            this.txtFN.TabIndex = 110;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -267,7 +235,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(692, 277);
+            this.btnDelete.Location = new System.Drawing.Point(825, 263);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(127, 53);
             this.btnDelete.TabIndex = 193;
@@ -288,7 +256,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(692, 395);
+            this.btnSave.Location = new System.Drawing.Point(692, 263);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(127, 53);
             this.btnSave.TabIndex = 192;
@@ -308,7 +276,7 @@
             this.btnCustClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustClear.ForeColor = System.Drawing.Color.White;
-            this.btnCustClear.Location = new System.Drawing.Point(692, 336);
+            this.btnCustClear.Location = new System.Drawing.Point(754, 314);
             this.btnCustClear.Name = "btnCustClear";
             this.btnCustClear.Size = new System.Drawing.Size(127, 53);
             this.btnCustClear.TabIndex = 191;
@@ -329,7 +297,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(692, 218);
+            this.btnEdit.Location = new System.Drawing.Point(825, 196);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(127, 53);
             this.btnEdit.TabIndex = 190;
@@ -349,7 +317,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(692, 159);
+            this.btnAdd.Location = new System.Drawing.Point(692, 196);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(127, 53);
             this.btnAdd.TabIndex = 189;
@@ -363,13 +331,52 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Snow;
-            this.button1.Location = new System.Drawing.Point(788, 1);
+            this.button1.Location = new System.Drawing.Point(909, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(43, 39);
             this.button1.TabIndex = 195;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnProdPrint
+            // 
+            this.btnProdPrint.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnProdPrint.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnProdPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnProdPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProdPrint.FlatAppearance.BorderSize = 0;
+            this.btnProdPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnProdPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnProdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdPrint.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdPrint.ForeColor = System.Drawing.Color.White;
+            this.btnProdPrint.Location = new System.Drawing.Point(472, 62);
+            this.btnProdPrint.Name = "btnProdPrint";
+            this.btnProdPrint.Size = new System.Drawing.Size(163, 68);
+            this.btnProdPrint.TabIndex = 194;
+            this.btnProdPrint.Text = "Print";
+            this.btnProdPrint.UseVisualStyleBackColor = false;
+            this.btnProdPrint.Click += new System.EventHandler(this.btnProdPrint_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button2.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(727, 120);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(182, 60);
+            this.button2.TabIndex = 196;
+            this.button2.Text = "View Vechicle";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // txtCustID
             // 
@@ -404,32 +411,46 @@
             this.txtContact.Size = new System.Drawing.Size(129, 25);
             this.txtContact.TabIndex = 170;
             // 
-            // btnProdPrint
+            // txtMI
             // 
-            this.btnProdPrint.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdPrint.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnProdPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProdPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdPrint.FlatAppearance.BorderSize = 0;
-            this.btnProdPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdPrint.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdPrint.ForeColor = System.Drawing.Color.White;
-            this.btnProdPrint.Location = new System.Drawing.Point(523, 62);
-            this.btnProdPrint.Name = "btnProdPrint";
-            this.btnProdPrint.Size = new System.Drawing.Size(163, 68);
-            this.btnProdPrint.TabIndex = 194;
-            this.btnProdPrint.Text = "Print";
-            this.btnProdPrint.UseVisualStyleBackColor = false;
-            this.btnProdPrint.Click += new System.EventHandler(this.btnProdPrint_Click);
+            this.txtMI.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtMI.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMI.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMI.ForeColor = System.Drawing.Color.White;
+            this.txtMI.Location = new System.Drawing.Point(341, 24);
+            this.txtMI.Name = "txtMI";
+            this.txtMI.Size = new System.Drawing.Size(39, 25);
+            this.txtMI.TabIndex = 113;
+            // 
+            // txtGN
+            // 
+            this.txtGN.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtGN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGN.ForeColor = System.Drawing.Color.White;
+            this.txtGN.Location = new System.Drawing.Point(108, 52);
+            this.txtGN.Name = "txtGN";
+            this.txtGN.Size = new System.Drawing.Size(189, 25);
+            this.txtGN.TabIndex = 111;
+            // 
+            // txtFN
+            // 
+            this.txtFN.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtFN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFN.ForeColor = System.Drawing.Color.White;
+            this.txtFN.Location = new System.Drawing.Point(109, 22);
+            this.txtFN.Name = "txtFN";
+            this.txtFN.Size = new System.Drawing.Size(188, 25);
+            this.txtFN.TabIndex = 110;
             // 
             // frmManageCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(830, 460);
+            this.ClientSize = new System.Drawing.Size(954, 460);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnProdPrint);
             this.Controls.Add(this.btnDelete);
@@ -448,7 +469,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(395, 270);
+            this.Location = new System.Drawing.Point(300, 270);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmManageCustomer";
@@ -496,5 +517,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnProdPrint;
+        private System.Windows.Forms.Button button2;
     }
 }

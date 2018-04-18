@@ -67,9 +67,9 @@
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel2.Controls.Add(this.btnProdPrint);
             this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.cboType);
             this.panel2.Controls.Add(this.label9);
@@ -88,9 +88,9 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(100, 137);
+            this.panel2.Location = new System.Drawing.Point(46, 133);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(975, 542);
+            this.panel2.Size = new System.Drawing.Size(1094, 542);
             this.panel2.TabIndex = 37;
             // 
             // btnProdPrint
@@ -105,9 +105,9 @@
             this.btnProdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdPrint.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProdPrint.ForeColor = System.Drawing.Color.White;
-            this.btnProdPrint.Location = new System.Drawing.Point(829, 88);
+            this.btnProdPrint.Location = new System.Drawing.Point(844, 46);
             this.btnProdPrint.Name = "btnProdPrint";
-            this.btnProdPrint.Size = new System.Drawing.Size(132, 53);
+            this.btnProdPrint.Size = new System.Drawing.Size(156, 82);
             this.btnProdPrint.TabIndex = 194;
             this.btnProdPrint.Text = "Print";
             this.btnProdPrint.UseVisualStyleBackColor = false;
@@ -125,7 +125,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(829, 343);
+            this.btnDelete.Location = new System.Drawing.Point(939, 319);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(132, 53);
             this.btnDelete.TabIndex = 193;
@@ -146,7 +146,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(829, 234);
+            this.btnSave.Location = new System.Drawing.Point(801, 319);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(132, 53);
             this.btnSave.TabIndex = 192;
@@ -166,7 +166,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(829, 422);
+            this.btnClear.Location = new System.Drawing.Point(868, 378);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(132, 53);
             this.btnClear.TabIndex = 191;
@@ -187,7 +187,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(829, 293);
+            this.btnEdit.Location = new System.Drawing.Point(939, 260);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(132, 53);
             this.btnEdit.TabIndex = 190;
@@ -207,7 +207,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(829, 182);
+            this.btnAdd.Location = new System.Drawing.Point(801, 260);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(132, 53);
             this.btnAdd.TabIndex = 189;
