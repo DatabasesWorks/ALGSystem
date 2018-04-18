@@ -284,6 +284,7 @@
             this.btnManageUsers.TabIndex = 127;
             this.btnManageUsers.Text = "Manage Users";
             this.btnManageUsers.UseVisualStyleBackColor = false;
+            this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
             // 
             // pnlTitle
             // 
