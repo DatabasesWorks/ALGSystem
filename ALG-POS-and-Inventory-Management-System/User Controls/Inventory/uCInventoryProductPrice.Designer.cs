@@ -39,12 +39,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.numPriceSelling = new System.Windows.Forms.NumericUpDown();
             this.lvPriceProduct = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader31 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader32 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader33 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvPriceSupplier = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,8 +58,6 @@
             this.cboSProductID = new System.Windows.Forms.ComboBox();
             this.btnPriceSetPrice = new System.Windows.Forms.Button();
             this.btnPriceClear = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.numPriceDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPriceSelling)).BeginInit();
             this.SuspendLayout();
@@ -197,6 +197,7 @@
             // numPriceDiscount
             // 
             this.numPriceDiscount.BackColor = System.Drawing.Color.RoyalBlue;
+            this.numPriceDiscount.DecimalPlaces = 2;
             this.numPriceDiscount.Enabled = false;
             this.numPriceDiscount.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numPriceDiscount.ForeColor = System.Drawing.Color.White;
@@ -209,6 +210,7 @@
             this.numPriceDiscount.Name = "numPriceDiscount";
             this.numPriceDiscount.Size = new System.Drawing.Size(159, 31);
             this.numPriceDiscount.TabIndex = 187;
+            this.numPriceDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numPriceDiscount.ValueChanged += new System.EventHandler(this.numPriceDiscount_ValueChanged);
             // 
             // label10
@@ -225,6 +227,7 @@
             // numPriceSelling
             // 
             this.numPriceSelling.BackColor = System.Drawing.Color.RoyalBlue;
+            this.numPriceSelling.DecimalPlaces = 2;
             this.numPriceSelling.Enabled = false;
             this.numPriceSelling.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numPriceSelling.ForeColor = System.Drawing.Color.White;
@@ -237,6 +240,7 @@
             this.numPriceSelling.Name = "numPriceSelling";
             this.numPriceSelling.Size = new System.Drawing.Size(159, 31);
             this.numPriceSelling.TabIndex = 185;
+            this.numPriceSelling.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numPriceSelling.ValueChanged += new System.EventHandler(this.numPriceSelling_ValueChanged);
             // 
             // lvPriceProduct
@@ -258,6 +262,11 @@
             this.lvPriceProduct.UseCompatibleStateImageBehavior = false;
             this.lvPriceProduct.View = System.Windows.Forms.View.Details;
             this.lvPriceProduct.SelectedIndexChanged += new System.EventHandler(this.lvPriceProduct_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No.";
+            this.columnHeader1.Width = 40;
             // 
             // columnHeader29
             // 
@@ -303,6 +312,10 @@
             this.lvPriceSupplier.UseCompatibleStateImageBehavior = false;
             this.lvPriceSupplier.View = System.Windows.Forms.View.Details;
             this.lvPriceSupplier.SelectedIndexChanged += new System.EventHandler(this.lvPriceSupplier_SelectedIndexChanged);
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "No.";
             // 
             // columnHeader23
             // 
@@ -419,15 +432,6 @@
             this.btnPriceClear.Text = "Clear";
             this.btnPriceClear.UseVisualStyleBackColor = false;
             this.btnPriceClear.Click += new System.EventHandler(this.btnPriceClear_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "No.";
-            this.columnHeader1.Width = 40;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "No.";
             // 
             // uCInventoryProductPrice
             // 

@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AeroWizard, Version=2.1.11.0, Culture=neutral, PublicKeyToken=915e74f5d64b8f37, processorArchitecture=MSIL">
+      <HintPath>..\packages\AeroWizard.2.1.11\lib\net452\AeroWizard.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MVCWizard.Wizard, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MVCWizard.Wizard.1.2\lib\net40\MVCWizard.Wizard.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,7 +66,6 @@
     <Compile Include="Classes\Services\ContServicesServiceOffered.cs" />
     <Compile Include="Classes\LogsAndMaintenance\ContManageCustomer.cs" />
     <Compile Include="ContServicesPrice.cs" />
-    <Compile Include="DatabaseConnection%28foo%29.cs" />
     <Compile Include="Classes\clsUsers.cs" />
     <Compile Include="Classes\ContLogin.cs" />
     <Compile Include="Classes\DbConnection.cs" />
@@ -129,6 +136,18 @@
     </Compile>
     <Compile Include="frmPosSearchItem.Designer.cs">
       <DependentUpon>frmPosSearchItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductsWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductsWizard.Designer.cs">
+      <DependentUpon>frmProductsWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewServicesOffered.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewServicesOffered.Designer.cs">
+      <DependentUpon>frmViewServicesOffered.cs</DependentUpon>
     </Compile>
     <Compile Include="MyTextbox.cs">
       <SubType>Component</SubType>
@@ -255,6 +274,12 @@
     <EmbeddedResource Include="frmPosSearchItem.resx">
       <DependentUpon>frmPosSearchItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmProductsWizard.resx">
+      <DependentUpon>frmProductsWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewServicesOffered.resx">
+      <DependentUpon>frmViewServicesOffered.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyTextbox.resx">
       <DependentUpon>MyTextbox.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,6 +330,7 @@
     <EmbeddedResource Include="User Controls\Services\uCServices.resx">
       <DependentUpon>uCServices.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

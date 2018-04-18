@@ -32,11 +32,13 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtSearch = new MyTextBox();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label12
@@ -103,6 +105,8 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader20,
+            this.columnHeader5,
+            this.columnHeader6,
             this.columnHeader3,
             this.columnHeader21,
             this.columnHeader7,
@@ -137,8 +141,13 @@
             // 
             // columnHeader20
             // 
-            this.columnHeader20.Text = "No. of Car Serviced";
+            this.columnHeader20.Text = "No. of Services";
             this.columnHeader20.Width = 144;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Vehicle Plate No.";
+            this.columnHeader3.Width = 180;
             // 
             // columnHeader21
             // 
@@ -168,10 +177,13 @@
             this.txtSearch.TabIndex = 182;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // columnHeader3
+            // columnHeader5
             // 
-            this.columnHeader3.Text = "Vehicle Plate No.";
-            this.columnHeader3.Width = 180;
+            this.columnHeader5.Text = "Ongoing";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Finished";
             // 
             // frmPosOngoingService
             // 
@@ -209,5 +221,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

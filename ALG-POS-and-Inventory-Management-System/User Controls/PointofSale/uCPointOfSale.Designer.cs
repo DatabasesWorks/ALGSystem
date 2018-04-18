@@ -93,18 +93,26 @@
             this.numDiscount = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnViewServicesOffered = new System.Windows.Forms.Button();
             this.btnViewOngoing = new System.Windows.Forms.Button();
             this.btnAddService = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.OngoingContextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.setAsFinishedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FinishedContextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.setAsOngoingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtItemCode = new MyTextBox();
-            this.btnViewServicesOffered = new System.Windows.Forms.Button();
+            this.editServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editServiceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.OngoingContextMenuStrip1.SuspendLayout();
+            this.FinishedContextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -207,7 +215,7 @@
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(1218, 133);
+            this.btnRemove.Location = new System.Drawing.Point(1218, 229);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(126, 66);
             this.btnRemove.TabIndex = 175;
@@ -326,7 +334,7 @@
             this.lvServices.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvServices.FullRowSelect = true;
             this.lvServices.GridLines = true;
-            this.lvServices.Location = new System.Drawing.Point(6, 321);
+            this.lvServices.Location = new System.Drawing.Point(6, 318);
             this.lvServices.Name = "lvServices";
             this.lvServices.Size = new System.Drawing.Size(1338, 148);
             this.lvServices.TabIndex = 125;
@@ -334,6 +342,7 @@
             this.lvServices.View = System.Windows.Forms.View.Details;
             this.lvServices.SelectedIndexChanged += new System.EventHandler(this.lvServices_SelectedIndexChanged);
             this.lvServices.DoubleClick += new System.EventHandler(this.lvServices_DoubleClick);
+            this.lvServices.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvServices_MouseClick);
             // 
             // columnHeader13
             // 
@@ -381,7 +390,7 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Serviced by:";
-            this.columnHeader6.Width = 326;
+            this.columnHeader6.Width = 200;
             // 
             // columnHeader10
             // 
@@ -401,7 +410,7 @@
             // columnHeader22
             // 
             this.columnHeader22.Text = "Service Status";
-            this.columnHeader22.Width = 4;
+            this.columnHeader22.Width = 131;
             // 
             // columnHeader24
             // 
@@ -531,7 +540,7 @@
             this.lblDiscAmount.ForeColor = System.Drawing.Color.White;
             this.lblDiscAmount.Location = new System.Drawing.Point(1206, 124);
             this.lblDiscAmount.Name = "lblDiscAmount";
-            this.lblDiscAmount.Size = new System.Drawing.Size(151, 22);
+            this.lblDiscAmount.Size = new System.Drawing.Size(144, 22);
             this.lblDiscAmount.TabIndex = 145;
             this.lblDiscAmount.Text = "0";
             this.lblDiscAmount.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -543,9 +552,9 @@
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(1032, 122);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(173, 23);
+            this.label19.Size = new System.Drawing.Size(105, 23);
             this.label19.TabIndex = 144;
-            this.label19.Text = "Discounted Amount:";
+            this.label19.Text = "Grand Total:";
             // 
             // lblBalance
             // 
@@ -566,7 +575,7 @@
             this.lblTotalAmount.ForeColor = System.Drawing.Color.White;
             this.lblTotalAmount.Location = new System.Drawing.Point(1206, 92);
             this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(151, 22);
+            this.lblTotalAmount.Size = new System.Drawing.Size(144, 22);
             this.lblTotalAmount.TabIndex = 141;
             this.lblTotalAmount.Text = "0";
             this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -770,7 +779,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(812, 98);
+            this.label10.Location = new System.Drawing.Point(817, 97);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 19);
             this.label10.TabIndex = 128;
@@ -792,7 +801,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(811, 134);
+            this.label11.Location = new System.Drawing.Point(814, 129);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 19);
             this.label11.TabIndex = 129;
@@ -848,10 +857,30 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(369, 81);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(444, 106);
+            this.groupBox2.Size = new System.Drawing.Size(444, 128);
             this.groupBox2.TabIndex = 133;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Services";
+            // 
+            // btnViewServicesOffered
+            // 
+            this.btnViewServicesOffered.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnViewServicesOffered.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnViewServicesOffered.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnViewServicesOffered.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewServicesOffered.FlatAppearance.BorderSize = 0;
+            this.btnViewServicesOffered.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnViewServicesOffered.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnViewServicesOffered.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewServicesOffered.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewServicesOffered.ForeColor = System.Drawing.Color.White;
+            this.btnViewServicesOffered.Location = new System.Drawing.Point(1, 22);
+            this.btnViewServicesOffered.Name = "btnViewServicesOffered";
+            this.btnViewServicesOffered.Size = new System.Drawing.Size(145, 66);
+            this.btnViewServicesOffered.TabIndex = 174;
+            this.btnViewServicesOffered.Text = "View Services Offered";
+            this.btnViewServicesOffered.UseVisualStyleBackColor = false;
+            this.btnViewServicesOffered.Click += new System.EventHandler(this.btnViewServicesOffered_Click);
             // 
             // btnViewOngoing
             // 
@@ -865,11 +894,11 @@
             this.btnViewOngoing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewOngoing.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewOngoing.ForeColor = System.Drawing.Color.White;
-            this.btnViewOngoing.Location = new System.Drawing.Point(293, 22);
+            this.btnViewOngoing.Location = new System.Drawing.Point(291, 16);
             this.btnViewOngoing.Name = "btnViewOngoing";
-            this.btnViewOngoing.Size = new System.Drawing.Size(145, 66);
+            this.btnViewOngoing.Size = new System.Drawing.Size(145, 103);
             this.btnViewOngoing.TabIndex = 174;
-            this.btnViewOngoing.Text = "View Ongoing Services";
+            this.btnViewOngoing.Text = "View Unsettled Transaction";
             this.btnViewOngoing.UseVisualStyleBackColor = false;
             this.btnViewOngoing.Click += new System.EventHandler(this.btnViewOngoing_Click);
             // 
@@ -915,6 +944,36 @@
             this.label17.TabIndex = 131;
             this.label17.Text = "Total Amount:";
             // 
+            // OngoingContextMenuStrip1
+            // 
+            this.OngoingContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setAsFinishedToolStripMenuItem,
+            this.editServiceToolStripMenuItem});
+            this.OngoingContextMenuStrip1.Name = "contextMenuStrip1";
+            this.OngoingContextMenuStrip1.Size = new System.Drawing.Size(154, 48);
+            // 
+            // setAsFinishedToolStripMenuItem
+            // 
+            this.setAsFinishedToolStripMenuItem.Name = "setAsFinishedToolStripMenuItem";
+            this.setAsFinishedToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.setAsFinishedToolStripMenuItem.Text = "Set As Finished";
+            this.setAsFinishedToolStripMenuItem.Click += new System.EventHandler(this.setAsFinishedToolStripMenuItem_Click_1);
+            // 
+            // FinishedContextMenuStrip3
+            // 
+            this.FinishedContextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setAsOngoingToolStripMenuItem2,
+            this.editServiceToolStripMenuItem1});
+            this.FinishedContextMenuStrip3.Name = "FinishedContextMenuStrip3";
+            this.FinishedContextMenuStrip3.Size = new System.Drawing.Size(157, 70);
+            // 
+            // setAsOngoingToolStripMenuItem2
+            // 
+            this.setAsOngoingToolStripMenuItem2.Name = "setAsOngoingToolStripMenuItem2";
+            this.setAsOngoingToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
+            this.setAsOngoingToolStripMenuItem2.Text = "Set As Ongoing";
+            this.setAsOngoingToolStripMenuItem2.Click += new System.EventHandler(this.setAsOngoingToolStripMenuItem2_Click);
+            // 
             // txtItemCode
             // 
             this.txtItemCode.BackColor = System.Drawing.Color.RoyalBlue;
@@ -925,27 +984,21 @@
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Size = new System.Drawing.Size(231, 25);
             this.txtItemCode.TabIndex = 105;
-            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
             this.txtItemCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemCode_KeyDown);
             // 
-            // btnViewServicesOffered
+            // editServiceToolStripMenuItem
             // 
-            this.btnViewServicesOffered.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnViewServicesOffered.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
-            this.btnViewServicesOffered.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnViewServicesOffered.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnViewServicesOffered.FlatAppearance.BorderSize = 0;
-            this.btnViewServicesOffered.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnViewServicesOffered.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnViewServicesOffered.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewServicesOffered.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewServicesOffered.ForeColor = System.Drawing.Color.White;
-            this.btnViewServicesOffered.Location = new System.Drawing.Point(1, 22);
-            this.btnViewServicesOffered.Name = "btnViewServicesOffered";
-            this.btnViewServicesOffered.Size = new System.Drawing.Size(145, 66);
-            this.btnViewServicesOffered.TabIndex = 174;
-            this.btnViewServicesOffered.Text = "View Services Offered";
-            this.btnViewServicesOffered.UseVisualStyleBackColor = false;
+            this.editServiceToolStripMenuItem.Name = "editServiceToolStripMenuItem";
+            this.editServiceToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.editServiceToolStripMenuItem.Text = "Edit Service";
+            this.editServiceToolStripMenuItem.Click += new System.EventHandler(this.editServiceToolStripMenuItem_Click);
+            // 
+            // editServiceToolStripMenuItem1
+            // 
+            this.editServiceToolStripMenuItem1.Name = "editServiceToolStripMenuItem1";
+            this.editServiceToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.editServiceToolStripMenuItem1.Text = "Edit Service";
+            this.editServiceToolStripMenuItem1.Click += new System.EventHandler(this.editServiceToolStripMenuItem1_Click);
             // 
             // uCPointOfSale
             // 
@@ -981,6 +1034,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.OngoingContextMenuStrip1.ResumeLayout(false);
+            this.FinishedContextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1063,5 +1118,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader24;
         private System.Windows.Forms.Button btnUpdateTrans;
         private System.Windows.Forms.Button btnViewServicesOffered;
+        private System.Windows.Forms.ContextMenuStrip OngoingContextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem setAsFinishedToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip FinishedContextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem setAsOngoingToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem editServiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editServiceToolStripMenuItem1;
     }
 }

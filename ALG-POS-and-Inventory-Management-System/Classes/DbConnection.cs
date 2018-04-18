@@ -156,11 +156,14 @@ namespace ALG_POS_and_Inventory_Management_System {
                             list.Add(dataReader.GetString(i));
                         }
                     }
+                } else if (dataReader.IsDBNull(0)) {
+                    list = null;
                 } else {
                     list = null;
                 }
             } catch (Exception ex) {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                list = null;
+                Console.WriteLine("error on DbConnection.Select() " + ex.Message);
             } finally {
                 if (Connection.State == System.Data.ConnectionState.Open) {
                     Connection.Close();

@@ -90,6 +90,7 @@
             // clbAddedService
             // 
             this.clbAddedService.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.clbAddedService.CheckOnClick = true;
             this.clbAddedService.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clbAddedService.ForeColor = System.Drawing.Color.Black;
             this.clbAddedService.FormattingEnabled = true;
@@ -172,6 +173,7 @@
             // clbEmployee
             // 
             this.clbEmployee.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.clbEmployee.CheckOnClick = true;
             this.clbEmployee.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clbEmployee.ForeColor = System.Drawing.Color.Black;
             this.clbEmployee.FormattingEnabled = true;
@@ -186,7 +188,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(11, 15);
+            this.label21.Location = new System.Drawing.Point(11, 21);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 19);
             this.label21.TabIndex = 129;
@@ -256,6 +258,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(670, 410);
             this.panel2.TabIndex = 87;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnCancel
             // 
