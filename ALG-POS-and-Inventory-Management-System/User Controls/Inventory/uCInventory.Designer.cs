@@ -127,13 +127,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabInventory;
         private System.Windows.Forms.TabPage tabProducts;
         private System.Windows.Forms.TabPage tabStocks;
         private System.Windows.Forms.TabPage tabSuppliers;
         private System.Windows.Forms.TabPage tabProductPrice;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.TabControl tabInventory;
     }
 }

@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -44,6 +45,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.clerkPanel = new System.Windows.Forms.Panel();
             this.btnCollapse = new System.Windows.Forms.Button();
+            this.picWarning = new System.Windows.Forms.PictureBox();
+            this.lblWarning = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitCont)).BeginInit();
             this.splitCont.Panel1.SuspendLayout();
@@ -52,6 +56,7 @@
             this.maintenancePanel.SuspendLayout();
             this.panel9.SuspendLayout();
             this.pnlTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWarning)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -347,12 +352,45 @@
             this.btnCollapse.Visible = false;
             this.btnCollapse.Click += new System.EventHandler(this.btnCollapse_Click);
             // 
+            // picWarning
+            // 
+            this.picWarning.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picWarning.Image = ((System.Drawing.Image)(resources.GetObject("picWarning.Image")));
+            this.picWarning.Location = new System.Drawing.Point(85, 12);
+            this.picWarning.Name = "picWarning";
+            this.picWarning.Size = new System.Drawing.Size(73, 62);
+            this.picWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picWarning.TabIndex = 141;
+            this.picWarning.TabStop = false;
+            this.picWarning.Visible = false;
+            this.picWarning.Click += new System.EventHandler(this.picWarning_Click);
+            // 
+            // lblWarning
+            // 
+            this.lblWarning.AutoSize = true;
+            this.lblWarning.BackColor = System.Drawing.Color.Transparent;
+            this.lblWarning.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWarning.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblWarning.Location = new System.Drawing.Point(133, 9);
+            this.lblWarning.Name = "lblWarning";
+            this.lblWarning.Size = new System.Drawing.Size(25, 29);
+            this.lblWarning.TabIndex = 142;
+            this.lblWarning.Text = "0";
+            this.lblWarning.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.btnCollapse);
             this.Controls.Add(this.splitCont);
             this.Controls.Add(this.pictureBox1);
@@ -360,6 +398,7 @@
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.clerkPanel);
+            this.Controls.Add(this.picWarning);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMain";
             this.Text = "frmMain";
@@ -373,6 +412,7 @@
             this.panel9.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWarning)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,5 +440,8 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.Panel clerkPanel;
         public System.Windows.Forms.Button btnCollapse;
+        private System.Windows.Forms.PictureBox picWarning;
+        private System.Windows.Forms.Label lblWarning;
+        private System.Windows.Forms.Timer timer1;
     }
 }

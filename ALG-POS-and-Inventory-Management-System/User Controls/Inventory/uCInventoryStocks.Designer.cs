@@ -64,6 +64,7 @@
             this.cboSProductID = new System.Windows.Forms.ComboBox();
             this.lblStockID = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnShowCritical = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).BeginInit();
@@ -258,9 +259,9 @@
             this.btnSRemoveStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSRemoveStocks.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSRemoveStocks.ForeColor = System.Drawing.Color.White;
-            this.btnSRemoveStocks.Location = new System.Drawing.Point(780, 17);
+            this.btnSRemoveStocks.Location = new System.Drawing.Point(770, 5);
             this.btnSRemoveStocks.Name = "btnSRemoveStocks";
-            this.btnSRemoveStocks.Size = new System.Drawing.Size(132, 63);
+            this.btnSRemoveStocks.Size = new System.Drawing.Size(142, 75);
             this.btnSRemoveStocks.TabIndex = 228;
             this.btnSRemoveStocks.Text = "Remove Stock";
             this.btnSRemoveStocks.UseVisualStyleBackColor = false;
@@ -299,11 +300,11 @@
             this.btnRemoveZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveZero.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveZero.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveZero.Location = new System.Drawing.Point(934, 20);
+            this.btnRemoveZero.Location = new System.Drawing.Point(918, 3);
             this.btnRemoveZero.Name = "btnRemoveZero";
-            this.btnRemoveZero.Size = new System.Drawing.Size(136, 60);
+            this.btnRemoveZero.Size = new System.Drawing.Size(152, 77);
             this.btnRemoveZero.TabIndex = 226;
-            this.btnRemoveZero.Text = "Remove Zero";
+            this.btnRemoveZero.Text = "Remove Empty Stocks";
             this.btnRemoveZero.UseVisualStyleBackColor = false;
             this.btnRemoveZero.Click += new System.EventHandler(this.btnRemoveZero_Click);
             // 
@@ -580,10 +581,32 @@
             this.timer1.Interval = 1500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnShowCritical
+            // 
+            this.btnShowCritical.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnShowCritical.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowCritical.BackgroundImage")));
+            this.btnShowCritical.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnShowCritical.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShowCritical.Enabled = false;
+            this.btnShowCritical.FlatAppearance.BorderSize = 0;
+            this.btnShowCritical.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnShowCritical.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnShowCritical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowCritical.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowCritical.ForeColor = System.Drawing.Color.White;
+            this.btnShowCritical.Location = new System.Drawing.Point(1155, 146);
+            this.btnShowCritical.Name = "btnShowCritical";
+            this.btnShowCritical.Size = new System.Drawing.Size(147, 65);
+            this.btnShowCritical.TabIndex = 246;
+            this.btnShowCritical.Text = "Show Critical Stocks";
+            this.btnShowCritical.UseVisualStyleBackColor = false;
+            this.btnShowCritical.Click += new System.EventHandler(this.btnShowCritical_Click);
+            // 
             // uCInventoryStocks
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Controls.Add(this.btnShowCritical);
             this.Controls.Add(this.lblStockID);
             this.Controls.Add(this.dtpReceive);
             this.Controls.Add(this.cboSProductName);
@@ -664,5 +687,6 @@
         private System.Windows.Forms.Label lblStockID;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnShowCritical;
     }
 }
