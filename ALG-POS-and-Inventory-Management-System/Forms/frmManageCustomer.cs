@@ -16,6 +16,7 @@ namespace ALG_POS_and_Inventory_Management_System
         bool custadd = false, custedit = false;
         string tempOldName;
         string Fullname;
+        public static string custID;
         public frmManageCustomer()
         {
             InitializeComponent();
@@ -142,6 +143,8 @@ namespace ALG_POS_and_Inventory_Management_System
                 txtAddress.Text = item.SubItems[6].Text;
                 btnAdd.Enabled = false; btnEdit.Enabled = true; btnDelete.Enabled = true; btnSave.Enabled = false; custadd = false; custedit = false; CustLock();
             }
+            button2.Enabled = true;
+            custID = txtCustID.Text;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -152,6 +155,12 @@ namespace ALG_POS_and_Inventory_Management_System
         private void btnProdPrint_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmVehicle frmVehicle = new frmVehicle();
+            frmVehicle.ShowDialog();
         }
 
         private void btnAdd_Click_1(object sender, EventArgs e)

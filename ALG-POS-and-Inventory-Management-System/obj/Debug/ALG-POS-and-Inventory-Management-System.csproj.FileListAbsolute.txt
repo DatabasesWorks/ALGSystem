@@ -33,3 +33,4 @@ C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-Syste
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.exe
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.pdb
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.csprojResolveAssemblyReference.cache
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmVehicle.resources
