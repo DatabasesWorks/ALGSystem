@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uCInventoryProducts));
             this.btnCategory = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAddBrand = new System.Windows.Forms.Button();
@@ -93,6 +94,7 @@
             this.btnAddBrand.TabIndex = 167;
             this.btnAddBrand.Text = "+";
             this.btnAddBrand.UseVisualStyleBackColor = false;
+            this.btnAddBrand.Click += new System.EventHandler(this.btnAddBrand_Click);
             // 
             // label6
             // 
@@ -108,6 +110,7 @@
             // cboBrand
             // 
             this.cboBrand.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cboBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBrand.Enabled = false;
             this.cboBrand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboBrand.ForeColor = System.Drawing.Color.White;
@@ -116,20 +119,19 @@
             this.cboBrand.Name = "cboBrand";
             this.cboBrand.Size = new System.Drawing.Size(192, 29);
             this.cboBrand.TabIndex = 165;
-            this.cboBrand.Text = "Petron";
             // 
             // cboCategory
             // 
             this.cboCategory.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.Enabled = false;
             this.cboCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategory.ForeColor = System.Drawing.Color.White;
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(110, 189);
+            this.cboCategory.Location = new System.Drawing.Point(96, 189);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(178, 29);
+            this.cboCategory.Size = new System.Drawing.Size(192, 29);
             this.cboCategory.TabIndex = 164;
-            this.cboCategory.Text = "Engine Oil";
             this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // label12
@@ -201,6 +203,7 @@
             // cboSearch
             // 
             this.cboSearch.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cboSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSearch.ForeColor = System.Drawing.Color.White;
             this.cboSearch.FormattingEnabled = true;
@@ -274,7 +277,7 @@
             // btnProdPrint
             // 
             this.btnProdPrint.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdPrint.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnProdPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProdPrint.BackgroundImage")));
             this.btnProdPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnProdPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProdPrint.FlatAppearance.BorderSize = 0;
@@ -294,7 +297,7 @@
             // btnProdDelete
             // 
             this.btnProdDelete.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdDelete.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnProdDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProdDelete.BackgroundImage")));
             this.btnProdDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnProdDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProdDelete.Enabled = false;
@@ -315,7 +318,7 @@
             // btnProdSave
             // 
             this.btnProdSave.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdSave.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnProdSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProdSave.BackgroundImage")));
             this.btnProdSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnProdSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProdSave.Enabled = false;
@@ -336,7 +339,7 @@
             // btnProdClear
             // 
             this.btnProdClear.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdClear.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnProdClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProdClear.BackgroundImage")));
             this.btnProdClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnProdClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProdClear.FlatAppearance.BorderSize = 0;
@@ -356,7 +359,7 @@
             // btnProdEdit
             // 
             this.btnProdEdit.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdEdit.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnProdEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProdEdit.BackgroundImage")));
             this.btnProdEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnProdEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProdEdit.Enabled = false;
@@ -377,7 +380,7 @@
             // btnProdAdd
             // 
             this.btnProdAdd.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnProdAdd.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnProdAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProdAdd.BackgroundImage")));
             this.btnProdAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnProdAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProdAdd.FlatAppearance.BorderSize = 0;

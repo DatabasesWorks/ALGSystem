@@ -220,6 +220,7 @@
             this.txtPW.Size = new System.Drawing.Size(195, 31);
             this.txtPW.TabIndex = 138;
             this.txtPW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPW.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPW_KeyDown);
             // 
             // txtUN
             // 
@@ -232,6 +233,7 @@
             this.txtUN.Size = new System.Drawing.Size(195, 31);
             this.txtUN.TabIndex = 1;
             this.txtUN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUN_KeyDown);
             // 
             // frmLogin
             // 

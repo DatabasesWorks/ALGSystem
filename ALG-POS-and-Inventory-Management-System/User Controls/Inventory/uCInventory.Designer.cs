@@ -46,6 +46,8 @@
             this.tabInventory.SelectedIndex = 0;
             this.tabInventory.Size = new System.Drawing.Size(1333, 571);
             this.tabInventory.TabIndex = 56;
+            this.tabInventory.SelectedIndexChanged += new System.EventHandler(this.tabInventory_SelectedIndexChanged);
+            this.tabInventory.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabInventory_Selected);
             // 
             // tabProducts
             // 

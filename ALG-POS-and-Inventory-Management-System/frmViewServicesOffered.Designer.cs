@@ -26,15 +26,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lvServices = new System.Windows.Forms.ListView();
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.lvVehicleType = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblServicePrice = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lvAddedservice = new System.Windows.Forms.ListView();
@@ -42,6 +42,8 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label9
@@ -49,11 +51,12 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(197, 9);
+            this.label9.Location = new System.Drawing.Point(266, 4);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(231, 39);
             this.label9.TabIndex = 24;
             this.label9.Text = "Services Offered";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // lvServices
             // 
@@ -65,7 +68,7 @@
             this.lvServices.FullRowSelect = true;
             this.lvServices.GridLines = true;
             this.lvServices.LabelWrap = false;
-            this.lvServices.Location = new System.Drawing.Point(7, 86);
+            this.lvServices.Location = new System.Drawing.Point(16, 93);
             this.lvServices.Name = "lvServices";
             this.lvServices.Size = new System.Drawing.Size(221, 261);
             this.lvServices.TabIndex = 188;
@@ -80,6 +83,11 @@
             this.columnHeader12.Text = "No.";
             this.columnHeader12.Width = 39;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "ID";
+            this.columnHeader5.Width = 0;
+            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Service Name";
@@ -90,7 +98,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(4, 59);
+            this.label1.Location = new System.Drawing.Point(13, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 24);
             this.label1.TabIndex = 189;
@@ -106,7 +114,7 @@
             this.lvVehicleType.FullRowSelect = true;
             this.lvVehicleType.GridLines = true;
             this.lvVehicleType.LabelWrap = false;
-            this.lvVehicleType.Location = new System.Drawing.Point(234, 86);
+            this.lvVehicleType.Location = new System.Drawing.Point(243, 93);
             this.lvVehicleType.Name = "lvVehicleType";
             this.lvVehicleType.Size = new System.Drawing.Size(218, 261);
             this.lvVehicleType.TabIndex = 190;
@@ -120,6 +128,11 @@
             this.columnHeader2.Text = "No.";
             this.columnHeader2.Width = 39;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "ID";
+            this.columnHeader4.Width = 0;
+            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Vehicle Type";
@@ -130,7 +143,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(243, 59);
+            this.label2.Location = new System.Drawing.Point(252, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 24);
             this.label2.TabIndex = 191;
@@ -141,29 +154,19 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(513, 86);
+            this.label3.Location = new System.Drawing.Point(481, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 24);
+            this.label3.Size = new System.Drawing.Size(108, 24);
             this.label3.TabIndex = 192;
-            this.label3.Text = "Services Fee:";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "ID";
-            this.columnHeader4.Width = 0;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "ID";
-            this.columnHeader5.Width = 0;
+            this.label3.Text = "Service Fee:";
             // 
             // lblServicePrice
             // 
             this.lblServicePrice.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lblServicePrice.ForeColor = System.Drawing.Color.White;
-            this.lblServicePrice.Location = new System.Drawing.Point(569, 110);
+            this.lblServicePrice.Location = new System.Drawing.Point(584, 105);
             this.lblServicePrice.Name = "lblServicePrice";
-            this.lblServicePrice.Size = new System.Drawing.Size(116, 24);
+            this.lblServicePrice.Size = new System.Drawing.Size(111, 24);
             this.lblServicePrice.TabIndex = 193;
             this.lblServicePrice.Text = "0.00";
             this.lblServicePrice.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -173,7 +176,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(463, 205);
+            this.label4.Location = new System.Drawing.Point(481, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(142, 24);
             this.label4.TabIndex = 195;
@@ -190,9 +193,9 @@
             this.lvAddedservice.FullRowSelect = true;
             this.lvAddedservice.GridLines = true;
             this.lvAddedservice.LabelWrap = false;
-            this.lvAddedservice.Location = new System.Drawing.Point(467, 232);
+            this.lvAddedservice.Location = new System.Drawing.Point(485, 190);
             this.lvAddedservice.Name = "lvAddedservice";
-            this.lvAddedservice.Size = new System.Drawing.Size(276, 113);
+            this.lvAddedservice.Size = new System.Drawing.Size(276, 160);
             this.lvAddedservice.TabIndex = 194;
             this.lvAddedservice.UseCompatibleStateImageBehavior = false;
             this.lvAddedservice.View = System.Windows.Forms.View.Details;
@@ -217,12 +220,22 @@
             this.columnHeader9.Text = "Price";
             this.columnHeader9.Width = 86;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(778, 49);
+            this.panel1.TabIndex = 196;
+            // 
             // frmViewServicesOffered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(780, 357);
+            this.ClientSize = new System.Drawing.Size(780, 362);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lvAddedservice);
             this.Controls.Add(this.lblServicePrice);
@@ -231,10 +244,13 @@
             this.Controls.Add(this.lvVehicleType);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lvServices);
-            this.Controls.Add(this.label9);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmViewServicesOffered";
-            this.Text = "frmViewServicesOffered";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Point of Sale";
             this.Load += new System.EventHandler(this.frmViewServicesOffered_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +277,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Panel panel1;
     }
 }

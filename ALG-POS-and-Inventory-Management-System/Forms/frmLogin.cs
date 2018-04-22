@@ -59,5 +59,17 @@ namespace ALG_POS_and_Inventory_Management_System {
             frmConfigs frmconfig = new frmConfigs();
             frmconfig.ShowDialog();
         }
+
+        private void txtUN_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                txtPW.Focus();
+            }
+        }
+
+        private void txtPW_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                btnOK.PerformClick();
+            }
+        }
     }
 }

@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uCInventoryProductPrice));
             this.label40 = new System.Windows.Forms.Label();
             this.lblPriceDiscounted = new System.Windows.Forms.Label();
             this.lblPriceDiscount = new System.Windows.Forms.Label();
@@ -58,6 +59,8 @@
             this.cboSProductID = new System.Windows.Forms.ComboBox();
             this.btnPriceSetPrice = new System.Windows.Forms.Button();
             this.btnPriceClear = new System.Windows.Forms.Button();
+            this.lblAvgPrice = new System.Windows.Forms.Label();
+            this.lblAvg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numPriceDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPriceSelling)).BeginInit();
             this.SuspendLayout();
@@ -144,7 +147,7 @@
             this.lblAvailableStocks.AutoSize = true;
             this.lblAvailableStocks.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvailableStocks.ForeColor = System.Drawing.Color.White;
-            this.lblAvailableStocks.Location = new System.Drawing.Point(1062, 359);
+            this.lblAvailableStocks.Location = new System.Drawing.Point(1174, 343);
             this.lblAvailableStocks.Name = "lblAvailableStocks";
             this.lblAvailableStocks.Size = new System.Drawing.Size(22, 23);
             this.lblAvailableStocks.TabIndex = 194;
@@ -155,18 +158,18 @@
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(891, 359);
+            this.label31.Location = new System.Drawing.Point(1033, 343);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(176, 23);
+            this.label31.Size = new System.Drawing.Size(135, 23);
             this.label31.TabIndex = 193;
-            this.label31.Text = "Available Stocks:";
+            this.label31.Text = "Total Stocks:";
             // 
             // lblPriceProductName
             // 
             this.lblPriceProductName.AutoSize = true;
             this.lblPriceProductName.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPriceProductName.ForeColor = System.Drawing.Color.White;
-            this.lblPriceProductName.Location = new System.Drawing.Point(617, 53);
+            this.lblPriceProductName.Location = new System.Drawing.Point(664, 53);
             this.lblPriceProductName.Name = "lblPriceProductName";
             this.lblPriceProductName.Size = new System.Drawing.Size(143, 23);
             this.lblPriceProductName.TabIndex = 191;
@@ -177,7 +180,7 @@
             this.lblPriceProductID.AutoSize = true;
             this.lblPriceProductID.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPriceProductID.ForeColor = System.Drawing.Color.White;
-            this.lblPriceProductID.Location = new System.Drawing.Point(617, 30);
+            this.lblPriceProductID.Location = new System.Drawing.Point(664, 30);
             this.lblPriceProductID.Name = "lblPriceProductID";
             this.lblPriceProductID.Size = new System.Drawing.Size(112, 23);
             this.lblPriceProductID.TabIndex = 190;
@@ -255,9 +258,9 @@
             this.lvPriceProduct.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvPriceProduct.FullRowSelect = true;
             this.lvPriceProduct.GridLines = true;
-            this.lvPriceProduct.Location = new System.Drawing.Point(18, 94);
+            this.lvPriceProduct.Location = new System.Drawing.Point(7, 92);
             this.lvPriceProduct.Name = "lvPriceProduct";
-            this.lvPriceProduct.Size = new System.Drawing.Size(588, 234);
+            this.lvPriceProduct.Size = new System.Drawing.Size(635, 234);
             this.lvPriceProduct.TabIndex = 184;
             this.lvPriceProduct.UseCompatibleStateImageBehavior = false;
             this.lvPriceProduct.View = System.Windows.Forms.View.Details;
@@ -271,12 +274,12 @@
             // columnHeader29
             // 
             this.columnHeader29.Text = "Product ID";
-            this.columnHeader29.Width = 92;
+            this.columnHeader29.Width = 119;
             // 
             // columnHeader30
             // 
             this.columnHeader30.Text = "Product Name";
-            this.columnHeader30.Width = 114;
+            this.columnHeader30.Width = 139;
             // 
             // columnHeader31
             // 
@@ -305,9 +308,9 @@
             this.lvPriceSupplier.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvPriceSupplier.FullRowSelect = true;
             this.lvPriceSupplier.GridLines = true;
-            this.lvPriceSupplier.Location = new System.Drawing.Point(612, 94);
+            this.lvPriceSupplier.Location = new System.Drawing.Point(659, 94);
             this.lvPriceSupplier.Name = "lvPriceSupplier";
-            this.lvPriceSupplier.Size = new System.Drawing.Size(653, 232);
+            this.lvPriceSupplier.Size = new System.Drawing.Size(663, 232);
             this.lvPriceSupplier.TabIndex = 179;
             this.lvPriceSupplier.UseCompatibleStateImageBehavior = false;
             this.lvPriceSupplier.View = System.Windows.Forms.View.Details;
@@ -316,6 +319,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "No.";
+            this.columnHeader2.Width = 45;
             // 
             // columnHeader23
             // 
@@ -325,7 +329,7 @@
             // columnHeader26
             // 
             this.columnHeader26.Text = "Supplier Price";
-            this.columnHeader26.Width = 123;
+            this.columnHeader26.Width = 116;
             // 
             // columnHeader5
             // 
@@ -345,11 +349,11 @@
             // cboSProductName
             // 
             this.cboSProductName.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.cboSProductName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboSProductName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSProductName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSProductName.ForeColor = System.Drawing.Color.White;
             this.cboSProductName.FormattingEnabled = true;
-            this.cboSProductName.Location = new System.Drawing.Point(146, 47);
+            this.cboSProductName.Location = new System.Drawing.Point(135, 45);
             this.cboSProductName.Name = "cboSProductName";
             this.cboSProductName.Size = new System.Drawing.Size(203, 29);
             this.cboSProductName.TabIndex = 247;
@@ -361,7 +365,7 @@
             this.label15.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(21, 50);
+            this.label15.Location = new System.Drawing.Point(10, 48);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(119, 21);
             this.label15.TabIndex = 246;
@@ -373,7 +377,7 @@
             this.label14.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(22, 13);
+            this.label14.Location = new System.Drawing.Point(10, 6);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(92, 21);
             this.label14.TabIndex = 245;
@@ -382,11 +386,11 @@
             // cboSProductID
             // 
             this.cboSProductID.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.cboSProductID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboSProductID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSProductID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSProductID.ForeColor = System.Drawing.Color.White;
             this.cboSProductID.FormattingEnabled = true;
-            this.cboSProductID.Location = new System.Drawing.Point(146, 8);
+            this.cboSProductID.Location = new System.Drawing.Point(135, 6);
             this.cboSProductID.Name = "cboSProductID";
             this.cboSProductID.Size = new System.Drawing.Size(203, 29);
             this.cboSProductID.TabIndex = 244;
@@ -395,7 +399,7 @@
             // btnPriceSetPrice
             // 
             this.btnPriceSetPrice.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnPriceSetPrice.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnPriceSetPrice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPriceSetPrice.BackgroundImage")));
             this.btnPriceSetPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPriceSetPrice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPriceSetPrice.Enabled = false;
@@ -416,7 +420,7 @@
             // btnPriceClear
             // 
             this.btnPriceClear.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnPriceClear.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnPriceClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPriceClear.BackgroundImage")));
             this.btnPriceClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPriceClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPriceClear.FlatAppearance.BorderSize = 0;
@@ -433,10 +437,35 @@
             this.btnPriceClear.UseVisualStyleBackColor = false;
             this.btnPriceClear.Click += new System.EventHandler(this.btnPriceClear_Click);
             // 
+            // lblAvgPrice
+            // 
+            this.lblAvgPrice.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgPrice.ForeColor = System.Drawing.Color.White;
+            this.lblAvgPrice.Location = new System.Drawing.Point(1174, 391);
+            this.lblAvgPrice.Name = "lblAvgPrice";
+            this.lblAvgPrice.Size = new System.Drawing.Size(118, 23);
+            this.lblAvgPrice.TabIndex = 251;
+            this.lblAvgPrice.Text = "0";
+            this.lblAvgPrice.Visible = false;
+            // 
+            // lblAvg
+            // 
+            this.lblAvg.AutoSize = true;
+            this.lblAvg.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvg.ForeColor = System.Drawing.Color.White;
+            this.lblAvg.Location = new System.Drawing.Point(1019, 391);
+            this.lblAvg.Name = "lblAvg";
+            this.lblAvg.Size = new System.Drawing.Size(149, 23);
+            this.lblAvg.TabIndex = 250;
+            this.lblAvg.Text = "Average Price:";
+            this.lblAvg.Visible = false;
+            // 
             // uCInventoryProductPrice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Controls.Add(this.lblAvgPrice);
+            this.Controls.Add(this.lblAvg);
             this.Controls.Add(this.btnPriceClear);
             this.Controls.Add(this.btnPriceSetPrice);
             this.Controls.Add(this.cboSProductName);
@@ -507,5 +536,7 @@
         private System.Windows.Forms.Button btnPriceClear;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Label lblAvgPrice;
+        private System.Windows.Forms.Label lblAvg;
     }
 }

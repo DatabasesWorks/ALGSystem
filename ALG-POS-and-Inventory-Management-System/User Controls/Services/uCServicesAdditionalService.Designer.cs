@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uCServicesAdditionalService));
             this.label13 = new System.Windows.Forms.Label();
             this.txtaddedprice = new System.Windows.Forms.NumericUpDown();
             this.cboservname = new System.Windows.Forms.ComboBox();
@@ -165,7 +166,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnDelete.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Enabled = false;
@@ -186,7 +187,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSave.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Enabled = false;
@@ -207,7 +208,7 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnClear.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
             this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderSize = 0;
@@ -227,7 +228,7 @@
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnEdit.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.Enabled = false;
@@ -248,7 +249,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAdd.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.BackgroundImage")));
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderSize = 0;

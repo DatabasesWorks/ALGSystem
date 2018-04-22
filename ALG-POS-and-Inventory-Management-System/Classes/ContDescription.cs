@@ -9,7 +9,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         DbConnection Database = new DbConnection();
         public System.Data.DataTable LoadDescriptions() {
             try {
-                string query = "SELECT description_ID, desc_name, desc_type FROM descriptions WHERE date_deleted IS NULL";
+                string query = "SELECT description_ID, desc_name, desc_type, desc_unit FROM descriptions WHERE date_deleted IS NULL";
                 System.Data.DataTable dt = new System.Data.DataTable();
                 dt = Database.Retrieve(query);
                 return (dt);
@@ -18,12 +18,12 @@ namespace ALG_POS_and_Inventory_Management_System {
                 throw;
             }
         }
-        public bool IsInsertDescription(string descName, string descType) {
+        public bool IsInsertDescription(string descName, string descType, string descUnit) {
             bool status = false;
             try {
                 if (!isDuplicateDescName(descName)) { // if no duplicate found
-                    string query = "INSERT INTO descriptions SET desc_name=@0, desc_type=@1";
-                    string[] param = { descName, descType};
+                    string query = "INSERT INTO descriptions SET desc_name=@0, desc_type=@1, desc_unit";
+                    string[] param = { descName, descType, descUnit};
                     if (Database.Execute(query, param)) {
                         System.Windows.Forms.MessageBox.Show("Description successfully saved!", "Descriptions", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                         status = true;
@@ -34,7 +34,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             }
             return status;
         }
-        public bool IsUpdateDescription(string descID, string descName, string descType, string nvm) {
+        public bool IsUpdateDescription(string descID, string descName, string descType, string descUnit, string nvm) {
             bool status = false;
             try {
                 //make a new function for this, check only the productname
@@ -43,8 +43,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                 else
                     nvm = "nvm";
                 if (!isDuplicateDescName(nvm)) { // if no duplicate found, nvm is to make sure that it will return false; no duplicate found
-                    string query = "UPDATE descriptions SET desc_name=@0, desc_type=@1 WHERE description_ID=@2";
-                    string[] param = { descName, descType, descID };
+                    string query = "UPDATE descriptions SET desc_name=@0, desc_type=@1, desc_unit=@2 WHERE description_ID=@3";
+                    string[] param = { descName, descType, descUnit, descID };
                     if (Database.Execute(query, param)) {
                         System.Windows.Forms.MessageBox.Show("Description successfully updated!", "Descriptions", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                         status = true;

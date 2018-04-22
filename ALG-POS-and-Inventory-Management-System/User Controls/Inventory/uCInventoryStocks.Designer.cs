@@ -23,6 +23,8 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uCInventoryStocks));
             this.dtpReceive = new System.Windows.Forms.DateTimePicker();
             this.numSSupPrice = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
@@ -61,6 +63,7 @@
             this.cboSProductName = new System.Windows.Forms.ComboBox();
             this.cboSProductID = new System.Windows.Forms.ComboBox();
             this.lblStockID = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).BeginInit();
@@ -123,8 +126,8 @@
             // cboSSuppliers
             // 
             this.cboSSuppliers.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cboSSuppliers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSSuppliers.Enabled = false;
-            this.cboSSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboSSuppliers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSSuppliers.ForeColor = System.Drawing.Color.White;
             this.cboSSuppliers.FormattingEnabled = true;
@@ -180,7 +183,6 @@
             this.label15.Size = new System.Drawing.Size(119, 21);
             this.label15.TabIndex = 235;
             this.label15.Text = "Product Name:";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label14
             // 
@@ -193,7 +195,6 @@
             this.label14.Size = new System.Drawing.Size(92, 21);
             this.label14.TabIndex = 234;
             this.label14.Text = "Product ID:";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // label13
             // 
@@ -210,7 +211,7 @@
             // cboSSort
             // 
             this.cboSSort.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.cboSSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboSSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSSort.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSSort.ForeColor = System.Drawing.Color.White;
             this.cboSSort.FormattingEnabled = true;
@@ -247,7 +248,7 @@
             // btnSRemoveStocks
             // 
             this.btnSRemoveStocks.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSRemoveStocks.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSRemoveStocks.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSRemoveStocks.BackgroundImage")));
             this.btnSRemoveStocks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSRemoveStocks.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSRemoveStocks.Enabled = false;
@@ -268,9 +269,10 @@
             // btnSDeduct
             // 
             this.btnSDeduct.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSDeduct.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSDeduct.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSDeduct.BackgroundImage")));
             this.btnSDeduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSDeduct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSDeduct.Enabled = false;
             this.btnSDeduct.FlatAppearance.BorderSize = 0;
             this.btnSDeduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnSDeduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
@@ -288,7 +290,7 @@
             // btnRemoveZero
             // 
             this.btnRemoveZero.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnRemoveZero.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnRemoveZero.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRemoveZero.BackgroundImage")));
             this.btnRemoveZero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRemoveZero.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemoveZero.FlatAppearance.BorderSize = 0;
@@ -308,7 +310,7 @@
             // btnSClear
             // 
             this.btnSClear.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSClear.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSClear.BackgroundImage")));
             this.btnSClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSClear.FlatAppearance.BorderSize = 0;
@@ -328,7 +330,7 @@
             // btnSAdd
             // 
             this.btnSAdd.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSAdd.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSAdd.BackgroundImage")));
             this.btnSAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSAdd.FlatAppearance.BorderSize = 0;
@@ -348,7 +350,7 @@
             // btnSEdit
             // 
             this.btnSEdit.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSEdit.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSEdit.BackgroundImage")));
             this.btnSEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSEdit.Enabled = false;
@@ -369,7 +371,7 @@
             // btnSSave
             // 
             this.btnSSave.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSSave.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSSave.BackgroundImage")));
             this.btnSSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSSave.Enabled = false;
@@ -390,7 +392,7 @@
             // btnSChangePrice
             // 
             this.btnSChangePrice.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSChangePrice.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSChangePrice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSChangePrice.BackgroundImage")));
             this.btnSChangePrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSChangePrice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSChangePrice.Enabled = false;
@@ -411,7 +413,7 @@
             // btnSPrint
             // 
             this.btnSPrint.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSPrint.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSPrint.BackgroundImage")));
             this.btnSPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSPrint.FlatAppearance.BorderSize = 0;
@@ -454,6 +456,7 @@
             this.numDeduct.Name = "numDeduct";
             this.numDeduct.Size = new System.Drawing.Size(70, 29);
             this.numDeduct.TabIndex = 218;
+            this.numDeduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lvStocks
             // 
@@ -535,8 +538,8 @@
             // cboSProductName
             // 
             this.cboSProductName.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cboSProductName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSProductName.Enabled = false;
-            this.cboSProductName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboSProductName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSProductName.ForeColor = System.Drawing.Color.White;
             this.cboSProductName.FormattingEnabled = true;
@@ -549,8 +552,8 @@
             // cboSProductID
             // 
             this.cboSProductID.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cboSProductID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSProductID.Enabled = false;
-            this.cboSProductID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboSProductID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSProductID.ForeColor = System.Drawing.Color.White;
             this.cboSProductID.FormattingEnabled = true;
@@ -571,6 +574,11 @@
             this.lblStockID.Size = new System.Drawing.Size(78, 21);
             this.lblStockID.TabIndex = 245;
             this.lblStockID.Text = "_Stock ID";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // uCInventoryStocks
             // 
@@ -655,5 +663,6 @@
         private System.Windows.Forms.ComboBox cboSProductID;
         private System.Windows.Forms.Label lblStockID;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Timer timer1;
     }
 }

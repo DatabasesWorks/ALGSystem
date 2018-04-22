@@ -92,24 +92,28 @@ namespace ALG_POS_and_Inventory_Management_System {
                     same = true;
                 }
             }
+            AddTotalItem();
             return same;
         }
 
         private void AddTotalItem() {
-            double total = 0.0; //local variable
+            decimal total = 0; //local variable
             try {
                 foreach (ListViewItem item in lvItems.Items) {
                     price = Decimal.Parse(item.SubItems[9].Text, NumberStyles.Currency);
-                    total = total + (Convert.ToDouble(price));
+                    total = total + price;
                 }
                 lblTotalItems.Text = total.ToString("C");
                 itemPrice = Decimal.Parse(lblTotalItems.Text, NumberStyles.Currency);
                 servicePrice = Decimal.Parse(lblTotalService.Text, NumberStyles.Currency);
-                total = (Convert.ToDouble(servicePrice)) + (Convert.ToDouble(itemPrice));
+                total = itemPrice + servicePrice;
                 lblTotalAmount.Text = (total).ToString("C");
                 if (numDiscount.Value == 0)
                     lblDiscAmount.Text = lblTotalAmount.Text;
 
+                total = Decimal.Parse(lblTotalAmount.Text, NumberStyles.Currency);
+                lblDiscAmount.Text = (total - (total * ((numDiscount.Value) / 100))).ToString("C");
+                       
                 if (decimal.Parse(lblPaid.Text, NumberStyles.Currency) != 0) {
                     lblBalance.Text = (decimal.Parse(lblDiscAmount.Text, NumberStyles.Currency) - decimal.Parse(lblPaid.Text, NumberStyles.Currency)).ToString("C");
                 }
@@ -139,6 +143,9 @@ namespace ALG_POS_and_Inventory_Management_System {
                 if (numDiscount.Value == 0)     // ???????
                     lblDiscAmount.Text = lblTotalAmount.Text;
 
+                total = Decimal.Parse(lblTotalAmount.Text, NumberStyles.Currency);
+                lblDiscAmount.Text = (total - (total * ((numDiscount.Value) / 100))).ToString("C");
+
                 if (decimal.Parse(lblPaid.Text, NumberStyles.Currency) != 0) {
                     lblBalance.Text = (decimal.Parse(lblDiscAmount.Text, NumberStyles.Currency) - decimal.Parse(lblPaid.Text, NumberStyles.Currency)).ToString("C");
                 }
@@ -153,11 +160,15 @@ namespace ALG_POS_and_Inventory_Management_System {
                     numQuan.Minimum = 1;
                     ListViewItem item = lvItems.SelectedItems[0];
                     txtItemCode.Text = item.SubItems[1].Text;
+                    if (item.SubItems[10].Text == "0")
+                        numQuan.Minimum = 1;
+                    else
+                        numQuan.Minimum = Convert.ToDecimal(item.SubItems[10].Text); //throws exception when clicking new added item
                     numQuan.Value = Convert.ToDecimal(item.SubItems[8].Text);
-                    numQuan.Minimum = Convert.ToDecimal(item.SubItems[10].Text); //throws exception when clicking new added item
                     lvIclick = true;
                     btnRemove.Enabled = true;
-                    lvServices.SelectedItems.Clear();   //
+                    //lvServices.SelectedItems.Clear();   //
+                    btnAddItem.Text = "Update";
                 }
             } catch (Exception ex) {
                 Console.WriteLine("Error on minimum value" + ex.Message);
@@ -166,20 +177,30 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void btnAddItem_Click(object sender, EventArgs e) {
-            if (txtItemCode.Text.Trim() == "")
+            if (txtItemCode.Text.Trim() == "") {
+                if (btnAddItem.Text == "Update")
+                    btnAddItem.Text = "Add Item";
                 return;
+            }
             if (contPos.IsIdFound(txtItemCode.Text)) {
                 string quantity = numQuan.Value.ToString();
-                foreach (System.Windows.Forms.ListViewItem item in lvItems.Items) {
+                foreach (ListViewItem item in lvItems.Items) {
                     if(txtItemCode.Text == item.SubItems[1].Text) {
-                        int quant = Convert.ToInt32(numQuan.Value) - Convert.ToInt32(item.SubItems[10].Text);
+                        int quant;
+                        if (btnAddItem.Text == "Update")
+                            quant = Convert.ToInt32(numQuan.Value) - Convert.ToInt32(item.SubItems[10].Text);
+                        else
+                            quant = Convert.ToInt32(numQuan.Value) + Convert.ToInt32(item.SubItems[8].Text) - Convert.ToInt32(item.SubItems[10].Text);
                         quantity = quant.ToString();
                     }
                 }
                 if (!contPos.IsWithinAvailableStock(txtItemCode.Text, quantity)) {
                     //MessageBox.Show("Item " + item.SubItems[1].Text + " is not within the available quantity", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtItemCode.Text = "";
+                    numQuan.Minimum = 1;
                     numQuan.Value = 1;
+                    if (btnAddItem.Text == "Update")
+                        btnAddItem.Text = "Add Item";
                     return;
                 } else {
                     SelectItem(txtItemCode.Text);
@@ -190,6 +211,10 @@ namespace ALG_POS_and_Inventory_Management_System {
                 txtItemCode.Text = "";
                 numQuan.Value = 1;
             }
+            if (btnAddItem.Text == "Update")
+                btnAddItem.Text = "Add Item";
+            AddTotalItem();
+            AddTotalService();
         }
 
         private void cboCustName_SelectedIndexChanged(object sender, EventArgs e) {
@@ -208,6 +233,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
         public static bool isCancelled=true; //
         private void btnPay_Click(object sender, EventArgs e) {
+            isCancelled = true; //to prevent performing of btnnewtransaction when user click on btnpay then closes immediately
             if (lvServices.Items.Count > 0 || lvItems.Items.Count > 0) {
                 foreach (System.Windows.Forms.ListViewItem item in lvItems.Items) {
                     int quant = Convert.ToInt32(item.SubItems[8].Text) - Convert.ToInt32(item.SubItems[10].Text);
@@ -260,7 +286,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             ContPointOfSale.transID = lblTransNo.Text;
             ContPointOfSale.lvItems = lvItems;
             ContPointOfSale.lvServices = lvServices;
-            ContPointOfSale.balance = decimal.Parse(lblTotalAmount.Text, NumberStyles.Currency) - decimal.Parse(lblPaid.Text, NumberStyles.Currency);
+            ContPointOfSale.balance = decimal.Parse(lblBalance.Text, NumberStyles.Currency);
             ContPointOfSale.paid = decimal.Parse(lblPaid.Text, NumberStyles.Currency);
             ContPointOfSale.isUpdateOnly = true;
             contPos.UpdateToDb();
@@ -268,22 +294,34 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void btnSearch_Click(object sender, EventArgs e) {
+            txtItemCode.Text = "";
+            numQuan.Value = numQuan.Minimum = 1;
             searchID = "";
             frmPosSearchItem frmSearch = new frmPosSearchItem();
             frmSearch.ShowDialog();
             if (searchID != "") {
                 txtItemCode.Text = searchID;
-                foreach (ListViewItem item in lvItems.Items) {
-                    if (item.SubItems[1].Text == txtItemCode.Text)
-                        numQuan.Value = (numQuan.Value + (decimal.Parse(item.SubItems[8].Text) - decimal.Parse(item.SubItems[10].Text)));
-                }
                 //SelectItem(searchID);
                 //AddTotalItem();
                 btnAddItem.PerformClick();
             }
         }
 
+        private void numDiscount_Leave(object sender, EventArgs e) {
+            if (numDiscount.Text == "") {
+                numDiscount.Text = "0";
+                numDiscount.Value = 0;
+            }
+        }
+
         private void numDiscount_ValueChanged(object sender, EventArgs e) {
+            ComputeDiscount();
+        }
+
+        private void numDiscount_TextChanged(object sender, EventArgs e) {
+            ComputeDiscount();
+        }
+        void ComputeDiscount() {
             try {
                 if (numDiscount.Value == 0) {
                     lblDiscAmount.Text = lblTotalAmount.Text;
@@ -291,13 +329,14 @@ namespace ALG_POS_and_Inventory_Management_System {
                     decimal total; //local variable
                     total = Decimal.Parse(lblTotalAmount.Text, NumberStyles.Currency);
                     lblDiscAmount.Text = (total - (total * ((numDiscount.Value) / 100))).ToString("C");
+                    AddTotalItem();
+                    AddTotalService();
                 }
             } catch (Exception ex) {
                 Console.WriteLine("numdiscount_value changed error: " + ex.Message);
                 numDiscount.Value = 0;
             }
         }
-
         private void btnAddService_Click(object sender, EventArgs e) {
             ContPointOfSale.plateNo = ContPointOfSale.vehicleType = ContPointOfSale.brand = ContPointOfSale.model = ContPointOfSale.color = ContPointOfSale.serviceRendered = ContPointOfSale.payment = ContPointOfSale.employees = ContPointOfSale.addedService = ContPointOfSale.employeesID = ContPointOfSale.addedServicesID = "";
             contPos.CustInf(cboCustName.Text); // to save the customer name
@@ -321,7 +360,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     listitem.SubItems.Add(ContPointOfSale.addedService);
                     listitem.SubItems.Add(ContPointOfSale.employeesID);
                     listitem.SubItems.Add(ContPointOfSale.addedServicesID);
-                    listitem.SubItems.Add("0"); //12
+                    listitem.SubItems.Add("Ongoing"); //12
                     listitem.SubItems.Add("0"); //13
                     lvServices.Items.Add(listitem);
                     AddTotalService();
@@ -344,7 +383,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     }
                     AddTotalItem(); AddTotalService();
                 } else if (lvServices.SelectedItems.Count > 0) {
-                    if (lvServices.SelectedItems[0].SubItems[12].Text == "0") {
+                    if (lvServices.SelectedItems[0].SubItems[13].Text == "0") {
                         foreach (ListViewItem eachItem in lvServices.SelectedItems) {
                             lvServices.Items.Remove(eachItem);
                         }
@@ -354,25 +393,32 @@ namespace ALG_POS_and_Inventory_Management_System {
                     } else {
                         MessageBox.Show("Cannot remove item", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                    AddTotalItem(); AddTotalService();
+                    txtItemCode.Text = ""; numQuan.Value = numQuan.Minimum = 0;
                 } else
                     MessageBox.Show("Select item/service to be removed", "Point of Sale", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             } catch (Exception ex) {
                 MessageBox.Show("Error on removing item/service error: " + ex.Message, "Point of Sale", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 Console.WriteLine(ex.Message);
             }
-           
+             AddTotalItem(); AddTotalService();
+            txtItemCode.Text = ""; btnAddItem.Text = "Add Item";
+            numQuan.Minimum = 1; numQuan.Value = 1;
         }
 
         private void lvServices_SelectedIndexChanged(object sender, EventArgs e) {
             lvItems.SelectedItems.Clear();
+            txtItemCode.Text = ""; btnAddItem.Text = "Add Item";
+            numQuan.Minimum = 1; numQuan.Value = 1;
         }
 
         private void btnNewTrans_Click(object sender, EventArgs e) {
+            btnAddItem.Text = "Add Item";
+            numQuan.Minimum = 1;
+            numQuan.Value = 1;
             txtItemCode.Text = cboCustName.Text = lblAddress.Text = lblContact.Text = "";
             lblTotalService.Text = lblTotalItems.Text = lblBalance.Text = lblPaid.Text = lblDiscAmount.Text = lblTotalAmount.Text = 0.ToString("C");
             lblTransNo.Text = contPos.GetTransacID();
-            ContPointOfSale.totalAmount = ContPointOfSale.totalItems = ContPointOfSale.totalServices =  ContPointOfSale.totalDisc = 0;
+            ContPointOfSale.paid = ContPointOfSale.cash = ContPointOfSale.balance = ContPointOfSale.totalAmount = ContPointOfSale.totalItems = ContPointOfSale.totalServices =  ContPointOfSale.totalDisc = 0;
             ContPointOfSale.plateNo = ContPointOfSale.vehicleType = ContPointOfSale.brand = ContPointOfSale.model = ContPointOfSale.color = ContPointOfSale.serviceRendered = ContPointOfSale.payment = ContPointOfSale.employees = ContPointOfSale.addedService="";
             ContPointOfSale.discount = 0;
             ContPointOfSale.transID = "";
@@ -491,12 +537,43 @@ namespace ALG_POS_and_Inventory_Management_System {
             EditService();
         }
 
+        private void txtItemCode_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void panel2_MouseClick(object sender, MouseEventArgs e) {
+            if ((e.Button == MouseButtons.Left)) {
+                txtItemCode.Text = ""; btnAddItem.Text = "Add Item";
+                numQuan.Minimum = 1; numQuan.Value = 1;
+                lvItems.SelectedItems.Clear();
+            }
+        }
+
+        private void uCPointOfSale_MouseClick(object sender, MouseEventArgs e) {
+            if ((e.Button == MouseButtons.Left)) {
+                txtItemCode.Text = ""; btnAddItem.Text = "Add Item";
+                numQuan.Minimum = 1; numQuan.Value = 1;
+                lvItems.SelectedItems.Clear();
+            }
+        }
+
+      
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e) {
+            if ((e.Button == MouseButtons.Left)) {
+                txtItemCode.Text = ""; btnAddItem.Text = "Add Item";
+                numQuan.Minimum = 1; numQuan.Value = 1;
+                lvItems.SelectedItems.Clear();
+            }
+        }
+
         private void btnViewOngoing_Click(object sender, EventArgs e) {
             //transactions.transac_ID AS transID,CONCAT(gName, ' ', mInitial, '. ', fName) AS customer, discount, discounted_amount, total_amount, paid, balance, items_total_amount, service_total_amount
             transacID = "";
             frmPosOngoingService frmOngoing = new frmPosOngoingService();
             frmOngoing.ShowDialog();
             if (transacID != "") {
+                btnNewTrans.PerformClick();
                 btnUpdateTrans.Visible = true;
                 btnUpdateTrans.Enabled = true;
                 frmPosPay.isOngoing = true;
@@ -573,19 +650,6 @@ namespace ALG_POS_and_Inventory_Management_System {
             }
         }
 
-        private void numDiscount_TextChanged(object sender, EventArgs e) {
-            try {
-                if (numDiscount.Value == 0) {
-                    lblDiscAmount.Text = lblTotalAmount.Text;
-                } else {
-                    decimal total; //local variable
-                    total = Decimal.Parse(lblTotalAmount.Text, NumberStyles.Currency);
-                    lblDiscAmount.Text = (total - (total * ((numDiscount.Value) / 100))).ToString("C");
-                }
-            } catch (Exception ex) {
-                Console.WriteLine("numdiscount_value changed error: " + ex.Message);
-                numDiscount.Value = 0;
-            }
-        }
+        
     }
 }
