@@ -157,6 +157,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             splitCont.Panel2.Controls.Clear();
             uCPointOfSale usercontrol = new uCPointOfSale();
             splitCont.Panel2.Controls.Add(usercontrol);
+            uCInventoryStocks.showRunningOut = false;
         }
 
         private void btnManageEmp_Click(object sender, EventArgs e)
@@ -178,6 +179,26 @@ namespace ALG_POS_and_Inventory_Management_System {
             uCManageUsers user = new uCManageUsers();
             splitCont.Panel2.Controls.Clear();
             splitCont.Panel2.Controls.Add(user);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            string num = contObj.SelectStocksRunningOut();
+            if (num != "0") {
+                lblWarning.Text = num;
+                lblWarning.Visible = picWarning.Visible = true;
+            } else {
+                lblWarning.Visible = picWarning.Visible = false;
+            }
+        }
+
+        private void picWarning_Click(object sender, EventArgs e) {
+            string num = contObj.SelectStocksRunningOut();
+            MessageBox.Show(num + " products are running out of stocks", "ALG Autocare", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            uCInventoryStocks.showRunningOut = true;
+            splitCont.Panel2.Controls.Clear();
+            uCInventory usercontrol = new uCInventory();
+            splitCont.Panel2.Controls.Add(usercontrol);
+            usercontrol.tabInventory.SelectedIndex = 1 ;
         }
     }
 }

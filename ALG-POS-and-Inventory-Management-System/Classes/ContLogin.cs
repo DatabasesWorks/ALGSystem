@@ -20,7 +20,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             try {
                 byte[] data = System.Text.Encoding.UTF8.GetBytes(password);
                 byte[] hash = SHA256.Create().ComputeHash(data);
-                string query = "SELECT userID, CONCAT(fName,' ,',gName,' ',mInitial) AS Name, user_type, login_status FROM users WHERE username=@0 AND password=@1";
+                string query = "SELECT userID, CONCAT(fName,' ,',gName,' ',mInitial) AS Name, user_type, login_status FROM users WHERE username=@0 AND password=@1";// for testing remove login_status=0
                 string[] param = { userName, System.Text.Encoding.UTF8.GetString(hash) };
                 List<string> result = new List<string>();
                 result = Database.Select(query, param);
@@ -32,8 +32,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                     UpdateLoginStatus();
                 }
                 return result;
-            } catch (Exception /*ex*/) {
-                //System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+            } catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
                 return null;
             }
         }

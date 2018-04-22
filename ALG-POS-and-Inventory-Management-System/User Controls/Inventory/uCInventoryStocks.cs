@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace ALG_POS_and_Inventory_Management_System {
     public partial class uCInventoryStocks : UserControl {
+        public static bool showRunningOut;
         ContInventoryStocks ContInventoryStocks = new ContInventoryStocks();
         bool sAdd = false, sDeduct = false, sEdit = false, cChange = false;
         public uCInventoryStocks() {
@@ -17,7 +18,10 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void uCInventoryStocks_Load(object sender, EventArgs e) {
-            LoadStocks();
+            if (showRunningOut)
+                LoadRunningOutStocks();
+            else
+                LoadStocks();
             SetStockID();
             LoadProductsCbo(); LoadSuppliers();
             dtpReceive.Value = DateTime.Now;
@@ -32,7 +36,28 @@ namespace ALG_POS_and_Inventory_Management_System {
                 listitem.SubItems.Add(dr["stock_ID"].ToString());
                 listitem.SubItems.Add(dr["prodID"].ToString());
                 listitem.SubItems.Add(dr["product_name"].ToString());
-                listitem.SubItems.Add(dr["CONCAT(product_name, 'DESC')"].ToString());
+                listitem.SubItems.Add(dr["prodDesc"].ToString());
+                listitem.SubItems.Add(dr["total_stocks"].ToString());
+                listitem.SubItems.Add(dr["remaining_stocks"].ToString());
+                listitem.SubItems.Add(dr["dateProfiled"].ToString().Substring(0, 10));
+                listitem.SubItems.Add(dr["supplier_name"].ToString());
+                listitem.SubItems.Add(Convert.ToDecimal(dr["supplier_price"]).ToString("C"));
+
+                lvStocks.Items.Add(listitem);
+            }
+        }
+
+        void LoadRunningOutStocks() {
+            lvStocks.Items.Clear();
+            DataTable dt = new DataTable();
+            dt = ContInventoryStocks.LoadStocks("running out");
+            for (int i = 0; i < dt.Rows.Count; i++) {
+                DataRow dr = dt.Rows[i];
+                ListViewItem listitem = new ListViewItem((i + 1).ToString());
+                listitem.SubItems.Add(dr["stock_ID"].ToString());
+                listitem.SubItems.Add(dr["prodID"].ToString());
+                listitem.SubItems.Add(dr["product_name"].ToString());
+                listitem.SubItems.Add(dr["prodDesc"].ToString());
                 listitem.SubItems.Add(dr["total_stocks"].ToString());
                 listitem.SubItems.Add(dr["remaining_stocks"].ToString());
                 listitem.SubItems.Add(dr["dateProfiled"].ToString().Substring(0, 10));
@@ -85,6 +110,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             LoadStocks();
             btnRemoveZero.Enabled = btnSAdd.Enabled = true;
             numDeduct.Enabled = btnSDeduct.Enabled = btnSEdit.Enabled = btnSRemoveStocks.Enabled = btnSChangePrice.Enabled = false;
+            showRunningOut = false;
         }
         // make others false ie: when sadd = true, sedit = false
         private void btnSSave_Click(object sender, EventArgs e) {
@@ -216,6 +242,12 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void timer1_Tick(object sender, EventArgs e) {
             timer1.Stop();
             numSSupPrice.BackColor = numSQuan.BackColor = numDeduct.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnShowCritical_Click(object sender, EventArgs e) {
+            ContMain contMain = new ContMain();
+            contMain.SelectStocksRunningOut();
+            LoadRunningOutStocks();
         }
 
         private void btnSAdd_Click(object sender, EventArgs e) {

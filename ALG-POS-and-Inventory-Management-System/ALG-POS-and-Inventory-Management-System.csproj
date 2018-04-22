@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -65,10 +68,19 @@
     <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Classes\ContMain.cs" />
     <Compile Include="Classes\Inventory\ContInventoryProducts.cs" />
-    <Compile Include="dataSet!.Designer.cs">
+    <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dataSet!.xsd</DependentUpon>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
@@ -174,6 +186,12 @@
     <Compile Include="Inventory Wizard\ucWizProductPrice.Designer.cs">
       <DependentUpon>ucWizProductPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucReturnItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucReturnItem.Designer.cs">
+      <DependentUpon>ucReturnItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -258,6 +276,10 @@
     <Compile Include="User Controls\Services\uCServices.Designer.cs">
       <DependentUpon>uCServices.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +337,9 @@
     <EmbeddedResource Include="Inventory Wizard\ucWizProductPrice.resx">
       <DependentUpon>ucWizProductPrice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucReturnItem.resx">
+      <DependentUpon>ucReturnItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCCustomerRecords.resx">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,16 +382,16 @@
     <EmbeddedResource Include="User Controls\Services\uCServices.resx">
       <DependentUpon>uCServices.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dataSet!.xsc">
-      <DependentUpon>dataSet!.xsd</DependentUpon>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="dataSet!.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dataSet!.Designer.cs</LastGenOutput>
+    <None Include="DataSet1.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
     </None>
-    <None Include="dataSet!.xss">
-      <DependentUpon>dataSet!.xsd</DependentUpon>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -392,7 +417,9 @@
   <ItemGroup>
     <None Include="Resources\rounded-rectangle.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
