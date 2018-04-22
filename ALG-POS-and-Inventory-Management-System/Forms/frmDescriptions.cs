@@ -26,7 +26,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             txtDescriptionName.Enabled = grpDesc.Enabled = true;
         }
         private void SupClear() {
-            txtDescriptionName.Text= lblDescriptionID.Text = "";
+            txtDescriptionName.Text= lblDescriptionID.Text = txtDescUnit.Text = "";
             rdNumeric.Checked = false; rdText.Checked = true;
             supadd = supedit = false;
         }
@@ -40,6 +40,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 listitem.SubItems.Add((i + 1).ToString());
                 listitem.SubItems.Add(dr["desc_name"].ToString());
                 listitem.SubItems.Add(dr["desc_type"].ToString());
+                listitem.SubItems.Add(dr["desc_unit"].ToString());
                 lvDescription.Items.Add(listitem);
             }
         }
@@ -62,7 +63,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 else
                     type = "Numeric";
                 if (supadd) {
-                    if (contDescription.IsInsertDescription(txtDescriptionName.Text, type)) {
+                    if (contDescription.IsInsertDescription(txtDescriptionName.Text, type, txtDescUnit.Text)) {
                         //===== logs
                         //string sprodid = stock.product_ID;
                         //string uid = user.GetUserID();
@@ -70,7 +71,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                         btnClear.PerformClick();
                     }
                 } else if (supedit) {
-                    if (contDescription.IsUpdateDescription(lblDescriptionID.Text, txtDescriptionName.Text, type, tempOldName)) {
+                    if (contDescription.IsUpdateDescription(lblDescriptionID.Text, txtDescriptionName.Text, type, txtDescUnit.Text, tempOldName)) {
                         //===== logs
                         //string sprodid = stock.product_ID;
                         //string uid = user.GetUserID();
@@ -101,6 +102,14 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void btnClear_Click(object sender, EventArgs e) {
             LoadDescriptions(); btnSave.Enabled = false; btnAdd.Enabled = true; btnEdit.Enabled = false; btnDelete.Enabled = false; SupClear(); SupLock();
             supadd = supedit = false;
+        }
+
+        private void rdNumeric_CheckedChanged(object sender, EventArgs e) {
+            txtDescUnit.Enabled = true;
+        }
+
+        private void rdText_CheckedChanged(object sender, EventArgs e) {
+            txtDescUnit.Enabled = false;
         }
 
         private void lvDescription_SelectedIndexChanged(object sender, EventArgs e) {

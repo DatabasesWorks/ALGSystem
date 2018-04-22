@@ -12,7 +12,6 @@ namespace ALG_POS_and_Inventory_Management_System {
     public partial class uCInventoryStocks : UserControl {
         ContInventoryStocks ContInventoryStocks = new ContInventoryStocks();
         bool sAdd = false, sDeduct = false, sEdit = false, cChange = false;
-
         public uCInventoryStocks() {
             InitializeComponent();
         }
@@ -24,27 +23,6 @@ namespace ALG_POS_and_Inventory_Management_System {
             dtpReceive.Value = DateTime.Now;
         }
         void LoadStocks() {
-            //lvStocks.Items.Clear();
-            //DataTable table = new DataTable();
-            //table = ContInventoryStocks.LoadStocks(cboSSort.Text);
-            //ListViewItem iItem;
-            //foreach (DataRow row in table.Rows) {
-            //    iItem = new ListViewItem();
-            //    for (int i = 0; i < row.ItemArray.Length; i++) {
-            //        if (i == 0)
-            //            iItem.Text = row.ItemArray[i].ToString();
-            //        else if (i == 3)
-            //            iItem.SubItems.Add("temp description");
-            //        else if (i == 6)
-            //            iItem.SubItems.Add((row.ItemArray[i].ToString()).Substring(0, 10));
-            //        else if (i == 8)
-            //            iItem.SubItems.Add(Convert.ToDecimal(row.ItemArray[i].ToString()).ToString("C"));
-            //        else
-            //            iItem.SubItems.Add(row.ItemArray[i].ToString());
-            //    }
-            //    lvStocks.Items.Add(iItem);
-            //}
-            ////stock_ID,products.product_ID,product_name, CONCAT(product_name, 'DESC') ,total_stocks,remaining_stocks,DATE_FORMAT(received_date, '%m-%d-%Y'),supplier_name,supplier_price
             lvStocks.Items.Clear();
             DataTable dt = new DataTable();
             dt = ContInventoryStocks.LoadStocks(cboSSort.Text);
@@ -98,11 +76,15 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
         private void SClear() {
             SLock();
-            cboSProductName.Text = cboSProductID.Text = ""; numSQuan.Minimum = 0; numDeduct.Minimum = 0; numSQuan.Value = 0; numDeduct.Value = 0; dtpReceive.Value = DateTime.Now; numSSupPrice.Value = 0; cboSSuppliers.Text = "";
+            cboSSuppliers.Text = cboSProductName.Text = cboSProductID.Text = "";
+            LoadSuppliers(); LoadProductsCbo();
+            numSSupPrice.Value = numSQuan.Minimum = numDeduct.Minimum = numSQuan.Value = numDeduct.Value = numSSupPrice.Value = 0;
+            dtpReceive.Value = DateTime.Now; 
             SetStockID();
             sAdd = sDeduct = sEdit = cChange = false;
             LoadStocks();
-            btnRemoveZero.Enabled = true; btnSAdd.Enabled = true; cboSSuppliers.Text = ""; numSSupPrice.Value = 0; btnSChangePrice.Enabled = false; numDeduct.Enabled = true; btnSEdit.Enabled = false; btnSRemoveStocks.Enabled = false;
+            btnRemoveZero.Enabled = btnSAdd.Enabled = true;
+            numDeduct.Enabled = btnSDeduct.Enabled = btnSEdit.Enabled = btnSRemoveStocks.Enabled = btnSChangePrice.Enabled = false;
         }
         // make others false ie: when sadd = true, sedit = false
         private void btnSSave_Click(object sender, EventArgs e) {
@@ -153,11 +135,13 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void btnSEdit_Click(object sender, EventArgs e) {
-            btnSAdd.Enabled = false; btnSDeduct.Enabled = false; btnSRemoveStocks.Enabled = false;
+            btnSDeduct.Enabled = btnSAdd.Enabled = false; btnSDeduct.Enabled = false; btnSRemoveStocks.Enabled = false;
             sEdit = true;
             sAdd = sDeduct = cChange = false;
             btnSChangePrice.Enabled = false; numDeduct.Enabled = false;
             numSQuan.Enabled = true; numSQuan.Focus(); btnSSave.Enabled = true; btnSEdit.Enabled = false; numSQuan.Value = 0;
+
+            timer1.Start(); numSQuan.Focus(); numSQuan.BackColor = Color.RoyalBlue;
         }
 
         private void btnSDeduct_Click(object sender, EventArgs e) {
@@ -166,6 +150,8 @@ namespace ALG_POS_and_Inventory_Management_System {
             numDeduct.Enabled = btnSSave.Enabled = true;
             numSQuan.Enabled = btnSEdit.Enabled = btnSDeduct.Enabled = btnSChangePrice.Enabled = btnRemoveZero.Enabled = btnSRemoveStocks.Enabled = false;
             numDeduct.Focus(); numDeduct.Maximum = numSQuan.Value;
+
+            timer1.Start(); numDeduct.Focus(); numDeduct.BackColor = Color.RoyalBlue;
         }
 
         private void btnSChangePrice_Click(object sender, EventArgs e) {
@@ -174,6 +160,8 @@ namespace ALG_POS_and_Inventory_Management_System {
             numSSupPrice.Focus();
             numSSupPrice.Enabled = btnSSave.Enabled = true;
             btnSChangePrice.Enabled = btnSEdit.Enabled = btnSDeduct.Enabled = btnSRemoveStocks.Enabled = false;
+
+            timer1.Start(); numSSupPrice.Focus(); numSSupPrice.BackColor = Color.RoyalBlue;
         }
 
         private void lvStocks_SelectedIndexChanged(object sender, EventArgs e) {
@@ -225,19 +213,16 @@ namespace ALG_POS_and_Inventory_Management_System {
             LoadStocks();
         }
 
-        private void label14_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e) {
-
+        private void timer1_Tick(object sender, EventArgs e) {
+            timer1.Stop();
+            numSSupPrice.BackColor = numSQuan.BackColor = numDeduct.BackColor = Color.CornflowerBlue;
         }
 
         private void btnSAdd_Click(object sender, EventArgs e) {
             SUnLock();
             cboSProductName.Enabled = cboSProductID.Enabled = dtpReceive.Enabled = true;
             btnSSave.Enabled = true;
-            btnRemoveZero.Enabled = btnSAdd.Enabled = btnSChangePrice.Enabled = false;
+            btnSDeduct.Enabled= btnRemoveZero.Enabled = btnSAdd.Enabled = btnSChangePrice.Enabled = false;
             sAdd = true;
             sDeduct =  sEdit =  cChange = false;
             SetStockID();

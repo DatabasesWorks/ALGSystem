@@ -137,7 +137,10 @@
             this.btnLogsAndMaintenance.BackColor = System.Drawing.Color.Transparent;
             this.btnLogsAndMaintenance.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogsAndMaintenance.BackgroundImage")));
             this.btnLogsAndMaintenance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogsAndMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogsAndMaintenance.FlatAppearance.BorderSize = 0;
+            this.btnLogsAndMaintenance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnLogsAndMaintenance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnLogsAndMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogsAndMaintenance.ForeColor = System.Drawing.Color.Transparent;
             this.btnLogsAndMaintenance.Location = new System.Drawing.Point(0, 566);
@@ -152,7 +155,10 @@
             this.btnPOS.BackColor = System.Drawing.Color.Transparent;
             this.btnPOS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPOS.BackgroundImage")));
             this.btnPOS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPOS.FlatAppearance.BorderSize = 0;
+            this.btnPOS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnPOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPOS.ForeColor = System.Drawing.Color.Transparent;
             this.btnPOS.Location = new System.Drawing.Point(0, 35);
@@ -167,7 +173,10 @@
             this.btnServices.BackColor = System.Drawing.Color.Transparent;
             this.btnServices.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnServices.BackgroundImage")));
             this.btnServices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnServices.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnServices.FlatAppearance.BorderSize = 0;
+            this.btnServices.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnServices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnServices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServices.ForeColor = System.Drawing.Color.Transparent;
             this.btnServices.Location = new System.Drawing.Point(0, 437);
@@ -182,7 +191,10 @@
             this.btnInventory.BackColor = System.Drawing.Color.Transparent;
             this.btnInventory.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInventory.BackgroundImage")));
             this.btnInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInventory.FlatAppearance.BorderSize = 0;
+            this.btnInventory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnInventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInventory.ForeColor = System.Drawing.Color.Transparent;
             this.btnInventory.Location = new System.Drawing.Point(0, 162);
@@ -197,7 +209,10 @@
             this.btnReports.BackColor = System.Drawing.Color.Transparent;
             this.btnReports.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReports.BackgroundImage")));
             this.btnReports.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReports.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReports.FlatAppearance.BorderSize = 0;
+            this.btnReports.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.ForeColor = System.Drawing.Color.Transparent;
             this.btnReports.Location = new System.Drawing.Point(0, 314);

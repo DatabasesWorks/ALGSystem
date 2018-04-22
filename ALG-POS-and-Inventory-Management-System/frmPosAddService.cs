@@ -20,8 +20,8 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void frmPosAddService_Load(object sender, EventArgs e) {
             LoadPlateNo(); LoadEmployee();
             if (ContPointOfSale.isChangeServiceDetail) {
-                cboPlateNum.Enabled = false; cboServiceName.Enabled = false;
                 LoadServiceToEdit();
+                cboPlateNum.Enabled = cboServiceName.Enabled = false;
                 ContPointOfSale.isChangeServiceDetail = false;
             } else {
                 lblBrand.Text = lblColor.Text = lblModel.Text = lblVehicleType.Text = "";

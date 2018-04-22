@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace ALG_POS_and_Inventory_Management_System {
     public partial class uCInventorySupplier : UserControl {
         ContInventorySuppliers contSuppliers = new ContInventorySuppliers();
         bool supadd = false, supedit = false;
         string tempOldName;
+        
         public uCInventorySupplier() {
             InitializeComponent();
         }
@@ -47,6 +49,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
         private void btnSupAdd_Click(object sender, EventArgs e) {
             btnSupAdd.Enabled = false; btnSupSave.Enabled = true; SupUnLock(); supadd = true;
+            txtSupplierName.Focus();
         }
 
         private void btnSupEdit_Click(object sender, EventArgs e) {
@@ -72,8 +75,14 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void btnSupSave_Click(object sender, EventArgs e) {
+            Regex regex = new Regex(@"[^0-9]");
+            MatchCollection matches = regex.Matches(txtSupplierContact.Text);
+            
             if (txtSupplierName.Text.Trim() == "" || txtSupplierContact.Text.Trim() == "" || txtSupplierAddress.Text.Trim() == "") {
                 MessageBox.Show("Please fill-up all fields", "Supplier");
+            } else if (matches.Count > 0) {
+                MessageBox.Show("Please input appropriate supplier contact numner", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                txtSupplierContact.Focus();
             } else {
                 if (supadd) {
                     if (contSuppliers.IsInsertSupplier(txtSupplierName.Text, txtSupplierAddress.Text, txtSupplierContact.Text)) {
@@ -105,6 +114,24 @@ namespace ALG_POS_and_Inventory_Management_System {
                 btnSupAdd.Enabled = false; btnSupEdit.Enabled = true; btnSupDelete.Enabled = true; btnSupSave.Enabled = false; supadd = false; supedit = false; SupLock();
             } else {
                 //
+            }
+        }
+
+        private void txtSupplierContact_KeyPress(object sender, KeyPressEventArgs e) {
+            Regex regex = new Regex(@"[^0-9]");
+            MatchCollection matches = regex.Matches(txtSupplierContact.Text);
+            if (Regex.IsMatch(e.KeyChar.ToString(), @"[^0-9]")) {
+                // Stop the character from being entered into the control since it is illegal.
+                e.Handled = true;
+            }
+        }
+
+        private void txtSupplierContact_TextChanged(object sender, EventArgs e) {
+            Regex regex = new Regex(@"[^0-9]");
+            MatchCollection matches = regex.Matches(txtSupplierContact.Text);
+            if (matches.Count > 0) {
+                MessageBox.Show("Please input appropriate supplier contact numner", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                txtSupplierContact.Focus();
             }
         }
 

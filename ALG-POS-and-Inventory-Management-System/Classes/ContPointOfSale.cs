@@ -185,13 +185,13 @@ namespace ALG_POS_and_Inventory_Management_System {
             try {
                 string query;
                 if (searchBy == "Transaction No.")
-                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished ,GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND transactions.transac_ID LIKE @0 GROUP BY transID";
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(service_ID) AS countServices, COUNT(distinct plate_no) AS countCars,count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished ,GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND transactions.transac_ID LIKE @0 GROUP BY transID";
                 else if (searchBy == "Customer Name")
-                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished,GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND CONCAT(fName,' ,',gName,' ',mInitial) LIKE @0 GROUP BY transID";
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, COUNT(distinct plate_no) AS countCars, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished,GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND CONCAT(fName,' ,',gName,' ',mInitial) LIKE @0 GROUP BY transID";
                 else if (searchBy == "Plate No.")
-                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND plate_no LIKE @0 GROUP BY transID";
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, COUNT(distinct plate_no) AS countCars, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 AND plate_no LIKE @0 GROUP BY transID";
                 else
-                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 GROUP BY transID";
+                    query = "SELECT transactions.transac_ID AS transID, CONCAT(fName,' ,',gName,' ',mInitial) as customerName, COUNT(plate_no) AS countServices, COUNT(distinct plate_no) AS countCars, count(CASE WHEN service_status = 'Ongoing' THEN 1 END) AS ongoing, count(CASE WHEN service_status = 'Finished' THEN 1 END) AS finished, GROUP_CONCAT(DISTINCT plate_no SEPARATOR ', ') AS plateNo, discounted_amount, paid, balance FROM transactions INNER JOIN service_transac ON transactions.transac_ID=service_transac.transac_ID INNER JOIN customers ON transactions.customer_ID = customers.cust_ID WHERE balance!= 0.00 GROUP BY transID";
                 string[] param = { search };
                 bool[] like = { true };
                 dt = Database.Retrieve(query, param, like);
@@ -444,15 +444,6 @@ namespace ALG_POS_and_Inventory_Management_System {
                     Database.Execute(query);
                 }
 
-                string serviceStatus, dateReleased;
-                if (balance == 0) {
-                    serviceStatus = "Finished";
-                    dateReleased = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-                } else {
-                    serviceStatus = "Ongoing";
-                    dateReleased = DBNull.Value.ToString();
-                }
-
                 foreach (System.Windows.Forms.ListViewItem item in lvServices.Items) {
                     query = "SELECT MAX(servtransac_ID)+1 FROM service_transac";
                     list = Database.Select(query);
@@ -460,6 +451,15 @@ namespace ALG_POS_and_Inventory_Management_System {
                         serviceTransacID = "1";
                     else
                         serviceTransacID = list[0];
+
+                    string serviceStatus, dateReleased;
+                    if (balance == 0) {
+                        serviceStatus = "Finished";
+                        dateReleased = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                    } else {
+                        serviceStatus = item.SubItems[12].Text;
+                        dateReleased = DBNull.Value.ToString();
+                    }
 
                     query = "INSERT INTO service_transac SET servtransac_ID='" + serviceTransacID + "', date_released='" + dateReleased + "', service_status='" + serviceStatus + "', transac_ID='" + transacID + "', service_ID='" + GetServiceID(item.SubItems[6].Text, item.SubItems[2].Text) + "', plate_no='" + item.SubItems[1].Text + "', total_amount='" + decimal.Parse(item.SubItems[7].Text, System.Globalization.NumberStyles.Currency) + "'";
 
@@ -588,15 +588,6 @@ namespace ALG_POS_and_Inventory_Management_System {
                     }
                 }
 
-                string serviceStatus, dateReleased;
-                if (balance == 0) {
-                    serviceStatus = "Finished";
-                    dateReleased = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-                } else {
-                    serviceStatus = "Ongoing";
-                    dateReleased = DBNull.Value.ToString();
-                }
-
                 foreach (System.Windows.Forms.ListViewItem item in lvServices.Items) {
                     query = "SELECT MAX(servtransac_ID)+1 FROM service_transac";
                     list = Database.Select(query);
@@ -604,6 +595,18 @@ namespace ALG_POS_and_Inventory_Management_System {
                         serviceTransacID = "1";
                     else
                         serviceTransacID = list[0];
+
+
+                    string serviceStatus, dateReleased;
+                    if (balance == 0) {
+                        serviceStatus = "Finished";
+                        dateReleased = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                    } else {
+                        serviceStatus = item.SubItems[12].Text;
+                        dateReleased = DBNull.Value.ToString();
+                    }
+
+
                     if (item.SubItems[13].Text == "0") {
                         query = "INSERT INTO service_transac SET servtransac_ID='" + serviceTransacID + "', date_released='" + dateReleased + "', service_status='" + serviceStatus + "', transac_ID='" + transID + "', service_ID='" + GetServiceID(item.SubItems[6].Text, item.SubItems[2].Text) + "', plate_no='" + item.SubItems[1].Text + "', total_amount='" + decimal.Parse(item.SubItems[7].Text, System.Globalization.NumberStyles.Currency) + "'";
 
@@ -627,7 +630,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                             }
                         }
                     } else {
-                        query = "UPDATE service_transac SET date_released='" + dateReleased + "', service_status='" + serviceStatus + "', transac_ID='" + transID + "', service_ID='" + GetServiceID(item.SubItems[6].Text, item.SubItems[2].Text) + "', plate_no='" + item.SubItems[1].Text + "', total_amount='" + decimal.Parse(item.SubItems[7].Text, System.Globalization.NumberStyles.Currency) + "', service_status='" + item.SubItems[12].Text + "' WHERE servtransac_ID='" + item.SubItems[13].Text + "'";
+
+                        query = "UPDATE service_transac SET date_released='" + dateReleased + "', service_status='" + serviceStatus + "', transac_ID='" + transID + "', service_ID='" + GetServiceID(item.SubItems[6].Text, item.SubItems[2].Text) + "', plate_no='" + item.SubItems[1].Text + "', total_amount='" + decimal.Parse(item.SubItems[7].Text, System.Globalization.NumberStyles.Currency) + "' WHERE servtransac_ID='" + item.SubItems[13].Text + "'";
                         // tbd: disregard this if employee servicing and added services can not be edited once saved
                         if (Database.Execute(query)) {
                             string empID;
@@ -658,7 +662,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 if (isUpdateOnly) {
                     isUpdateOnly = false;
                 } else {
-                    query = "INSERT INTO payments SET payment_ID='" + paymentID + "', payment='" + paid + "', transac_ID='" + transID + "'";
+                    query = "INSERT INTO payments SET payment_ID='" + paymentID + "', payment='" + cash + "', transac_ID='" + transID + "'";
                     Database.Execute(query);
                 }
 

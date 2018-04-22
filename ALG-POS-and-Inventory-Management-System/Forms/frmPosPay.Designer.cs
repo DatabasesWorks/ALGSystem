@@ -52,6 +52,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.numCash = new System.Windows.Forms.NumericUpDown();
             this.btnPay = new System.Windows.Forms.Button();
+            this.btnPayPartial = new System.Windows.Forms.Button();
+            this.btnPayFull = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCash)).BeginInit();
@@ -149,9 +151,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(-1, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(477, 57);
+            this.panel1.Size = new System.Drawing.Size(487, 57);
             this.panel1.TabIndex = 117;
             // 
             // label9
@@ -159,11 +161,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(124, 6);
+            this.label9.Location = new System.Drawing.Point(173, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(222, 39);
+            this.label9.Size = new System.Drawing.Size(133, 39);
             this.label9.TabIndex = 24;
-            this.label9.Text = "Pay Transaction";
+            this.label9.Text = "Payment";
             // 
             // lblTotalAmount
             // 
@@ -214,7 +216,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 354);
+            this.label2.Location = new System.Drawing.Point(89, 354);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 27);
             this.label2.TabIndex = 122;
@@ -225,7 +227,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(18, 308);
+            this.label3.Location = new System.Drawing.Point(11, 308);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(182, 27);
             this.label3.TabIndex = 121;
@@ -236,7 +238,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(19, 90);
+            this.label1.Location = new System.Drawing.Point(124, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 27);
             this.label1.TabIndex = 120;
@@ -247,18 +249,18 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(19, 176);
+            this.label17.Location = new System.Drawing.Point(35, 176);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(158, 27);
+            this.label17.Size = new System.Drawing.Size(144, 27);
             this.label17.TabIndex = 119;
-            this.label17.Text = "Total Amount:";
+            this.label17.Text = "Grand Total:";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(19, 138);
+            this.label16.Location = new System.Drawing.Point(80, 138);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(113, 27);
             this.label16.TabIndex = 118;
@@ -269,7 +271,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(19, 52);
+            this.label11.Location = new System.Drawing.Point(39, 52);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(154, 27);
             this.label11.TabIndex = 117;
@@ -280,7 +282,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(18, 14);
+            this.label10.Location = new System.Drawing.Point(59, 14);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(134, 27);
             this.label10.TabIndex = 116;
@@ -346,7 +348,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(19, 220);
+            this.label18.Location = new System.Drawing.Point(126, 220);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(67, 27);
             this.label18.TabIndex = 140;
@@ -368,11 +370,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 263);
+            this.label7.Location = new System.Drawing.Point(87, 263);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(231, 27);
+            this.label7.Size = new System.Drawing.Size(106, 27);
             this.label7.TabIndex = 138;
-            this.label7.Text = "Balance(for service):";
+            this.label7.Text = "Balance:";
             // 
             // numCash
             // 
@@ -410,16 +412,62 @@
             this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
+            // btnPayPartial
+            // 
+            this.btnPayPartial.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPayPartial.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnPayPartial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPayPartial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPayPartial.FlatAppearance.BorderSize = 0;
+            this.btnPayPartial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPayPartial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPayPartial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPayPartial.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayPartial.ForeColor = System.Drawing.Color.White;
+            this.btnPayPartial.Location = new System.Drawing.Point(161, 483);
+            this.btnPayPartial.Name = "btnPayPartial";
+            this.btnPayPartial.Size = new System.Drawing.Size(126, 66);
+            this.btnPayPartial.TabIndex = 179;
+            this.btnPayPartial.Text = "Partial";
+            this.btnPayPartial.UseVisualStyleBackColor = false;
+            this.btnPayPartial.Visible = false;
+            this.btnPayPartial.Click += new System.EventHandler(this.btnPayPartial_Click);
+            // 
+            // btnPayFull
+            // 
+            this.btnPayFull.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPayFull.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnPayFull.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPayFull.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPayFull.FlatAppearance.BorderSize = 0;
+            this.btnPayFull.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPayFull.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPayFull.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPayFull.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayFull.ForeColor = System.Drawing.Color.White;
+            this.btnPayFull.Location = new System.Drawing.Point(31, 483);
+            this.btnPayFull.Name = "btnPayFull";
+            this.btnPayFull.Size = new System.Drawing.Size(126, 66);
+            this.btnPayFull.TabIndex = 180;
+            this.btnPayFull.Text = "Full";
+            this.btnPayFull.UseVisualStyleBackColor = false;
+            this.btnPayFull.Click += new System.EventHandler(this.btnPayFull_Click);
+            // 
             // frmPosPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(485, 550);
+            this.Controls.Add(this.btnPayFull);
+            this.Controls.Add(this.btnPayPartial);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmPosPay";
-            this.Text = "frmPosPay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Point of Sale";
             this.Load += new System.EventHandler(this.frmPosPay_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -460,5 +508,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblPaid;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnPayPartial;
+        private System.Windows.Forms.Button btnPayFull;
     }
 }

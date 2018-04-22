@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uCPointOfSale));
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnUpdateTrans = new System.Windows.Forms.Button();
             this.btnNewTrans = new System.Windows.Forms.Button();
@@ -66,6 +67,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvItemsTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.lblDiscAmount = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -86,6 +88,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.numQuan = new System.Windows.Forms.NumericUpDown();
+            this.txtItemCode = new MyTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -100,10 +103,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.OngoingContextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.setAsFinishedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FinishedContextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.setAsOngoingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtItemCode = new MyTextBox();
-            this.editServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editServiceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -140,11 +142,12 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1353, 472);
             this.panel2.TabIndex = 138;
+            this.panel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseClick);
             // 
             // btnUpdateTrans
             // 
             this.btnUpdateTrans.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnUpdateTrans.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnUpdateTrans.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateTrans.BackgroundImage")));
             this.btnUpdateTrans.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnUpdateTrans.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdateTrans.Enabled = false;
@@ -166,7 +169,7 @@
             // btnNewTrans
             // 
             this.btnNewTrans.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnNewTrans.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnNewTrans.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNewTrans.BackgroundImage")));
             this.btnNewTrans.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnNewTrans.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNewTrans.FlatAppearance.BorderSize = 0;
@@ -186,7 +189,7 @@
             // btnPay
             // 
             this.btnPay.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnPay.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnPay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPay.BackgroundImage")));
             this.btnPay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPay.FlatAppearance.BorderSize = 0;
@@ -206,7 +209,7 @@
             // btnRemove
             // 
             this.btnRemove.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnRemove.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnRemove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRemove.BackgroundImage")));
             this.btnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemove.FlatAppearance.BorderSize = 0;
@@ -294,6 +297,7 @@
             // cboCustName
             // 
             this.cboCustName.BackColor = System.Drawing.Color.RoyalBlue;
+            this.cboCustName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCustName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCustName.ForeColor = System.Drawing.Color.White;
             this.cboCustName.FormattingEnabled = true;
@@ -452,7 +456,8 @@
             this.columnHeader9,
             this.columnHeader3,
             this.lvItemsTotal,
-            this.columnHeader23});
+            this.columnHeader23,
+            this.columnHeader25});
             this.lvItems.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvItems.FullRowSelect = true;
             this.lvItems.GridLines = true;
@@ -515,12 +520,18 @@
             // 
             this.lvItemsTotal.Text = "Total";
             this.lvItemsTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.lvItemsTotal.Width = 145;
+            this.lvItemsTotal.Width = 172;
             // 
             // columnHeader23
             // 
             this.columnHeader23.Text = "max";
             this.columnHeader23.Width = 0;
+            // 
+            // columnHeader25
+            // 
+            this.columnHeader25.Text = "new";
+            this.columnHeader25.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader25.Width = 0;
             // 
             // label2
             // 
@@ -603,7 +614,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(575, 8);
+            this.label9.Location = new System.Drawing.Point(686, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(217, 39);
             this.label9.TabIndex = 23;
@@ -718,7 +729,7 @@
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSearch.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.search_icon_white_one_hi;
+            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.FlatAppearance.BorderSize = 0;
@@ -738,7 +749,7 @@
             // btnAddItem
             // 
             this.btnAddItem.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnAddItem.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnAddItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddItem.BackgroundImage")));
             this.btnAddItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddItem.FlatAppearance.BorderSize = 0;
@@ -773,6 +784,19 @@
             0,
             0,
             0});
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.BackColor = System.Drawing.Color.RoyalBlue;
+            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtItemCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemCode.ForeColor = System.Drawing.Color.White;
+            this.txtItemCode.Location = new System.Drawing.Point(115, 21);
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(231, 25);
+            this.txtItemCode.TabIndex = 105;
+            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
+            this.txtItemCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemCode_KeyDown);
             // 
             // label10
             // 
@@ -833,6 +857,7 @@
             this.numDiscount.Size = new System.Drawing.Size(46, 27);
             this.numDiscount.TabIndex = 135;
             this.numDiscount.ValueChanged += new System.EventHandler(this.numDiscount_ValueChanged);
+            this.numDiscount.Leave += new System.EventHandler(this.numDiscount_Leave);
             // 
             // panel1
             // 
@@ -846,6 +871,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1366, 60);
             this.panel1.TabIndex = 130;
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
             // groupBox2
             // 
@@ -865,7 +891,7 @@
             // btnViewServicesOffered
             // 
             this.btnViewServicesOffered.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnViewServicesOffered.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnViewServicesOffered.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnViewServicesOffered.BackgroundImage")));
             this.btnViewServicesOffered.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnViewServicesOffered.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnViewServicesOffered.FlatAppearance.BorderSize = 0;
@@ -885,7 +911,7 @@
             // btnViewOngoing
             // 
             this.btnViewOngoing.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnViewOngoing.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnViewOngoing.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnViewOngoing.BackgroundImage")));
             this.btnViewOngoing.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnViewOngoing.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnViewOngoing.FlatAppearance.BorderSize = 0;
@@ -905,7 +931,7 @@
             // btnAddService
             // 
             this.btnAddService.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnAddService.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnAddService.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddService.BackgroundImage")));
             this.btnAddService.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAddService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddService.FlatAppearance.BorderSize = 0;
@@ -959,13 +985,20 @@
             this.setAsFinishedToolStripMenuItem.Text = "Set As Finished";
             this.setAsFinishedToolStripMenuItem.Click += new System.EventHandler(this.setAsFinishedToolStripMenuItem_Click_1);
             // 
+            // editServiceToolStripMenuItem
+            // 
+            this.editServiceToolStripMenuItem.Name = "editServiceToolStripMenuItem";
+            this.editServiceToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.editServiceToolStripMenuItem.Text = "Edit Service";
+            this.editServiceToolStripMenuItem.Click += new System.EventHandler(this.editServiceToolStripMenuItem_Click);
+            // 
             // FinishedContextMenuStrip3
             // 
             this.FinishedContextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setAsOngoingToolStripMenuItem2,
             this.editServiceToolStripMenuItem1});
             this.FinishedContextMenuStrip3.Name = "FinishedContextMenuStrip3";
-            this.FinishedContextMenuStrip3.Size = new System.Drawing.Size(157, 70);
+            this.FinishedContextMenuStrip3.Size = new System.Drawing.Size(157, 48);
             // 
             // setAsOngoingToolStripMenuItem2
             // 
@@ -973,25 +1006,6 @@
             this.setAsOngoingToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
             this.setAsOngoingToolStripMenuItem2.Text = "Set As Ongoing";
             this.setAsOngoingToolStripMenuItem2.Click += new System.EventHandler(this.setAsOngoingToolStripMenuItem2_Click);
-            // 
-            // txtItemCode
-            // 
-            this.txtItemCode.BackColor = System.Drawing.Color.RoyalBlue;
-            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtItemCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemCode.ForeColor = System.Drawing.Color.White;
-            this.txtItemCode.Location = new System.Drawing.Point(115, 21);
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(231, 25);
-            this.txtItemCode.TabIndex = 105;
-            this.txtItemCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemCode_KeyDown);
-            // 
-            // editServiceToolStripMenuItem
-            // 
-            this.editServiceToolStripMenuItem.Name = "editServiceToolStripMenuItem";
-            this.editServiceToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.editServiceToolStripMenuItem.Text = "Edit Service";
-            this.editServiceToolStripMenuItem.Click += new System.EventHandler(this.editServiceToolStripMenuItem_Click);
             // 
             // editServiceToolStripMenuItem1
             // 
@@ -1025,6 +1039,7 @@
             this.Name = "uCPointOfSale";
             this.Size = new System.Drawing.Size(1360, 690);
             this.Load += new System.EventHandler(this.uCPointOfSale_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.uCPointOfSale_MouseClick);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1124,5 +1139,6 @@
         private System.Windows.Forms.ToolStripMenuItem setAsOngoingToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem editServiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editServiceToolStripMenuItem1;
+        private System.Windows.Forms.ColumnHeader columnHeader25;
     }
 }

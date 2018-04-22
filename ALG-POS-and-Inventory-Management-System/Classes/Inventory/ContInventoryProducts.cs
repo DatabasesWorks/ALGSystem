@@ -155,7 +155,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             System.Data.DataTable result = new System.Data.DataTable();
             result = null;
             try {
-                string query = "SELECT cat_desc_ID, desc_name, desc_type FROM category_description INNER JOIN descriptions ON descriptions.description_ID=category_description.description_ID WHERE category_ID=(SELECT category_ID FROM categories WHERE category_name = '" + categoryName + "')";
+                string query = "SELECT cat_desc_ID, desc_name, desc_type FROM category_description INNER JOIN descriptions ON descriptions.description_ID=category_description.description_ID WHERE category_ID=(SELECT category_ID FROM categories WHERE category_name = '" + categoryName + "') ORDER BY cat_desc_ID";
                 result = Database.Retrieve(query);
             } catch (Exception) {
                 throw;

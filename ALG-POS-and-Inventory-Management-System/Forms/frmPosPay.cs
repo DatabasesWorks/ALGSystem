@@ -13,14 +13,30 @@ namespace ALG_POS_and_Inventory_Management_System {
         private string transID, custID, totalStr, totalDisc, discount, totalItems, totalServices;
         decimal cash, total, change;
         public static bool isOngoing = false;
+
+        private void btnPayFull_Click(object sender, EventArgs e) {
+            numCash.Value = Convert.ToDecimal(lblTotalAmount.Text) - Convert.ToDecimal(lblPaid.Text);
+        }
+
+        private void btnPayPartial_Click(object sender, EventArgs e) {
+            numCash.Value = Convert.ToDecimal(lblTotalAmount.Text) / 2;
+        }
+
         ContPointOfSale contPos = new ContPointOfSale();
         public frmPosPay() {
             InitializeComponent();
         }
-        
+
         private void frmPosPay_Load(object sender, EventArgs e) {
-            numCash.TextChanged += new EventHandler(numCash_TextChanged);
             LoadPosDetail();
+            if (lblPaid.Text != "0.00" && lblBalance.Text != "0.00") 
+                btnPayPartial.Visible = false;
+            else if (lblPaid.Text != "0.00")
+                btnPayPartial.Visible = false;
+            else if (lblTotalService.Text != "0.00" )
+                btnPayPartial.Visible = true;
+
+            numCash.TextChanged += new EventHandler(numCash_TextChanged);
             
         }
 

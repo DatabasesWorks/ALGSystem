@@ -28,6 +28,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 listitem.SubItems.Add(dr["transID"].ToString());
                 listitem.SubItems.Add(dr["customerName"].ToString());
                 listitem.SubItems.Add(dr["countServices"].ToString());
+                listitem.SubItems.Add(dr["countCars"].ToString());
                 listitem.SubItems.Add(dr["ongoing"].ToString());
                 listitem.SubItems.Add(dr["finished"].ToString());
                 listitem.SubItems.Add(dr["plateNo"].ToString());

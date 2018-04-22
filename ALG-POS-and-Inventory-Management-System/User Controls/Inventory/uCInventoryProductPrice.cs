@@ -60,7 +60,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                     totalStocks += Convert.ToInt32(dr["remaining_stocks"].ToString());
                     lvPriceSupplier.Items.Add(listitem);
                 }
-            lblAvailableStocks.Text = totalStocks.ToString();
+                lblAvailableStocks.Text = totalStocks.ToString();
+            
             } else {
                 lblPriceDiscount.Text = ""; lblPriceDiscounted.Text = ""; lblPriceProductPrice.Text = ""; btnPriceSetPrice.Enabled = false; numPriceDiscount.Value = 0; numPriceDiscount.Enabled = false; numPriceSelling.Value = 0; numPriceSelling.Enabled = false;
             }
@@ -85,6 +86,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             SelectProduct();
             LoadSupplierPrices();
             btnPriceSetPrice.Enabled = numPriceDiscount.Enabled = numPriceSelling.Enabled = true;
+            GetAveragePrice();
         }
 
         private void cboSProductName_SelectedIndexChanged_1(object sender, EventArgs e) {
@@ -92,7 +94,9 @@ namespace ALG_POS_and_Inventory_Management_System {
             SelectProduct();
             LoadSupplierPrices();
             btnPriceSetPrice.Enabled = numPriceDiscount.Enabled = numPriceSelling.Enabled = true;
+            GetAveragePrice();
         }
+
         void SelectProduct() {
             List<string> list = new List<string>();
             try {
@@ -110,6 +114,25 @@ namespace ALG_POS_and_Inventory_Management_System {
                     lblPriceDiscounted.Text = lblPriceProductPrice.Text = Convert.ToDecimal(0).ToString("C");
                     numPriceSelling.Value = 0;
                     numPriceDiscount.Value = 0;
+                }
+            } catch (Exception ex) {
+                Console.WriteLine("select product in ucinventoryproductprices" + ex.Message);
+            }
+        }
+
+        void GetAveragePrice() {
+            try {
+                decimal avg;
+                List<decimal> price = new List<decimal>();
+                if (lvPriceSupplier.Items.Count > 0) {
+                    lblAvg.Visible = lblAvgPrice.Visible = true;
+                    foreach (ListViewItem item in lvPriceSupplier.Items) {
+                        price.Add(decimal.Parse(item.SubItems[2].Text, System.Globalization.NumberStyles.Currency));
+                    }
+                    avg = price.Average();
+                    lblAvgPrice.Text = avg.ToString("C");
+                } else {
+                    lblAvg.Visible = lblAvgPrice.Visible = false;
                 }
             } catch (Exception ex) {
                 Console.WriteLine("select product in ucinventoryproductprices" + ex.Message);
@@ -137,43 +160,31 @@ namespace ALG_POS_and_Inventory_Management_System {
             lblPriceProductName.Text = "All Stocks";
             btnPriceSetPrice.Enabled = numPriceDiscount.Enabled = numPriceSelling.Enabled = false;
             LoadProductPrices(); LoadSupplierPrices();
+            lblAvg.Visible = lblAvgPrice.Visible = false;
+        }
+
+        void NumPriceDiscChange() {
+            try {
+                lblPriceProductPrice.Text = numPriceSelling.Value.ToString("C");
+                discountedPrice = (Convert.ToDecimal(numPriceSelling.Value) - (Convert.ToDecimal(numPriceSelling.Value) * ((Convert.ToDecimal(numPriceDiscount.Value)) / 100)));
+                lblPriceDiscounted.Text = discountedPrice.ToString("C");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void numPriceSelling_ValueChanged(object sender, EventArgs e) {
-            try {
-                lblPriceProductPrice.Text = numPriceSelling.Value.ToString("C");
-                discountedPrice = (Convert.ToDecimal(numPriceSelling.Value) - (Convert.ToDecimal(numPriceSelling.Value) * ((Convert.ToDecimal(numPriceDiscount.Value)) / 100)));
-                lblPriceDiscounted.Text = discountedPrice.ToString("C");
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+            NumPriceDiscChange();
         }
         private void numPriceSelling_TextChanged(object sender, EventArgs e) {
-            try {
-                lblPriceProductPrice.Text = numPriceSelling.Value.ToString("C");
-                discountedPrice = (Convert.ToDecimal(numPriceSelling.Value) - (Convert.ToDecimal(numPriceSelling.Value) * ((Convert.ToDecimal(numPriceDiscount.Value)) / 100)));
-                lblPriceDiscounted.Text = discountedPrice.ToString("C");
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+            NumPriceDiscChange();
         }
+
         private void numPriceDiscount_ValueChanged(object sender, EventArgs e) {
-            try {
-                lblPriceDiscount.Text = numPriceDiscount.Value.ToString();
-                discountedPrice = (Convert.ToDecimal(numPriceSelling.Value) - (Convert.ToDecimal(numPriceSelling.Value) * ((Convert.ToDecimal(numPriceDiscount.Value)) / 100)));
-                lblPriceDiscounted.Text = discountedPrice.ToString("C");
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+            NumPriceDiscChange();
         }
         private void numPriceDiscount_TextChanged(object sender, EventArgs e) {
-            try {
-                lblPriceDiscount.Text = numPriceDiscount.Value.ToString();
-                discountedPrice = (Convert.ToDecimal(numPriceSelling.Value) - (Convert.ToDecimal(numPriceSelling.Value) * ((Convert.ToDecimal(numPriceDiscount.Value)) / 100)));
-                lblPriceDiscounted.Text = discountedPrice.ToString("C");
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+            NumPriceDiscChange();
         }
         private void lvPriceProduct_SelectedIndexChanged(object sender, EventArgs e) {
             if (lvPriceProduct.SelectedItems.Count > 0) {
@@ -184,6 +195,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             SelectProduct();
             LoadSupplierPrices();
             btnPriceSetPrice.Enabled = numPriceDiscount.Enabled = numPriceSelling.Enabled = true;
+            GetAveragePrice();
         }
 
         private void lvPriceSupplier_SelectedIndexChanged(object sender, EventArgs e) {

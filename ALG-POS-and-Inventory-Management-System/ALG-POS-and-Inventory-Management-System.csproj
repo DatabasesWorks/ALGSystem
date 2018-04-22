@@ -65,6 +65,11 @@
     <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Classes\ContMain.cs" />
     <Compile Include="Classes\Inventory\ContInventoryProducts.cs" />
+    <Compile Include="dataSet!.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataSet!.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +118,12 @@
     <Compile Include="Forms\frmManageCustomer.Designer.cs">
       <DependentUpon>frmManageCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory Wizard\frmInventoryWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Wizard\frmInventoryWizard.Designer.cs">
+      <DependentUpon>frmInventoryWizard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPosAddService.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +155,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundedButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory Wizard\ucWizProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inventory Wizard\ucWizProduct.Designer.cs">
+      <DependentUpon>ucWizProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Wizard\ucWizStockin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inventory Wizard\ucWizStockin.Designer.cs">
+      <DependentUpon>ucWizStockin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Wizard\ucWizProductPrice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inventory Wizard\ucWizProductPrice.Designer.cs">
+      <DependentUpon>ucWizProductPrice.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.cs">
       <SubType>UserControl</SubType>
@@ -234,6 +263,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmConfigs.resx">
       <DependentUpon>frmConfigs.cs</DependentUpon>
@@ -252,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmManageCustomer.resx">
       <DependentUpon>frmManageCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Wizard\frmInventoryWizard.resx">
+      <DependentUpon>frmInventoryWizard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPosAddService.resx">
       <DependentUpon>frmPosAddService.cs</DependentUpon>
@@ -272,6 +305,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Wizard\ucWizProduct.resx">
+      <DependentUpon>ucWizProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Wizard\ucWizStockin.resx">
+      <DependentUpon>ucWizStockin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Wizard\ucWizProductPrice.resx">
+      <DependentUpon>ucWizProductPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCCustomerRecords.resx">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
@@ -315,6 +357,17 @@
     <EmbeddedResource Include="User Controls\Services\uCServices.resx">
       <DependentUpon>uCServices.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dataSet!.xsc">
+      <DependentUpon>dataSet!.xsd</DependentUpon>
+    </None>
+    <None Include="dataSet!.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataSet!.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dataSet!.xss">
+      <DependentUpon>dataSet!.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -339,6 +392,7 @@
   <ItemGroup>
     <None Include="Resources\rounded-rectangle.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

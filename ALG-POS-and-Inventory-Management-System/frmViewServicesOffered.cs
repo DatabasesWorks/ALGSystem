@@ -139,5 +139,9 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void lvServices_Click(object sender, EventArgs e) {
             
         }
+
+        private void label9_Click(object sender, EventArgs e) {
+
+        }
     }
 }

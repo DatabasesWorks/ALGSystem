@@ -32,13 +32,14 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtSearch = new MyTextBox();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label12
@@ -66,6 +67,7 @@
             // cboSearch
             // 
             this.cboSearch.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cboSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSearch.ForeColor = System.Drawing.Color.White;
             this.cboSearch.FormattingEnabled = true;
@@ -105,6 +107,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader20,
+            this.columnHeader8,
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader3,
@@ -117,7 +120,7 @@
             this.lvOngoingServices.LabelWrap = false;
             this.lvOngoingServices.Location = new System.Drawing.Point(8, 70);
             this.lvOngoingServices.Name = "lvOngoingServices";
-            this.lvOngoingServices.Size = new System.Drawing.Size(989, 391);
+            this.lvOngoingServices.Size = new System.Drawing.Size(1058, 391);
             this.lvOngoingServices.TabIndex = 187;
             this.lvOngoingServices.UseCompatibleStateImageBehavior = false;
             this.lvOngoingServices.View = System.Windows.Forms.View.Details;
@@ -141,13 +144,28 @@
             // 
             // columnHeader20
             // 
-            this.columnHeader20.Text = "No. of Services";
-            this.columnHeader20.Width = 144;
+            this.columnHeader20.Text = "# of Services";
+            this.columnHeader20.Width = 91;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "# of Cars";
+            this.columnHeader8.Width = 81;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Ongoing";
+            this.columnHeader5.Width = 70;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Finished";
+            this.columnHeader6.Width = 66;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Vehicle Plate No.";
-            this.columnHeader3.Width = 180;
+            this.columnHeader3.Text = "Vehicle Plate No(s)";
+            this.columnHeader3.Width = 130;
             // 
             // columnHeader21
             // 
@@ -157,7 +175,7 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Paid";
-            this.columnHeader7.Width = 111;
+            this.columnHeader7.Width = 90;
             // 
             // columnHeader4
             // 
@@ -177,28 +195,22 @@
             this.txtSearch.TabIndex = 182;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Ongoing";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Finished";
-            // 
             // frmPosOngoingService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(1009, 467);
+            this.ClientSize = new System.Drawing.Size(1071, 467);
             this.Controls.Add(this.lvOngoingServices);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cboSearch);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtSearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmPosOngoingService";
-            this.Text = "frmPosOngoingService";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Point of Sale";
             this.Load += new System.EventHandler(this.frmPosOngoingService_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -223,5 +235,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }

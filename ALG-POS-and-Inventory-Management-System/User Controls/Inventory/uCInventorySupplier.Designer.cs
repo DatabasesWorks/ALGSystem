@@ -23,10 +23,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uCInventorySupplier));
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.lvSupplier = new System.Windows.Forms.ListView();
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,7 +42,6 @@
             this.txtSupplierContact = new MyTextBox();
             this.txtSupplierAddress = new MyTextBox();
             this.txtSupplierName = new MyTextBox();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label24
@@ -93,6 +94,11 @@
             this.columnHeader14.Text = "Supplier ID.";
             this.columnHeader14.Width = 0;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No.";
+            this.columnHeader1.Width = 42;
+            // 
             // columnHeader16
             // 
             this.columnHeader16.Text = "Supplier Name";
@@ -136,7 +142,7 @@
             // btnSupDelete
             // 
             this.btnSupDelete.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSupDelete.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSupDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSupDelete.BackgroundImage")));
             this.btnSupDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSupDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSupDelete.Enabled = false;
@@ -157,7 +163,7 @@
             // btnSupSave
             // 
             this.btnSupSave.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSupSave.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSupSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSupSave.BackgroundImage")));
             this.btnSupSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSupSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSupSave.Enabled = false;
@@ -178,7 +184,7 @@
             // btnSupClear
             // 
             this.btnSupClear.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSupClear.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSupClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSupClear.BackgroundImage")));
             this.btnSupClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSupClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSupClear.FlatAppearance.BorderSize = 0;
@@ -198,7 +204,7 @@
             // btnSupEdit
             // 
             this.btnSupEdit.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSupEdit.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSupEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSupEdit.BackgroundImage")));
             this.btnSupEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSupEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSupEdit.Enabled = false;
@@ -219,7 +225,7 @@
             // btnSupAdd
             // 
             this.btnSupAdd.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSupAdd.BackgroundImage = global::ALG_POS_and_Inventory_Management_System.Properties.Resources.rounded_rectangle;
+            this.btnSupAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSupAdd.BackgroundImage")));
             this.btnSupAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSupAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSupAdd.FlatAppearance.BorderSize = 0;
@@ -247,6 +253,8 @@
             this.txtSupplierContact.Name = "txtSupplierContact";
             this.txtSupplierContact.Size = new System.Drawing.Size(160, 25);
             this.txtSupplierContact.TabIndex = 156;
+            this.txtSupplierContact.TextChanged += new System.EventHandler(this.txtSupplierContact_TextChanged);
+            this.txtSupplierContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSupplierContact_KeyPress);
             // 
             // txtSupplierAddress
             // 
@@ -271,11 +279,6 @@
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(160, 25);
             this.txtSupplierName.TabIndex = 152;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "No.";
-            this.columnHeader1.Width = 42;
             // 
             // uCInventorySupplier
             // 

@@ -88,7 +88,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
         private void btnProdSave_Click(object sender, EventArgs e) {
             // to do: 
-            if (txtProdNo.Text.Trim() == "" || txtProdName.Text == "" || cboBrand.Text == "" || cboCategory.Text == "") {
+            if (txtProdNo.Text.Trim() == "" || txtProdName.Text.Trim() == "" || cboBrand.Text == "" || cboCategory.Text == "") {
                 MessageBox.Show("Please fill out all");
                 return;
             }
@@ -242,6 +242,11 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
             LoadProducts();
+        }
+
+        private void btnAddBrand_Click(object sender, EventArgs e) {
+            //showdialog frmBrands();
+            LoadBrands();
         }
 
         void LoadDescriptionValue(string catName) {

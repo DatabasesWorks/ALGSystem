@@ -57,6 +57,7 @@
             // cboPlateNum
             // 
             this.cboPlateNum.BackColor = System.Drawing.Color.RoyalBlue;
+            this.cboPlateNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPlateNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPlateNum.FormattingEnabled = true;
             this.cboPlateNum.Location = new System.Drawing.Point(87, 17);
@@ -70,7 +71,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(395, 174);
+            this.label6.Location = new System.Drawing.Point(372, 175);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(111, 19);
             this.label6.TabIndex = 144;
@@ -81,7 +82,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(93, 330);
+            this.label5.Location = new System.Drawing.Point(75, 321);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(26, 29);
             this.label5.TabIndex = 139;
@@ -95,7 +96,7 @@
             this.clbAddedService.ForeColor = System.Drawing.Color.Black;
             this.clbAddedService.FormattingEnabled = true;
             this.clbAddedService.HorizontalScrollbar = true;
-            this.clbAddedService.Location = new System.Drawing.Point(422, 199);
+            this.clbAddedService.Location = new System.Drawing.Point(376, 197);
             this.clbAddedService.Name = "clbAddedService";
             this.clbAddedService.Size = new System.Drawing.Size(181, 136);
             this.clbAddedService.TabIndex = 143;
@@ -129,7 +130,7 @@
             this.lblFee.AutoSize = true;
             this.lblFee.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFee.ForeColor = System.Drawing.Color.Black;
-            this.lblFee.Location = new System.Drawing.Point(139, 330);
+            this.lblFee.Location = new System.Drawing.Point(121, 321);
             this.lblFee.Name = "lblFee";
             this.lblFee.Size = new System.Drawing.Size(55, 29);
             this.lblFee.TabIndex = 138;
@@ -138,11 +139,12 @@
             // cboServiceName
             // 
             this.cboServiceName.BackColor = System.Drawing.Color.RoyalBlue;
+            this.cboServiceName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboServiceName.Enabled = false;
             this.cboServiceName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboServiceName.ForeColor = System.Drawing.Color.White;
             this.cboServiceName.FormattingEnabled = true;
-            this.cboServiceName.Location = new System.Drawing.Point(144, 219);
+            this.cboServiceName.Location = new System.Drawing.Point(126, 210);
             this.cboServiceName.Name = "cboServiceName";
             this.cboServiceName.Size = new System.Drawing.Size(228, 28);
             this.cboServiceName.TabIndex = 136;
@@ -153,7 +155,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(43, 330);
+            this.label2.Location = new System.Drawing.Point(25, 321);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 23);
             this.label2.TabIndex = 132;
@@ -164,7 +166,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(395, 11);
+            this.label1.Location = new System.Drawing.Point(372, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 19);
             this.label1.TabIndex = 131;
@@ -178,7 +180,7 @@
             this.clbEmployee.ForeColor = System.Drawing.Color.Black;
             this.clbEmployee.FormattingEnabled = true;
             this.clbEmployee.HorizontalScrollbar = true;
-            this.clbEmployee.Location = new System.Drawing.Point(422, 33);
+            this.clbEmployee.Location = new System.Drawing.Point(376, 31);
             this.clbEmployee.Name = "clbEmployee";
             this.clbEmployee.Size = new System.Drawing.Size(181, 136);
             this.clbEmployee.TabIndex = 130;
@@ -199,7 +201,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(9, 174);
+            this.label15.Location = new System.Drawing.Point(10, 174);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(171, 26);
             this.label15.TabIndex = 128;
@@ -221,7 +223,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(32, 219);
+            this.label24.Location = new System.Drawing.Point(14, 210);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(106, 19);
             this.label24.TabIndex = 126;
@@ -256,7 +258,7 @@
             this.panel2.Controls.Add(this.label24);
             this.panel2.Location = new System.Drawing.Point(78, 75);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(670, 410);
+            this.panel2.Size = new System.Drawing.Size(614, 410);
             this.panel2.TabIndex = 87;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -272,7 +274,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(512, 341);
+            this.btnCancel.Location = new System.Drawing.Point(466, 339);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(103, 56);
             this.btnCancel.TabIndex = 176;
@@ -292,7 +294,7 @@
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.ForeColor = System.Drawing.Color.White;
-            this.btnOk.Location = new System.Drawing.Point(390, 341);
+            this.btnOk.Location = new System.Drawing.Point(344, 339);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(116, 56);
             this.btnOk.TabIndex = 175;
@@ -305,7 +307,7 @@
             this.lblDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDescription.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.ForeColor = System.Drawing.Color.White;
-            this.lblDescription.Location = new System.Drawing.Point(140, 262);
+            this.lblDescription.Location = new System.Drawing.Point(122, 253);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(232, 58);
             this.lblDescription.TabIndex = 152;
@@ -315,7 +317,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(32, 262);
+            this.label7.Location = new System.Drawing.Point(14, 253);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 19);
             this.label7.TabIndex = 151;
@@ -382,7 +384,7 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 49);
+            this.panel1.Size = new System.Drawing.Size(794, 49);
             this.panel1.TabIndex = 86;
             // 
             // label9
@@ -401,12 +403,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(805, 484);
+            this.ClientSize = new System.Drawing.Size(795, 484);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmPosAddService";
-            this.Text = "frmPosAddService";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Point of Sale";
             this.Load += new System.EventHandler(this.frmPosAddService_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

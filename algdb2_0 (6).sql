@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2018 at 06:07 PM
+-- Generation Time: Apr 22, 2018 at 03:43 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -30,16 +30,17 @@ CREATE TABLE `added_service_price` (
   `serv_added_ID` int(11) NOT NULL,
   `service_ID` int(11) NOT NULL,
   `serv_added_name` varchar(25) NOT NULL,
-  `serv_added_price` double NOT NULL
+  `serv_added_price` decimal(10,2) NOT NULL,
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `added_service_price`
 --
 
-INSERT INTO `added_service_price` (`serv_added_ID`, `service_ID`, `serv_added_name`, `serv_added_price`) VALUES
-(1, 4, 'Wax', 50),
-(2, 4, 'Vacuum', 100);
+INSERT INTO `added_service_price` (`serv_added_ID`, `service_ID`, `serv_added_name`, `serv_added_price`, `date_deleted`) VALUES
+(1, 4, 'Wax', '50.00', NULL),
+(2, 4, 'Vacuum', '100.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -57,12 +58,15 @@ CREATE TABLE `add_service_trans` (
 --
 
 INSERT INTO `add_service_trans` (`servtransac_ID`, `serv_added_ID`) VALUES
+(1, 2),
 (3, 1),
 (3, 2),
 (4, 1),
 (4, 2),
-(8, 1),
-(8, 2);
+(5, 1),
+(5, 2),
+(9, 1),
+(9, 2);
 
 -- --------------------------------------------------------
 
@@ -73,7 +77,7 @@ INSERT INTO `add_service_trans` (`servtransac_ID`, `serv_added_ID`) VALUES
 CREATE TABLE `brands` (
   `brand_ID` int(11) NOT NULL,
   `brand_name` varchar(250) NOT NULL,
-  `date_deleted` timestamp NULL DEFAULT NULL
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
@@ -92,7 +96,7 @@ INSERT INTO `brands` (`brand_ID`, `brand_name`, `date_deleted`) VALUES
 CREATE TABLE `categories` (
   `category_ID` int(11) NOT NULL,
   `category_name` varchar(250) NOT NULL,
-  `date_deleted` timestamp NULL DEFAULT NULL
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
@@ -106,7 +110,8 @@ INSERT INTO `categories` (`category_ID`, `category_name`, `date_deleted`) VALUES
 (4, 'tire', NULL),
 (5, 'wheels', NULL),
 (6, 'tint', NULL),
-(7, 'pie', NULL);
+(7, 'pie', NULL),
+(8, 'lights', NULL);
 
 -- --------------------------------------------------------
 
@@ -125,13 +130,10 @@ CREATE TABLE `category_description` (
 --
 
 INSERT INTO `category_description` (`cat_desc_ID`, `category_ID`, `description_ID`) VALUES
-(12, 1, 1),
-(13, 1, 4),
-(14, 4, 1),
-(15, 4, 4),
-(16, 7, 5),
-(17, 5, 4),
-(18, 5, 5);
+(21, 1, 6),
+(26, 8, 1),
+(27, 8, 4),
+(28, 8, 5);
 
 -- --------------------------------------------------------
 
@@ -147,7 +149,7 @@ CREATE TABLE `customers` (
   `contact_num` varchar(25) NOT NULL,
   `address` varchar(40) NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_deleted` timestamp NULL DEFAULT NULL
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
@@ -170,18 +172,19 @@ CREATE TABLE `customer_vehicle` (
   `color` text NOT NULL,
   `vehicletype_ID` int(11) NOT NULL,
   `vehicle_brand_ID` int(11) NOT NULL,
-  `model` varchar(25) NOT NULL
+  `model` varchar(25) NOT NULL,
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer_vehicle`
 --
 
-INSERT INTO `customer_vehicle` (`plate_no`, `cust_ID`, `color`, `vehicletype_ID`, `vehicle_brand_ID`, `model`) VALUES
-('123', 1, 'orange', 3, 1, ''),
-('12332', 1, 'red', 3, 2, ''),
-('asd123', 1, 'blue', 3, 2, ''),
-('ZXC09123', 1, 'violet', 6, 2, '');
+INSERT INTO `customer_vehicle` (`plate_no`, `cust_ID`, `color`, `vehicletype_ID`, `vehicle_brand_ID`, `model`, `date_deleted`) VALUES
+('123', 1, 'orange', 3, 1, '', NULL),
+('12332', 1, 'red', 3, 2, '', NULL),
+('asd123', 1, 'blue', 3, 2, '', NULL),
+('ZXC09123', 1, 'violet', 6, 2, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -193,19 +196,21 @@ CREATE TABLE `descriptions` (
   `description_ID` int(11) NOT NULL,
   `desc_name` varchar(250) NOT NULL,
   `desc_type` varchar(10) NOT NULL,
-  `date_deleted` timestamp NULL DEFAULT NULL
+  `desc_unit` varchar(25) NOT NULL,
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `descriptions`
 --
 
-INSERT INTO `descriptions` (`description_ID`, `desc_name`, `desc_type`, `date_deleted`) VALUES
-(1, 'Color', 'Text', NULL),
-(2, 'Volume', 'Numeric', '2018-04-05 02:28:16'),
-(3, 'Colors', 'Text', '2018-04-05 05:28:24'),
-(4, 'Quality', 'Text', NULL),
-(5, 'Diameter', 'Numeric', NULL);
+INSERT INTO `descriptions` (`description_ID`, `desc_name`, `desc_type`, `desc_unit`, `date_deleted`) VALUES
+(1, 'Color', 'Text', '', NULL),
+(2, 'Volume', 'Numeric', '', '2018-04-05 10:28:16'),
+(3, 'Colors', 'Text', '', '2018-04-05 13:28:24'),
+(4, 'Quality', 'Text', '', NULL),
+(5, 'Diameter', 'Numeric', 'inches', NULL),
+(6, 'Thickness', 'Numeric', 'cm', NULL);
 
 -- --------------------------------------------------------
 
@@ -219,18 +224,19 @@ CREATE TABLE `employees` (
   `emp_gName` varchar(25) NOT NULL,
   `emp_mInitial` varchar(10) NOT NULL,
   `emp_position` varchar(25) NOT NULL,
-  `emp_address` varchar(25) NOT NULL
+  `emp_address` varchar(25) NOT NULL,
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`emp_ID`, `emp_fName`, `emp_gName`, `emp_mInitial`, `emp_position`, `emp_address`) VALUES
-(1, 'Paganini', 'Niccolo', 'G.', 'Violinist', 'Italya'),
-(2, 'Vivaldi', 'Antonio', 'G', 'Violinist', 'Italya'),
-(3, 'Bach', 'J.S', 'e', 'Musician', 'Italya'),
-(5, 'asdad', 'asd', 'asda', 'asd', 'assd');
+INSERT INTO `employees` (`emp_ID`, `emp_fName`, `emp_gName`, `emp_mInitial`, `emp_position`, `emp_address`, `date_deleted`) VALUES
+(1, 'Paganini', 'Niccolo', 'G.', 'Violinist', 'Italya', NULL),
+(2, 'Vivaldi', 'Antonio', 'G', 'Violinist', 'Italya', NULL),
+(3, 'Bach', 'J.S', 'e', 'Musician', 'Italya', NULL),
+(5, 'asdad', 'asd', 'asda', 'asd', 'assd', NULL);
 
 -- --------------------------------------------------------
 
@@ -250,16 +256,18 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`payment_ID`, `payment`, `date_paid`, `transac_ID`) VALUES
-(1, '1000.00', '2018-04-10 06:43:10', 10000001),
-(2, '6000.00', '2018-04-10 06:48:20', 10000002),
-(3, '801.00', '2018-04-10 08:31:41', 10000003),
-(4, '1335.00', '2018-04-13 06:20:30', 10000004),
-(5, '3000.00', '2018-04-13 10:34:09', 10000005),
-(6, '170.00', '2018-04-13 15:21:03', 10000011),
-(7, '400.00', '2018-04-13 15:26:02', 10000012),
-(8, '600.00', '2018-04-14 02:44:12', 10000013),
-(9, '800.00', '2018-04-14 02:46:41', 10000014),
-(10, '5050.00', '2018-04-14 14:28:21', 10000015);
+(1, '1000.00', '2018-04-19 16:16:53', 10000001),
+(2, '500.00', '2018-04-19 17:18:20', 10000001),
+(3, '700.00', '2018-04-19 17:18:37', 10000001),
+(4, '8327.00', '2018-04-20 01:13:31', 10000002),
+(5, '6045.25', '2018-04-20 01:15:15', 10000002),
+(6, '6050.50', '2018-04-20 01:15:57', 10000002),
+(7, '6270.25', '2018-04-20 01:43:18', 10000003),
+(8, '6271.25', '2018-04-20 01:48:32', 10000003),
+(9, '2551.75', '2018-04-20 02:11:38', 10000004),
+(10, '1961.75', '2018-04-20 02:16:51', 10000005),
+(11, '3051.75', '2018-04-20 02:35:27', 10000004),
+(12, '95.00', '2018-04-20 02:43:30', 10000006);
 
 -- --------------------------------------------------------
 
@@ -273,7 +281,7 @@ CREATE TABLE `products` (
   `brand_ID` int(11) NOT NULL,
   `category_ID` int(11) NOT NULL,
   `date_profiled` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_deleted` timestamp NULL DEFAULT NULL
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -281,9 +289,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_ID`, `product_name`, `brand_ID`, `category_ID`, `date_profiled`, `date_deleted`) VALUES
+('1111', 'Flashlight', 1, 8, '2018-04-21 08:57:04', NULL),
 ('123', 'Good Year ', 1, 5, '2018-04-14 14:25:59', NULL),
+('456', 'Tint', 1, 6, '2018-04-20 08:12:42', NULL),
 ('4800092553929', 'Rev-X', 1, 1, '2018-04-07 01:15:36', NULL),
-('dsaas', 'asas', 1, 1, '2018-03-30 02:23:21', NULL);
+('777', 'Ultron-X', 1, 1, '2018-04-21 01:35:40', NULL),
+('98776', '9876', 1, 1, '2018-04-21 06:13:51', NULL),
+('dsaas', 'asas', 1, 4, '2018-04-18 16:53:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -302,12 +314,11 @@ CREATE TABLE `product_description` (
 --
 
 INSERT INTO `product_description` (`product_ID`, `cat_desc_ID`, `product_desc_value`) VALUES
-('dsaas', 12, 'white'),
-('dsaas', 13, 'great'),
-('4800092553929', 12, 'black'),
-('4800092553929', 13, 'good'),
-('123', 17, 'awesome'),
-('123', 18, '83');
+('777', 21, '7'),
+('98776', 21, '9876'),
+('1111', 26, 'white'),
+('1111', 27, 'awesome'),
+('1111', 28, '11');
 
 -- --------------------------------------------------------
 
@@ -328,9 +339,11 @@ CREATE TABLE `product_prices` (
 --
 
 INSERT INTO `product_prices` (`product_price_ID`, `product_ID`, `product_price`, `discount`, `discounted_price`) VALUES
-(1, '4800092553929', '5018.00', 50, '2509.00'),
-(2, 'dsaas', '800.00', 0, '800.00'),
-(3, '123', '600.00', 0, '600.00');
+(1, '4800092553929', '5018.00', 25, '3763.50'),
+(2, 'dsaas', '232.00', 15, '197.20'),
+(3, '123', '600.00', 0, '600.00'),
+(4, '456', '300.00', 0, '300.00'),
+(5, '1111', '200.00', 0, '200.00');
 
 -- --------------------------------------------------------
 
@@ -342,7 +355,7 @@ CREATE TABLE `prod_trans_rela` (
   `transac_ID` int(11) NOT NULL,
   `product_ID` varchar(50) DEFAULT NULL,
   `quantity` int(11) NOT NULL,
-  `total` double NOT NULL,
+  `total` decimal(10,2) NOT NULL,
   `date_bought` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -351,17 +364,13 @@ CREATE TABLE `prod_trans_rela` (
 --
 
 INSERT INTO `prod_trans_rela` (`transac_ID`, `product_ID`, `quantity`, `total`, `date_bought`) VALUES
-(10000001, 'dsaas', 1, 800, '2018-04-10 06:43:10'),
-(10000002, 'dsaas', 1, 800, '2018-04-10 06:48:20'),
-(10000002, '4800092553929', 2, 5018, '2018-04-10 06:48:20'),
-(10000003, 'dsaas', 1, 800, '2018-04-10 08:31:41'),
-(10000004, 'dsaas', 1, 800, '2018-04-13 06:20:24'),
-(10000005, '4800092553929', 1, 2509, '2018-04-13 10:33:24'),
-(10000006, 'dsaas', 1, 800, '2018-04-13 14:26:54'),
-(10000007, 'dsaas', 1, 800, '2018-04-13 14:36:20'),
-(10000015, '123', 8, 4800, '2018-04-14 14:28:19'),
-(10000015, '4800092553929', 1, 2509, '2018-04-14 14:28:19'),
-(10000015, 'dsaas', 3, 2400, '2018-04-14 14:28:19');
+(10000001, '123', 3, '1800.00', '2018-04-19 17:17:59'),
+(10000002, '4800092553929', 5, '18817.50', '2018-04-20 01:13:59'),
+(10000002, '123', 1, '600.00', '2018-04-20 01:13:29'),
+(10000003, '4800092553929', 3, '11290.50', '2018-04-20 01:43:17'),
+(10000003, '123', 1, '600.00', '2018-04-20 01:43:17'),
+(10000004, '4800092553929', 1, '3763.50', '2018-04-20 02:11:37'),
+(10000005, '4800092553929', 1, '3763.50', '2018-04-20 02:16:51');
 
 -- --------------------------------------------------------
 
@@ -372,19 +381,20 @@ INSERT INTO `prod_trans_rela` (`transac_ID`, `product_ID`, `quantity`, `total`, 
 CREATE TABLE `services` (
   `service_ID` int(11) NOT NULL,
   `service_name` varchar(50) NOT NULL,
-  `service_desc` varchar(150) NOT NULL
+  `service_desc` varchar(150) NOT NULL,
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`service_ID`, `service_name`, `service_desc`) VALUES
-(4, 'Carwash', 'Washing of car because it is so dirty already'),
-(5, 'Special Wax', 'waxing of paint specially'),
-(6, 'Wax', 'waxing, but not specially'),
-(7, 'Paint', 'changing of the color of the car'),
-(8, 'Change Oil', 'changing of oil that is unusable');
+INSERT INTO `services` (`service_ID`, `service_name`, `service_desc`, `date_deleted`) VALUES
+(4, 'Carwash', 'Washing of car because it is so dirty already', NULL),
+(5, 'Special Wax', 'waxing of paint specially', NULL),
+(6, 'Wax', 'waxing, but not specially', NULL),
+(7, 'Paint', 'changing of the color of the car', NULL),
+(8, 'Change Oil', 'changing of oil that is unusable', NULL);
 
 -- --------------------------------------------------------
 
@@ -402,13 +412,24 @@ CREATE TABLE `service_emp_trans` (
 --
 
 INSERT INTO `service_emp_trans` (`servtransac_ID`, `emp_ID`) VALUES
+(1, 2),
+(1, 5),
+(2, 1),
+(2, 3),
+(2, 5),
+(3, 1),
+(3, 2),
 (4, 1),
-(4, 2),
-(5, 3),
-(6, 3),
-(6, 5),
-(7, 2),
-(8, 2);
+(4, 5),
+(7, 1),
+(7, 5),
+(5, 2),
+(5, 5),
+(6, 2),
+(8, 5),
+(9, 2),
+(9, 5),
+(10, 1);
 
 -- --------------------------------------------------------
 
@@ -434,7 +455,7 @@ CREATE TABLE `service_prices` (
   `service_price_ID` int(11) NOT NULL,
   `service_ID` int(11) NOT NULL,
   `vehicletype_ID` int(11) NOT NULL,
-  `service_fee` double NOT NULL
+  `service_fee` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
@@ -442,14 +463,14 @@ CREATE TABLE `service_prices` (
 --
 
 INSERT INTO `service_prices` (`service_price_ID`, `service_ID`, `vehicletype_ID`, `service_fee`) VALUES
-(6, 4, 6, 160),
-(7, 4, 1, 170),
-(8, 4, 3, 190),
-(9, 4, 4, 180),
-(10, 4, 5, 200),
-(11, 7, 6, 1000),
-(12, 7, 4, 5000),
-(13, 8, 5, 3000);
+(6, 4, 6, '160.00'),
+(7, 4, 1, '170.00'),
+(8, 4, 3, '190.00'),
+(9, 4, 4, '180.00'),
+(10, 4, 5, '200.00'),
+(11, 7, 6, '1000.00'),
+(12, 7, 4, '5000.00'),
+(13, 8, 5, '3000.00');
 
 -- --------------------------------------------------------
 
@@ -473,14 +494,16 @@ CREATE TABLE `service_transac` (
 --
 
 INSERT INTO `service_transac` (`servtransac_ID`, `date_received`, `date_released`, `service_status`, `transac_ID`, `service_ID`, `plate_no`, `total_amount`) VALUES
-(1, '2018-04-13 15:10:27', '2018-04-13 03:09:21', 'Finished', 10000009, 4, 'ZXC09123', '210.00'),
-(2, '2018-04-13 15:16:12', '2018-04-13 03:14:36', 'Finished', 10000010, 4, '123', '340.00'),
-(3, '2018-04-13 15:19:26', '0000-00-00 00:00:00', 'Ongoing', 10000011, 4, '123', '340.00'),
-(4, '2018-04-13 15:24:14', '2018-04-13 03:24:04', 'Finished', 10000012, 4, '123', '340.00'),
-(5, '2018-04-14 02:44:03', '0000-00-00 00:00:00', 'Ongoing', 10000013, 7, 'ZXC09123', '1000.00'),
-(6, '2018-04-14 02:58:08', '0000-00-00 00:00:00', 'Finished', 10000014, 4, '12332', '190.00'),
-(7, '2018-04-14 02:46:40', '0000-00-00 00:00:00', 'Ongoing', 10000014, 7, 'ZXC09123', '1000.00'),
-(8, '2018-04-14 14:28:20', '0000-00-00 00:00:00', 'Ongoing', 10000015, 4, '12332', '340.00');
+(1, '2018-04-19 17:18:37', '2018-04-19 17:18:36', 'Ongoing', 10000001, 4, '12332', '290.00'),
+(2, '2018-04-20 01:15:57', '2018-04-20 01:15:57', 'Finished', 10000002, 7, 'ZXC09123', '1000.00'),
+(3, '2018-04-20 01:48:31', '2018-04-20 01:48:31', 'Ongoing', 10000003, 4, 'ZXC09123', '310.00'),
+(4, '2018-04-20 01:48:31', '2018-04-20 01:48:31', 'Finished', 10000003, 4, '123', '340.00'),
+(5, '2018-04-20 02:35:22', '2018-04-20 02:35:22', 'Finished', 10000004, 4, '123', '340.00'),
+(6, '2018-04-20 02:35:24', '2018-04-20 02:35:24', 'Finished', 10000004, 7, 'ZXC09123', '1000.00'),
+(7, '2018-04-20 02:16:51', '0000-00-00 00:00:00', 'Ongoing', 10000005, 4, 'ZXC09123', '160.00'),
+(8, '2018-04-20 02:35:25', '2018-04-20 02:35:25', 'Finished', 10000004, 4, 'asd123', '190.00'),
+(9, '2018-04-20 02:35:26', '2018-04-20 02:35:26', 'Finished', 10000004, 4, 'ZXC09123', '310.00'),
+(10, '2018-04-20 02:43:30', '0000-00-00 00:00:00', 'Ongoing', 10000006, 4, '12332', '190.00');
 
 -- --------------------------------------------------------
 
@@ -523,11 +546,17 @@ CREATE TABLE `stocks` (
 --
 
 INSERT INTO `stocks` (`stock_ID`, `product_ID`, `supplier_ID`, `received_date`, `total_stocks`, `remaining_stocks`, `supplier_price`, `date_deleted`) VALUES
-('STK-1000001', 'dsaas', 1, '2018-03-31 00:00:00', 5, 0, '160.00', NULL),
-('STK-1000002', '4800092553929', 2, '2018-03-29 00:00:00', 6, 5, '20.00', NULL),
+('STK-1000001', 'dsaas', 1, '2018-03-31 00:00:00', 15, 0, '160.00', '2018-04-20 06:21:17'),
+('STK-1000002', '4800092553929', 2, '2018-03-29 00:00:00', 10, 0, '20.00', '2018-04-20 06:21:17'),
 ('STK-1000003', '4800092553929', 1, '2018-03-31 00:00:00', 20, 5, '8.00', '2018-03-31 06:49:19'),
 ('STK-1000004', 'dsaas', 2, '2018-03-31 00:00:00', 10, 10, '3.00', '2018-03-31 06:40:37'),
-('STK-1000005', '123', 2, '2018-04-14 00:00:00', 100, 92, '500.00', NULL);
+('STK-1000005', '123', 2, '2018-04-14 00:00:00', 112, 0, '500.00', '2018-04-20 06:21:17'),
+('STK-1000006', '123', 1, '2018-04-19 00:00:00', 150, 5, '600.50', NULL),
+('STK-1000007', '4800092553929', 2, '2018-04-19 00:00:00', 50, 12, '421.00', NULL),
+('STK-1000008', '4800092553929', 2, '2018-04-20 00:00:00', 1, 1, '7.00', NULL),
+('STK-1000009', '456', 7, '2018-04-20 00:00:00', 10, 10, '240.00', NULL),
+('STK-1000010', '456', 6, '2018-04-18 00:00:00', 20, 20, '300.00', NULL),
+('STK-1000011', '1111', 6, '2018-04-21 00:00:00', 20, 20, '223.52', NULL);
 
 -- --------------------------------------------------------
 
@@ -540,19 +569,23 @@ CREATE TABLE `suppliers` (
   `supplier_name` varchar(50) NOT NULL,
   `contact` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
-  `date_deleted` timestamp NULL DEFAULT NULL
+  `date_profiled` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `suppliers`
 --
 
-INSERT INTO `suppliers` (`supplier_ID`, `supplier_name`, `contact`, `address`, `date_deleted`) VALUES
-(1, 'looney', '69', 'ayala city', NULL),
-(2, 'Supplier One', 'ttt', 'd', NULL),
-(3, 'alg', '911', 'tetuan', '2018-03-31 08:38:29'),
-(4, '232e', 'eeeee', '2323e', '2018-03-31 08:37:31'),
-(5, 'we', 'wer', 'wer', '2018-03-31 08:38:33');
+INSERT INTO `suppliers` (`supplier_ID`, `supplier_name`, `contact`, `address`, `date_profiled`, `date_deleted`) VALUES
+(1, 'looney', '69', 'ayala city', '2018-04-22 01:28:18', NULL),
+(2, 'Supplier One', '0987654323', 'guiwan', '2018-04-22 01:28:18', NULL),
+(3, 'alg', '911', 'tetuan', '2018-04-22 01:28:18', '2018-03-31 16:38:29'),
+(4, '232e', 'eeeee', '2323e', '2018-04-22 01:28:18', '2018-03-31 16:37:31'),
+(5, 'we', 'wer', 'wer', '2018-04-22 01:28:18', '2018-03-31 16:38:33'),
+(6, 'Toto', '0987654321', 'Marloquet', '2018-04-22 01:28:18', NULL),
+(7, 'h3lL0w', '0912345678', 'ph03wsszcxczxzsz', '2018-04-22 01:28:18', NULL),
+(8, '12345', '534153782', 'Philippines', '2018-04-22 01:28:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -581,21 +614,12 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`transac_ID`, `date_transact`, `discount`, `discounted_amount`, `total_amount`, `paid`, `balance`, `customer_ID`, `items_total_amount`, `service_total_amount`, `vatable_sales`, `vat`, `vat_percent`) VALUES
-(10000001, '2018-04-11 04:58:07', 1, '0.00', '800.00', '1000.00', '0.00', 1, '0.00', '0.00', '0.00', '0.00', 0),
-(10000002, '2018-04-11 04:58:10', 0, '0.00', '5818.00', '6000.00', '0.00', 1, '0.00', '0.00', '0.00', '0.00', 0),
-(10000003, '2018-04-11 04:58:13', 0, '0.00', '800.00', '801.00', '0.00', 1, '0.00', '0.00', '0.00', '0.00', 0),
-(10000004, '2018-04-13 06:47:33', 0, '1330.00', '1330.00', '1335.00', '0.00', 1, '800.00', '530.00', '1187.50', '142.50', 12),
-(10000005, '2018-04-13 10:32:02', 0, '2849.00', '2849.00', '3000.00', '0.00', 1, '2509.00', '340.00', '2543.75', '305.25', 12),
-(10000006, '2018-04-13 14:26:54', 0, '990.00', '990.00', '1000.00', '0.00', 1, '800.00', '190.00', '883.93', '106.07', 12),
-(10000007, '2018-04-13 14:36:20', 0, '1040.00', '1040.00', '1055.00', '0.00', 1, '800.00', '240.00', '928.57', '111.43', 12),
-(10000008, '2018-04-13 15:05:48', 0, '240.00', '240.00', '1000.00', '0.00', 1, '0.00', '240.00', '214.29', '25.71', 12),
-(10000009, '2018-04-13 15:09:21', 0, '210.00', '210.00', '210.00', '0.00', 1, '0.00', '210.00', '187.50', '22.50', 12),
-(10000010, '2018-04-13 15:14:35', 0, '340.00', '340.00', '500.00', '0.00', 1, '0.00', '340.00', '303.57', '36.43', 12),
-(10000011, '2018-04-13 15:19:25', 0, '340.00', '340.00', '170.00', '170.00', 1, '0.00', '340.00', '303.57', '36.43', 12),
-(10000012, '2018-04-13 15:24:04', 0, '340.00', '340.00', '400.00', '0.00', 1, '0.00', '340.00', '303.57', '36.43', 12),
-(10000013, '2018-04-14 02:43:55', 0, '1000.00', '1000.00', '600.00', '400.00', 1, '0.00', '1000.00', '892.86', '107.14', 12),
-(10000014, '2018-04-14 02:46:26', 0, '1190.00', '1190.00', '800.00', '390.00', 1, '0.00', '1190.00', '1062.50', '127.50', 12),
-(10000015, '2018-04-14 14:28:19', 0, '10049.00', '10049.00', '5050.00', '4999.00', 1, '9709.00', '340.00', '0.00', '0.00', 0);
+(10000001, '2018-04-19 17:18:36', 0, '2090.00', '2090.00', '2200.00', '0.00', 1, '1800.00', '290.00', '1866.07', '223.93', 12),
+(10000002, '2018-04-20 01:15:57', 0, '20417.50', '20417.50', '20422.75', '0.00', 1, '19417.50', '1000.00', '18229.91', '2187.59', 12),
+(10000003, '2018-04-20 01:48:31', 0, '12540.50', '12540.50', '12541.50', '0.00', 1, '11890.50', '650.00', '11196.88', '1343.63', 12),
+(10000004, '2018-04-20 02:35:19', 0, '5603.50', '5603.50', '5603.50', '0.00', 1, '3763.50', '1840.00', '5003.13', '600.38', 12),
+(10000005, '2018-04-20 02:16:51', 0, '3923.50', '3923.50', '1961.75', '1961.75', 1, '3763.50', '160.00', '0.00', '0.00', 0),
+(10000006, '2018-04-20 02:43:19', 0, '190.00', '190.00', '95.00', '95.00', 1, '0.00', '190.00', '0.00', '0.00', 0);
 
 -- --------------------------------------------------------
 
@@ -613,21 +637,22 @@ CREATE TABLE `users` (
   `dateRegistered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `user_type` varchar(20) NOT NULL,
   `login_status` tinyint(1) NOT NULL,
-  `user_address` varchar(25) NOT NULL
+  `user_address` varchar(25) NOT NULL,
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userID`, `fName`, `gName`, `mInitial`, `username`, `password`, `dateRegistered`, `user_type`, `login_status`, `user_address`) VALUES
-(1, 'Mozart', 'Wolfgang', 'A', '2', '2', '2018-03-11 09:43:12', 'cashier', 0, 'Austria'),
-(2, 'Beethoven', 'Ludwig', 'V', '3', '3', '2018-03-11 09:40:18', 'encoder', 0, 'Germany'),
-(3, 'Saint-Saens', 'Camille', '', '1', '1', '2018-03-27 02:01:39', 'admin', 0, ''),
-(5, 'Gregorio', 'Karen', 'A', 'kaye', 'kaye02', '2018-02-23 08:07:08', 'admin', 0, 'Tumaga, Zamboanga City'),
-(10, '', '', '', '123', '?e?Y B/?A~Hg??O??J???~??????z?', '2018-04-14 14:41:47', 'admin', 0, ''),
-(11, '', '', '', '1234', '?gB??\\v??U?g?6#???E??x??F?', '2018-03-25 20:46:31', 'cashier', 0, ''),
-(12, '', '', '', 'f', '%/?6??\Z???U??[??????$????', '2018-03-27 03:19:28', 'encoder', 0, '');
+INSERT INTO `users` (`userID`, `fName`, `gName`, `mInitial`, `username`, `password`, `dateRegistered`, `user_type`, `login_status`, `user_address`, `date_deleted`) VALUES
+(1, 'Mozart', 'Wolfgang', 'A', '2', '2', '2018-03-11 09:43:12', 'cashier', 0, 'Austria', NULL),
+(2, 'Beethoven', 'Ludwig', 'V', '3', '3', '2018-03-11 09:40:18', 'encoder', 0, 'Germany', NULL),
+(3, 'Saint-Saens', 'Camille', '', '1', '1', '2018-03-27 02:01:39', 'admin', 0, '', NULL),
+(5, 'Gregorio', 'Karen', 'A', 'kaye', 'kaye02', '2018-02-23 08:07:08', 'admin', 0, 'Tumaga, Zamboanga City', NULL),
+(10, '', '', '', '123', '?e?Y B/?A~Hg??O??J???~??????z?', '2018-04-20 05:09:03', 'admin', 0, '', NULL),
+(11, '', '', '', '1234', '?gB??\\v??U?g?6#???E??x??F?', '2018-03-25 20:46:31', 'cashier', 0, '', NULL),
+(12, '', '', '', 'f', '%/?6??\Z???U??[??????$????', '2018-03-27 03:19:28', 'encoder', 0, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -637,16 +662,17 @@ INSERT INTO `users` (`userID`, `fName`, `gName`, `mInitial`, `username`, `passwo
 
 CREATE TABLE `vehicle_brands` (
   `vehicle_brand_ID` int(11) NOT NULL,
-  `vehicle_brand_name` varchar(20) NOT NULL
+  `vehicle_brand_name` varchar(20) NOT NULL,
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `vehicle_brands`
 --
 
-INSERT INTO `vehicle_brands` (`vehicle_brand_ID`, `vehicle_brand_name`) VALUES
-(1, 'ISUZU'),
-(2, 'TOYOTA');
+INSERT INTO `vehicle_brands` (`vehicle_brand_ID`, `vehicle_brand_name`, `date_deleted`) VALUES
+(1, 'ISUZU', NULL),
+(2, 'TOYOTA', NULL);
 
 -- --------------------------------------------------------
 
@@ -656,19 +682,20 @@ INSERT INTO `vehicle_brands` (`vehicle_brand_ID`, `vehicle_brand_name`) VALUES
 
 CREATE TABLE `vehicle_types` (
   `vehicletype_ID` int(11) NOT NULL,
-  `vehicle_type` varchar(25) NOT NULL
+  `vehicle_type` varchar(25) NOT NULL,
+  `date_deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `vehicle_types`
 --
 
-INSERT INTO `vehicle_types` (`vehicletype_ID`, `vehicle_type`) VALUES
-(1, 'SEDAN'),
-(3, 'SUV'),
-(4, 'MID SUV'),
-(5, 'VAN'),
-(6, 'COMPACT CAR');
+INSERT INTO `vehicle_types` (`vehicletype_ID`, `vehicle_type`, `date_deleted`) VALUES
+(1, 'SEDAN', NULL),
+(3, 'SUV', NULL),
+(4, 'MID SUV', NULL),
+(5, 'VAN', NULL),
+(6, 'COMPACT CAR', NULL);
 
 --
 -- Indexes for dumped tables
@@ -685,8 +712,8 @@ ALTER TABLE `added_service_price`
 -- Indexes for table `add_service_trans`
 --
 ALTER TABLE `add_service_trans`
-  ADD KEY `servtransac_ID` (`servtransac_ID`),
-  ADD KEY `serv_added_ID` (`serv_added_ID`);
+  ADD KEY `serv_added_ID` (`serv_added_ID`),
+  ADD KEY `servtransac_ID` (`servtransac_ID`);
 
 --
 -- Indexes for table `brands`
@@ -782,7 +809,7 @@ ALTER TABLE `services`
 --
 ALTER TABLE `service_emp_trans`
   ADD KEY `emp_ID` (`emp_ID`),
-  ADD KEY `service_emp_trans_ibfk_1` (`servtransac_ID`);
+  ADD KEY `servtransac_ID` (`servtransac_ID`);
 
 --
 -- Indexes for table `service_logs`
@@ -805,9 +832,9 @@ ALTER TABLE `service_prices`
 --
 ALTER TABLE `service_transac`
   ADD PRIMARY KEY (`servtransac_ID`),
-  ADD KEY `transac_ID` (`transac_ID`),
   ADD KEY `service_ID` (`service_ID`),
-  ADD KEY `plate_no` (`plate_no`);
+  ADD KEY `plate_no` (`plate_no`),
+  ADD KEY `transac_ID` (`transac_ID`);
 
 --
 -- Indexes for table `settings`
@@ -872,12 +899,12 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `category_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `category_description`
 --
 ALTER TABLE `category_description`
-  MODIFY `cat_desc_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `cat_desc_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `customers`
 --
@@ -887,7 +914,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `descriptions`
 --
 ALTER TABLE `descriptions`
-  MODIFY `description_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `description_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `employees`
 --
@@ -897,12 +924,12 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `product_prices`
 --
 ALTER TABLE `product_prices`
-  MODIFY `product_price_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `product_price_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `services`
 --
@@ -927,7 +954,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `supplier_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `supplier_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -957,8 +984,8 @@ ALTER TABLE `added_service_price`
 -- Constraints for table `add_service_trans`
 --
 ALTER TABLE `add_service_trans`
-  ADD CONSTRAINT `add_service_trans_ibfk_1` FOREIGN KEY (`servtransac_ID`) REFERENCES `service_transac` (`servtransac_ID`),
-  ADD CONSTRAINT `add_service_trans_ibfk_2` FOREIGN KEY (`serv_added_ID`) REFERENCES `added_service_price` (`serv_added_ID`);
+  ADD CONSTRAINT `add_service_trans_ibfk_2` FOREIGN KEY (`serv_added_ID`) REFERENCES `added_service_price` (`serv_added_ID`),
+  ADD CONSTRAINT `add_service_trans_ibfk_3` FOREIGN KEY (`servtransac_ID`) REFERENCES `service_transac` (`servtransac_ID`);
 
 --
 -- Constraints for table `category_description`
@@ -1012,8 +1039,8 @@ ALTER TABLE `prod_trans_rela`
 -- Constraints for table `service_emp_trans`
 --
 ALTER TABLE `service_emp_trans`
-  ADD CONSTRAINT `service_emp_trans_ibfk_1` FOREIGN KEY (`servtransac_ID`) REFERENCES `service_transac` (`servtransac_ID`),
-  ADD CONSTRAINT `service_emp_trans_ibfk_2` FOREIGN KEY (`emp_ID`) REFERENCES `employees` (`emp_ID`);
+  ADD CONSTRAINT `service_emp_trans_ibfk_2` FOREIGN KEY (`emp_ID`) REFERENCES `employees` (`emp_ID`),
+  ADD CONSTRAINT `service_emp_trans_ibfk_3` FOREIGN KEY (`servtransac_ID`) REFERENCES `service_transac` (`servtransac_ID`);
 
 --
 -- Constraints for table `service_prices`
@@ -1026,9 +1053,9 @@ ALTER TABLE `service_prices`
 -- Constraints for table `service_transac`
 --
 ALTER TABLE `service_transac`
-  ADD CONSTRAINT `service_transac_ibfk_1` FOREIGN KEY (`transac_ID`) REFERENCES `transactions` (`transac_ID`),
   ADD CONSTRAINT `service_transac_ibfk_2` FOREIGN KEY (`service_ID`) REFERENCES `services` (`service_ID`),
-  ADD CONSTRAINT `service_transac_ibfk_3` FOREIGN KEY (`plate_no`) REFERENCES `customer_vehicle` (`plate_no`);
+  ADD CONSTRAINT `service_transac_ibfk_3` FOREIGN KEY (`plate_no`) REFERENCES `customer_vehicle` (`plate_no`),
+  ADD CONSTRAINT `service_transac_ibfk_4` FOREIGN KEY (`transac_ID`) REFERENCES `transactions` (`transac_ID`);
 
 --
 -- Constraints for table `stocks`
