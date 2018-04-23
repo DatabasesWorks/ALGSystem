@@ -128,6 +128,7 @@ namespace ALG_POS_and_Inventory_Management_System
         private void frmManageCustomer_Load(object sender, EventArgs e)
         {
             LoadCustomer();
+            CustLock();
             button2.Enabled = false;
         }
 
