@@ -146,7 +146,7 @@
             // columnHeader12
             // 
             this.columnHeader12.Text = "Add. Charge ID";
-            this.columnHeader12.Width = 99;
+            this.columnHeader12.Width = 0;
             // 
             // columnHeader5
             // 

@@ -185,6 +185,7 @@ namespace ALG_POS_and_Inventory_Management_System
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -230,7 +230,7 @@
             this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
             resources.ApplyResources(this.button1, "button1");
             this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.button1.ForeColor = System.Drawing.Color.Snow;
             this.button1.Name = "button1";

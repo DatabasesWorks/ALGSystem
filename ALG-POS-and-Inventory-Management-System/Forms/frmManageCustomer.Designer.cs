@@ -414,6 +414,7 @@
             this.button2.TabIndex = 196;
             this.button2.Text = "View Vechicle";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // txtCustID
             // 

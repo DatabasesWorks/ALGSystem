@@ -128,6 +128,7 @@ namespace ALG_POS_and_Inventory_Management_System
         private void frmManageCustomer_Load(object sender, EventArgs e)
         {
             LoadCustomer();
+            button2.Enabled = false;
         }
 
         private void lvCust_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,8 +160,13 @@ namespace ALG_POS_and_Inventory_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
             frmVehicle frmVehicle = new frmVehicle();
-            frmVehicle.ShowDialog();
+                        frmVehicle.ShowDialog();
         }
 
         private void btnAdd_Click_1(object sender, EventArgs e)
