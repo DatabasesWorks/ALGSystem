@@ -253,56 +253,73 @@
             // 
             // btnManageEmp
             // 
-            this.btnManageEmp.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnManageEmp.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnManageEmp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnManageEmp.BackgroundImage")));
+            this.btnManageEmp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnManageEmp.FlatAppearance.BorderSize = 0;
+            this.btnManageEmp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnManageEmp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnManageEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageEmp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageEmp.ForeColor = System.Drawing.Color.White;
-            this.btnManageEmp.Location = new System.Drawing.Point(451, 32);
+            this.btnManageEmp.Location = new System.Drawing.Point(460, 32);
             this.btnManageEmp.Name = "btnManageEmp";
-            this.btnManageEmp.Size = new System.Drawing.Size(213, 113);
+            this.btnManageEmp.Size = new System.Drawing.Size(187, 154);
             this.btnManageEmp.TabIndex = 129;
-            this.btnManageEmp.Text = "Manage Employee Information";
             this.btnManageEmp.UseVisualStyleBackColor = false;
             this.btnManageEmp.Click += new System.EventHandler(this.btnManageEmp_Click);
             // 
             // btnLogs
             // 
-            this.btnLogs.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLogs.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLogs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogs.BackgroundImage")));
+            this.btnLogs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogs.FlatAppearance.BorderSize = 0;
+            this.btnLogs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLogs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogs.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogs.ForeColor = System.Drawing.Color.White;
-            this.btnLogs.Location = new System.Drawing.Point(451, 192);
+            this.btnLogs.Location = new System.Drawing.Point(446, 189);
             this.btnLogs.Name = "btnLogs";
-            this.btnLogs.Size = new System.Drawing.Size(213, 113);
+            this.btnLogs.Size = new System.Drawing.Size(215, 162);
             this.btnLogs.TabIndex = 130;
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
             // 
             // btnCustomer
             // 
-            this.btnCustomer.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCustomer.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCustomer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCustomer.BackgroundImage")));
+            this.btnCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCustomer.FlatAppearance.BorderSize = 0;
+            this.btnCustomer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustomer.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnCustomer.Location = new System.Drawing.Point(143, 194);
+            this.btnCustomer.Location = new System.Drawing.Point(144, 186);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(213, 113);
+            this.btnCustomer.Size = new System.Drawing.Size(199, 165);
             this.btnCustomer.TabIndex = 128;
-            this.btnCustomer.Text = "Customer Record";
             this.btnCustomer.UseVisualStyleBackColor = false;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // btnManageUsers
             // 
-            this.btnManageUsers.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnManageUsers.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnManageUsers.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnManageUsers.BackgroundImage")));
+            this.btnManageUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnManageUsers.FlatAppearance.BorderSize = 0;
+            this.btnManageUsers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnManageUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageUsers.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageUsers.ForeColor = System.Drawing.Color.White;
-            this.btnManageUsers.Location = new System.Drawing.Point(143, 32);
+            this.btnManageUsers.Location = new System.Drawing.Point(143, 30);
             this.btnManageUsers.Name = "btnManageUsers";
-            this.btnManageUsers.Size = new System.Drawing.Size(213, 113);
+            this.btnManageUsers.Size = new System.Drawing.Size(200, 158);
             this.btnManageUsers.TabIndex = 127;
-            this.btnManageUsers.Text = "Manage Users";
             this.btnManageUsers.UseVisualStyleBackColor = false;
             this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
             // 
