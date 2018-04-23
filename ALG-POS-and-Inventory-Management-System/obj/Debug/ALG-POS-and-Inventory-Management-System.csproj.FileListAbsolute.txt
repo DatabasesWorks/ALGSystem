@@ -38,3 +38,6 @@ C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inven
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.ucWizProduct.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.ucWizStockin.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.ucWizProductPrice.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\ALG-POS-and-Inventory-Management-System.exe.config
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.exe
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.pdb
