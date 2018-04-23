@@ -9,14 +9,16 @@ namespace ALG_POS_and_Inventory_Management_System
     class ContCustomerVehicle
     {
         DbConnection Database = new DbConnection();
-        public System.Data.DataTable LoadCustomerVehicle()
+        public System.Data.DataTable LoadCustomerVehicle(string custID)
         {
             System.Data.DataTable dt = new System.Data.DataTable();
             dt = null;
             try
             {
-                string query = "SELECT plate_no,cust_ID,(SELECT vehicle_type FROM vehicle_types WHERE vehicle_types.vehicletype_ID = customer_vehicle.vehicletype_ID),(SELECT vehicle_brand_name FROM vehicle_brands WHERE vehicle_brands.vehicle_brand_ID = customer_vehicle.vehicle_brand_ID) ,color,model FROM customer_vehicle WHERE date_deleted IS NULL ";
-                dt = Database.Retrieve(query);
+                string query = "SELECT plate_no,cust_ID,(SELECT vehicle_type FROM vehicle_types WHERE vehicle_types.vehicletype_ID = customer_vehicle.vehicletype_ID),(SELECT vehicle_brand_name FROM vehicle_brands WHERE vehicle_brands.vehicle_brand_ID = customer_vehicle.vehicle_brand_ID) ,color,model FROM customer_vehicle WHERE cust_ID LIKE @0 AND date_deleted IS NULL ";
+                string[] param = { custID };
+                bool[] like = { true };
+                dt = Database.Retrieve(query, param, like);
             }
             catch (Exception ex)
             {
@@ -35,7 +37,7 @@ namespace ALG_POS_and_Inventory_Management_System
                     string[] param = { plate_no, cust_ID, vehicletype_ID, brand_ID,color,model };
                     if (Database.Execute(query, param))
                     {
-                        System.Windows.Forms.MessageBox.Show("Customer Vehicles Service successfully saved!", "Customer", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                        System.Windows.Forms.MessageBox.Show("Customer Vehicle successfully saved!", "Customer", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                         status = true;
                     }
                 }

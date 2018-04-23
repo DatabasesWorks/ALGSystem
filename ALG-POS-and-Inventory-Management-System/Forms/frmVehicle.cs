@@ -16,6 +16,7 @@ namespace ALG_POS_and_Inventory_Management_System
         ContCustomerVehicle contVcl = new ContCustomerVehicle();
         bool vcladd = false, vcledit = false;
         string tempOldName;
+        string custID;
         public frmVehicle()
         {
             InitializeComponent();
@@ -80,7 +81,7 @@ namespace ALG_POS_and_Inventory_Management_System
         {
             lvVehicle.Items.Clear();
             DataTable dt = new DataTable();
-            dt = contVcl.LoadCustomerVehicle();
+            dt = contVcl.LoadCustomerVehicle(custID);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 DataRow dr = dt.Rows[i];
@@ -175,11 +176,15 @@ namespace ALG_POS_and_Inventory_Management_System
 
         private void frmVehicle_Load(object sender, EventArgs e)
         {
+            txtCustID.Text = frmManageCustomer.custID;
+            custID = txtCustID.Text;
             LoadBrand();
             LoadCustomerVehicle();
             LoadVehicle();
+            VclLock();
             
-            txtCustID.Text = frmManageCustomer.custID;
+            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
