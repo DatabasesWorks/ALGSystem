@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckedComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\Inventory\ContInventoryStocks.cs" />
     <Compile Include="Classes\Inventory\ContInventorySuppliers.cs" />
     <Compile Include="Classes\Inventory\ContInventoryProductPrice.cs" />
@@ -198,6 +201,12 @@
     </Compile>
     <Compile Include="ucReturnItem.Designer.cs">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSalesReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSalesReport.Designer.cs">
+      <DependentUpon>ucSalesReport.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.cs">
       <SubType>UserControl</SubType>
@@ -349,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucReturnItem.resx">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSalesReport.resx">
+      <DependentUpon>ucSalesReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCCustomerRecords.resx">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
