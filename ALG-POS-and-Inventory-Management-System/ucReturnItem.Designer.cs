@@ -38,7 +38,7 @@
             this.lvServices.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvServices.FullRowSelect = true;
             this.lvServices.GridLines = true;
-            this.lvServices.Location = new System.Drawing.Point(33, 135);
+            this.lvServices.Location = new System.Drawing.Point(14, 70);
             this.lvServices.Name = "lvServices";
             this.lvServices.Size = new System.Drawing.Size(404, 280);
             this.lvServices.TabIndex = 132;
