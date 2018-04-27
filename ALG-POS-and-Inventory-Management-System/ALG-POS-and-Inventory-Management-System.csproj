@@ -142,6 +142,12 @@
     <Compile Include="Forms\frmVehicle.Designer.cs">
       <DependentUpon>frmVehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBrands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrands.Designer.cs">
+      <DependentUpon>frmBrands.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,10 +222,10 @@
     <Compile Include="ucReturnItem.Designer.cs">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucTransactionLogs.cs">
+    <Compile Include="User Controls\LogsAndMaintenance\ucTransactionLogs.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucTransactionLogs.Designer.cs">
+    <Compile Include="User Controls\LogsAndMaintenance\ucTransactionLogs.Designer.cs">
       <DependentUpon>ucTransactionLogs.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.cs">
@@ -338,6 +344,9 @@
     <EmbeddedResource Include="Forms\frmVehicle.resx">
       <DependentUpon>frmVehicle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBrands.resx">
+      <DependentUpon>frmBrands.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManageSettings.resx">
       <DependentUpon>frmManageSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,7 +388,7 @@
     <EmbeddedResource Include="ucReturnItem.resx">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucTransactionLogs.resx">
+    <EmbeddedResource Include="User Controls\LogsAndMaintenance\ucTransactionLogs.resx">
       <DependentUpon>ucTransactionLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCCustomerRecords.resx">

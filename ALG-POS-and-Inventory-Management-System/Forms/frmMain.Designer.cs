@@ -47,7 +47,7 @@
             this.btnCollapse = new System.Windows.Forms.Button();
             this.picWarning = new System.Windows.Forms.PictureBox();
             this.lblWarning = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerCritStock = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitCont)).BeginInit();
             this.splitCont.Panel1.SuspendLayout();
@@ -256,6 +256,7 @@
             this.btnManageEmp.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnManageEmp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnManageEmp.BackgroundImage")));
             this.btnManageEmp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnManageEmp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnManageEmp.FlatAppearance.BorderSize = 0;
             this.btnManageEmp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnManageEmp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -274,6 +275,7 @@
             this.btnLogs.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnLogs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogs.BackgroundImage")));
             this.btnLogs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogs.FlatAppearance.BorderSize = 0;
             this.btnLogs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnLogs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -286,12 +288,14 @@
             this.btnLogs.TabIndex = 130;
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
+            this.btnLogs.Click += new System.EventHandler(this.btnLogs_Click);
             // 
             // btnCustomer
             // 
             this.btnCustomer.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnCustomer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCustomer.BackgroundImage")));
             this.btnCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCustomer.FlatAppearance.BorderSize = 0;
             this.btnCustomer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -310,6 +314,7 @@
             this.btnManageUsers.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnManageUsers.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnManageUsers.BackgroundImage")));
             this.btnManageUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnManageUsers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnManageUsers.FlatAppearance.BorderSize = 0;
             this.btnManageUsers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnManageUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -395,11 +400,11 @@
             this.lblWarning.Text = "0";
             this.lblWarning.Visible = false;
             // 
-            // timer1
+            // timerCritStock
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 3000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerCritStock.Enabled = true;
+            this.timerCritStock.Interval = 3000;
+            this.timerCritStock.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMain
             // 
@@ -459,6 +464,6 @@
         public System.Windows.Forms.Button btnCollapse;
         private System.Windows.Forms.PictureBox picWarning;
         private System.Windows.Forms.Label lblWarning;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerCritStock;
     }
 }

@@ -44,7 +44,6 @@
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnProdPrint = new System.Windows.Forms.Button();
             this.btnProdDelete = new System.Windows.Forms.Button();
             this.btnProdSave = new System.Windows.Forms.Button();
@@ -227,8 +226,7 @@
             this.columnHeader3,
             this.columnHeader25,
             this.columnHeader22,
-            this.columnHeader4,
-            this.columnHeader13});
+            this.columnHeader4});
             this.lvProducts.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvProducts.FullRowSelect = true;
             this.lvProducts.GridLines = true;
@@ -248,32 +246,32 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Product ID.";
-            this.columnHeader1.Width = 175;
+            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader1.Width = 230;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Product Name";
-            this.columnHeader3.Width = 219;
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader3.Width = 299;
             // 
             // columnHeader25
             // 
             this.columnHeader25.Text = "Brand";
-            this.columnHeader25.Width = 154;
+            this.columnHeader25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader25.Width = 119;
             // 
             // columnHeader22
             // 
             this.columnHeader22.Text = "Category";
-            this.columnHeader22.Width = 109;
+            this.columnHeader22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader22.Width = 111;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Description";
-            this.columnHeader4.Width = 345;
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "Remaining Stocks(To remove or not?)";
-            this.columnHeader13.Width = 265;
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader4.Width = 465;
             // 
             // btnProdPrint
             // 
@@ -543,7 +541,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader25;
         private System.Windows.Forms.ColumnHeader columnHeader22;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.GroupBox grpCatDesc;
         private System.Windows.Forms.Panel pnlInGroupBox;

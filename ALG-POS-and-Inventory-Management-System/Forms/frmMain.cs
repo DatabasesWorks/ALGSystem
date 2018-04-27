@@ -27,26 +27,32 @@ namespace ALG_POS_and_Inventory_Management_System {
                 clerkPanel.Visible = false;
                 splitCont.Visible = true;
                 btnCollapse.Visible = true;
+                timerCritStock.Enabled = true;
+                picWarning.Visible = lblWarning.Visible = true;
                 //timer1.Enabled = true;    -for idle program in the future, logsout
                 btnLogout.Visible = true;
                 this.Show();
             } else if (clsUsers.userType == "cashier") {
                 btnCollapse.Visible = false;
-                //UCPointOfSale ucpointofsale = new UCPointOfSale();
+                uCPointOfSale ucpointofsale = new uCPointOfSale();
                 clerkPanel.Controls.Clear();
-                //clerkPanel.Controls.Add(ucpointofsale);
+                clerkPanel.Controls.Add(ucpointofsale);
                 btnCollapse.Visible = false;
                 splitCont.Visible = false;
+                timerCritStock.Enabled = false;
+                picWarning.Visible = lblWarning.Visible = false;
                 //timer1.Enabled = true;     -for idle program in the future, logsout
                 btnLogout.Visible = true;
                 this.Show();
             } else if (clsUsers.userType == "encoder") {
                 btnCollapse.Visible = false;
-                //UCInventory ucinventory = new UCInventory();
+                uCInventory ucinventory = new uCInventory();
                 clerkPanel.Controls.Clear();
-                //clerkPanel.Controls.Add(ucinventory);
+                clerkPanel.Controls.Add(ucinventory);
                 btnCollapse.Visible = false;
                 splitCont.Visible = false;
+                timerCritStock.Enabled = true;
+                picWarning.Visible = lblWarning.Visible = true;
                 //timer1.Enabled = true;     -for idle program in the future, logsout
                 btnLogout.Visible = true;
                 this.Show();
@@ -181,6 +187,12 @@ namespace ALG_POS_and_Inventory_Management_System {
             splitCont.Panel2.Controls.Add(user);
         }
 
+        private void btnLogs_Click(object sender, EventArgs e) {
+            ucTransactionLogs user = new ucTransactionLogs();
+            splitCont.Panel2.Controls.Clear();
+            splitCont.Panel2.Controls.Add(user);
+        }
+
         private void timer1_Tick(object sender, EventArgs e) {
             string num = contObj.SelectStocksRunningOut();
             if (num != "0") {
@@ -200,5 +212,6 @@ namespace ALG_POS_and_Inventory_Management_System {
             splitCont.Panel2.Controls.Add(usercontrol);
             usercontrol.tabInventory.SelectedIndex = 1 ;
         }
+
     }
 }
