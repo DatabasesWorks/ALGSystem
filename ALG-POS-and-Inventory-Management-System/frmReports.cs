@@ -8,10 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ALG_POS_and_Inventory_Management_System {
+namespace ALG_POS_and_Inventory_Management_System
+{
     public partial class frmReports : Form {
         public frmReports() {
             InitializeComponent();
+        }
+
+        private void crystalReportViewer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

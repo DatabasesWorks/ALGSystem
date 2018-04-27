@@ -238,6 +238,7 @@
             this.maintenancePanel.Size = new System.Drawing.Size(1186, 694);
             this.maintenancePanel.TabIndex = 135;
             this.maintenancePanel.Visible = false;
+            this.maintenancePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.maintenancePanel_Paint);
             // 
             // panel9
             // 

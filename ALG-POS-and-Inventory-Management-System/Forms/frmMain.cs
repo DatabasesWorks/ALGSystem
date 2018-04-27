@@ -200,5 +200,10 @@ namespace ALG_POS_and_Inventory_Management_System {
             splitCont.Panel2.Controls.Add(usercontrol);
             usercontrol.tabInventory.SelectedIndex = 1 ;
         }
+
+        private void maintenancePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
