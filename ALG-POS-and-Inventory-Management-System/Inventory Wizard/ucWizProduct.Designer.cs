@@ -47,9 +47,9 @@
             this.grpCatDesc.Controls.Add(this.pnlInGroupBox);
             this.grpCatDesc.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCatDesc.ForeColor = System.Drawing.Color.White;
-            this.grpCatDesc.Location = new System.Drawing.Point(22, 184);
+            this.grpCatDesc.Location = new System.Drawing.Point(5, 184);
             this.grpCatDesc.Name = "grpCatDesc";
-            this.grpCatDesc.Size = new System.Drawing.Size(471, 160);
+            this.grpCatDesc.Size = new System.Drawing.Size(497, 160);
             this.grpCatDesc.TabIndex = 194;
             this.grpCatDesc.TabStop = false;
             this.grpCatDesc.Text = "Category Description";
@@ -60,7 +60,7 @@
             this.pnlInGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlInGroupBox.Location = new System.Drawing.Point(3, 27);
             this.pnlInGroupBox.Name = "pnlInGroupBox";
-            this.pnlInGroupBox.Size = new System.Drawing.Size(465, 130);
+            this.pnlInGroupBox.Size = new System.Drawing.Size(491, 130);
             this.pnlInGroupBox.TabIndex = 0;
             // 
             // btnCategory
@@ -69,7 +69,7 @@
             this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategory.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategory.ForeColor = System.Drawing.Color.White;
-            this.btnCategory.Location = new System.Drawing.Point(371, 144);
+            this.btnCategory.Location = new System.Drawing.Point(354, 144);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(23, 34);
             this.btnCategory.TabIndex = 193;
@@ -82,7 +82,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(23, 152);
+            this.label7.Location = new System.Drawing.Point(6, 152);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 23);
             this.label7.TabIndex = 192;
@@ -94,7 +94,7 @@
             this.btnAddBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddBrand.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddBrand.ForeColor = System.Drawing.Color.White;
-            this.btnAddBrand.Location = new System.Drawing.Point(371, 95);
+            this.btnAddBrand.Location = new System.Drawing.Point(354, 95);
             this.btnAddBrand.Name = "btnAddBrand";
             this.btnAddBrand.Size = new System.Drawing.Size(23, 34);
             this.btnAddBrand.TabIndex = 191;
@@ -106,7 +106,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(21, 107);
+            this.label6.Location = new System.Drawing.Point(4, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 23);
             this.label6.TabIndex = 190;
@@ -119,7 +119,7 @@
             this.cboBrand.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboBrand.ForeColor = System.Drawing.Color.White;
             this.cboBrand.FormattingEnabled = true;
-            this.cboBrand.Location = new System.Drawing.Point(173, 99);
+            this.cboBrand.Location = new System.Drawing.Point(156, 99);
             this.cboBrand.Name = "cboBrand";
             this.cboBrand.Size = new System.Drawing.Size(192, 31);
             this.cboBrand.TabIndex = 189;
@@ -131,7 +131,7 @@
             this.cboCategory.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategory.ForeColor = System.Drawing.Color.White;
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(173, 145);
+            this.cboCategory.Location = new System.Drawing.Point(156, 145);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(192, 31);
             this.cboCategory.TabIndex = 188;
@@ -142,7 +142,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(24, 40);
+            this.label4.Location = new System.Drawing.Point(7, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 23);
             this.label4.TabIndex = 187;
@@ -153,7 +153,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(18, 67);
+            this.label3.Location = new System.Drawing.Point(1, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 23);
             this.label3.TabIndex = 186;
@@ -164,7 +164,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 18);
+            this.label2.Location = new System.Drawing.Point(1, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 23);
             this.label2.TabIndex = 185;
@@ -182,7 +182,7 @@
             this.btnProdSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdSave.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProdSave.ForeColor = System.Drawing.Color.White;
-            this.btnProdSave.Location = new System.Drawing.Point(500, 200);
+            this.btnProdSave.Location = new System.Drawing.Point(503, 200);
             this.btnProdSave.Name = "btnProdSave";
             this.btnProdSave.Size = new System.Drawing.Size(137, 65);
             this.btnProdSave.TabIndex = 195;
@@ -202,7 +202,7 @@
             this.btnPriceClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPriceClear.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPriceClear.ForeColor = System.Drawing.Color.White;
-            this.btnPriceClear.Location = new System.Drawing.Point(500, 271);
+            this.btnPriceClear.Location = new System.Drawing.Point(503, 271);
             this.btnPriceClear.Name = "btnPriceClear";
             this.btnPriceClear.Size = new System.Drawing.Size(137, 69);
             this.btnPriceClear.TabIndex = 281;
@@ -216,7 +216,7 @@
             this.txtProdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProdName.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProdName.ForeColor = System.Drawing.Color.White;
-            this.txtProdName.Location = new System.Drawing.Point(173, 64);
+            this.txtProdName.Location = new System.Drawing.Point(156, 64);
             this.txtProdName.Name = "txtProdName";
             this.txtProdName.Size = new System.Drawing.Size(241, 25);
             this.txtProdName.TabIndex = 184;
@@ -227,7 +227,7 @@
             this.txtProdNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProdNo.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProdNo.ForeColor = System.Drawing.Color.White;
-            this.txtProdNo.Location = new System.Drawing.Point(173, 20);
+            this.txtProdNo.Location = new System.Drawing.Point(156, 20);
             this.txtProdNo.MaxLength = 100000000;
             this.txtProdNo.Name = "txtProdNo";
             this.txtProdNo.Size = new System.Drawing.Size(236, 25);

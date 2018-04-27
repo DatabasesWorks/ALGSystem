@@ -31,15 +31,21 @@ namespace ALG_POS_and_Inventory_Management_System {
 
             list = contPrices.LoadProductID();
             cboProductID.Items.Clear();
-            foreach (string item in list) {
-                cboProductID.Items.Add(item);
+            if (list != null) {
+                foreach (string item in list) {
+                    cboProductID.Items.Add(item);
+                }
             }
+            
 
             list = contPrices.LoadProductName();
             cboProductName.Items.Clear();
-            foreach (string item in list) {
-                cboProductName.Items.Add(item);
+            if (list != null) {
+                foreach (string item in list) {
+                    cboProductName.Items.Add(item);
+                }
             }
+            
         }
         void NumPriceDiscChange() {
             decimal discountedPrice;

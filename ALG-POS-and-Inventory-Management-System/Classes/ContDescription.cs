@@ -22,7 +22,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             bool status = false;
             try {
                 if (!isDuplicateDescName(descName)) { // if no duplicate found
-                    string query = "INSERT INTO descriptions SET desc_name=@0, desc_type=@1, desc_unit";
+                    string query = "INSERT INTO descriptions SET desc_name=@0, desc_type=@1, desc_unit=@2";
                     string[] param = { descName, descType, descUnit};
                     if (Database.Execute(query, param)) {
                         System.Windows.Forms.MessageBox.Show("Description successfully saved!", "Descriptions", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
@@ -30,7 +30,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     }
                 }
             } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("error on insert description" + ex.Message);
             }
             return status;
         }

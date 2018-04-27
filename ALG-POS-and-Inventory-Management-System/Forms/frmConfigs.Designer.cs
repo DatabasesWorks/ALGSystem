@@ -33,6 +33,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtName = new MyTextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtMyIP = new MyTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnOK
@@ -47,7 +49,7 @@
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(278, 294);
+            this.btnOK.Location = new System.Drawing.Point(286, 338);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(137, 53);
             this.btnOK.TabIndex = 155;
@@ -61,7 +63,7 @@
             this.txtPW.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPW.Font = new System.Drawing.Font("Helvetica CE", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPW.ForeColor = System.Drawing.Color.White;
-            this.txtPW.Location = new System.Drawing.Point(220, 221);
+            this.txtPW.Location = new System.Drawing.Point(217, 286);
             this.txtPW.Name = "txtPW";
             this.txtPW.Size = new System.Drawing.Size(195, 31);
             this.txtPW.TabIndex = 154;
@@ -72,7 +74,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Helvetica CE", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(73, 221);
+            this.label4.Location = new System.Drawing.Point(56, 286);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 31);
             this.label4.TabIndex = 153;
@@ -84,7 +86,7 @@
             this.label2.BackColor = System.Drawing.Color.RoyalBlue;
             this.label2.Font = new System.Drawing.Font("Segoe UI Black", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(31, 9);
+            this.label2.Location = new System.Drawing.Point(28, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(449, 47);
             this.label2.TabIndex = 149;
@@ -96,7 +98,7 @@
             this.txtUN.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUN.Font = new System.Drawing.Font("Helvetica CE", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUN.ForeColor = System.Drawing.Color.White;
-            this.txtUN.Location = new System.Drawing.Point(220, 173);
+            this.txtUN.Location = new System.Drawing.Point(217, 238);
             this.txtUN.Name = "txtUN";
             this.txtUN.Size = new System.Drawing.Size(195, 31);
             this.txtUN.TabIndex = 148;
@@ -107,7 +109,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Helvetica CE", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(68, 173);
+            this.label1.Location = new System.Drawing.Point(56, 238);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 31);
             this.label1.TabIndex = 147;
@@ -119,7 +121,7 @@
             this.txtDbAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDbAddress.Font = new System.Drawing.Font("Helvetica CE", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDbAddress.ForeColor = System.Drawing.Color.White;
-            this.txtDbAddress.Location = new System.Drawing.Point(220, 87);
+            this.txtDbAddress.Location = new System.Drawing.Point(217, 152);
             this.txtDbAddress.Name = "txtDbAddress";
             this.txtDbAddress.Size = new System.Drawing.Size(195, 31);
             this.txtDbAddress.TabIndex = 159;
@@ -130,7 +132,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Helvetica CE", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 87);
+            this.label3.Location = new System.Drawing.Point(1, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(201, 31);
             this.label3.TabIndex = 158;
@@ -142,7 +144,7 @@
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("Helvetica CE", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(220, 128);
+            this.txtName.Location = new System.Drawing.Point(217, 193);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(195, 31);
             this.txtName.TabIndex = 157;
@@ -153,18 +155,44 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Helvetica CE", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(67, 128);
+            this.label5.Location = new System.Drawing.Point(64, 193);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 31);
+            this.label5.Size = new System.Drawing.Size(138, 31);
             this.label5.TabIndex = 156;
-            this.label5.Text = "*DB Name:";
+            this.label5.Text = "DB Name:";
+            // 
+            // txtMyIP
+            // 
+            this.txtMyIP.BackColor = System.Drawing.Color.RoyalBlue;
+            this.txtMyIP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMyIP.Font = new System.Drawing.Font("Helvetica CE", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMyIP.ForeColor = System.Drawing.Color.White;
+            this.txtMyIP.Location = new System.Drawing.Point(217, 112);
+            this.txtMyIP.Name = "txtMyIP";
+            this.txtMyIP.ReadOnly = true;
+            this.txtMyIP.Size = new System.Drawing.Size(195, 31);
+            this.txtMyIP.TabIndex = 161;
+            this.txtMyIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Helvetica CE", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(1, 112);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(200, 31);
+            this.label6.TabIndex = 160;
+            this.label6.Text = "My IP Address:";
             // 
             // frmConfigs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
-            this.ClientSize = new System.Drawing.Size(488, 376);
+            this.ClientSize = new System.Drawing.Size(506, 403);
+            this.Controls.Add(this.txtMyIP);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDbAddress);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
@@ -175,7 +203,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUN);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmConfigs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmConfigs";
             this.Load += new System.EventHandler(this.frmConfigs_Load);
             this.ResumeLayout(false);
@@ -195,5 +225,7 @@
         private System.Windows.Forms.Label label3;
         public MyTextBox txtName;
         private System.Windows.Forms.Label label5;
+        public MyTextBox txtMyIP;
+        private System.Windows.Forms.Label label6;
     }
 }

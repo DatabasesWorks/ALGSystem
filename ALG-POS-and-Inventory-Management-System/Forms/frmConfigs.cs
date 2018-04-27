@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
 
 namespace ALG_POS_and_Inventory_Management_System {
     public partial class frmConfigs : Form {
@@ -15,10 +16,21 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void frmConfigs_Load(object sender, EventArgs e) {
-           txtDbAddress.Text = Properties.Settings.Default.dbIpAddress;
-           txtName.Text  = Properties.Settings.Default.dbName;
-           txtUN.Text = Properties.Settings.Default.dbUsername;
-           txtDbAddress.Text = Properties.Settings.Default.dbPassword;
+            txtMyIP.Text = GetLocalIPAddress();
+            txtDbAddress.Text = Properties.Settings.Default.dbIpAddress;
+            txtName.Text  = Properties.Settings.Default.dbName;
+            txtUN.Text = Properties.Settings.Default.dbUsername;
+            txtPW.Text = Properties.Settings.Default.dbPassword;
+        }
+
+        public static string GetLocalIPAddress() {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList) {
+                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork) {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
         private void btnOK_Click(object sender, EventArgs e) {
@@ -41,7 +53,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             } else {
                 string pw="";
                 if(txtPW.Text.Trim() == "") {
-                    pw = null;
+                    pw = txtPW.Text.Trim();
                 }
                 Properties.Settings.Default.dbIpAddress = txtDbAddress.Text;
                 Properties.Settings.Default.dbName = txtName.Text;

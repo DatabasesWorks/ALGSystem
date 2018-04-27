@@ -44,7 +44,6 @@
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnProdPrint = new System.Windows.Forms.Button();
             this.btnProdDelete = new System.Windows.Forms.Button();
             this.btnProdSave = new System.Windows.Forms.Button();
@@ -56,6 +55,7 @@
             this.txtSearch = new MyTextBox();
             this.txtProdName = new MyTextBox();
             this.txtProdNo = new MyTextBox();
+            this.btnWizard = new System.Windows.Forms.Button();
             this.grpCatDesc.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -226,8 +226,7 @@
             this.columnHeader3,
             this.columnHeader25,
             this.columnHeader22,
-            this.columnHeader4,
-            this.columnHeader13});
+            this.columnHeader4});
             this.lvProducts.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvProducts.FullRowSelect = true;
             this.lvProducts.GridLines = true;
@@ -247,32 +246,32 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Product ID.";
-            this.columnHeader1.Width = 175;
+            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader1.Width = 230;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Product Name";
-            this.columnHeader3.Width = 219;
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader3.Width = 299;
             // 
             // columnHeader25
             // 
             this.columnHeader25.Text = "Brand";
-            this.columnHeader25.Width = 154;
+            this.columnHeader25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader25.Width = 119;
             // 
             // columnHeader22
             // 
             this.columnHeader22.Text = "Category";
-            this.columnHeader22.Width = 109;
+            this.columnHeader22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader22.Width = 111;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Description";
-            this.columnHeader4.Width = 345;
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "Remaining Stocks(To remove or not?)";
-            this.columnHeader13.Width = 265;
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader4.Width = 465;
             // 
             // btnProdPrint
             // 
@@ -455,10 +454,30 @@
             this.txtProdNo.Size = new System.Drawing.Size(198, 25);
             this.txtProdNo.TabIndex = 154;
             // 
+            // btnWizard
+            // 
+            this.btnWizard.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnWizard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWizard.BackgroundImage")));
+            this.btnWizard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnWizard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWizard.FlatAppearance.BorderSize = 0;
+            this.btnWizard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnWizard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnWizard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWizard.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWizard.ForeColor = System.Drawing.Color.White;
+            this.btnWizard.Location = new System.Drawing.Point(1120, 0);
+            this.btnWizard.Name = "btnWizard";
+            this.btnWizard.Size = new System.Drawing.Size(99, 76);
+            this.btnWizard.TabIndex = 177;
+            this.btnWizard.UseVisualStyleBackColor = false;
+            this.btnWizard.Click += new System.EventHandler(this.btnWizard_Click);
+            // 
             // uCInventoryProducts
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Controls.Add(this.btnWizard);
             this.Controls.Add(this.btnProdPrint);
             this.Controls.Add(this.btnProdDelete);
             this.Controls.Add(this.btnProdSave);
@@ -522,9 +541,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader25;
         private System.Windows.Forms.ColumnHeader columnHeader22;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.GroupBox grpCatDesc;
         private System.Windows.Forms.Panel pnlInGroupBox;
+        private System.Windows.Forms.Button btnWizard;
     }
 }
