@@ -190,6 +190,7 @@
             this.btnProdPrint.TabIndex = 182;
             this.btnProdPrint.Text = "Print";
             this.btnProdPrint.UseVisualStyleBackColor = false;
+            this.btnProdPrint.Click += new System.EventHandler(this.btnProdPrint_Click);
             // 
             // btnPDelete
             // 

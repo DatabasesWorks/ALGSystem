@@ -81,7 +81,6 @@ C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-Syste
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportSource.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.Shared.dll
-C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\MySql.Data.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
@@ -96,6 +95,7 @@ C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-Syste
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\stdole.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmVehicle.resources
+<<<<<<< HEAD
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmVehicle.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.ucReturnItem.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
@@ -117,3 +117,10 @@ C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inven
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmPaymentLogs.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmManageSettings.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.ucTransactionLogs.resources
+=======
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmReports.resources
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\FlashControlV71.dll
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\MySql.Data.dll
+>>>>>>> 5d7e7569e7df16fccda89e86e5159ed33fe9487f
