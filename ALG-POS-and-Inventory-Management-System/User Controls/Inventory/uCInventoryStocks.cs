@@ -75,15 +75,20 @@ namespace ALG_POS_and_Inventory_Management_System {
 
             list = ContInventoryStocks.LoadProductID();
             cboSProductID.Items.Clear();
-            foreach(string item in list) {
-                cboSProductID.Items.Add(item);
+            if (list != null) {
+                foreach (string item in list) {
+                    cboSProductID.Items.Add(item);
+                }
             }
-
+            
             list = ContInventoryStocks.LoadProductName();
             cboSProductName.Items.Clear();
-            foreach (string item in list) {
-                cboSProductName.Items.Add(item);
+            if(list!= null) {
+                foreach (string item in list) {
+                    cboSProductName.Items.Add(item);
+                }
             }
+            
         }
         void LoadSuppliers() {
             List<string> list = new List<string>();
@@ -247,7 +252,13 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void btnShowCritical_Click(object sender, EventArgs e) {
             ContMain contMain = new ContMain();
             contMain.SelectStocksRunningOut();
+            btnSClear.PerformClick();
             LoadRunningOutStocks();
+        }
+
+        private void btnShowAllStocks_Click(object sender, EventArgs e) {
+            btnSClear.PerformClick();
+            LoadStocks();
         }
 
         private void btnSAdd_Click(object sender, EventArgs e) {

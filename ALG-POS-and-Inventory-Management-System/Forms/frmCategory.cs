@@ -24,8 +24,10 @@ namespace ALG_POS_and_Inventory_Management_System {
             clbDescriptions.Items.Clear();
             List<string> list = new List<string>();
             list = contCategory.LoadDescriptions();
-            foreach(string item in list) {
-                clbDescriptions.Items.Add(item);
+            if (list != null) {
+                foreach (string item in list) {
+                    clbDescriptions.Items.Add(item);
+                }
             }
         }
         void LoadCategories() {

@@ -56,6 +56,7 @@
             this.txtSearch = new MyTextBox();
             this.txtProdName = new MyTextBox();
             this.txtProdNo = new MyTextBox();
+            this.btnWizard = new System.Windows.Forms.Button();
             this.grpCatDesc.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -455,10 +456,30 @@
             this.txtProdNo.Size = new System.Drawing.Size(198, 25);
             this.txtProdNo.TabIndex = 154;
             // 
+            // btnWizard
+            // 
+            this.btnWizard.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnWizard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWizard.BackgroundImage")));
+            this.btnWizard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnWizard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWizard.FlatAppearance.BorderSize = 0;
+            this.btnWizard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnWizard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnWizard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWizard.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWizard.ForeColor = System.Drawing.Color.White;
+            this.btnWizard.Location = new System.Drawing.Point(1120, 0);
+            this.btnWizard.Name = "btnWizard";
+            this.btnWizard.Size = new System.Drawing.Size(99, 76);
+            this.btnWizard.TabIndex = 177;
+            this.btnWizard.UseVisualStyleBackColor = false;
+            this.btnWizard.Click += new System.EventHandler(this.btnWizard_Click);
+            // 
             // uCInventoryProducts
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Controls.Add(this.btnWizard);
             this.Controls.Add(this.btnProdPrint);
             this.Controls.Add(this.btnProdDelete);
             this.Controls.Add(this.btnProdSave);
@@ -526,5 +547,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.GroupBox grpCatDesc;
         private System.Windows.Forms.Panel pnlInGroupBox;
+        private System.Windows.Forms.Button btnWizard;
     }
 }

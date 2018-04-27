@@ -28,6 +28,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             lblPriceProductID.Text = "";
             lblPriceProductName.Text = "All Stocks";
         }
+
         void LoadProductPrices() {
             lvPriceProduct.Items.Clear();
             DataTable dt = new DataTable();
@@ -71,15 +72,20 @@ namespace ALG_POS_and_Inventory_Management_System {
 
             list = contPrices.LoadProductID();
             cboSProductID.Items.Clear();
-            foreach (string item in list) {
-                cboSProductID.Items.Add(item);
+            if (list != null) {
+                foreach (string item in list) {
+                    cboSProductID.Items.Add(item);
+                }
             }
 
             list = contPrices.LoadProductName();
             cboSProductName.Items.Clear();
-            foreach (string item in list) {
-                cboSProductName.Items.Add(item);
+            if (list != null) {
+                foreach (string item in list) {
+                    cboSProductName.Items.Add(item);
+                }
             }
+            
         }
         private void cboSProductID_SelectedIndexChanged_1(object sender, EventArgs e) {
             lblPriceProductName.Text = cboSProductName.Text = contPrices.SelectProductName(cboSProductID.Text)[0];

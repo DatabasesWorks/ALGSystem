@@ -20,10 +20,10 @@ namespace ALG_POS_and_Inventory_Management_System {
             LoadDescriptions();
         }
         private void SupLock() {
-            txtDescriptionName.Enabled = grpDesc.Enabled = false;
+            txtDescUnit.Enabled = txtDescriptionName.Enabled = grpDesc.Enabled = false;
         }
         private void SupUnLock() {
-            txtDescriptionName.Enabled = grpDesc.Enabled = true;
+            txtDescUnit.Enabled = txtDescriptionName.Enabled = grpDesc.Enabled = true;
         }
         private void SupClear() {
             txtDescriptionName.Text= lblDescriptionID.Text = txtDescUnit.Text = "";
@@ -68,6 +68,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                         //string sprodid = stock.product_ID;
                         //string uid = user.GetUserID();
                         //log.addSupplier(uid, date, sprodid, "Added Supplier ");
+                        supadd = false;
                         btnClear.PerformClick();
                     }
                 } else if (supedit) {
@@ -76,6 +77,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                         //string sprodid = stock.product_ID;
                         //string uid = user.GetUserID();
                         //log.editSupplier(uid, date, sprodid, "Added Supplier ");
+                        supedit = false;
                         btnClear.PerformClick();
                     }
                 }
@@ -105,11 +107,11 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void rdNumeric_CheckedChanged(object sender, EventArgs e) {
-            txtDescUnit.Enabled = true;
+            //txtDescUnit.Enabled = true;
         }
 
         private void rdText_CheckedChanged(object sender, EventArgs e) {
-            txtDescUnit.Enabled = false;
+            //txtDescUnit.Enabled = false;
         }
 
         private void lvDescription_SelectedIndexChanged(object sender, EventArgs e) {

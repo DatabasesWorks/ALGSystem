@@ -15,7 +15,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void frmTesting_Load(object sender, EventArgs e) {
-            uCInventory userControl = new uCInventory();
+            uCServicesServicePrice userControl = new uCServicesServicePrice();
             pnlTest.Controls.Clear();
             pnlTest.Controls.Add(userControl);
         }

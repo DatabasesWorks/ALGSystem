@@ -13,17 +13,20 @@ namespace ALG_POS_and_Inventory_Management_System {
             try {
                 string query;
                 if (searchBy == "Product ID") {
-                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND products.product_ID LIKE @0 GROUP BY products.product_ID";
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value,' ',desc_unit) AS prodDesc FROM products LEFT OUTER JOIN product_description ON products.product_ID=product_description.product_ID INNER JOIN category_description ON product_description.cat_desc_ID=category_description.cat_desc_ID INNER JOIN descriptions ON category_description.description_ID=descriptions.description_ID, brands , categories WHERE products.brand_ID=brands.brand_ID AND categories.category_ID=products.category_ID AND products.date_deleted IS NULL AND products.product_ID LIKE @0 GROUP BY products.product_ID";
                 } else if(searchBy == "Product Name") {
-                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND product_name LIKE @0 GROUP BY products.product_ID";
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value,' ',desc_unit) AS prodDesc FROM products LEFT OUTER JOIN product_description ON products.product_ID=product_description.product_ID INNER JOIN category_description ON product_description.cat_desc_ID=category_description.cat_desc_ID INNER JOIN descriptions ON category_description.description_ID=descriptions.description_ID, brands , categories WHERE products.brand_ID=brands.brand_ID AND categories.category_ID=products.category_ID AND products.date_deleted IS NULL AND product_name LIKE @0 GROUP BY products.product_ID";
                 } else if (searchBy == "Brand") {
-                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND brand_name LIKE @0 GROUP BY products.product_ID";
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value,' ',desc_unit) AS prodDesc FROM products LEFT OUTER JOIN product_description ON products.product_ID=product_description.product_ID INNER JOIN category_description ON product_description.cat_desc_ID=category_description.cat_desc_ID INNER JOIN descriptions ON category_description.description_ID=descriptions.description_ID, brands , categories WHERE products.brand_ID=brands.brand_ID AND categories.category_ID=products.category_ID AND products.date_deleted IS NULL AND brand_name LIKE @0 GROUP BY products.product_ID";
                 } else if (searchBy == "Category") {
-                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND category_name LIKE @0 GROUP BY products.product_ID";
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value,' ',desc_unit) AS prodDesc FROM products LEFT OUTER JOIN product_description ON products.product_ID=product_description.product_ID INNER JOIN category_description ON product_description.cat_desc_ID=category_description.cat_desc_ID INNER JOIN descriptions ON category_description.description_ID=descriptions.description_ID, brands , categories WHERE products.brand_ID=brands.brand_ID AND categories.category_ID=products.category_ID AND products.date_deleted IS NULL AND category_name LIKE @0 GROUP BY products.product_ID";
                 } else if (searchBy == "Description") {
-                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL AND product_desc_value LIKE @0 GROUP BY products.product_ID";
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value,' ',desc_unit) AS prodDesc FROM products LEFT OUTER JOIN product_description ON products.product_ID=product_description.product_ID INNER JOIN category_description ON product_description.cat_desc_ID=category_description.cat_desc_ID INNER JOIN descriptions ON category_description.description_ID=descriptions.description_ID, brands , categories WHERE products.brand_ID=brands.brand_ID AND categories.category_ID=products.category_ID AND products.date_deleted IS NULL AND product_desc_value LIKE @0 GROUP BY products.product_ID";
                 } else
-                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL GROUP BY products.product_ID";
+                    #region old query
+                    //query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value) AS prodDesc FROM products, categories, brands, product_description WHERE products.brand_ID=brands.brand_ID AND products.category_ID=categories.category_ID AND product_description.product_ID=products.product_ID AND products.date_deleted IS NULL GROUP BY products.product_ID";
+                    #endregion
+                    query = "SELECT products.product_ID, product_name, brand_name, category_name, GROUP_CONCAT(DISTINCT product_desc_value,' ',desc_unit) AS prodDesc FROM products LEFT OUTER JOIN product_description ON products.product_ID=product_description.product_ID INNER JOIN category_description ON product_description.cat_desc_ID=category_description.cat_desc_ID INNER JOIN descriptions ON category_description.description_ID=descriptions.description_ID, brands , categories WHERE products.brand_ID=brands.brand_ID AND categories.category_ID=products.category_ID AND products.date_deleted IS NULL GROUP BY products.product_ID";
 
                 string[] param = { search };
                 bool[] like = { true };
@@ -49,7 +52,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         public bool IsInsertProduct(string productID, string productName, string categoryName, string brandName, List<string> catDescID, List<string> descValue) {
             bool status = false;
             try {
-                if (!isDuplicateProductIDandName(productID, productName)) { // if no duplicate found
+                if (!isDuplicateProductID(productID)) { // if no duplicate found
                     string query = "INSERT INTO products SET product_ID=@0, product_name=@1, category_ID=(SELECT category_ID FROM categories WHERE category_name =@2), brand_ID=(SELECT brand_ID FROM brands WHERE brand_name =@3)";
                     string[] param = { productID, productName, categoryName, brandName };
                     if (Database.Execute(query, param)) {
@@ -71,12 +74,13 @@ namespace ALG_POS_and_Inventory_Management_System {
         public bool IsUpdateProduct(string productID, string productName, string categoryName, string brandName, string nvm, List<string> catDescID, List<string> descValue) {
             bool status = false;
             try {
-                //make a new function for this, check only the productname
-                if (nvm != productName) // quite confusing but purpose is to check only productname excluding the existing one
-                    nvm = productName;
-                else
-                    nvm = "nvm";
-                if (!isDuplicateProductIDandName("nvm", nvm)) { // if no duplicate found, nvm is to make sure that it will return false; no duplicate found
+                //disabled checking duplicate product name because there are products with the same productname
+                ////make a new function for this, check only the productname
+                //if (nvm != productName) // quite confusing but purpose is to check only productname excluding the existing one
+                //    nvm = productName;
+                //else
+                //    nvm = "nvm";
+                //if (!isDuplicateProductIDandName("nvm", nvm)) { // if no duplicate found, nvm is to make sure that it will return false; no duplicate found
 
                     string query = "DELETE FROM product_description WHERE product_ID=@0";
                     string[] param = {productID};
@@ -93,22 +97,16 @@ namespace ALG_POS_and_Inventory_Management_System {
                         System.Windows.Forms.MessageBox.Show("Product successfully updated!", "Products", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                         status = true;
                     }
-                  }
             } catch (Exception ex) {
                 System.Windows.Forms.MessageBox.Show("Error on updating product: '" + ex + "'", "Products", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             return status;
         }
-        private bool isDuplicateProductIDandName(string productID, string productName) {
+        private bool isDuplicateProductID(string productID) {
             string query1 = "SELECT product_ID FROM products WHERE product_ID =@0";
             string[] param1 = { productID };
-            string query2 = "SELECT product_name FROM products WHERE product_name =@0";
-            string[] param2 = { productName };
             if (Database.Select(query1, param1) != null) {
                 System.Windows.Forms.MessageBox.Show("Product ID is existing, please enter another one.", "Products", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand);
-                return true;
-            } else if (Database.Select(query2, param2) != null) {
-                System.Windows.Forms.MessageBox.Show("Product Name is existing, please enter another one.", "Products", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand);
                 return true;
             } else {
                 return false;
@@ -155,7 +153,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             System.Data.DataTable result = new System.Data.DataTable();
             result = null;
             try {
-                string query = "SELECT cat_desc_ID, desc_name, desc_type FROM category_description INNER JOIN descriptions ON descriptions.description_ID=category_description.description_ID WHERE category_ID=(SELECT category_ID FROM categories WHERE category_name = '" + categoryName + "') ORDER BY cat_desc_ID";
+                string query = "SELECT cat_desc_ID, desc_name, desc_type, desc_unit FROM category_description INNER JOIN descriptions ON descriptions.description_ID=category_description.description_ID WHERE category_ID=(SELECT category_ID FROM categories WHERE category_name = '" + categoryName + "') ORDER BY cat_desc_ID";
                 result = Database.Retrieve(query);
             } catch (Exception) {
                 throw;

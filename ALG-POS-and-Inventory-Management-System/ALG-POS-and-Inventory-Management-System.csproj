@@ -50,7 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckedComboBox.cs">
+    <Compile Include="CheckListbox\CCBoxItem.cs" />
+    <Compile Include="CheckListbox\CheckedComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Classes\Inventory\ContInventoryStocks.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Classes\ContMain.cs" />
     <Compile Include="Classes\Inventory\ContInventoryProducts.cs" />
     <Compile Include="Classes\ContCustomerVehicle.cs" />
+    <Compile Include="ContTransactionLogs.cs" />
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +142,18 @@
     <Compile Include="Forms\frmVehicle.Designer.cs">
       <DependentUpon>frmVehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageSettings.Designer.cs">
+      <DependentUpon>frmManageSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaymentLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaymentLogs.Designer.cs">
+      <DependentUpon>frmPaymentLogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventory Wizard\frmInventoryWizard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,11 +216,11 @@
     <Compile Include="ucReturnItem.Designer.cs">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucSalesReport.cs">
+    <Compile Include="ucTransactionLogs.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucSalesReport.Designer.cs">
-      <DependentUpon>ucSalesReport.cs</DependentUpon>
+    <Compile Include="ucTransactionLogs.Designer.cs">
+      <DependentUpon>ucTransactionLogs.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.cs">
       <SubType>UserControl</SubType>
@@ -324,6 +338,12 @@
     <EmbeddedResource Include="Forms\frmVehicle.resx">
       <DependentUpon>frmVehicle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmManageSettings.resx">
+      <DependentUpon>frmManageSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaymentLogs.resx">
+      <DependentUpon>frmPaymentLogs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory Wizard\frmInventoryWizard.resx">
       <DependentUpon>frmInventoryWizard.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,8 +379,8 @@
     <EmbeddedResource Include="ucReturnItem.resx">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucSalesReport.resx">
-      <DependentUpon>ucSalesReport.cs</DependentUpon>
+    <EmbeddedResource Include="ucTransactionLogs.resx">
+      <DependentUpon>ucTransactionLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCCustomerRecords.resx">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
@@ -442,6 +462,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

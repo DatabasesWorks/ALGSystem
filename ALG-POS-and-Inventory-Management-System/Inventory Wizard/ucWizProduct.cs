@@ -25,8 +25,10 @@ namespace ALG_POS_and_Inventory_Management_System {
             cboBrand.Items.Clear();
             List<string> brands = new List<string>();
             brands = contProducts.LoadBrands();
-            foreach (string item in brands) {
-                cboBrand.Items.Add(item);
+            if (brands != null) {
+                foreach (string item in brands) {
+                    cboBrand.Items.Add(item);
+                }
             }
         }
 
@@ -34,8 +36,10 @@ namespace ALG_POS_and_Inventory_Management_System {
             cboCategory.Items.Clear();
             List<string> categories = new List<string>();
             categories = contProducts.LoadCategories();
-            foreach (string item in categories) {
-                cboCategory.Items.Add(item);
+            if (categories != null) {
+                foreach (string item in categories) {
+                    cboCategory.Items.Add(item);
+                }
             }
         }
 
@@ -62,6 +66,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                 pnlInGroupBox.Controls.Clear();
                 int left = 1;
                 Label[] lbl = new Label[dt.Rows.Count];
+                Label[] lblUnit = new Label[dt.Rows.Count];
                 MyTextBox[] txtbox = new MyTextBox[dt.Rows.Count];
                 NumericUpDown[] num = new NumericUpDown[dt.Rows.Count];
                 for (int i = 0; i < dt.Rows.Count; i++) {
@@ -70,29 +75,50 @@ namespace ALG_POS_and_Inventory_Management_System {
                     lbl[i] = new Label();
                     pnlInGroupBox.Controls.Add(lbl[i]);
                     lbl[i].Text = dr["desc_name"].ToString() + ":";
-                    lbl[i].Top = left * 25;
-                    lbl[i].Left = 100;
+                    lbl[i].Top = left * 35;
+                    lbl[i].Left = 50;
+                    lbl[i].Width = 130;
                     if (dr["desc_type"].ToString() == "Text") {
                         txtbox[i] = new MyTextBox();
                         pnlInGroupBox.Controls.Add(txtbox[i]);
                         txtbox[i].BackColor = Color.CornflowerBlue;
                         txtbox[i].ForeColor = Color.White;
-                        txtbox[i].Top = left * 25;
-                        txtbox[i].Left = 250;
+                        txtbox[i].Top = left * 35;
+                        txtbox[i].Left = 200;
+                        txtbox[i].Width = 190;
+
+                        lblUnit[i] = new Label();
+                        pnlInGroupBox.Controls.Add(lblUnit[i]);
+                        lblUnit[i].Text = dr["desc_unit"].ToString();
+                        lblUnit[i].Top = left * 30;
+                        lblUnit[i].Left = 400;
+                        lblUnit[i].Width = 75;
+
                         left += 1;
                     } else {
                         num[i] = new NumericUpDown();
                         pnlInGroupBox.Controls.Add(num[i]);
-                        num[i].Top = left * 25;
-                        num[i].Left = 250;
+                        num[i].Top = left * 30;
+                        num[i].Left = 200;
+                        num[i].Width = 190;
+                        num[i].Maximum = 100000;
+                        
+                        lblUnit[i] = new Label();
+                        pnlInGroupBox.Controls.Add(lblUnit[i]);
+                        lblUnit[i].Text = dr["desc_unit"].ToString();
+                        lblUnit[i].Top = left * 30;
+                        lblUnit[i].Left = 400;
+                        lblUnit[i].Width = 75;
+
                         left += 1;
                     }
+
                 }
             } else {
                 pnlInGroupBox.Controls.Clear();
                 Label lblx = new Label();
                 pnlInGroupBox.Controls.Add(lblx);
-                lblx.Top = 20; lblx.Left = 100;
+                lblx.Top = 30; lblx.Left = 100;
                 lblx.ForeColor = Color.White;
                 lblx.Text = "No description available";
                 lblx.AutoSize = true;

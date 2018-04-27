@@ -65,6 +65,7 @@
             this.lblStockID = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnShowCritical = new System.Windows.Forms.Button();
+            this.btnShowAllStocks = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).BeginInit();
@@ -280,7 +281,7 @@
             this.btnSDeduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSDeduct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSDeduct.ForeColor = System.Drawing.Color.White;
-            this.btnSDeduct.Location = new System.Drawing.Point(934, 93);
+            this.btnSDeduct.Location = new System.Drawing.Point(933, 83);
             this.btnSDeduct.Name = "btnSDeduct";
             this.btnSDeduct.Size = new System.Drawing.Size(124, 65);
             this.btnSDeduct.TabIndex = 227;
@@ -436,7 +437,7 @@
             this.label19.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(789, 107);
+            this.label19.Location = new System.Drawing.Point(788, 97);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(67, 21);
             this.label19.TabIndex = 219;
@@ -448,7 +449,7 @@
             this.numDeduct.Enabled = false;
             this.numDeduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numDeduct.ForeColor = System.Drawing.Color.White;
-            this.numDeduct.Location = new System.Drawing.Point(858, 105);
+            this.numDeduct.Location = new System.Drawing.Point(857, 95);
             this.numDeduct.Maximum = new decimal(new int[] {
             500,
             0,
@@ -491,35 +492,35 @@
             // columnHeader0
             // 
             this.columnHeader0.Text = "Stock ID.";
-            this.columnHeader0.Width = 77;
+            this.columnHeader0.Width = 121;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Product ID.";
             this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader1.Width = 158;
+            this.columnHeader1.Width = 211;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Product Name";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 155;
+            this.columnHeader2.Width = 220;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Description";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 111;
+            this.columnHeader3.Width = 0;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Total Stocks";
-            this.columnHeader4.Width = 145;
+            this.columnHeader4.Width = 96;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Remaining Stocks";
-            this.columnHeader5.Width = 179;
+            this.columnHeader5.Width = 135;
             // 
             // columnHeader6
             // 
@@ -529,12 +530,13 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Supplier";
-            this.columnHeader7.Width = 131;
+            this.columnHeader7.Width = 159;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Supplier Price";
-            this.columnHeader8.Width = 132;
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader8.Width = 170;
             // 
             // cboSProductName
             // 
@@ -587,25 +589,45 @@
             this.btnShowCritical.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowCritical.BackgroundImage")));
             this.btnShowCritical.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnShowCritical.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShowCritical.Enabled = false;
             this.btnShowCritical.FlatAppearance.BorderSize = 0;
             this.btnShowCritical.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnShowCritical.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnShowCritical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowCritical.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowCritical.ForeColor = System.Drawing.Color.White;
-            this.btnShowCritical.Location = new System.Drawing.Point(1155, 146);
+            this.btnShowCritical.Location = new System.Drawing.Point(1167, 148);
             this.btnShowCritical.Name = "btnShowCritical";
-            this.btnShowCritical.Size = new System.Drawing.Size(147, 65);
+            this.btnShowCritical.Size = new System.Drawing.Size(147, 67);
             this.btnShowCritical.TabIndex = 246;
             this.btnShowCritical.Text = "Show Critical Stocks";
             this.btnShowCritical.UseVisualStyleBackColor = false;
             this.btnShowCritical.Click += new System.EventHandler(this.btnShowCritical_Click);
             // 
+            // btnShowAllStocks
+            // 
+            this.btnShowAllStocks.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnShowAllStocks.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowAllStocks.BackgroundImage")));
+            this.btnShowAllStocks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnShowAllStocks.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShowAllStocks.FlatAppearance.BorderSize = 0;
+            this.btnShowAllStocks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnShowAllStocks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnShowAllStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowAllStocks.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAllStocks.ForeColor = System.Drawing.Color.White;
+            this.btnShowAllStocks.Location = new System.Drawing.Point(1014, 149);
+            this.btnShowAllStocks.Name = "btnShowAllStocks";
+            this.btnShowAllStocks.Size = new System.Drawing.Size(147, 67);
+            this.btnShowAllStocks.TabIndex = 247;
+            this.btnShowAllStocks.Text = "Show All Stocks";
+            this.btnShowAllStocks.UseVisualStyleBackColor = false;
+            this.btnShowAllStocks.Click += new System.EventHandler(this.btnShowAllStocks_Click);
+            // 
             // uCInventoryStocks
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Controls.Add(this.btnShowAllStocks);
             this.Controls.Add(this.btnShowCritical);
             this.Controls.Add(this.lblStockID);
             this.Controls.Add(this.dtpReceive);
@@ -688,5 +710,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnShowCritical;
+        private System.Windows.Forms.Button btnShowAllStocks;
     }
 }

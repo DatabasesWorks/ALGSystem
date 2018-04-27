@@ -31,6 +31,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblDescriptionID = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpDesc.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +115,10 @@
             // 
             this.columnHeader18.Text = "Description Type";
             this.columnHeader18.Width = 126;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Unit";
             // 
             // lblDescriptionID
             // 
@@ -337,10 +341,6 @@
             this.label9.Size = new System.Drawing.Size(181, 39);
             this.label9.TabIndex = 24;
             this.label9.Text = "Descriptions";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Unit";
             // 
             // frmDescriptions
             // 

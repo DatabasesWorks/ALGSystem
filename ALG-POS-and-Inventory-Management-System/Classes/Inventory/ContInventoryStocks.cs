@@ -27,7 +27,7 @@ namespace ALG_POS_and_Inventory_Management_System {
                     //=========== query when displaying stocks running out use the sort parameter to achieve this
                     query = "SELECT stock_ID,products.product_ID AS prodID,product_name, CONCAT(product_name, ' description') AS prodDesc,total_stocks,remaining_stocks,DATE_FORMAT(received_date, '%m-%d-%Y') AS dateProfiled,supplier_name,supplier_price FROM products,stocks,suppliers WHERE stocks.product_ID=products.product_ID AND suppliers.supplier_ID=stocks.supplier_ID AND stocks.date_deleted IS NULL GROUP BY stock_ID HAVING SUM(remaining_stocks) <= 10";
                 else
-                    query = "SELECT stock_ID,products.product_ID AS prodID,product_name, CONCAT(product_name, 'DESC')  AS prodDesc,total_stocks,remaining_stocks,DATE_FORMAT(received_date, '%m-%d-%Y') AS dateProfiled,supplier_name,supplier_price FROM products,stocks,suppliers WHERE stocks.product_ID=products.product_ID AND suppliers.supplier_ID=stocks.supplier_ID AND stocks.date_deleted IS NULL";
+                    query = "SELECT stock_ID,products.product_ID AS prodID,product_name, CONCAT(product_name, 'DESC')  AS prodDesc,total_stocks,remaining_stocks, DATE_FORMAT(received_date, '%m-%d-%Y') AS dateProfiled,supplier_name,supplier_price FROM products,stocks,suppliers WHERE stocks.product_ID=products.product_ID AND suppliers.supplier_ID=stocks.supplier_ID AND stocks.date_deleted IS NULL";
                 System.Data.DataTable table = new System.Data.DataTable();
                 table = Database.Retrieve(query);
                 return table;
