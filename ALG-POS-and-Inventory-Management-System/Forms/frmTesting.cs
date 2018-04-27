@@ -130,6 +130,30 @@ namespace ALG_POS_and_Inventory_Management_System {
             frmreports.crystalReportViewer.ReportSource = reporting;
             frmreports.ShowDialog();
         }
-    
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "SELECT * FROM stocks_print";
+                dbcon.mysqlconnect.Open();
+                MySqlCommand cmd = new MySqlCommand(query, dbcon.mysqlconnect);
+                MySqlDataAdapter adp = new MySqlDataAdapter();
+                DataSet dt = new DataSet();
+                adp.SelectCommand = cmd;
+                adp.Fill(dt, "stocks_print");
+                CrystalReportStocks reporting = new CrystalReportStocks();
+                reporting.SetDataSource(dt);
+                frmReports frmreports = new frmReports();
+                frmreports.crystalReportViewer.ReportSource = reporting;
+                frmreports.crystalReportViewer.Refresh();
+                cmd.Dispose(); adp.Dispose(); dt.Dispose(); dbcon.mysqlconnect.Close();
+                frmreports.ShowDialog();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

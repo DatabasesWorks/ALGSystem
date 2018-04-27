@@ -2,9 +2,10 @@
 <xs:schema id="DataSet2" targetNamespace="http://tempuri.org/DataSet2.xsd" xmlns:mstns="http://tempuri.org/DataSet2.xsd" xmlns="http://tempuri.org/DataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="algdb_2_0_ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="algdb_2_0_ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ALG_POS_and_Inventory_Management_System.Properties.Settings.GlobalReference.Default.algdb_2_0_ConnectionString" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="algdb_2_0_ConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="algdb_2_0_ConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ALG_POS_and_Inventory_Management_System.Properties.Settings.GlobalReference.Default.algdb_2_0_ConnectionString1" Provider="MySql.Data.MySqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="product_printTableAdapter" GeneratorDataComponentClassName="product_printTableAdapter" Name="product_print" UserDataComponentName="product_printTableAdapter">
@@ -28,6 +29,30 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="stocks_printTableAdapter" GeneratorDataComponentClassName="stocks_printTableAdapter" Name="stocks_print" UserDataComponentName="stocks_printTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="algdb_2_0_ConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT * FROM `algdb(2.0)`.`stocks_print`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="stock_ID" DataSetColumn="stock_ID" />
+              <Mapping SourceColumn="product_ID" DataSetColumn="product_ID" />
+              <Mapping SourceColumn="product_name" DataSetColumn="product_name" />
+              <Mapping SourceColumn="brand_name" DataSetColumn="brand_name" />
+              <Mapping SourceColumn="category_name" DataSetColumn="category_name" />
+              <Mapping SourceColumn="prodDesc" DataSetColumn="prodDesc" />
+              <Mapping SourceColumn="productPrice" DataSetColumn="productPrice" />
+              <Mapping SourceColumn="sumTotStocks" DataSetColumn="sumTotStocks" />
+              <Mapping SourceColumn="sumRemStocks" DataSetColumn="sumRemStocks" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -36,7 +61,7 @@
   <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="product_print" msprop:Generator_TableClassName="product_printDataTable" msprop:Generator_TableVarName="tableproduct_print" msprop:Generator_TablePropName="product_print" msprop:Generator_RowDeletingName="product_printRowDeleting" msprop:Generator_RowChangingName="product_printRowChanging" msprop:Generator_RowEvHandlerName="product_printRowChangeEventHandler" msprop:Generator_RowDeletedName="product_printRowDeleted" msprop:Generator_UserTableName="product_print" msprop:Generator_RowChangedName="product_printRowChanged" msprop:Generator_RowEvArgName="product_printRowChangeEvent" msprop:Generator_RowClassName="product_printRow">
+        <xs:element name="product_print" msprop:Generator_TableClassName="product_printDataTable" msprop:Generator_TableVarName="tableproduct_print" msprop:Generator_RowChangedName="product_printRowChanged" msprop:Generator_TablePropName="product_print" msprop:Generator_RowDeletingName="product_printRowDeleting" msprop:Generator_RowChangingName="product_printRowChanging" msprop:Generator_RowEvHandlerName="product_printRowChangeEventHandler" msprop:Generator_RowDeletedName="product_printRowDeleted" msprop:Generator_RowClassName="product_printRow" msprop:Generator_UserTableName="product_print" msprop:Generator_RowEvArgName="product_printRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="product_ID" msprop:Generator_ColumnVarNameInTable="columnproduct_ID" msprop:Generator_ColumnPropNameInRow="product_ID" msprop:Generator_ColumnPropNameInTable="product_IDColumn" msprop:Generator_UserColumnName="product_ID">
@@ -81,6 +106,63 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="stocks_print" msprop:Generator_TableClassName="stocks_printDataTable" msprop:Generator_TableVarName="tablestocks_print" msprop:Generator_TablePropName="stocks_print" msprop:Generator_RowDeletingName="stocks_printRowDeleting" msprop:Generator_RowChangingName="stocks_printRowChanging" msprop:Generator_RowEvHandlerName="stocks_printRowChangeEventHandler" msprop:Generator_RowDeletedName="stocks_printRowDeleted" msprop:Generator_UserTableName="stocks_print" msprop:Generator_RowChangedName="stocks_printRowChanged" msprop:Generator_RowEvArgName="stocks_printRowChangeEvent" msprop:Generator_RowClassName="stocks_printRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="stock_ID" msprop:Generator_ColumnVarNameInTable="columnstock_ID" msprop:Generator_ColumnPropNameInRow="stock_ID" msprop:Generator_ColumnPropNameInTable="stock_IDColumn" msprop:Generator_UserColumnName="stock_ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="product_ID" msprop:Generator_ColumnVarNameInTable="columnproduct_ID" msprop:Generator_ColumnPropNameInRow="product_ID" msprop:Generator_ColumnPropNameInTable="product_IDColumn" msprop:Generator_UserColumnName="product_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="product_name" msprop:Generator_ColumnVarNameInTable="columnproduct_name" msprop:Generator_ColumnPropNameInRow="product_name" msprop:Generator_ColumnPropNameInTable="product_nameColumn" msprop:Generator_UserColumnName="product_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="brand_name" msprop:Generator_ColumnVarNameInTable="columnbrand_name" msprop:Generator_ColumnPropNameInRow="brand_name" msprop:Generator_ColumnPropNameInTable="brand_nameColumn" msprop:Generator_UserColumnName="brand_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="category_name" msprop:Generator_ColumnVarNameInTable="columncategory_name" msprop:Generator_ColumnPropNameInRow="category_name" msprop:Generator_ColumnPropNameInTable="category_nameColumn" msprop:Generator_UserColumnName="category_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prodDesc" msprop:Generator_ColumnVarNameInTable="columnprodDesc" msprop:Generator_ColumnPropNameInRow="prodDesc" msprop:Generator_ColumnPropNameInTable="prodDescColumn" msprop:Generator_UserColumnName="prodDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1024" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productPrice" msprop:Generator_ColumnVarNameInTable="columnproductPrice" msprop:Generator_ColumnPropNameInRow="productPrice" msprop:Generator_ColumnPropNameInTable="productPriceColumn" msprop:Generator_UserColumnName="productPrice" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sumTotStocks" msprop:Generator_ColumnVarNameInTable="columnsumTotStocks" msprop:Generator_ColumnPropNameInRow="sumTotStocks" msprop:Generator_ColumnPropNameInTable="sumTotStocksColumn" msprop:Generator_UserColumnName="sumTotStocks" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sumRemStocks" msprop:Generator_ColumnVarNameInTable="columnsumRemStocks" msprop:Generator_ColumnPropNameInRow="sumRemStocks" msprop:Generator_ColumnPropNameInTable="sumRemStocksColumn" msprop:Generator_UserColumnName="sumRemStocks" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

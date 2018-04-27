@@ -100,5 +100,15 @@ namespace ALG_POS_and_Inventory_Management_System.Properties {
                 return ((string)(this["algdb_2_0_ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=algdb(2.0);allowuservariables=True")]
+        public string algdb_2_0_ConnectionString1 {
+            get {
+                return ((string)(this["algdb_2_0_ConnectionString1"]));
+            }
+        }
     }
 }

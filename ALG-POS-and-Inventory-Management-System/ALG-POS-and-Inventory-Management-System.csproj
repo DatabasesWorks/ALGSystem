@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CCBoxItem.cs" />
     <Compile Include="CheckedComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -74,6 +75,7 @@
     <Compile Include="Classes\ContMain.cs" />
     <Compile Include="Classes\Inventory\ContInventoryProducts.cs" />
     <Compile Include="Classes\ContCustomerVehicle.cs" />
+    <Compile Include="ContTransactionLogs.cs" />
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,6 +104,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReportReceipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReportStocks.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportStocks.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSet1.cs">
@@ -242,6 +250,10 @@
     <Compile Include="ucReturnItem.Designer.cs">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucTransactionLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucTransactionLogs.Designer.cs" />
     <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -346,6 +358,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportReceipt.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportStocks.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportStocks.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,6 +428,7 @@
     <EmbeddedResource Include="ucReturnItem.resx">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucTransactionLogs.resx" />
     <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCCustomerRecords.resx">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
     </EmbeddedResource>

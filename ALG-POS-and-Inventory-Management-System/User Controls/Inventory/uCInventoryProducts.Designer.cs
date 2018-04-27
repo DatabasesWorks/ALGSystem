@@ -285,7 +285,7 @@
             this.btnProdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdPrint.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProdPrint.ForeColor = System.Drawing.Color.White;
-            this.btnProdPrint.Location = new System.Drawing.Point(1104, -4);
+            this.btnProdPrint.Location = new System.Drawing.Point(1154, 13);
             this.btnProdPrint.Name = "btnProdPrint";
             this.btnProdPrint.Size = new System.Drawing.Size(137, 53);
             this.btnProdPrint.TabIndex = 176;
@@ -466,7 +466,7 @@
             this.btnWizard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWizard.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWizard.ForeColor = System.Drawing.Color.White;
-            this.btnWizard.Location = new System.Drawing.Point(1120, 0);
+            this.btnWizard.Location = new System.Drawing.Point(1031, -4);
             this.btnWizard.Name = "btnWizard";
             this.btnWizard.Size = new System.Drawing.Size(99, 76);
             this.btnWizard.TabIndex = 177;

@@ -124,3 +124,4 @@ C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-Syste
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\MySql.Data.dll
 >>>>>>> 5d7e7569e7df16fccda89e86e5159ed33fe9487f
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.ucTransactionLogs.resources
