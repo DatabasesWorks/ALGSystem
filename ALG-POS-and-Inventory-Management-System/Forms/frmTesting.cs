@@ -39,13 +39,13 @@ namespace ALG_POS_and_Inventory_Management_System {
                 DataSet dt = new DataSet();
                 adp.SelectCommand = cmd;
                 adp.Fill(dt);
-                CrystalReport1 reporting = new CrystalReport1();
-                reporting.Database.Tables["dstransactions"].SetDataSource(dt.Tables[0]);
-                frmReports frmreports = new frmReports();
-                frmreports.crystalReportViewer.ReportSource = reporting;
-                frmreports.crystalReportViewer.Refresh();
-                cmd.Dispose(); adp.Dispose(); dt.Dispose(); dbcon.mysqlconnect.Close();
-                frmreports.ShowDialog();
+                //CrystalReport1 reporting = new CrystalReport1();
+                //reporting.Database.Tables["dstransactions"].SetDataSource(dt.Tables[0]);
+                //frmReports frmreports = new frmReports();
+                //frmreports.crystalReportViewer.ReportSource = reporting;
+                //frmreports.crystalReportViewer.Refresh();
+                //cmd.Dispose(); adp.Dispose(); dt.Dispose(); dbcon.mysqlconnect.Close();
+                //frmreports.ShowDialog();
             }
             catch (Exception)
             {
@@ -83,29 +83,28 @@ namespace ALG_POS_and_Inventory_Management_System {
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            CrystalReport1 reporting = new CrystalReport1();
-            frmReports frmreports = new frmReports();
-            ParameterFieldDefinitions pfds;
-            ParameterFieldDefinition pfd;
-            ParameterValues pv = new ParameterValues();
-            ParameterDiscreteValue pdv = new ParameterDiscreteValue();
-            pdv.Value = Convert.ToInt32(textBox1.Text);
-            pfds = reporting.DataDefinition.ParameterFields;
-            pfd = pfds["transacID"];
-            pv = pfd.CurrentValues;
-            pv.Clear();
-            pv.Add(pdv);
-            pfd.ApplyCurrentValues(pv);
-            frmreports.crystalReportViewer.ReportSource = reporting;
-            frmreports.crystalReportViewer.Refresh();
-            frmreports.ShowDialog();
+        private void button3_Click(object sender, EventArgs e){
+            //CrystalReport1 reporting = new CrystalReport1();
+            //frmReports frmreports = new frmReports();
+            //ParameterFieldDefinitions pfds;
+            //ParameterFieldDefinition pfd;
+            //ParameterValues pv = new ParameterValues();
+            //ParameterDiscreteValue pdv = new ParameterDiscreteValue();
+            //pdv.Value = Convert.ToInt32(textBox1.Text);
+            //pfds = reporting.DataDefinition.ParameterFields;
+            //pfd = pfds["transacID"];
+            //pv = pfd.CurrentValues;
+            //pv.Clear();
+            //pv.Add(pdv);
+            //pfd.ApplyCurrentValues(pv);
+            //frmreports.crystalReportViewer.ReportSource = reporting;
+            //frmreports.crystalReportViewer.Refresh();
+            //frmreports.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MySql.Data.MySqlClient.MySqlConnection mysqlconnect = new MySql.Data.MySqlClient.MySqlConnection("Server=localhost ; User Id=root; Password= ;Database=algdb2.0");
+            MySql.Data.MySqlClient.MySqlConnection mysqlconnect = new MySql.Data.MySqlClient.MySqlConnection("Server=localhost ; User Id=root; Password= ;Database=algdb(2.0)");
             frmReports frmreports = new frmReports();
             mysqlconnect.Open();
             MySqlDataAdapter adp = new MySqlDataAdapter("getTransaction",mysqlconnect);
@@ -115,20 +114,20 @@ namespace ALG_POS_and_Inventory_Management_System {
             adp.Fill(dt,"transaction");
             mysqlconnect.Close();
 
-            CrystalReport1 reporting = new CrystalReport1();
-            reporting.Database.Tables["transactions"].SetDataSource(dt.Tables[0]);
-            frmreports.crystalReportViewer.ReportSource = null;
-            frmreports.crystalReportViewer.ReportSource = reporting;
+            //CrystalReport1 reporting = new CrystalReport1();
+            //reporting.Database.Tables["transactions"].SetDataSource(dt.Tables[0]);
+            //frmreports.crystalReportViewer.ReportSource = null;
+            //frmreports.crystalReportViewer.ReportSource = reporting;
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            frmReports frmreports = new frmReports();
-            CrystalReport3 reporting = new CrystalReport3();
-            frmreports.crystalReportViewer.ReportSource = null;
-            frmreports.crystalReportViewer.ReportSource = reporting;
-            frmreports.ShowDialog();
+            //frmReports frmreports = new frmReports();
+            //CrystalReport3 reporting = new CrystalReport3();
+            //frmreports.crystalReportViewer.ReportSource = null;
+            //frmreports.crystalReportViewer.ReportSource = reporting;
+            //frmreports.ShowDialog();
         }
     
     }

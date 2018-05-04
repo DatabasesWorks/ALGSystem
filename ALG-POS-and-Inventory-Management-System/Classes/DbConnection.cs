@@ -11,7 +11,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         private static string DatabaseName = Properties.Settings.Default.dbName;
         private static string User = Properties.Settings.Default.dbUsername;
         private static string Password = Properties.Settings.Default.dbPassword;
-        public MySql.Data.MySqlClient.MySqlConnection mysqlconnect = new MySql.Data.MySqlClient.MySqlConnection("Server='" + Server + "'; User Id=root; Password= ;Database=algdb(2.0)");
+        public MySql.Data.MySqlClient.MySqlConnection mysqlconnect = new MySql.Data.MySqlClient.MySqlConnection("Server='" + Server + "'; User Id=root; Password= ;Database=algdb2.0");
         MySqlCommand Command = new MySqlCommand();
         MySqlDataAdapter Adapter = new MySqlDataAdapter();
         MySqlConnection Connection = new MySqlConnection("Server='" + Properties.Settings.Default.dbIpAddress + "'; User Id='" + Properties.Settings.Default.dbUsername + "'; Password='" + Properties.Settings.Default.dbPassword + "' ;Database='" + Properties.Settings.Default.dbName + "'");
