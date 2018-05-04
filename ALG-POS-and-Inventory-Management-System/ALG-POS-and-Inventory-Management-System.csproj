@@ -52,84 +52,84 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckedComboBox.cs">
+    <Compile Include="Classes\CCBoxItem.cs" />
+    <Compile Include="Classes\CheckedComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\Inventory\ContInventoryStocks.cs" />
-    <Compile Include="Classes\Inventory\ContInventorySuppliers.cs" />
-    <Compile Include="Classes\Inventory\ContInventoryProductPrice.cs" />
-    <Compile Include="Classes\ContCategory.cs" />
-    <Compile Include="Classes\ContDescription.cs" />
-    <Compile Include="Classes\Services\ContServicesVehicleTypes.cs" />
-    <Compile Include="Classes\ContPointOfSale.cs" />
-    <Compile Include="Classes\LogsAndMaintenance\ContManageEmployee.cs" />
-    <Compile Include="Classes\Services\ContServicesServiceOffered.cs" />
-    <Compile Include="Classes\LogsAndMaintenance\ContManageCustomer.cs" />
-    <Compile Include="Classes\Services\ContServicesPrice.cs" />
-    <Compile Include="Classes\LogsAndMaintenance\ContManageUsers.cs" />
-    <Compile Include="Classes\Services\ContServiceAddedService.cs" />
+    <Compile Include="frmStocksBySupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStocksBySupplier.Designer.cs">
+      <DependentUpon>frmStocksBySupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Stocks\Product Stocks\ContInventoryStocksProduct.cs" />
+    <Compile Include="Logs and Maintenance\frmCustVehicleType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logs and Maintenance\frmCustVehicleType.Designer.cs">
+      <DependentUpon>frmCustVehicleType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Stocks\Supplier Stocks\ContInventoryStocksSupplier.cs" />
+    <Compile Include="Inventory\Supplier\ContInventorySuppliers.cs" />
+    <Compile Include="Inventory\Product Price\ContInventoryProductPrice.cs" />
+    <Compile Include="Inventory\Categories\ContCategory.cs" />
+    <Compile Include="Inventory\Descriptions\ContDescription.cs" />
+    <Compile Include="Services\Vehicle Types\ContServicesVehicleTypes.cs" />
+    <Compile Include="Point Of Sale\ContPointOfSale.cs" />
+    <Compile Include="Logs and Maintenance\Manage EmployeeInfo\ContManageEmployee.cs" />
+    <Compile Include="Services\Service Offered\ContServicesServiceOffered.cs" />
+    <Compile Include="Logs and Maintenance\Manage Customers\ContManageCustomer.cs" />
+    <Compile Include="Services\Service Price\ContServicesPrice.cs" />
+    <Compile Include="Logs and Maintenance\Manage Users\ContManageUsers.cs" />
+    <Compile Include="Services\Additional Service\ContServiceAddedService.cs" />
     <Compile Include="Classes\clsUsers.cs" />
-    <Compile Include="Classes\ContLogin.cs" />
+    <Compile Include="Login\ContLogin.cs" />
     <Compile Include="Classes\DbConnection.cs" />
-    <Compile Include="Classes\ContMain.cs" />
-    <Compile Include="Classes\Inventory\ContInventoryProducts.cs" />
-    <Compile Include="Classes\ContCustomerVehicle.cs" />
-    <Compile Include="CrystalReport1.cs">
+    <Compile Include="Main Form\ContMain.cs" />
+    <Compile Include="Inventory\Products\ContInventoryProducts.cs" />
+    <Compile Include="Logs and Maintenance\Customer Vehicle\ContCustomerVehicle.cs" />
+    <Compile Include="Inventory\Product Brands\ContProductsBrands.cs" />
+    <Compile Include="Reporting\ContPrint.cs" />
+    <Compile Include="Logs and Maintenance\Transaction Logs\ContTransactionLogs.cs" />
+    <Compile Include="Logs and Maintenance\Vehicle Brands\ContVehicleBrands.cs" />
+    <Compile Include="Reporting\CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReport2.cs">
+    <Compile Include="Reporting\CrystalReport2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport2.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReport3.cs">
+    <Compile Include="Reporting\CrystalReport3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport3.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReportProduct.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReportProduct.rpt</DependentUpon>
+    <Compile Include="Reporting\CrystalReportProduct.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReportReceipt.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReportReceipt.rpt</DependentUpon>
+    <Compile Include="Reporting\CrystalReportReceipt.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <Compile Include="Reporting\DataSet1.cs" />
+    <Compile Include="Reporting\DataSet1.designer.cs">
+      <DependentUpon>DataSet1.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet2.cs">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmLogin.cs">
+    <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLogin.Designer.cs">
+    <Compile Include="Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmMain.cs">
+    <Compile Include="Main Form\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmMain.Designer.cs">
+    <Compile Include="Main Form\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmConfigs.cs">
@@ -138,22 +138,22 @@
     <Compile Include="Forms\frmConfigs.Designer.cs">
       <DependentUpon>frmConfigs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmCategory.cs">
+    <Compile Include="Inventory\Categories\frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmCategory.Designer.cs">
+    <Compile Include="Inventory\Categories\frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDescriptions.cs">
+    <Compile Include="Inventory\Descriptions\frmDescriptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmDescriptions.Designer.cs">
+    <Compile Include="Inventory\Descriptions\frmDescriptions.Designer.cs">
       <DependentUpon>frmDescriptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPosPay.cs">
+    <Compile Include="Point Of Sale\frmPosPay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPosPay.Designer.cs">
+    <Compile Include="Point Of Sale\frmPosPay.Designer.cs">
       <DependentUpon>frmPosPay.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmTesting.cs">
@@ -162,237 +162,274 @@
     <Compile Include="Forms\frmTesting.Designer.cs">
       <DependentUpon>frmTesting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmManageCustomer.cs">
+    <Compile Include="Logs and Maintenance\Manage Customers\frmManageCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmManageCustomer.Designer.cs">
+    <Compile Include="Logs and Maintenance\Manage Customers\frmManageCustomer.Designer.cs">
       <DependentUpon>frmManageCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmVehicle.cs">
+    <Compile Include="Logs and Maintenance\Customer Vehicle\frmVehicle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmVehicle.Designer.cs">
+    <Compile Include="Logs and Maintenance\Customer Vehicle\frmVehicle.Designer.cs">
       <DependentUpon>frmVehicle.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReports.cs">
+    <Compile Include="Inventory\Product Brands\frmProductsBrands.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReports.Designer.cs">
+    <Compile Include="Inventory\Product Brands\frmProductsBrands.Designer.cs">
+      <DependentUpon>frmProductsBrands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\frmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\frmReports.Designer.cs">
       <DependentUpon>frmReports.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory Wizard\frmInventoryWizard.cs">
+    <Compile Include="Forms\frmUcTesting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory Wizard\frmInventoryWizard.Designer.cs">
+    <Compile Include="Forms\frmUcTesting.Designer.cs">
+      <DependentUpon>frmUcTesting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logs and Maintenance\Vehicle Brands\frmVehicleBrands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logs and Maintenance\Vehicle Brands\frmVehicleBrands.Designer.cs">
+      <DependentUpon>frmVehicleBrands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Inventory Wizard\frmInventoryWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\Inventory Wizard\frmInventoryWizard.Designer.cs">
       <DependentUpon>frmInventoryWizard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPosAddService.cs">
+    <Compile Include="Point Of Sale\frmPosAddService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPosAddService.Designer.cs">
+    <Compile Include="Point Of Sale\frmPosAddService.Designer.cs">
       <DependentUpon>frmPosAddService.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPosOngoingService.cs">
+    <Compile Include="Point Of Sale\frmPosOngoingService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPosOngoingService.Designer.cs">
+    <Compile Include="Point Of Sale\frmPosOngoingService.Designer.cs">
       <DependentUpon>frmPosOngoingService.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPosSearchItem.cs">
+    <Compile Include="Point Of Sale\frmPosSearchItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPosSearchItem.Designer.cs">
+    <Compile Include="Point Of Sale\frmPosSearchItem.Designer.cs">
       <DependentUpon>frmPosSearchItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmViewServicesOffered.cs">
+    <Compile Include="Point Of Sale\frmViewServicesOffered.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmViewServicesOffered.Designer.cs">
+    <Compile Include="Point Of Sale\frmViewServicesOffered.Designer.cs">
       <DependentUpon>frmViewServicesOffered.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyTextbox.cs">
+    <Compile Include="Classes\MyTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoundedButton.cs">
+    <Compile Include="Classes\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Inventory Wizard\ucWizProduct.cs">
+    <Compile Include="Inventory\Inventory Wizard\ucWizProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Inventory Wizard\ucWizProduct.Designer.cs">
+    <Compile Include="Inventory\Inventory Wizard\ucWizProduct.Designer.cs">
       <DependentUpon>ucWizProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory Wizard\ucWizStockin.cs">
+    <Compile Include="Inventory\Inventory Wizard\ucWizStockin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Inventory Wizard\ucWizStockin.Designer.cs">
+    <Compile Include="Inventory\Inventory Wizard\ucWizStockin.Designer.cs">
       <DependentUpon>ucWizStockin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory Wizard\ucWizProductPrice.cs">
+    <Compile Include="Inventory\Inventory Wizard\ucWizProductPrice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Inventory Wizard\ucWizProductPrice.Designer.cs">
+    <Compile Include="Inventory\Inventory Wizard\ucWizProductPrice.Designer.cs">
       <DependentUpon>ucWizProductPrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucReturnItem.cs">
+    <Compile Include="Inventory\Stocks\Product Stocks\uCInventoryStocksProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucReturnItem.Designer.cs">
+    <Compile Include="Inventory\Stocks\Product Stocks\uCInventoryStocksProduct.Designer.cs">
+      <DependentUpon>uCInventoryStocksProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\ucReturnItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ucReturnItem.Designer.cs">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.cs">
+    <Compile Include="Logs and Maintenance\Transaction Logs\ucTransactionLogs.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\LogsAndMaintenance\uCCustomerRecords.Designer.cs">
+    <Compile Include="Logs and Maintenance\Transaction Logs\ucTransactionLogs.designer.cs">
+      <DependentUpon>ucTransactionLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logs and Maintenance\uCCustomerRecords.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logs and Maintenance\uCCustomerRecords.Designer.cs">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\LogsAndMaintenance\uCManageEmployeeInfo.cs">
+    <Compile Include="Logs and Maintenance\Manage EmployeeInfo\uCManageEmployeeInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\LogsAndMaintenance\uCManageEmployeeInfo.Designer.cs">
+    <Compile Include="Logs and Maintenance\Manage EmployeeInfo\uCManageEmployeeInfo.Designer.cs">
       <DependentUpon>uCManageEmployeeInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\LogsAndMaintenance\uCManageUsers.cs">
+    <Compile Include="Logs and Maintenance\Manage Users\uCManageUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\LogsAndMaintenance\uCManageUsers.Designer.cs">
+    <Compile Include="Logs and Maintenance\Manage Users\uCManageUsers.Designer.cs">
       <DependentUpon>uCManageUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Services\uCServicesAdditionalService.cs">
+    <Compile Include="Services\Additional Service\uCServicesAdditionalService.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Services\uCServicesAdditionalService.Designer.cs">
+    <Compile Include="Services\Additional Service\uCServicesAdditionalService.Designer.cs">
       <DependentUpon>uCServicesAdditionalService.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Services\uCServicesServiceOffered.cs">
+    <Compile Include="Services\Service Offered\uCServicesServiceOffered.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Services\uCServicesServiceOffered.Designer.cs">
+    <Compile Include="Services\Service Offered\uCServicesServiceOffered.Designer.cs">
       <DependentUpon>uCServicesServiceOffered.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Services\uCServicesServicePrice.cs">
+    <Compile Include="Services\Service Price\uCServicesServicePrice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Services\uCServicesServicePrice.Designer.cs">
+    <Compile Include="Services\Service Price\uCServicesServicePrice.Designer.cs">
       <DependentUpon>uCServicesServicePrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Services\uCServicesVehicleTypes.cs">
+    <Compile Include="Services\Vehicle Types\uCServicesVehicleTypes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Services\uCServicesVehicleTypes.Designer.cs">
+    <Compile Include="Services\Vehicle Types\uCServicesVehicleTypes.Designer.cs">
       <DependentUpon>uCServicesVehicleTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventoryProductPrice.cs">
+    <Compile Include="Inventory\Product Price\uCInventoryProductPrice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventoryProductPrice.Designer.cs">
+    <Compile Include="Inventory\Product Price\uCInventoryProductPrice.Designer.cs">
       <DependentUpon>uCInventoryProductPrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventoryProducts.cs">
+    <Compile Include="Inventory\Products\uCInventoryProducts.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventoryProducts.Designer.cs">
+    <Compile Include="Inventory\Products\uCInventoryProducts.Designer.cs">
       <DependentUpon>uCInventoryProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventorySupplier.cs">
+    <Compile Include="Inventory\Supplier\uCInventorySupplier.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventorySupplier.Designer.cs">
+    <Compile Include="Inventory\Supplier\uCInventorySupplier.Designer.cs">
       <DependentUpon>uCInventorySupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventoryStocks.cs">
+    <Compile Include="Inventory\Stocks\Supplier Stocks\uCInventoryStocksSupplier.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventoryStocks.Designer.cs">
-      <DependentUpon>uCInventoryStocks.cs</DependentUpon>
+    <Compile Include="Inventory\Stocks\Supplier Stocks\uCInventoryStocksSupplier.Designer.cs">
+      <DependentUpon>uCInventoryStocksSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventory.cs">
+    <Compile Include="Inventory\Stocks\uCInventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Inventory\uCInventory.Designer.cs">
+    <Compile Include="Inventory\Stocks\uCInventory.Designer.cs">
       <DependentUpon>uCInventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\PointofSale\uCPointOfSale.cs">
+    <Compile Include="Point Of Sale\uCPointOfSale.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\PointofSale\uCPointOfSale.Designer.cs">
+    <Compile Include="Point Of Sale\uCPointOfSale.Designer.cs">
       <DependentUpon>uCPointOfSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Services\uCServices.cs">
+    <Compile Include="Services\uCServices.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Services\uCServices.Designer.cs">
+    <Compile Include="Services\uCServices.Designer.cs">
       <DependentUpon>uCServices.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <EmbeddedResource Include="frmStocksBySupplier.resx">
+      <DependentUpon>frmStocksBySupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport2.rpt">
+    <EmbeddedResource Include="Reporting\CrystalReport2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport2.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport3.rpt">
+    <EmbeddedResource Include="Reporting\CrystalReport3.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport3.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReportProduct.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReportProduct.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReportReceipt.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReportReceipt.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLogin.resx">
+    <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMain.resx">
+    <EmbeddedResource Include="Main Form\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmConfigs.resx">
       <DependentUpon>frmConfigs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmCategory.resx">
+    <EmbeddedResource Include="Logs and Maintenance\frmCustVehicleType.resx">
+      <DependentUpon>frmCustVehicleType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Categories\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDescriptions.resx">
+    <EmbeddedResource Include="Inventory\Descriptions\frmDescriptions.resx">
       <DependentUpon>frmDescriptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPosPay.resx">
+    <EmbeddedResource Include="Point Of Sale\frmPosPay.resx">
       <DependentUpon>frmPosPay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTesting.resx">
       <DependentUpon>frmTesting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmManageCustomer.resx">
+    <EmbeddedResource Include="Logs and Maintenance\Manage Customers\frmManageCustomer.resx">
       <DependentUpon>frmManageCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmVehicle.resx">
+    <EmbeddedResource Include="Logs and Maintenance\Customer Vehicle\frmVehicle.resx">
       <DependentUpon>frmVehicle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReports.resx">
+    <EmbeddedResource Include="Inventory\Product Brands\frmProductsBrands.resx">
+      <DependentUpon>frmProductsBrands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\frmReports.resx">
       <DependentUpon>frmReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory Wizard\frmInventoryWizard.resx">
+    <EmbeddedResource Include="Forms\frmUcTesting.resx">
+      <DependentUpon>frmUcTesting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logs and Maintenance\Vehicle Brands\frmVehicleBrands.resx">
+      <DependentUpon>frmVehicleBrands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Inventory Wizard\frmInventoryWizard.resx">
       <DependentUpon>frmInventoryWizard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPosAddService.resx">
+    <EmbeddedResource Include="Point Of Sale\frmPosAddService.resx">
       <DependentUpon>frmPosAddService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPosOngoingService.resx">
+    <EmbeddedResource Include="Point Of Sale\frmPosOngoingService.resx">
       <DependentUpon>frmPosOngoingService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPosSearchItem.resx">
+    <EmbeddedResource Include="Point Of Sale\frmPosSearchItem.resx">
       <DependentUpon>frmPosSearchItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewServicesOffered.resx">
+    <EmbeddedResource Include="Point Of Sale\frmViewServicesOffered.resx">
       <DependentUpon>frmViewServicesOffered.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyTextbox.resx">
+    <EmbeddedResource Include="Classes\MyTextbox.resx">
       <DependentUpon>MyTextbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -400,82 +437,66 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory Wizard\ucWizProduct.resx">
+    <EmbeddedResource Include="Inventory\Inventory Wizard\ucWizProduct.resx">
       <DependentUpon>ucWizProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory Wizard\ucWizStockin.resx">
+    <EmbeddedResource Include="Inventory\Inventory Wizard\ucWizStockin.resx">
       <DependentUpon>ucWizStockin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory Wizard\ucWizProductPrice.resx">
+    <EmbeddedResource Include="Inventory\Inventory Wizard\ucWizProductPrice.resx">
       <DependentUpon>ucWizProductPrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucReturnItem.resx">
+    <EmbeddedResource Include="Inventory\Stocks\Product Stocks\uCInventoryStocksProduct.resx">
+      <DependentUpon>uCInventoryStocksProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ucReturnItem.resx">
       <DependentUpon>ucReturnItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCCustomerRecords.resx">
+    <EmbeddedResource Include="Logs and Maintenance\Transaction Logs\ucTransactionLogs.resx">
+      <DependentUpon>ucTransactionLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logs and Maintenance\uCCustomerRecords.resx">
       <DependentUpon>uCCustomerRecords.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCManageEmployeeInfo.resx">
+    <EmbeddedResource Include="Logs and Maintenance\Manage EmployeeInfo\uCManageEmployeeInfo.resx">
       <DependentUpon>uCManageEmployeeInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\LogsAndMaintenance\uCManageUsers.resx">
+    <EmbeddedResource Include="Logs and Maintenance\Manage Users\uCManageUsers.resx">
       <DependentUpon>uCManageUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Inventory\uCInventoryProductPrice.resx">
+    <EmbeddedResource Include="Inventory\Product Price\uCInventoryProductPrice.resx">
       <DependentUpon>uCInventoryProductPrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Inventory\uCInventoryProducts.resx">
+    <EmbeddedResource Include="Inventory\Products\uCInventoryProducts.resx">
       <DependentUpon>uCInventoryProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Inventory\uCInventorySupplier.resx">
+    <EmbeddedResource Include="Inventory\Supplier\uCInventorySupplier.resx">
       <DependentUpon>uCInventorySupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Inventory\uCInventoryStocks.resx">
-      <DependentUpon>uCInventoryStocks.cs</DependentUpon>
+    <EmbeddedResource Include="Inventory\Stocks\Supplier Stocks\uCInventoryStocksSupplier.resx">
+      <DependentUpon>uCInventoryStocksSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Inventory\uCInventory.resx">
+    <EmbeddedResource Include="Inventory\Stocks\uCInventory.resx">
       <DependentUpon>uCInventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Services\uCServicesAdditionalService.resx">
+    <EmbeddedResource Include="Services\Additional Service\uCServicesAdditionalService.resx">
       <DependentUpon>uCServicesAdditionalService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Services\uCServicesServiceOffered.resx">
+    <EmbeddedResource Include="Services\Service Offered\uCServicesServiceOffered.resx">
       <DependentUpon>uCServicesServiceOffered.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Services\uCServicesServicePrice.resx">
+    <EmbeddedResource Include="Services\Service Price\uCServicesServicePrice.resx">
       <DependentUpon>uCServicesServicePrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Services\uCServicesVehicleTypes.resx">
+    <EmbeddedResource Include="Services\Vehicle Types\uCServicesVehicleTypes.resx">
       <DependentUpon>uCServicesVehicleTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\PointofSale\uCPointOfSale.resx">
+    <EmbeddedResource Include="Point Of Sale\uCPointOfSale.resx">
       <DependentUpon>uCPointOfSale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Services\uCServices.resx">
+    <EmbeddedResource Include="Services\uCServices.resx">
       <DependentUpon>uCServices.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet2.xsc">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSet2.xss">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -502,6 +523,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sales\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
