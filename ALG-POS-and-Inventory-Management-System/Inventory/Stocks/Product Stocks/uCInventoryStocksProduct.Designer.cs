@@ -48,6 +48,8 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,9 +62,9 @@
             this.btnShowCritical = new System.Windows.Forms.Button();
             this.btnShowAllStocks = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new MyTextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.lblStockID = new System.Windows.Forms.Label();
+            this.txtSearch = new MyTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).BeginInit();
@@ -366,6 +368,8 @@
             this.columnHeader9,
             this.columnHeader1,
             this.columnHeader2,
+            this.columnHeader11,
+            this.columnHeader6,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
@@ -391,17 +395,27 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Product ID.";
-            this.columnHeader1.Width = 211;
+            this.columnHeader1.Width = 153;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Product Name";
-            this.columnHeader2.Width = 220;
+            this.columnHeader2.Width = 163;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Brand";
+            this.columnHeader6.Width = 82;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Category";
+            this.columnHeader11.Width = 171;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Description";
-            this.columnHeader3.Width = 211;
+            this.columnHeader3.Width = 214;
             // 
             // columnHeader4
             // 
@@ -410,23 +424,23 @@
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Remaining Stocks";
-            this.columnHeader5.Width = 135;
+            this.columnHeader5.Text = "Remaining";
+            this.columnHeader5.Width = 128;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Price";
-            this.columnHeader7.Width = 163;
+            this.columnHeader7.Width = 82;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Discount";
-            this.columnHeader8.Width = 89;
+            this.columnHeader8.Width = 74;
             // 
             // columnHeader10
             // 
-            this.columnHeader10.Text = "Item Price";
-            this.columnHeader10.Width = 180;
+            this.columnHeader10.Text = "Final Price";
+            this.columnHeader10.Width = 102;
             // 
             // cboSProductName
             // 
@@ -513,17 +527,6 @@
             this.label1.TabIndex = 248;
             this.label1.Text = "Search:";
             // 
-            // txtSearch
-            // 
-            this.txtSearch.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(1100, 44);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(221, 25);
-            this.txtSearch.TabIndex = 249;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -549,6 +552,17 @@
             this.lblStockID.TabIndex = 245;
             this.lblStockID.Text = "_Stock ID";
             this.lblStockID.Visible = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.White;
+            this.txtSearch.Location = new System.Drawing.Point(1100, 44);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(221, 25);
+            this.txtSearch.TabIndex = 249;
             // 
             // uCInventoryStocksProduct
             // 
@@ -633,5 +647,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblStockID;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
     }
 }

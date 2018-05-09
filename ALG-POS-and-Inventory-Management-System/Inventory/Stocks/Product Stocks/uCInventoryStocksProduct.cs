@@ -26,42 +26,55 @@ namespace ALG_POS_and_Inventory_Management_System {
             LoadProductsCbo(); LoadSuppliers();
             dtpReceive.Value = DateTime.Now;
         }
-        void LoadStocks() {
-            lvStocks.Items.Clear();
-            DataTable dt = new DataTable();
-            dt = ContInventoryStocks.LoadStocks(cboSSort.Text);
-            for (int i = 0; i < dt.Rows.Count; i++) {
-                DataRow dr = dt.Rows[i];
-                ListViewItem listitem = new ListViewItem((i + 1).ToString());
-                listitem.SubItems.Add(dr["stock_ID"].ToString());
-                listitem.SubItems.Add(dr["prodID"].ToString());
-                listitem.SubItems.Add(dr["product_name"].ToString());
-                listitem.SubItems.Add(dr["prodDesc"].ToString());
-                listitem.SubItems.Add(dr["total_stocks"].ToString());
-                listitem.SubItems.Add(dr["remaining_stocks"].ToString());
-                listitem.SubItems.Add(dr["dateProfiled"].ToString().Substring(0, 10));
-                listitem.SubItems.Add(dr["supplier_name"].ToString());
-                listitem.SubItems.Add(Convert.ToDecimal(dr["supplier_price"]).ToString("C"));
+        //void LoadStocks() {
+        //    lvStocks.Items.Clear();
+        //    DataTable dt = new DataTable();
+        //    dt = ContInventoryStocks.LoadStocks(cboSSort.Text);
+        //    for (int i = 0; i < dt.Rows.Count; i++) {
+        //        DataRow dr = dt.Rows[i];
+        //        ListViewItem listitem = new ListViewItem((i + 1).ToString());
+        //        listitem.SubItems.Add(dr["stock_ID"].ToString());
+        //        listitem.SubItems.Add(dr["prodID"].ToString());
+        //        listitem.SubItems.Add(dr["product_name"].ToString());
+        //        listitem.SubItems.Add(dr["prodDesc"].ToString());
+        //        listitem.SubItems.Add(dr["total_stocks"].ToString());
+        //        listitem.SubItems.Add(dr["remaining_stocks"].ToString());
+        //        listitem.SubItems.Add(dr["dateProfiled"].ToString().Substring(0, 10));
+        //        listitem.SubItems.Add(dr["supplier_name"].ToString());
+        //        listitem.SubItems.Add(Convert.ToDecimal(dr["supplier_price"]).ToString("C"));
 
-                lvStocks.Items.Add(listitem);
-            }
-        }
+        //        lvStocks.Items.Add(listitem);
+        //    }
+        //}
 
         void LoadProducts() {
             lvStocks.Items.Clear();
             DataTable dt = new DataTable();
-            dt = ContInventoryStocks.LoadProducts(txtSearch.Text, cboSSort.Text);
+            dt = ContInventoryStocks.LoadProductStocks(txtSearch.Text, cboSSort.Text);
+            //dt1 = ContInventoryStocks.LoadProductNumberStocks(txtSearch.Text, cboSSort.Text);
             for (int i = 0; i < dt.Rows.Count; i++) {
                 DataRow dr = dt.Rows[i];
                 ListViewItem listitem = new ListViewItem((i + 1).ToString());
-                listitem.SubItems.Add(dr["product_ID"].ToString());
+                string prodID = dr["product_ID"].ToString();
+                listitem.SubItems.Add(prodID);
                 listitem.SubItems.Add(dr["product_name"].ToString());
+                listitem.SubItems.Add(dr["category_name"].ToString());
+                listitem.SubItems.Add(dr["brand_name"].ToString());
                 listitem.SubItems.Add(dr["prodDesc"].ToString());
-                listitem.SubItems.Add(dr["totalStocks"].ToString());
-                listitem.SubItems.Add(dr["remStocks"].ToString());
+               
+                DataTable dt1 = new DataTable();
+                dt1 = ContInventoryStocks.LoadProductStocks(prodID);
+                for (int j = 0; j < dt1.Rows.Count; j++) {
+                    DataRow dr1 = dt1.Rows[j];
+                    listitem.SubItems.Add(dr1["remStocks"].ToString());
+                    listitem.SubItems.Add(dr1["totStocks"].ToString());
+                }
+
                 listitem.SubItems.Add(decimal.Parse((dr["product_price"].ToString())).ToString("C"));
                 listitem.SubItems.Add(dr["discount"].ToString());
                 listitem.SubItems.Add(decimal.Parse((dr["discounted_price"].ToString())).ToString("C"));
+
+               
                 //listitem.SubItems.Add(_contInvProducts.GetProductDescription((dr["product_ID"]).ToString()));
                 lvStocks.Items.Add(listitem);
             }
@@ -221,17 +234,22 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void lvStocks_SelectedIndexChanged(object sender, EventArgs e) {
             if (lvStocks.SelectedItems.Count > 0) {
-                ListViewItem item = lvStocks.SelectedItems[0];
-                if (!cboSProductID.Items.Contains(item.SubItems[1].Text)) {
-                    cboSProductID.Items.Add(item.SubItems[1].Text);
+                try {
+                    ListViewItem item = lvStocks.SelectedItems[0];
+                    if (!cboSProductID.Items.Contains(item.SubItems[1].Text)) {
+                        cboSProductID.Items.Add(item.SubItems[1].Text);
+                    }
+                    cboSProductID.Text = item.SubItems[1].Text;
+                    if (!cboSProductName.Items.Contains(item.SubItems[2].Text)) {
+                        cboSProductName.Items.Add(item.SubItems[2].Text);
+                    }
+                    cboSProductName.Text = item.SubItems[2].Text;
+                    numSQuan.Value = Convert.ToDecimal(item.SubItems[7].Text);
+                    btnSAdd.Enabled = false; btnSSave.Enabled = false; btnSDeduct.Enabled = true; SLock(); sAdd = false; sEdit = false; cChange = false; numDeduct.Enabled = false;
+                } catch (Exception ex) {
+                    MessageBox.Show("Error occured in selecting stock" + ex.Message);
                 }
-                cboSProductID.Text = item.SubItems[1].Text;
-                if (!cboSProductName.Items.Contains(item.SubItems[2].Text)) {
-                    cboSProductName.Items.Add(item.SubItems[2].Text);
-                }
-                cboSProductName.Text = item.SubItems[2].Text;
-                numSQuan.Value = Convert.ToDecimal(item.SubItems[5].Text);
-                btnSAdd.Enabled = false; btnSSave.Enabled = false; btnSDeduct.Enabled = true; SLock(); sAdd = false; sEdit = false; cChange = false; numDeduct.Enabled = false;
+                
             }
         }
 
@@ -265,7 +283,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void cboSSort_SelectedIndexChanged(object sender, EventArgs e) {
-            LoadStocks();
+            btnSClear.PerformClick();
         }
 
         private void timer1_Tick(object sender, EventArgs e) {
@@ -282,7 +300,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnShowAllStocks_Click(object sender, EventArgs e) {
             btnSClear.PerformClick();
-            LoadStocks();
+            //LoadStocks();
         }
 
         private void btnSAdd_Click(object sender, EventArgs e) {
