@@ -623,7 +623,7 @@
             this.lvPayments.FullRowSelect = true;
             this.lvPayments.GridLines = true;
             this.lvPayments.LabelWrap = false;
-            this.lvPayments.Location = new System.Drawing.Point(16, 126);
+            this.lvPayments.Location = new System.Drawing.Point(78, 126);
             this.lvPayments.Name = "lvPayments";
             this.lvPayments.Size = new System.Drawing.Size(614, 116);
             this.lvPayments.TabIndex = 175;
@@ -649,7 +649,6 @@
             // columnHeader35
             // 
             this.columnHeader35.Text = "Amount";
-            this.columnHeader35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader35.Width = 98;
             // 
             // columnHeader36
@@ -674,9 +673,9 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(593, 11);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(217, 39);
+            this.label9.Size = new System.Drawing.Size(235, 39);
             this.label9.TabIndex = 23;
-            this.label9.Text = "POINT OF SALE";
+            this.label9.Text = "Transaction Logs";
             // 
             // label13
             // 
