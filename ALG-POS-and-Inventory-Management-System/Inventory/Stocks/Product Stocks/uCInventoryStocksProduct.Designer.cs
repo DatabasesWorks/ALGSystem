@@ -48,8 +48,8 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -64,10 +64,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lblStockID = new System.Windows.Forms.Label();
+            this.btnViewStockDetails = new System.Windows.Forms.Button();
+            this.cmsViewStockDetails = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.viewStockDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new MyTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).BeginInit();
+            this.cmsViewStockDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpReceive
@@ -167,7 +171,7 @@
             this.label15.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(6, 62);
+            this.label15.Location = new System.Drawing.Point(3, 54);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(119, 21);
             this.label15.TabIndex = 235;
@@ -179,7 +183,7 @@
             this.label14.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(7, 25);
+            this.label14.Location = new System.Drawing.Point(5, 13);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(92, 21);
             this.label14.TabIndex = 234;
@@ -193,9 +197,9 @@
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(1096, 75);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 21);
+            this.label13.Size = new System.Drawing.Size(85, 21);
             this.label13.TabIndex = 233;
-            this.label13.Text = "Sort By:";
+            this.label13.Text = "Search By:";
             // 
             // cboSSort
             // 
@@ -207,7 +211,9 @@
             this.cboSSort.Items.AddRange(new object[] {
             "Product ID",
             "Product Name",
-            "Stock ID"});
+            "Brand",
+            "Category",
+            "Description"});
             this.cboSSort.Location = new System.Drawing.Point(1100, 101);
             this.cboSSort.Name = "cboSSort";
             this.cboSSort.Size = new System.Drawing.Size(221, 29);
@@ -244,7 +250,7 @@
             this.btnSDeduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSDeduct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSDeduct.ForeColor = System.Drawing.Color.White;
-            this.btnSDeduct.Location = new System.Drawing.Point(919, 31);
+            this.btnSDeduct.Location = new System.Drawing.Point(497, 117);
             this.btnSDeduct.Name = "btnSDeduct";
             this.btnSDeduct.Size = new System.Drawing.Size(124, 65);
             this.btnSDeduct.TabIndex = 227;
@@ -264,7 +270,7 @@
             this.btnSClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSClear.ForeColor = System.Drawing.Color.White;
-            this.btnSClear.Location = new System.Drawing.Point(484, 144);
+            this.btnSClear.Location = new System.Drawing.Point(926, 35);
             this.btnSClear.Name = "btnSClear";
             this.btnSClear.Size = new System.Drawing.Size(137, 53);
             this.btnSClear.TabIndex = 225;
@@ -284,7 +290,7 @@
             this.btnSAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSAdd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSAdd.ForeColor = System.Drawing.Color.White;
-            this.btnSAdd.Location = new System.Drawing.Point(627, 22);
+            this.btnSAdd.Location = new System.Drawing.Point(625, 22);
             this.btnSAdd.Name = "btnSAdd";
             this.btnSAdd.Size = new System.Drawing.Size(127, 68);
             this.btnSAdd.TabIndex = 224;
@@ -305,7 +311,7 @@
             this.btnSSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSSave.ForeColor = System.Drawing.Color.White;
-            this.btnSSave.Location = new System.Drawing.Point(332, 136);
+            this.btnSSave.Location = new System.Drawing.Point(774, 29);
             this.btnSSave.Name = "btnSSave";
             this.btnSSave.Size = new System.Drawing.Size(146, 69);
             this.btnSSave.TabIndex = 222;
@@ -339,7 +345,7 @@
             this.label19.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(758, 45);
+            this.label19.Location = new System.Drawing.Point(337, 140);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(67, 21);
             this.label19.TabIndex = 219;
@@ -351,7 +357,7 @@
             this.numDeduct.Enabled = false;
             this.numDeduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numDeduct.ForeColor = System.Drawing.Color.White;
-            this.numDeduct.Location = new System.Drawing.Point(843, 43);
+            this.numDeduct.Location = new System.Drawing.Point(421, 138);
             this.numDeduct.Maximum = new decimal(new int[] {
             500,
             0,
@@ -376,6 +382,7 @@
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader10});
+            this.lvStocks.ContextMenuStrip = this.cmsViewStockDetails;
             this.lvStocks.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvStocks.FullRowSelect = true;
             this.lvStocks.GridLines = true;
@@ -402,15 +409,15 @@
             this.columnHeader2.Text = "Product Name";
             this.columnHeader2.Width = 163;
             // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Brand";
-            this.columnHeader6.Width = 82;
-            // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "Category";
             this.columnHeader11.Width = 171;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Brand";
+            this.columnHeader6.Width = 82;
             // 
             // columnHeader3
             // 
@@ -450,7 +457,7 @@
             this.cboSProductName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSProductName.ForeColor = System.Drawing.Color.White;
             this.cboSProductName.FormattingEnabled = true;
-            this.cboSProductName.Location = new System.Drawing.Point(131, 59);
+            this.cboSProductName.Location = new System.Drawing.Point(131, 51);
             this.cboSProductName.Name = "cboSProductName";
             this.cboSProductName.Size = new System.Drawing.Size(203, 29);
             this.cboSProductName.TabIndex = 243;
@@ -464,7 +471,7 @@
             this.cboSProductID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSProductID.ForeColor = System.Drawing.Color.White;
             this.cboSProductID.FormattingEnabled = true;
-            this.cboSProductID.Location = new System.Drawing.Point(131, 20);
+            this.cboSProductID.Location = new System.Drawing.Point(131, 11);
             this.cboSProductID.Name = "cboSProductID";
             this.cboSProductID.Size = new System.Drawing.Size(203, 29);
             this.cboSProductID.TabIndex = 232;
@@ -472,7 +479,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 1500;
+            this.timer1.Interval = 20000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // btnShowCritical
@@ -487,11 +494,11 @@
             this.btnShowCritical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowCritical.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowCritical.ForeColor = System.Drawing.Color.White;
-            this.btnShowCritical.Location = new System.Drawing.Point(919, 130);
+            this.btnShowCritical.Location = new System.Drawing.Point(961, 145);
             this.btnShowCritical.Name = "btnShowCritical";
             this.btnShowCritical.Size = new System.Drawing.Size(147, 67);
             this.btnShowCritical.TabIndex = 246;
-            this.btnShowCritical.Text = "Show Critical Stocks";
+            this.btnShowCritical.Text = "Critical Stocks";
             this.btnShowCritical.UseVisualStyleBackColor = false;
             this.btnShowCritical.Click += new System.EventHandler(this.btnShowCritical_Click);
             // 
@@ -506,12 +513,12 @@
             this.btnShowAllStocks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnShowAllStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowAllStocks.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowAllStocks.ForeColor = System.Drawing.Color.White;
-            this.btnShowAllStocks.Location = new System.Drawing.Point(752, 130);
+            this.btnShowAllStocks.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnShowAllStocks.Location = new System.Drawing.Point(808, 145);
             this.btnShowAllStocks.Name = "btnShowAllStocks";
             this.btnShowAllStocks.Size = new System.Drawing.Size(147, 67);
             this.btnShowAllStocks.TabIndex = 247;
-            this.btnShowAllStocks.Text = "Show All Stocks";
+            this.btnShowAllStocks.Text = "All Stocks";
             this.btnShowAllStocks.UseVisualStyleBackColor = false;
             this.btnShowAllStocks.Click += new System.EventHandler(this.btnShowAllStocks_Click);
             // 
@@ -553,6 +560,40 @@
             this.lblStockID.Text = "_Stock ID";
             this.lblStockID.Visible = false;
             // 
+            // btnViewStockDetails
+            // 
+            this.btnViewStockDetails.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnViewStockDetails.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnViewStockDetails.BackgroundImage")));
+            this.btnViewStockDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnViewStockDetails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewStockDetails.FlatAppearance.BorderSize = 0;
+            this.btnViewStockDetails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnViewStockDetails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnViewStockDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewStockDetails.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewStockDetails.ForeColor = System.Drawing.Color.White;
+            this.btnViewStockDetails.Location = new System.Drawing.Point(627, 145);
+            this.btnViewStockDetails.Name = "btnViewStockDetails";
+            this.btnViewStockDetails.Size = new System.Drawing.Size(157, 67);
+            this.btnViewStockDetails.TabIndex = 250;
+            this.btnViewStockDetails.Text = "View Stock Details";
+            this.btnViewStockDetails.UseVisualStyleBackColor = false;
+            this.btnViewStockDetails.Click += new System.EventHandler(this.btnViewStockDetails_Click);
+            // 
+            // cmsViewStockDetails
+            // 
+            this.cmsViewStockDetails.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewStockDetailsToolStripMenuItem});
+            this.cmsViewStockDetails.Name = "cmsViewStockDetails";
+            this.cmsViewStockDetails.Size = new System.Drawing.Size(170, 26);
+            // 
+            // viewStockDetailsToolStripMenuItem
+            // 
+            this.viewStockDetailsToolStripMenuItem.Name = "viewStockDetailsToolStripMenuItem";
+            this.viewStockDetailsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.viewStockDetailsToolStripMenuItem.Text = "View Stock Details";
+            this.viewStockDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewStockDetailsToolStripMenuItem_Click);
+            // 
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -568,6 +609,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Controls.Add(this.btnViewStockDetails);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnShowAllStocks);
@@ -602,6 +644,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).EndInit();
+            this.cmsViewStockDetails.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -649,5 +692,8 @@
         private System.Windows.Forms.Label lblStockID;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.Button btnViewStockDetails;
+        private System.Windows.Forms.ContextMenuStrip cmsViewStockDetails;
+        private System.Windows.Forms.ToolStripMenuItem viewStockDetailsToolStripMenuItem;
     }
 }

@@ -56,11 +56,18 @@
     <Compile Include="Classes\CheckedComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="frmStocksBySupplier.cs">
+    <Compile Include="ContSales.cs" />
+    <Compile Include="Sales\frmSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStocksBySupplier.Designer.cs">
-      <DependentUpon>frmStocksBySupplier.cs</DependentUpon>
+    <Compile Include="Sales\frmSales.Designer.cs">
+      <DependentUpon>frmSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Stocks\Supplier Stocks\frmInventoryStocksSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\Stocks\Supplier Stocks\frmInventoryStocksSuppliers.Designer.cs">
+      <DependentUpon>frmInventoryStocksSuppliers.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventory\Stocks\Product Stocks\ContInventoryStocksProduct.cs" />
     <Compile Include="Logs and Maintenance\frmCustVehicleType.cs">
@@ -356,8 +363,11 @@
     <Compile Include="Services\uCServices.Designer.cs">
       <DependentUpon>uCServices.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmStocksBySupplier.resx">
-      <DependentUpon>frmStocksBySupplier.cs</DependentUpon>
+    <EmbeddedResource Include="Sales\frmSales.resx">
+      <DependentUpon>frmSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Stocks\Supplier Stocks\frmInventoryStocksSuppliers.resx">
+      <DependentUpon>frmInventoryStocksSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporting\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -524,9 +534,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sales\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -66,9 +66,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnShowCritical = new System.Windows.Forms.Button();
             this.btnShowAllStocks = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpReceive
@@ -77,7 +80,7 @@
             this.dtpReceive.Enabled = false;
             this.dtpReceive.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.dtpReceive.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpReceive.Location = new System.Drawing.Point(132, 135);
+            this.dtpReceive.Location = new System.Drawing.Point(132, 214);
             this.dtpReceive.Name = "dtpReceive";
             this.dtpReceive.Size = new System.Drawing.Size(175, 32);
             this.dtpReceive.TabIndex = 244;
@@ -90,7 +93,7 @@
             this.numSSupPrice.Enabled = false;
             this.numSSupPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numSSupPrice.ForeColor = System.Drawing.Color.White;
-            this.numSSupPrice.Location = new System.Drawing.Point(456, 11);
+            this.numSSupPrice.Location = new System.Drawing.Point(456, 90);
             this.numSSupPrice.Maximum = new decimal(new int[] {
             500000,
             0,
@@ -107,7 +110,7 @@
             this.label25.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(343, 13);
+            this.label25.Location = new System.Drawing.Point(343, 92);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(115, 21);
             this.label25.TabIndex = 241;
@@ -119,7 +122,7 @@
             this.label22.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(343, 54);
+            this.label22.Location = new System.Drawing.Point(343, 133);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(76, 21);
             this.label22.TabIndex = 240;
@@ -133,7 +136,7 @@
             this.cboSSuppliers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSSuppliers.ForeColor = System.Drawing.Color.White;
             this.cboSSuppliers.FormattingEnabled = true;
-            this.cboSSuppliers.Location = new System.Drawing.Point(456, 44);
+            this.cboSSuppliers.Location = new System.Drawing.Point(456, 123);
             this.cboSSuppliers.Name = "cboSSuppliers";
             this.cboSSuppliers.Size = new System.Drawing.Size(165, 29);
             this.cboSSuppliers.TabIndex = 239;
@@ -144,7 +147,7 @@
             this.label18.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(343, 81);
+            this.label18.Location = new System.Drawing.Point(343, 160);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(76, 21);
             this.label18.TabIndex = 238;
@@ -156,7 +159,7 @@
             this.label17.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(3, 144);
+            this.label17.Location = new System.Drawing.Point(3, 223);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(123, 21);
             this.label17.TabIndex = 237;
@@ -168,7 +171,7 @@
             this.label16.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(3, 98);
+            this.label16.Location = new System.Drawing.Point(3, 177);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(75, 21);
             this.label16.TabIndex = 236;
@@ -180,7 +183,7 @@
             this.label15.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(2, 54);
+            this.label15.Location = new System.Drawing.Point(2, 133);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(119, 21);
             this.label15.TabIndex = 235;
@@ -192,7 +195,7 @@
             this.label14.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(3, 17);
+            this.label14.Location = new System.Drawing.Point(3, 96);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(92, 21);
             this.label14.TabIndex = 234;
@@ -204,7 +207,7 @@
             this.label13.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(1097, 18);
+            this.label13.Location = new System.Drawing.Point(1097, 97);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(67, 21);
             this.label13.TabIndex = 233;
@@ -221,7 +224,7 @@
             "Product ID",
             "Product Name",
             "Stock ID"});
-            this.cboSSort.Location = new System.Drawing.Point(1101, 44);
+            this.cboSSort.Location = new System.Drawing.Point(1101, 123);
             this.cboSSort.Name = "cboSSort";
             this.cboSSort.Size = new System.Drawing.Size(221, 29);
             this.cboSSort.TabIndex = 231;
@@ -233,7 +236,7 @@
             this.numSQuan.Enabled = false;
             this.numSQuan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numSQuan.ForeColor = System.Drawing.Color.White;
-            this.numSQuan.Location = new System.Drawing.Point(456, 81);
+            this.numSQuan.Location = new System.Drawing.Point(456, 160);
             this.numSQuan.Maximum = new decimal(new int[] {
             500,
             0,
@@ -257,7 +260,7 @@
             this.btnSRemoveStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSRemoveStocks.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSRemoveStocks.ForeColor = System.Drawing.Color.White;
-            this.btnSRemoveStocks.Location = new System.Drawing.Point(770, 5);
+            this.btnSRemoveStocks.Location = new System.Drawing.Point(770, 84);
             this.btnSRemoveStocks.Name = "btnSRemoveStocks";
             this.btnSRemoveStocks.Size = new System.Drawing.Size(142, 75);
             this.btnSRemoveStocks.TabIndex = 228;
@@ -278,7 +281,7 @@
             this.btnSDeduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSDeduct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSDeduct.ForeColor = System.Drawing.Color.White;
-            this.btnSDeduct.Location = new System.Drawing.Point(933, 83);
+            this.btnSDeduct.Location = new System.Drawing.Point(933, 162);
             this.btnSDeduct.Name = "btnSDeduct";
             this.btnSDeduct.Size = new System.Drawing.Size(124, 65);
             this.btnSDeduct.TabIndex = 227;
@@ -298,7 +301,7 @@
             this.btnRemoveZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveZero.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveZero.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveZero.Location = new System.Drawing.Point(918, 3);
+            this.btnRemoveZero.Location = new System.Drawing.Point(918, 82);
             this.btnRemoveZero.Name = "btnRemoveZero";
             this.btnRemoveZero.Size = new System.Drawing.Size(152, 77);
             this.btnRemoveZero.TabIndex = 226;
@@ -318,7 +321,7 @@
             this.btnSClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSClear.ForeColor = System.Drawing.Color.White;
-            this.btnSClear.Location = new System.Drawing.Point(484, 144);
+            this.btnSClear.Location = new System.Drawing.Point(484, 223);
             this.btnSClear.Name = "btnSClear";
             this.btnSClear.Size = new System.Drawing.Size(137, 53);
             this.btnSClear.TabIndex = 225;
@@ -338,7 +341,7 @@
             this.btnSAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSAdd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSAdd.ForeColor = System.Drawing.Color.White;
-            this.btnSAdd.Location = new System.Drawing.Point(636, 144);
+            this.btnSAdd.Location = new System.Drawing.Point(636, 223);
             this.btnSAdd.Name = "btnSAdd";
             this.btnSAdd.Size = new System.Drawing.Size(127, 68);
             this.btnSAdd.TabIndex = 224;
@@ -359,7 +362,7 @@
             this.btnSEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSEdit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSEdit.ForeColor = System.Drawing.Color.White;
-            this.btnSEdit.Location = new System.Drawing.Point(627, 69);
+            this.btnSEdit.Location = new System.Drawing.Point(627, 148);
             this.btnSEdit.Name = "btnSEdit";
             this.btnSEdit.Size = new System.Drawing.Size(137, 53);
             this.btnSEdit.TabIndex = 223;
@@ -380,7 +383,7 @@
             this.btnSSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSSave.ForeColor = System.Drawing.Color.White;
-            this.btnSSave.Location = new System.Drawing.Point(332, 136);
+            this.btnSSave.Location = new System.Drawing.Point(332, 215);
             this.btnSSave.Name = "btnSSave";
             this.btnSSave.Size = new System.Drawing.Size(146, 69);
             this.btnSSave.TabIndex = 222;
@@ -401,7 +404,7 @@
             this.btnSChangePrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSChangePrice.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSChangePrice.ForeColor = System.Drawing.Color.White;
-            this.btnSChangePrice.Location = new System.Drawing.Point(627, 5);
+            this.btnSChangePrice.Location = new System.Drawing.Point(627, 84);
             this.btnSChangePrice.Name = "btnSChangePrice";
             this.btnSChangePrice.Size = new System.Drawing.Size(136, 53);
             this.btnSChangePrice.TabIndex = 221;
@@ -421,7 +424,7 @@
             this.btnSPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSPrint.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSPrint.ForeColor = System.Drawing.Color.White;
-            this.btnSPrint.Location = new System.Drawing.Point(1170, 81);
+            this.btnSPrint.Location = new System.Drawing.Point(1170, 160);
             this.btnSPrint.Name = "btnSPrint";
             this.btnSPrint.Size = new System.Drawing.Size(132, 53);
             this.btnSPrint.TabIndex = 220;
@@ -435,7 +438,7 @@
             this.label19.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(788, 97);
+            this.label19.Location = new System.Drawing.Point(788, 176);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(67, 21);
             this.label19.TabIndex = 219;
@@ -447,7 +450,7 @@
             this.numDeduct.Enabled = false;
             this.numDeduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numDeduct.ForeColor = System.Drawing.Color.White;
-            this.numDeduct.Location = new System.Drawing.Point(857, 95);
+            this.numDeduct.Location = new System.Drawing.Point(857, 174);
             this.numDeduct.Maximum = new decimal(new int[] {
             500,
             0,
@@ -474,7 +477,7 @@
             this.lvStocks.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvStocks.FullRowSelect = true;
             this.lvStocks.GridLines = true;
-            this.lvStocks.Location = new System.Drawing.Point(3, 218);
+            this.lvStocks.Location = new System.Drawing.Point(3, 297);
             this.lvStocks.Name = "lvStocks";
             this.lvStocks.Size = new System.Drawing.Size(1319, 301);
             this.lvStocks.TabIndex = 217;
@@ -510,12 +513,14 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Total Stocks";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 96;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Remaining Stocks";
-            this.columnHeader5.Width = 135;
+            this.columnHeader5.Text = "Remaining";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader5.Width = 84;
             // 
             // columnHeader6
             // 
@@ -525,13 +530,12 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Supplier";
-            this.columnHeader7.Width = 108;
+            this.columnHeader7.Width = 171;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Supplier Price";
-            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader8.Width = 170;
+            this.columnHeader8.Width = 135;
             // 
             // cboSProductName
             // 
@@ -541,7 +545,7 @@
             this.cboSProductName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSProductName.ForeColor = System.Drawing.Color.White;
             this.cboSProductName.FormattingEnabled = true;
-            this.cboSProductName.Location = new System.Drawing.Point(127, 51);
+            this.cboSProductName.Location = new System.Drawing.Point(127, 130);
             this.cboSProductName.Name = "cboSProductName";
             this.cboSProductName.Size = new System.Drawing.Size(203, 29);
             this.cboSProductName.TabIndex = 243;
@@ -555,7 +559,7 @@
             this.cboSProductID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSProductID.ForeColor = System.Drawing.Color.White;
             this.cboSProductID.FormattingEnabled = true;
-            this.cboSProductID.Location = new System.Drawing.Point(127, 12);
+            this.cboSProductID.Location = new System.Drawing.Point(127, 91);
             this.cboSProductID.Name = "cboSProductID";
             this.cboSProductID.Size = new System.Drawing.Size(203, 29);
             this.cboSProductID.TabIndex = 232;
@@ -567,7 +571,7 @@
             this.lblStockID.BackColor = System.Drawing.Color.CornflowerBlue;
             this.lblStockID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStockID.ForeColor = System.Drawing.Color.White;
-            this.lblStockID.Location = new System.Drawing.Point(128, 98);
+            this.lblStockID.Location = new System.Drawing.Point(128, 177);
             this.lblStockID.Name = "lblStockID";
             this.lblStockID.Size = new System.Drawing.Size(78, 21);
             this.lblStockID.TabIndex = 245;
@@ -590,7 +594,7 @@
             this.btnShowCritical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowCritical.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowCritical.ForeColor = System.Drawing.Color.White;
-            this.btnShowCritical.Location = new System.Drawing.Point(1167, 148);
+            this.btnShowCritical.Location = new System.Drawing.Point(1167, 227);
             this.btnShowCritical.Name = "btnShowCritical";
             this.btnShowCritical.Size = new System.Drawing.Size(147, 67);
             this.btnShowCritical.TabIndex = 246;
@@ -610,7 +614,7 @@
             this.btnShowAllStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowAllStocks.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowAllStocks.ForeColor = System.Drawing.Color.White;
-            this.btnShowAllStocks.Location = new System.Drawing.Point(1014, 149);
+            this.btnShowAllStocks.Location = new System.Drawing.Point(1014, 228);
             this.btnShowAllStocks.Name = "btnShowAllStocks";
             this.btnShowAllStocks.Size = new System.Drawing.Size(147, 67);
             this.btnShowAllStocks.TabIndex = 247;
@@ -618,10 +622,31 @@
             this.btnShowAllStocks.UseVisualStyleBackColor = false;
             this.btnShowAllStocks.Click += new System.EventHandler(this.btnShowAllStocks_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1325, 49);
+            this.panel1.TabIndex = 248;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(547, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(200, 39);
+            this.label9.TabIndex = 182;
+            this.label9.Text = "Stocks Details";
+            // 
             // uCInventoryStocksSupplier
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnShowAllStocks);
             this.Controls.Add(this.btnShowCritical);
             this.Controls.Add(this.lblStockID);
@@ -653,11 +678,13 @@
             this.Controls.Add(this.numDeduct);
             this.Controls.Add(this.lvStocks);
             this.Name = "uCInventoryStocksSupplier";
-            this.Size = new System.Drawing.Size(1325, 533);
+            this.Size = new System.Drawing.Size(1325, 606);
             this.Load += new System.EventHandler(this.uCInventoryStocks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numSSupPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSQuan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDeduct)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -706,5 +733,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnShowCritical;
         private System.Windows.Forms.Button btnShowAllStocks;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 namespace ALG_POS_and_Inventory_Management_System {
     public partial class uCInventoryStocksSupplier : UserControl {
         public static bool showRunningOut;
+        public static string productID="";
         ContInventoryStocksSupplier ContInventoryStocks = new ContInventoryStocksSupplier();
         bool sAdd = false, sDeduct = false, sEdit = false, cChange = false;
         public uCInventoryStocksSupplier() {
@@ -18,10 +19,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void uCInventoryStocks_Load(object sender, EventArgs e) {
-            if (showRunningOut)
-                LoadRunningOutStocks();
-            else
-                LoadStocks();
+            LoadStocks();
             SetStockID();
             LoadProductsCbo(); LoadSuppliers();
             dtpReceive.Value = DateTime.Now;
@@ -29,7 +27,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         void LoadStocks() {
             lvStocks.Items.Clear();
             DataTable dt = new DataTable();
-            dt = ContInventoryStocks.LoadStocks(cboSSort.Text);
+            dt = ContInventoryStocks.LoadStocks(cboSSort.Text,productID);
             for (int i = 0; i < dt.Rows.Count; i++) {
                 DataRow dr = dt.Rows[i];
                 ListViewItem listitem = new ListViewItem((i + 1).ToString());
@@ -50,7 +48,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         void LoadRunningOutStocks() {
             lvStocks.Items.Clear();
             DataTable dt = new DataTable();
-            dt = ContInventoryStocks.LoadStocks("running out");
+            dt = ContInventoryStocks.LoadStocks("running out",productID);
             for (int i = 0; i < dt.Rows.Count; i++) {
                 DataRow dr = dt.Rows[i];
                 ListViewItem listitem = new ListViewItem((i + 1).ToString());
@@ -163,6 +161,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void btnSClear_Click(object sender, EventArgs e) {
             SClear();
+            productID = "";
         }
 
         private void btnSEdit_Click(object sender, EventArgs e) {
@@ -260,6 +259,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             btnSClear.PerformClick();
             LoadStocks();
         }
+
 
         private void btnSAdd_Click(object sender, EventArgs e) {
             SUnLock();

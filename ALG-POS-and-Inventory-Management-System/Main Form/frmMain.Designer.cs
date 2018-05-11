@@ -37,6 +37,7 @@
             this.btnInventory = new System.Windows.Forms.Button();
             this.maintenancePanel = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnSales = new System.Windows.Forms.Button();
             this.btnManageEmp = new System.Windows.Forms.Button();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
@@ -231,6 +232,7 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel9.Controls.Add(this.btnSales);
             this.panel9.Controls.Add(this.btnManageEmp);
             this.panel9.Controls.Add(this.btnLogs);
             this.panel9.Controls.Add(this.btnCustomer);
@@ -239,6 +241,28 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(789, 354);
             this.panel9.TabIndex = 134;
+            // 
+            // btnSales
+            // 
+            this.btnSales.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSales.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSales.BackgroundImage")));
+            this.btnSales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSales.FlatAppearance.BorderSize = 0;
+            this.btnSales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSales.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSales.ForeColor = System.Drawing.Color.White;
+            this.btnSales.Location = new System.Drawing.Point(552, 188);
+            this.btnSales.Name = "btnSales";
+            this.btnSales.Padding = new System.Windows.Forms.Padding(30);
+            this.btnSales.Size = new System.Drawing.Size(193, 163);
+            this.btnSales.TabIndex = 131;
+            this.btnSales.Text = "Sales";
+            this.btnSales.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSales.UseVisualStyleBackColor = false;
+            this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
             // 
             // btnManageEmp
             // 
@@ -252,7 +276,7 @@
             this.btnManageEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageEmp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageEmp.ForeColor = System.Drawing.Color.White;
-            this.btnManageEmp.Location = new System.Drawing.Point(460, 32);
+            this.btnManageEmp.Location = new System.Drawing.Point(465, 15);
             this.btnManageEmp.Name = "btnManageEmp";
             this.btnManageEmp.Size = new System.Drawing.Size(187, 154);
             this.btnManageEmp.TabIndex = 129;
@@ -271,7 +295,7 @@
             this.btnLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogs.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogs.ForeColor = System.Drawing.Color.White;
-            this.btnLogs.Location = new System.Drawing.Point(460, 178);
+            this.btnLogs.Location = new System.Drawing.Point(317, 175);
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.Size = new System.Drawing.Size(215, 162);
             this.btnLogs.TabIndex = 130;
@@ -291,7 +315,7 @@
             this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustomer.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnCustomer.Location = new System.Drawing.Point(153, 175);
+            this.btnCustomer.Location = new System.Drawing.Point(50, 157);
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Size = new System.Drawing.Size(199, 165);
             this.btnCustomer.TabIndex = 128;
@@ -310,7 +334,7 @@
             this.btnManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageUsers.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageUsers.ForeColor = System.Drawing.Color.White;
-            this.btnManageUsers.Location = new System.Drawing.Point(143, 30);
+            this.btnManageUsers.Location = new System.Drawing.Point(140, 15);
             this.btnManageUsers.Name = "btnManageUsers";
             this.btnManageUsers.Size = new System.Drawing.Size(200, 158);
             this.btnManageUsers.TabIndex = 127;
@@ -454,5 +478,6 @@
         private System.Windows.Forms.Label lblWarning;
         private System.Windows.Forms.Timer timerCritStock;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnSales;
     }
 }

@@ -83,20 +83,32 @@ namespace ALG_POS_and_Inventory_Management_System {
         void LoadRunningOutStocks() {
             lvStocks.Items.Clear();
             DataTable dt = new DataTable();
-            dt = ContInventoryStocks.LoadStocks("running out");
+            dt = ContInventoryStocks.LoadRunningOutProductStocks(txtSearch.Text, cboSSort.Text);
+            //dt1 = ContInventoryStocks.LoadProductNumberStocks(txtSearch.Text, cboSSort.Text);
             for (int i = 0; i < dt.Rows.Count; i++) {
                 DataRow dr = dt.Rows[i];
                 ListViewItem listitem = new ListViewItem((i + 1).ToString());
-                listitem.SubItems.Add(dr["stock_ID"].ToString());
-                listitem.SubItems.Add(dr["prodID"].ToString());
+                string prodID = dr["product_ID"].ToString();
+                listitem.SubItems.Add(prodID);
                 listitem.SubItems.Add(dr["product_name"].ToString());
+                listitem.SubItems.Add(dr["category_name"].ToString());
+                listitem.SubItems.Add(dr["brand_name"].ToString());
                 listitem.SubItems.Add(dr["prodDesc"].ToString());
-                listitem.SubItems.Add(dr["total_stocks"].ToString());
-                listitem.SubItems.Add(dr["remaining_stocks"].ToString());
-                listitem.SubItems.Add(dr["dateProfiled"].ToString().Substring(0, 10));
-                listitem.SubItems.Add(dr["supplier_name"].ToString());
-                listitem.SubItems.Add(Convert.ToDecimal(dr["supplier_price"]).ToString("C"));
 
+                DataTable dt1 = new DataTable();
+                dt1 = ContInventoryStocks.LoadProductStocks(prodID);
+                for (int j = 0; j < dt1.Rows.Count; j++) {
+                    DataRow dr1 = dt1.Rows[j];
+                    listitem.SubItems.Add(dr1["remStocks"].ToString());
+                    listitem.SubItems.Add(dr1["totStocks"].ToString());
+                }
+
+                listitem.SubItems.Add(decimal.Parse((dr["product_price"].ToString())).ToString("C"));
+                listitem.SubItems.Add(dr["discount"].ToString());
+                listitem.SubItems.Add(decimal.Parse((dr["discounted_price"].ToString())).ToString("C"));
+
+
+                //listitem.SubItems.Add(_contInvProducts.GetProductDescription((dr["product_ID"]).ToString()));
                 lvStocks.Items.Add(listitem);
             }
         }
@@ -138,6 +150,7 @@ namespace ALG_POS_and_Inventory_Management_System {
             cboSProductName.Enabled = cboSProductID.Enabled = numSQuan.Enabled = cboSSuppliers.Enabled = numSSupPrice.Enabled = true;
         }
         private void SClear() {
+           
             SLock();
             cboSSuppliers.Text = cboSProductName.Text = cboSProductID.Text = "";
             LoadSuppliers(); LoadProductsCbo();
@@ -287,11 +300,16 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void timer1_Tick(object sender, EventArgs e) {
-            timer1.Stop();
-            numSSupPrice.BackColor = numSQuan.BackColor = numDeduct.BackColor = Color.CornflowerBlue;
+            //timer1.Stop();
+            //numSSupPrice.BackColor = numSQuan.BackColor = numDeduct.BackColor = Color.CornflowerBlue;
+            LoadProducts();
         }
 
         private void btnShowCritical_Click(object sender, EventArgs e) {
+            if(btnShowAllStocks.ForeColor == Color.MidnightBlue) {
+                btnShowCritical.ForeColor = Color.MidnightBlue;
+                btnShowAllStocks.ForeColor = Color.White;
+            }
             ContMain contMain = new ContMain();
             contMain.SelectStocksRunningOut();
             btnSClear.PerformClick();
@@ -299,8 +317,39 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void btnShowAllStocks_Click(object sender, EventArgs e) {
+            if (btnShowCritical.ForeColor == Color.MidnightBlue) {
+                btnShowAllStocks.ForeColor = Color.MidnightBlue;
+                btnShowCritical.ForeColor = Color.White;
+            }
             btnSClear.PerformClick();
+            LoadProducts();
             //LoadStocks();
+        }
+
+        private void btnViewStockDetails_Click(object sender, EventArgs e) {
+            ViewStockDetails();
+        }
+
+        void ViewStockDetails() {
+            //kids, don't do this at home hehehe
+            string prodID="";
+            if (lvStocks.SelectedItems.Count > 0) {
+                prodID = lvStocks.SelectedItems[0].SubItems[1].Text ?? "";
+            }
+            uCInventoryStocksSupplier.productID = prodID;
+            //call ucinventorystocksupplier in a form.showdialog
+            frmInventoryStocksSuppliers frmObj = new frmInventoryStocksSuppliers();
+            frmObj.ShowDialog();
+            //ifchanges done, call btnsclear. not, clear productID
+            if (uCInventoryStocksSupplier.productID == "") {
+                uCInventoryStocksSupplier.productID = "";
+                btnSClear.PerformClick();
+            } else
+                uCInventoryStocksSupplier.productID = "";
+        }
+
+        private void viewStockDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
+            ViewStockDetails();
         }
 
         private void btnSAdd_Click(object sender, EventArgs e) {
