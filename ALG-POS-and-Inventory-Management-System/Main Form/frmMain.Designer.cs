@@ -140,7 +140,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(72, 596);
+            this.panel1.Location = new System.Drawing.Point(73, 666);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(83, 22);
             this.panel1.TabIndex = 22;
@@ -152,7 +152,7 @@
             this.btnLogsAndMaintenance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLogsAndMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogsAndMaintenance.FlatAppearance.BorderSize = 0;
-            this.btnLogsAndMaintenance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLogsAndMaintenance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnLogsAndMaintenance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnLogsAndMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogsAndMaintenance.ForeColor = System.Drawing.Color.Transparent;
@@ -250,7 +250,7 @@
             this.btnSales.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSales.FlatAppearance.BorderSize = 0;
             this.btnSales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSales.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSales.ForeColor = System.Drawing.Color.White;
