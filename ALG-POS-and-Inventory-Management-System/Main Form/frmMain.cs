@@ -214,5 +214,9 @@ namespace ALG_POS_and_Inventory_Management_System {
             usercontrol.tabInventory.SelectedIndex = 1 ;
         }
 
+        private void btnSales_Click(object sender, EventArgs e) {
+            frmSales frmSales = new frmSales();
+            frmSales.ShowDialog();
+        }
     }
 }
