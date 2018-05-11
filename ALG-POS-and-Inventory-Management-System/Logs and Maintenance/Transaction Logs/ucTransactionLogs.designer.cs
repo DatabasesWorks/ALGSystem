@@ -658,7 +658,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Location = new System.Drawing.Point(0, 0);
