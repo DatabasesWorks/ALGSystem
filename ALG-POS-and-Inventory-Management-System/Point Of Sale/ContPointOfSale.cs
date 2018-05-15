@@ -345,7 +345,7 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         public string GetVat() {
             try {
-                string query = "SELECT vat_percent FROM settings WHERE setting_ID='1'";
+                string query = "SELECT vat_percent FROM settings LIMIT 1";
                 List<string> myCollection = new List<string>();
                 myCollection = Database.Select(query);
                 return myCollection[0];

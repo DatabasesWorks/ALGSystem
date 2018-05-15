@@ -68,3 +68,4 @@ C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inven
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCInventoryStocksSupplier.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmInventoryStocksSuppliers.resources
 C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmSales.resources
+C:\Users\My PC\Desktop\ALG-POS-and-Inventory-Management-System\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmSettings.resources

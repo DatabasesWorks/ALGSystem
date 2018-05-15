@@ -218,5 +218,10 @@ namespace ALG_POS_and_Inventory_Management_System {
             frmSales frmSales = new frmSales();
             frmSales.ShowDialog();
         }
+
+        private void btnSettings_Click(object sender, EventArgs e) {
+            frmSettings frmSettings = new frmSettings();
+            frmSettings.ShowDialog();
+        }
     }
 }
