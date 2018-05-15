@@ -20,7 +20,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         public string SelectStocksRunningOut() {
             string num = "0";
             try {
-                string query = "SELECT product_ID FROM stocks WHERE date_deleted IS NULL GROUP BY product_ID HAVING SUM(remaining_stocks)<=10";
+                string query = "SELECT product_ID FROM stocks WHERE date_deleted IS NULL GROUP BY product_ID HAVING SUM(remaining_stocks)<=(SELECT critical_stock_warning FROM settings)";
                 num = Database.Select(query).Count.ToString();
             } catch (Exception ex) {
                 Console.WriteLine("Error on logging out: " + ex.Message);

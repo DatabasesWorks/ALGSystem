@@ -57,6 +57,13 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ContSales.cs" />
+    <Compile Include="Settings\ContSettings.cs" />
+    <Compile Include="Settings\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\frmSales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,6 +370,9 @@
     <Compile Include="Services\uCServices.Designer.cs">
       <DependentUpon>uCServices.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Settings\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSales.resx">
       <DependentUpon>frmSales.cs</DependentUpon>
     </EmbeddedResource>

@@ -37,6 +37,7 @@
             this.btnInventory = new System.Windows.Forms.Button();
             this.maintenancePanel = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.btnSales = new System.Windows.Forms.Button();
             this.btnManageEmp = new System.Windows.Forms.Button();
             this.btnLogs = new System.Windows.Forms.Button();
@@ -153,7 +154,7 @@
             this.btnLogsAndMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogsAndMaintenance.FlatAppearance.BorderSize = 0;
             this.btnLogsAndMaintenance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnLogsAndMaintenance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLogsAndMaintenance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnLogsAndMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogsAndMaintenance.ForeColor = System.Drawing.Color.Transparent;
             this.btnLogsAndMaintenance.Location = new System.Drawing.Point(-2, 556);
@@ -232,6 +233,7 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel9.Controls.Add(this.btnSettings);
             this.panel9.Controls.Add(this.btnSales);
             this.panel9.Controls.Add(this.btnManageEmp);
             this.panel9.Controls.Add(this.btnLogs);
@@ -241,6 +243,25 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(789, 354);
             this.panel9.TabIndex = 134;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSettings.BackgroundImage")));
+            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.Location = new System.Drawing.Point(562, 10);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(193, 154);
+            this.btnSettings.TabIndex = 132;
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnSales
             // 
@@ -276,7 +297,7 @@
             this.btnManageEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageEmp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageEmp.ForeColor = System.Drawing.Color.White;
-            this.btnManageEmp.Location = new System.Drawing.Point(465, 15);
+            this.btnManageEmp.Location = new System.Drawing.Point(317, 10);
             this.btnManageEmp.Name = "btnManageEmp";
             this.btnManageEmp.Size = new System.Drawing.Size(187, 154);
             this.btnManageEmp.TabIndex = 129;
@@ -334,7 +355,7 @@
             this.btnManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageUsers.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageUsers.ForeColor = System.Drawing.Color.White;
-            this.btnManageUsers.Location = new System.Drawing.Point(140, 15);
+            this.btnManageUsers.Location = new System.Drawing.Point(49, 6);
             this.btnManageUsers.Name = "btnManageUsers";
             this.btnManageUsers.Size = new System.Drawing.Size(200, 158);
             this.btnManageUsers.TabIndex = 127;
@@ -479,5 +500,6 @@
         private System.Windows.Forms.Timer timerCritStock;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSales;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
