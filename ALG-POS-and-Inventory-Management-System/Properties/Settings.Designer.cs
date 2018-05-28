@@ -100,5 +100,101 @@ namespace ALG_POS_and_Inventory_Management_System.Properties {
                 return ((string)(this["algdb_2_0_ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string taxpayer_name {
+            get {
+                return ((string)(this["taxpayer_name"]));
+            }
+            set {
+                this["taxpayer_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string business_name {
+            get {
+                return ((string)(this["business_name"]));
+            }
+            set {
+                this["business_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string tin {
+            get {
+                return ((string)(this["tin"]));
+            }
+            set {
+                this["tin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string branch_code {
+            get {
+                return ((string)(this["branch_code"]));
+            }
+            set {
+                this["branch_code"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string machine_id {
+            get {
+                return ((string)(this["machine_id"]));
+            }
+            set {
+                this["machine_id"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string business_address {
+            get {
+                return ((string)(this["business_address"]));
+            }
+            set {
+                this["business_address"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string vat_percent {
+            get {
+                return ((string)(this["vat_percent"]));
+            }
+            set {
+                this["vat_percent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string crit_warning {
+            get {
+                return ((string)(this["crit_warning"]));
+            }
+            set {
+                this["crit_warning"] = value;
+            }
+        }
     }
 }

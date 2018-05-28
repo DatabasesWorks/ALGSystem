@@ -17,6 +17,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
         private void frmMain_Load(object sender, EventArgs e) {
             Login();
+            LoadSettings();
         }
         void Login() {
             this.Hide();
@@ -60,6 +61,27 @@ namespace ALG_POS_and_Inventory_Management_System {
                 Close();
             }
         }
+
+        void LoadSettings() {
+            try {
+                ContSettings contsettings = new ContSettings();
+                DataTable dt = new DataTable();
+                dt = contsettings.LoadSettings();
+                DataRow dr = dt.Rows[0];
+                //taxpayer_name, business_name, tax_identification_number, branch_code, machine_identification_number, business_address, vat_percent, critical_stock_warning
+                Properties.Settings.Default.taxpayer_name = dr["taxpayer_name"].ToString();
+                Properties.Settings.Default.business_name = dr["business_name"].ToString();
+                Properties.Settings.Default.tin = dr["tax_identification_number"].ToString();
+                Properties.Settings.Default.branch_code = dr["branch_code"].ToString();
+                Properties.Settings.Default.machine_id = dr["machine_identification_number"].ToString();
+                Properties.Settings.Default.business_address = dr["business_address"].ToString();
+                Properties.Settings.Default.vat_percent = dr["vat_percent"].ToString();
+                Properties.Settings.Default.crit_warning = dr["critical_stock_warning"].ToString();
+            } catch (Exception ex) {
+                MessageBox.Show("Error on loading settings: " + ex.Message, "Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnClose_Click(object sender, EventArgs e) {
             CloseExit();
         }
