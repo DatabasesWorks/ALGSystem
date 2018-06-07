@@ -514,8 +514,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                 uCPointOfSale.isCancelled = false;
                 status = true;
                 System.Windows.Forms.MessageBox.Show("Transaction Success!", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-                //ContPrint contprint = new ContPrint();
-                //contprint.printreceipt(transID);
+                ContPrint contprint = new ContPrint();
+                contprint.printreceipt(transID);
 
             }
             return status;
@@ -701,8 +701,8 @@ namespace ALG_POS_and_Inventory_Management_System {
                 uCPointOfSale.isCancelled = false;
                 status = true;
                 System.Windows.Forms.MessageBox.Show("Transaction Updated!", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-                //ContPrint contprint = new ContPrint();
-                //contprint.printreceipt(transID);
+                ContPrint contprint = new ContPrint();
+                contprint.printreceipt(transID);
             }
             return status;
         }

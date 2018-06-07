@@ -32,20 +32,21 @@ namespace ALG_POS_and_Inventory_Management_System {
         {
             try
             {
-                string query = "SELECT * FROM transactions WHERE transac_ID = '10000002'";
-                dbcon.mysqlconnect.Open();
+                MySql.Data.MySqlClient.MySqlConnection mysqlconnect = new MySql.Data.MySqlClient.MySqlConnection("Server=localhost ; User Id=root; Password= ;Database=algdb(2.0)");
+                string query = "SELECT * FROM product_print WHERE category_name = 'Gasoline Engine Oil'";
+                mysqlconnect.Open();
                 MySqlCommand cmd = new MySqlCommand(query, dbcon.mysqlconnect);
                 MySqlDataAdapter adp = new MySqlDataAdapter();
                 DataSet dt = new DataSet();
                 adp.SelectCommand = cmd;
-                adp.Fill(dt);
-                //CrystalReport1 reporting = new CrystalReport1();
-                //reporting.Database.Tables["dstransactions"].SetDataSource(dt.Tables[0]);
-                //frmReports frmreports = new frmReports();
-                //frmreports.crystalReportViewer.ReportSource = reporting;
-                //frmreports.crystalReportViewer.Refresh();
-                //cmd.Dispose(); adp.Dispose(); dt.Dispose(); dbcon.mysqlconnect.Close();
-                //frmreports.ShowDialog();
+                adp.Fill(dt, "dsProduct");
+                CrystalReportProduct reporting = new CrystalReportProduct();
+                reporting.SetDataSource(dt);
+                frmReports frmreports = new frmReports();
+                frmreports.crystalReportViewer.ReportSource = reporting;
+                frmreports.crystalReportViewer.Refresh();
+                cmd.Dispose(); adp.Dispose(); dt.Dispose(); dbcon.mysqlconnect.Close();
+                frmreports.ShowDialog();
             }
             catch (Exception)
             {
@@ -55,9 +56,12 @@ namespace ALG_POS_and_Inventory_Management_System {
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MySql.Data.MySqlClient.MySqlConnection mysqlconnect = new MySql.Data.MySqlClient.MySqlConnection("Server=localhost ; User Id=root; Password= ;Database=algdb(2.0)");
             CrystalReportReceipt reporting = new CrystalReportReceipt();
-            dbcon.mysqlconnect.Open();
-            string query = "SELECT * FROM transactions,customers,products,prod_trans_rela,product_prices,brands,categories WHERE transactions.transac_ID = '10000002'AND transactions.customer_ID = customers.cust_ID AND prod_trans_rela.transac_ID = transactions.transac_ID AND product_prices.product_ID = prod_trans_rela.product_ID AND products.product_ID = prod_trans_rela.product_ID AND brands.brand_ID = products.brand_ID AND categories.category_ID = products.category_ID";
+            //dbcon.mysqlconnect.Open();
+            mysqlconnect.Open();
+            string query = "SELECT * FROM transactions,products,prod_trans_rela,product_prices,brands,categories WHERE transactions.transac_ID = '10000001'AND prod_trans_rela.transac_ID = transactions.transac_ID AND product_prices.product_ID = prod_trans_rela.product_ID AND products.product_ID = prod_trans_rela.product_ID AND brands.brand_ID = products.brand_ID AND categories.category_ID = products.category_ID";
+            //string query = "SELECT * FROM transactions,customers,products,prod_trans_rela,product_prices,brands,categories WHERE transactions.transac_ID = '10000001'AND transactions.customer_ID = customers.cust_ID AND prod_trans_rela.transac_ID = transactions.transac_ID AND product_prices.product_ID = prod_trans_rela.product_ID AND products.product_ID = prod_trans_rela.product_ID AND brands.brand_ID = products.brand_ID AND categories.category_ID = products.category_ID";
                 MySqlCommand cmd = new MySqlCommand(query, dbcon.mysqlconnect);
                 MySqlDataAdapter adp = new MySqlDataAdapter();
                 DataSet dt = new DataSet();
@@ -84,22 +88,28 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void button3_Click(object sender, EventArgs e){
-            //CrystalReport1 reporting = new CrystalReport1();
-            //frmReports frmreports = new frmReports();
-            //ParameterFieldDefinitions pfds;
-            //ParameterFieldDefinition pfd;
-            //ParameterValues pv = new ParameterValues();
-            //ParameterDiscreteValue pdv = new ParameterDiscreteValue();
-            //pdv.Value = Convert.ToInt32(textBox1.Text);
-            //pfds = reporting.DataDefinition.ParameterFields;
-            //pfd = pfds["transacID"];
-            //pv = pfd.CurrentValues;
-            //pv.Clear();
-            //pv.Add(pdv);
-            //pfd.ApplyCurrentValues(pv);
-            //frmreports.crystalReportViewer.ReportSource = reporting;
-            //frmreports.crystalReportViewer.Refresh();
-            //frmreports.ShowDialog();
+            try
+            {
+                MySql.Data.MySqlClient.MySqlConnection mysqlconnect = new MySql.Data.MySqlClient.MySqlConnection("Server=localhost ; User Id=root; Password= ;Database=algdb(2.0)");
+                string query = "SELECT * FROM stocks_print";
+                mysqlconnect.Open();
+                MySqlCommand cmd = new MySqlCommand(query, dbcon.mysqlconnect);
+                MySqlDataAdapter adp = new MySqlDataAdapter();
+                DataSet dt = new DataSet();
+                adp.SelectCommand = cmd;
+                adp.Fill(dt, "dsStock");
+                CrystalReportStock reporting = new CrystalReportStock();
+                reporting.SetDataSource(dt);
+                frmReports frmreports = new frmReports();
+                frmreports.crystalReportViewer.ReportSource = reporting;
+                frmreports.crystalReportViewer.Refresh();
+                cmd.Dispose(); adp.Dispose(); dt.Dispose(); dbcon.mysqlconnect.Close();
+                frmreports.ShowDialog();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -166,27 +166,10 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         private void btnProdPrint_Click(object sender, EventArgs e) {
-            try
-            {
-                string query = "SELECT * FROM product_print";
-                dbcon.mysqlconnect.Open();
-                MySqlCommand cmd = new MySqlCommand(query, dbcon.mysqlconnect);
-                MySqlDataAdapter adp = new MySqlDataAdapter();
-                DataSet dt = new DataSet();
-                adp.SelectCommand = cmd;
-                adp.Fill(dt,"product_print");
-                CrystalReportProduct reporting = new CrystalReportProduct();
-                reporting.SetDataSource(dt);
-                frmReports frmreports = new frmReports();
-                frmreports.crystalReportViewer.ReportSource = reporting;
-                frmreports.crystalReportViewer.Refresh();
-                cmd.Dispose(); adp.Dispose(); dt.Dispose(); dbcon.mysqlconnect.Close();
-                frmreports.ShowDialog();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            string searchBy = cboSearch.Text;
+            string search = txtSearch.Text;
+            ContPrint contprint = new ContPrint();
+            contprint.printproduct(search,searchBy);
         }
 
         void SetDescriptions() {

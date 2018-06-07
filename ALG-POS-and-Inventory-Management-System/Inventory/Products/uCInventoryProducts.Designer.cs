@@ -52,10 +52,10 @@
             this.btnProdAdd = new System.Windows.Forms.Button();
             this.grpCatDesc = new System.Windows.Forms.GroupBox();
             this.pnlInGroupBox = new System.Windows.Forms.Panel();
+            this.btnWizard = new System.Windows.Forms.Button();
             this.txtSearch = new MyTextBox();
             this.txtProdName = new MyTextBox();
             this.txtProdNo = new MyTextBox();
-            this.btnWizard = new System.Windows.Forms.Button();
             this.grpCatDesc.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -286,7 +286,6 @@
             this.btnProdPrint.TabIndex = 176;
             this.btnProdPrint.Text = "Print";
             this.btnProdPrint.UseVisualStyleBackColor = false;
-            this.btnProdPrint.Visible = false;
             this.btnProdPrint.Click += new System.EventHandler(this.btnProdPrint_Click);
             // 
             // btnProdDelete
@@ -413,6 +412,25 @@
             this.pnlInGroupBox.Size = new System.Drawing.Size(649, 155);
             this.pnlInGroupBox.TabIndex = 0;
             // 
+            // btnWizard
+            // 
+            this.btnWizard.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnWizard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWizard.BackgroundImage")));
+            this.btnWizard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnWizard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWizard.FlatAppearance.BorderSize = 0;
+            this.btnWizard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnWizard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnWizard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWizard.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWizard.ForeColor = System.Drawing.Color.White;
+            this.btnWizard.Location = new System.Drawing.Point(1041, 3);
+            this.btnWizard.Name = "btnWizard";
+            this.btnWizard.Size = new System.Drawing.Size(99, 76);
+            this.btnWizard.TabIndex = 177;
+            this.btnWizard.UseVisualStyleBackColor = false;
+            this.btnWizard.Click += new System.EventHandler(this.btnWizard_Click);
+            // 
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -449,25 +467,6 @@
             this.txtProdNo.Name = "txtProdNo";
             this.txtProdNo.Size = new System.Drawing.Size(198, 25);
             this.txtProdNo.TabIndex = 154;
-            // 
-            // btnWizard
-            // 
-            this.btnWizard.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnWizard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWizard.BackgroundImage")));
-            this.btnWizard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnWizard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWizard.FlatAppearance.BorderSize = 0;
-            this.btnWizard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnWizard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnWizard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWizard.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWizard.ForeColor = System.Drawing.Color.White;
-            this.btnWizard.Location = new System.Drawing.Point(1041, 3);
-            this.btnWizard.Name = "btnWizard";
-            this.btnWizard.Size = new System.Drawing.Size(99, 76);
-            this.btnWizard.TabIndex = 177;
-            this.btnWizard.UseVisualStyleBackColor = false;
-            this.btnWizard.Click += new System.EventHandler(this.btnWizard_Click);
             // 
             // uCInventoryProducts
             // 
