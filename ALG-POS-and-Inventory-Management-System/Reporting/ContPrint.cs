@@ -86,7 +86,7 @@ namespace ALG_POS_and_Inventory_Management_System
                 cmd.Dispose(); adp.Dispose(); dt.Dispose(); dbcon.mysqlconnect.Close();
                 frmreports.ShowDialog();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

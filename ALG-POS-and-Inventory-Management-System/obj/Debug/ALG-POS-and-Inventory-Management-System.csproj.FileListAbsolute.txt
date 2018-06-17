@@ -74,11 +74,6 @@ C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-Syste
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.pdb
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\ALG-POS-and-Inventory-Management-System.exe
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\ALG-POS-and-Inventory-Management-System.pdb
-C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportSource.dll
-C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.Shared.dll
-C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.Windows.Forms.dll
-C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\MySql.Data.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
@@ -94,7 +89,6 @@ C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-Syste
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\stdole.dll
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\bin\Debug\ShockwaveFlashObjects.dll
-C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.csprojResolveAssemblyReference.cache
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmSettings.resources
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmSales.resources
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.frmInventoryStocksSuppliers.resources
@@ -140,3 +134,6 @@ C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-Syste
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCPointOfSale.resources
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG_POS_and_Inventory_Management_System.uCServices.resources
 C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.csproj.GenerateResource.Cache
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.csprojAssemblyReference.cache
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.csproj.CoreCompileInputs.cache
+C:\Users\johnm\Documents\GitHub\ALGSystem\ALG-POS-and-Inventory-Management-System\obj\Debug\ALG-POS-and-Inventory-Management-System.csproj.CopyComplete
