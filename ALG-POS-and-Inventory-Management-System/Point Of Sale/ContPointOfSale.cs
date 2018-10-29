@@ -367,7 +367,7 @@ namespace ALG_POS_and_Inventory_Management_System {
         }
 
         //=========== pay transaction =========
-        public bool SaveToDb() {
+        public bool SaveToDb(listviewItems items) {
             //1st phase: test saving foreing keys -->deduct from stocks
             //save products
             //save items in listviewItem

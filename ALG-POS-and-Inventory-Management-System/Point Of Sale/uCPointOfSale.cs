@@ -237,9 +237,11 @@ namespace ALG_POS_and_Inventory_Management_System {
         private void btnPay_Click(object sender, EventArgs e) {
             isCancelled = true; //to prevent performing of btnnewtransaction when user click on btnpay then closes immediately
             if (lvServices.Items.Count > 0 || lvItems.Items.Count > 0) {
-                foreach (System.Windows.Forms.ListViewItem item in lvItems.Items) {
+                foreach (System.Windows.Forms.ListViewItem item in lvItems.Items)
+                {
                     int quant = Convert.ToInt32(item.SubItems[8].Text) - Convert.ToInt32(item.SubItems[10].Text);
-                    if (!contPos.IsWithinAvailableStock(item.SubItems[1].Text, quant.ToString())) {
+                    if (!contPos.IsWithinAvailableStock(item.SubItems[1].Text, quant.ToString()))
+                    {
                         System.Windows.Forms.MessageBox.Show("Item " + item.SubItems[2].Text + " is not within the available quantity", "Point of Sale", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
                         return;
                     }
